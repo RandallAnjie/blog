@@ -374,7 +374,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 15:00:36" itemprop="dateModified" datetime="2022-07-10T15:00:36+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -411,7 +411,7 @@
 <p>WEXITSTATUS(status)在WIFEXITED(status)为非0时可以用来获取exit()中的参数即返回给父进程的值，如果子进程调用exit(5)退出，WEXITSTATUS(status)就会返回5；如果进程不是正常退出的，也就是说，WIFEXITED返回0</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line">#include &lt;sys/wait.h&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int status;</span><br><span class="line">    pid_t pc,pr;</span><br><span class="line">    pc=fork();</span><br><span class="line">    if(pc&lt;0) </span><br><span class="line">        printf(&quot;error ocurred!\n&quot;);</span><br><span class="line">    else if(pc==0)&#123; </span><br><span class="line">        printf(&quot;This is child process with pid of %d.\n&quot;,getpid());</span><br><span class="line">        exit(5);        </span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;           </span><br><span class="line">        pr=wait(&amp;status);</span><br><span class="line">        if(WIFEXITED(status))&#123;  </span><br><span class="line">            printf(&quot;the child process %d exit normally.\n&quot;,pr);</span><br><span class="line">            printf(&quot;WIFEXITED(status) is %d.\n&quot;,WIFEXITED(status));</span><br><span class="line">            printf(&quot;WEXITSTATUS(status) is %d.\n&quot;,WEXITSTATUS(status));</span><br><span class="line">        &#125;</span><br><span class="line">        else                   </span><br><span class="line">            printf(&quot;the child process %d exit abnormally.\n&quot;,pr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/11/%E5%9B%BE%E7%89%87-1.png"></p>
+<p><img src="/blog/./uploads/2021/11/%E5%9B%BE%E7%89%87-1.png"></p>
 <p>运行后截图</p>
 
       
@@ -628,7 +628,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 15:00:15" itemprop="dateModified" datetime="2022-07-10T15:00:15+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -655,7 +655,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-6.png"></p>
+          <p><img src="/blog/./uploads/2021/10/image-6.png"></p>
 <p>wireshark抓包截图</p>
 <p>源IP地址：123.151.78.47(0x7b97, 0x4e2f)</p>
 <p>目的IP地址：10.66.149.117(0xa42, 0x9575)</p>
@@ -665,7 +665,7 @@
 <p>数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0xf70f, 0xf03a, 0x71fa, 0x294d, 0xe354, 0x2bdf, 0x0300 校验和：0x9ab9</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// C语言计算校验和</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">unsigned short checksum(unsigned short *buf,int nword)&#123;</span><br><span class="line">unsigned long sum;</span><br><span class="line">for(sum=0;nword&gt;0;nword--)&#123;</span><br><span class="line">sum += *buf++;</span><br><span class="line">sum = (sum&gt;&gt;16) + (sum&amp;0xffff);</span><br><span class="line">&#125;</span><br><span class="line">return ~sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">unsigned short buffer[26] = &#123;</span><br><span class="line">0x7b97, 0x4e2f, // 源IP地址： 123.151.78.47(0x7b97, 0x4e2f)</span><br><span class="line">0x0a42, 0x9575, // 目的IP地址：10.66.149.117(0xa42, 0x9575)</span><br><span class="line">0x0011, 0x0027, // UDP协议字段值17(0x0011) UDP长度： 39(0x27)</span><br><span class="line">0x1f40, 0x0fa6, // 源端口： 8000(0x1f40) 目的端口： 4006(0xfa6)</span><br><span class="line">0x0027, 0x0000, // UDP长度： 39(0x27) 校验和（计算时置0）（0x0000） </span><br><span class="line">0x023a, 0x2700, // 数据字段，不够位数最后补0 </span><br><span class="line">0xcd27, 0x6784, </span><br><span class="line">0xc57e, 0xf400, </span><br><span class="line">0x0000, 0x5ad0, </span><br><span class="line">0xc585, 0xf70f, </span><br><span class="line">0xf03a, 0x71fa, </span><br><span class="line">0x294d, 0xe354, </span><br><span class="line">0x2bdf, 0x0300&#125;;</span><br><span class="line">int n=26;  </span><br><span class="line">unsigned short re_checksum;     </span><br><span class="line">re_checksum=checksum(buffer,n);</span><br><span class="line">printf(&quot;%x\t&quot;,re_checksum); </span><br><span class="line">if(re_checksum == 0x9ab9) </span><br><span class="line">printf(&quot;校验和正确!\n&quot;); </span><br><span class="line">else          </span><br><span class="line">printf(&quot;校验和不正确!\n&quot;);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-8.png"></p>
+<p><img src="/blog/./uploads/2021/10/image-8.png"></p>
 <p>运行截图</p>
 
       
@@ -717,7 +717,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 15:00:34" itemprop="dateModified" datetime="2022-07-10T15:00:34+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -766,11 +766,11 @@
 
 <h3 id="E2-3-3-c"><a href="#E2-3-3-c" class="headerlink" title="E2-3-3.c"></a>E2-3-3.c</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">    int pid1 = fork();</span><br><span class="line">    if (pid1 &lt; 0) &#123;</span><br><span class="line">        printf(&quot;Error in fork!&quot;);</span><br><span class="line">    &#125; else if (pid1 == 0) &#123;</span><br><span class="line">        printf(&quot;A\n&quot;);</span><br><span class="line">        int pid2 = fork();</span><br><span class="line">        if (pid2 &lt; 0) &#123;</span><br><span class="line">            printf(&quot;Error in fork!&quot;);</span><br><span class="line">        &#125; else if (pid2 == 0) &#123;</span><br><span class="line">            printf(&quot;A\n&quot;);</span><br><span class="line">            int pid3 = fork();</span><br><span class="line">            if (pid3 &lt; 0) &#123;</span><br><span class="line">                printf(&quot;Error in fork!&quot;);</span><br><span class="line">            &#125; else if (pid3 == 0) &#123;</span><br><span class="line">                printf(&quot;A\n&quot;);</span><br><span class="line">                int pid4 = fork();</span><br><span class="line">                if (pid4 &lt; 0) &#123;</span><br><span class="line">                    printf(&quot;Error in fork!&quot;);</span><br><span class="line">                &#125; else if (pid4 == 0) &#123;</span><br><span class="line">                    printf(&quot;A\n&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    printf(&quot;A\n&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                printf(&quot;A\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            printf(&quot;A\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        printf(&quot;A\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/q-3.png"></p>
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="/blog/./uploads/2021/10/q-3.png"></p>
 <p>E2-3-1.c编译运行截图</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/w.png"></p>
+<p><img src="/blog/./uploads/2021/10/w.png"></p>
 <p>E2-3-2.c编译运行截图</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-9.png"></p>
+<p><img src="/blog/./uploads/2021/10/image-9.png"></p>
 <p>E2-3-3.c编译运行截图</p>
 <h2 id="进程创建方法与创建进程数"><a href="#进程创建方法与创建进程数" class="headerlink" title="进程创建方法与创建进程数"></a>进程创建方法与创建进程数</h2><p>fork()函数的原理：以当前进程作为父进程创建出一个新的子进程，并且将父进程的所有资源拷贝给子进程，这样子进程作为父进程的一个副本存在。父子进程几乎时完全相同的，但也有不同的如父子进程ID不同。即为创建一个新的进程里面从新进程（即fork处）运行，新的进程拷贝原本进程的所有状态（包括变量，输入输出流等），这两个进程有pid不同（原进程大于0，子进程等于0）、 getpid()（该函数返回当前进程的id号）返回值不同；</p>
 <h3 id="利用循环-for-循环里无判断-x2F-顺序并列创建进程"><a href="#利用循环-for-循环里无判断-x2F-顺序并列创建进程" class="headerlink" title="利用循环(for)(循环里无判断)&#x2F;顺序并列创建进程"></a>利用循环(for)(循环里无判断)&#x2F;顺序并列创建进程</h3><p>循环次数n→进程数n^2（父进程1个+子进程n^2-1个）</p>
@@ -831,7 +831,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 15:00:35" itemprop="dateModified" datetime="2022-07-10T15:00:35+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -876,9 +876,9 @@
 <h3 id="E1-3-2-sh"><a href="#E1-3-2-sh" class="headerlink" title="E1-3-2.sh"></a>E1-3-2.sh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo &quot;Please input some word: &quot;</span><br><span class="line">read WORD</span><br><span class="line">echo $WORD &gt;&gt; myfile.txt</span><br><span class="line">## 一个箭头会覆盖写入，两个箭头是追加写入</span><br><span class="line">echo &quot;The word in myfile.txt: &quot;</span><br><span class="line">## cat命令用于连接文件并将内容输出到标准输出设备上</span><br><span class="line">cat myfile.txt</span><br><span class="line">echo &quot;The doucments in this dictionary: &quot;</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
 
 <h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p>对E1-3-1.sh进行加权后运行：</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-4.png"></p>
+<p><img src="/blog/./uploads/2021/10/image-4.png"></p>
 <p>对E1-3-2.sh进行加权后运行：</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-3.png"></p>
+<p><img src="/blog/./uploads/2021/10/image-3.png"></p>
 
       
     </div>

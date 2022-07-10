@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="转接的博客">
 <meta property="og:description" content="Experimental report on program design in spring 20 1. 最长公字串题目编写一个程序，对输入的字符串s和t，求其最长的公共子字符串。输入形式：从屏幕分行读入串s和t。s和t由任意字符构成，长度都不超50个字符。输入数据确保只有唯一的最长公共子串。如果没有公共子串，打印No Answer。 输出形式：在单独行上输出串s和串t的最长公共子串，在结尾输出">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
 <meta property="article:published_time" content="2020-06-26T22:11:00.000Z">
-<meta property="article:modified_time" content="2022-07-10T06:37:47.248Z">
+<meta property="article:modified_time" content="2022-07-10T06:59:17.548Z">
 <meta property="article:author" content="转接">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
+<meta name="twitter:image" content="https://zhuanjier.github.io/blog/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
 
 <link rel="canonical" href="https://zhuanjier.github.io/blog/2020/06/27/experimentalreportonprogramdesigninspring20/">
 
@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 14:59:17" itemprop="dateModified" datetime="2022-07-10T14:59:17+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -194,11 +194,11 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -225,7 +225,7 @@
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本题用到了get();来获取字符串。gets()用于从标准输入流stdin读入一个整行（以bai’\n’或EOF）结束，写入ptr指向的字符数组，并返回这个指针；出错或遇到文件结束时则返回NULL。行末的’\n’从流中取出，但不写入数组。gets()不检查被写入的数组大小。程序运用逐个尝试的方法来获取最长公子串。在获取字符串时检查字符串长度，当a的长度大于b的长度时，运用了逐个代换的方法，将a，b中的元素互换位置。</p>
 <h1 id="2-CCF-201712-5-商路"><a href="#2-CCF-201712-5-商路" class="headerlink" title="2. CCF 201712-5 商路"></a>2. CCF 201712-5 商路</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>国王小w总共有八座城市，用1到n的整数编号。除首都1号城市外，每座城市都有唯一的直接上级城市，并有一条道路连接二者，即这些城市和道路构成了一棵有根树。对于城市i，我们记它的直接上级城市为ui，它到该城市道路的长度为si；同时，称i是么ui的直接下级城市。城市i的直接下级城市和直接下级城市的下级城市统称为城市i的下级城市。<br>每座城市的长官都想要建立一条由自己管辖的商路。对于城市i的长官，他管辖的商路必须形如a1a2…ak，其中a1&#x3D;i：对于1≤j&lt;k,aj+1是aj的下级城市：k可以是你指定的正整数。即，一条商路是从城市i出发，依次向下级延伸的一条路径。注意路径只用向下级城市延伸即可，不限定为直接下级。城市i的价值由vi和fi两个参数描述。商路a1a2…ak的总价值为：</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png"></p>
+<p><img src="/blog/./uploads/2022/02/%E5%9B%BE%E7%89%871.png"></p>
 <p>其中d(aj.aj+1）是连接aj和aj+1的道路总长度。形象地说，商路的总价值等于每小段的价值之和：vi和fi分别描述了i作为起点的最理想小段价值和最佳的小段长度：小段的价值等于以它们为参数，两座城市距离为自变量的二次函数。<br>如有必要，一条商路允许只包含长官所在的那一座城市，即k&#x3D;1，此时商路的总价值为0。此外，不同城市长官建立的道路之间互相不影响，价值独立计算。<br>国王小W希望所有的n条商路的总价值之和最大，他现在请你帮忙。你可以替每座城市的长官决定商路的长度k和路径上除起点之外的城市，问最大的总价值之和是多少。</p>
 <p>输入格式<br>从标准输入读入数据。<br>输入的第一行包含一个正整数个，表示数据的组数。对于测试数据，保证T&#x3D;10。<br>接下来有T个部分，每个部分描述一组数据，其中：<br>每个部分第一行包含一个正整数n，表示城市的数量。<br>接下米n行，每行包含4个非负整数ui，si,vi,fi，分别表示直接上级城市的编号，连接直接上级城市道路的长度，最理想小段价值和最佳的小段长度。保证：0≤vi≤10^13，0≤fi≤10^9；对于2≤i≤n，保证1≤ui&lt;i,1≤si≤10^4；u1&#x3D;s1&#x3D;0，仅占位无实际意义（首都没有上级城市）。</p>
 <h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>根据题意输入的顺序是城市编号的顺序，而城市编号的顺序又直接决定了城市之间的上下级关系。虽然编号小的不一定是大编号的下级，但下级城市的编号一定比上级城市的编号小，如何利用这一点非常重要。假如城市A的下级城市是B,C,D ；那如果B,C,D 本身的商路价值都是最大话之后，A 只能在B,C,D 中挑选一个与之相连，或者不相连，来使自己的商路价值最大话。也就是如果B,C,D的商路价值都是已知的了，那A 的商路价值就都是已知的了。 如此以来，只需要按照逆序从后向前分别计算商路的最大值就可以了。</p>

@@ -668,86 +668,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/05/25/backpackproblem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="转接">
-      <meta itemprop="description" content="转接的博客备用站点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="转接的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/05/25/backpackproblem/" class="post-title-link" itemprop="url">背包问题BackpackProblem</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-25 06:11:00" itemprop="dateCreated datePublished" datetime="2021-05-25T06:11:00+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">void package(int *weight,int *size,int n,int c);//构造最优矩阵</span><br><span class="line">void getResult(int n,int c,int *res,int *size,int *weight);//构造最优解</span><br><span class="line">int f[10][100];</span><br><span class="line">//构造最优矩阵</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">vector&lt;int&gt; vweight;//定义一个vector数组vweight</span><br><span class="line">vector&lt;int&gt; vsize;</span><br><span class="line">int number;</span><br><span class="line">vweight.push_back(0);</span><br><span class="line">vsize.push_back(0);</span><br><span class="line">cout &lt;&lt; &quot;请输入每个物品的重量：&quot;; </span><br><span class="line">while (1)&#123;</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">vweight.push_back(number);//每输入一个数字就把它添加到数组的最后</span><br><span class="line">if (cin.get() == &#x27;\n&#x27;)//如果是回车符则跳出循环</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">int *weight = new int[vweight.size()];//每个物品的重量</span><br><span class="line">    if (!vweight.empty())&#123;</span><br><span class="line">        memcpy(weight, &amp;vweight[0], vweight.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">cout &lt;&lt; &quot;请输入每个物品的价值：&quot;; </span><br><span class="line">while (1) &#123;</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">vsize.push_back(number);</span><br><span class="line">if (cin.get() == &#x27;\n&#x27;)</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">    int *size = new int[vsize.size()];//每个物品的价值</span><br><span class="line">    if (!vsize.empty())&#123;</span><br><span class="line">        memcpy(size, &amp;vsize[0], vsize.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">    if(vweight.size()!=vsize.size())&#123;</span><br><span class="line">    cout &lt;&lt; &quot;数据输入错误，请重新开始&quot;; </span><br><span class="line">    exit(0);</span><br><span class="line">&#125; </span><br><span class="line">cout &lt;&lt; &quot;请输入背包的总容量：&quot;;</span><br><span class="line">int c; //背包能容的重量</span><br><span class="line">cin &gt;&gt; c;</span><br><span class="line">int n = vweight.size()-1; //物品的个数</span><br><span class="line">int res[n];</span><br><span class="line">for(int a=0;a&lt;n;a++)&#123;</span><br><span class="line">res[a]=0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int i,j;</span><br><span class="line">package(weight,size,n,c);</span><br><span class="line">for(i=0;i&lt;=n;i++)&#123;</span><br><span class="line">for(j=0;j&lt;=c;j++)</span><br><span class="line">printf(&quot;%2d &quot;,f[i][j]);</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">getResult(n,c,res,size,weight);</span><br><span class="line">cout &lt;&lt; &quot;放入背包最大价值: &quot; &lt;&lt; f[n][c] &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; &quot;放入背包的物品为: &quot;;</span><br><span class="line">for(i=1;i&lt;=n;i++)</span><br><span class="line">if(res[i] == 1)</span><br><span class="line">cout &lt;&lt; i &lt;&lt; &quot;  &quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void package(int *weight,int *size,int n,int c)&#123;</span><br><span class="line">int i,j;</span><br><span class="line">//初始化矩阵</span><br><span class="line">for(i=1;i&lt;=n;i++)</span><br><span class="line">f[i][0] = 0;</span><br><span class="line">for(j=1;j&lt;=c;j++)</span><br><span class="line">f[0][j] = 0;</span><br><span class="line">for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">for(j=1;j&lt;=c;j++)&#123;</span><br><span class="line">//当容量够放入第i个物品，并且放入之后的价值要比不放大</span><br><span class="line">if(weight[i] &lt;= j &amp;&amp; f[i-1][j-weight[i]] + size[i] &gt; f[i-1][j])&#123;</span><br><span class="line">f[i][j] = f[i-1][j-weight[i]] + size[i];</span><br><span class="line">&#125;else</span><br><span class="line">f[i][j] = f[i-1][j];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void getResult(int n,int c,int *res,int *size,int *weight)&#123;</span><br><span class="line">//构造最优解</span><br><span class="line">int i,j;</span><br><span class="line">j = c;</span><br><span class="line">for(i=n;i&gt;=1;i--)&#123;</span><br><span class="line">if(f[i][j] != f[i-1][j])&#123;</span><br><span class="line">res[i] = 1;</span><br><span class="line">j = j - weight[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由哪一个策略推出来的，这样便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。即自顶向下的备忘录法或自底向上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/05/25/all-point-pair-shortest-path/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -809,6 +729,86 @@
           <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int minnum(int a,int b,int c)&#123;//get the min number </span><br><span class="line">int n=a;</span><br><span class="line">if(a&gt;b)&#123;</span><br><span class="line">n=b;</span><br><span class="line">&#125;</span><br><span class="line">if(n&gt;c)&#123;</span><br><span class="line">n=c;</span><br><span class="line">&#125;</span><br><span class="line">return n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int maxinarr(int a[], int size)&#123;</span><br><span class="line">int n=a[0];</span><br><span class="line">for(int i=1;i&lt;size;i++)&#123;</span><br><span class="line">if(n&lt;a[i])</span><br><span class="line">n=a[i];</span><br><span class="line">&#125;</span><br><span class="line">return n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int mininarr(int a[], int size)&#123;</span><br><span class="line">int n=a[0];</span><br><span class="line">for(int i=1;i&lt;size;i++)&#123;</span><br><span class="line">if(n&gt;a[i])</span><br><span class="line">n=a[i];</span><br><span class="line">&#125;</span><br><span class="line">return n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">vector&lt;int&gt; startpoint;</span><br><span class="line">vector&lt;int&gt; endpoint;</span><br><span class="line">vector&lt;int&gt; weight;</span><br><span class="line">int number; </span><br><span class="line">cout &lt;&lt; &quot;请依次输入每段路经的起始点，结束点和权值（输入-1结束输入ps:-1所在行数字无效）：&quot; &lt;&lt; endl;</span><br><span class="line">while (1) &#123;</span><br><span class="line"></span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">if (number == -1)//如果是-1则跳出循环</span><br><span class="line">break;</span><br><span class="line">startpoint.push_back(number);//每输入一个数字就把它添加到数组的最后</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">if (number == -1)</span><br><span class="line">break;</span><br><span class="line">endpoint.push_back(number);</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">if (number == -1)</span><br><span class="line">break;</span><br><span class="line">weight.push_back(number);</span><br><span class="line">&#125; </span><br><span class="line">int *sp = new int[startpoint.size()];</span><br><span class="line">    if (!startpoint.empty())&#123;</span><br><span class="line">        memcpy(sp, &amp;startpoint[0], startpoint.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">int *ep = new int[endpoint.size()];</span><br><span class="line">    if (!endpoint.empty())&#123;</span><br><span class="line">        memcpy(ep, &amp;endpoint[0], endpoint.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">    int *wt = new int[weight.size()];</span><br><span class="line">    if (!weight.empty())&#123;</span><br><span class="line">        memcpy(wt, &amp;weight[0], weight.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">    int size=minnum(startpoint.size(),endpoint.size(),weight.size());</span><br><span class="line"></span><br><span class="line">int max=maxinarr(ep,size);</span><br><span class="line">    if(maxinarr(sp,size)&gt;maxinarr(ep,size))</span><br><span class="line">    int max=maxinarr(sp,size);</span><br><span class="line">    </span><br><span class="line">    int sheet[max+1][max+1];</span><br><span class="line">    int min=mininarr(ep,size);</span><br><span class="line">    if(mininarr(sp,size)&gt;mininarr(ep,size))</span><br><span class="line">    int min=mininarr(sp,size);</span><br><span class="line">    for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">for(int j=min;j&lt;=max;j++)&#123;</span><br><span class="line">sheet[i][j]=99999;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    //比较存入路径长短后存入数据 </span><br><span class="line">    for(int i=0;i&lt;size;i++)&#123;</span><br><span class="line">    if(sheet[sp[i]][ep[i]]&gt;wt[i])&#123;</span><br><span class="line">    sheet[sp[i]][ep[i]]=wt[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;&quot;排序前：&quot;&lt;&lt; endl;</span><br><span class="line">for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">for(int j=min;j&lt;=max;j++)&#123;</span><br><span class="line">cout &lt;&lt; sheet[i][j]&lt;&lt;&quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">//循环计算最短路径表 </span><br><span class="line">for(int k=min;k&lt;=max;k++)&#123;</span><br><span class="line">for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">for(int j=min;j&lt;=max;j++)&#123;</span><br><span class="line">if(sheet[i][j]&gt;sheet[i][k]+sheet[k][j])</span><br><span class="line">sheet[i][j]=sheet[i][k]+sheet[k][j];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;&quot;排序后：&quot;&lt;&lt; endl;</span><br><span class="line">for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">for(int j=min;j&lt;=max;j++)&#123;</span><br><span class="line">cout &lt;&lt; sheet[i][j]&lt;&lt;&quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; &quot;          &quot;;</span><br><span class="line">for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">printf(&quot;%10d&quot;,i);</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">for(int i=min;i&lt;=max;i++)&#123;</span><br><span class="line">for(int j=min-1;j&lt;=max;j++)&#123;</span><br><span class="line">if(j==min-1)&#123;</span><br><span class="line">printf(&quot;%10d&quot;,i);</span><br><span class="line">continue;</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;%10d&quot;,sheet[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>读取数组定义了三个个vector容器，将数值存入容器后再将容器转换为普通数组。函数上面对于该算法的分析，求解过程实际上是典型的动态规划解题过程，描述最优子结构：公式的推倒，思考过程，得到一个递归解，按自底向上的方式计算最优解：最短路径权值矩阵。最后有计算结果构造一个最优解，给出最短路径。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/05/25/backpackproblem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="转接的博客备用站点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2021/05/25/backpackproblem/" class="post-title-link" itemprop="url">背包问题BackpackProblem</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-25 06:11:00" itemprop="dateCreated datePublished" datetime="2021-05-25T06:11:00+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">void package(int *weight,int *size,int n,int c);//构造最优矩阵</span><br><span class="line">void getResult(int n,int c,int *res,int *size,int *weight);//构造最优解</span><br><span class="line">int f[10][100];</span><br><span class="line">//构造最优矩阵</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">vector&lt;int&gt; vweight;//定义一个vector数组vweight</span><br><span class="line">vector&lt;int&gt; vsize;</span><br><span class="line">int number;</span><br><span class="line">vweight.push_back(0);</span><br><span class="line">vsize.push_back(0);</span><br><span class="line">cout &lt;&lt; &quot;请输入每个物品的重量：&quot;; </span><br><span class="line">while (1)&#123;</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">vweight.push_back(number);//每输入一个数字就把它添加到数组的最后</span><br><span class="line">if (cin.get() == &#x27;\n&#x27;)//如果是回车符则跳出循环</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">int *weight = new int[vweight.size()];//每个物品的重量</span><br><span class="line">    if (!vweight.empty())&#123;</span><br><span class="line">        memcpy(weight, &amp;vweight[0], vweight.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">cout &lt;&lt; &quot;请输入每个物品的价值：&quot;; </span><br><span class="line">while (1) &#123;</span><br><span class="line">cin &gt;&gt; number;</span><br><span class="line">vsize.push_back(number);</span><br><span class="line">if (cin.get() == &#x27;\n&#x27;)</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">    int *size = new int[vsize.size()];//每个物品的价值</span><br><span class="line">    if (!vsize.empty())&#123;</span><br><span class="line">        memcpy(size, &amp;vsize[0], vsize.size()*sizeof(int));</span><br><span class="line">    &#125;</span><br><span class="line">    if(vweight.size()!=vsize.size())&#123;</span><br><span class="line">    cout &lt;&lt; &quot;数据输入错误，请重新开始&quot;; </span><br><span class="line">    exit(0);</span><br><span class="line">&#125; </span><br><span class="line">cout &lt;&lt; &quot;请输入背包的总容量：&quot;;</span><br><span class="line">int c; //背包能容的重量</span><br><span class="line">cin &gt;&gt; c;</span><br><span class="line">int n = vweight.size()-1; //物品的个数</span><br><span class="line">int res[n];</span><br><span class="line">for(int a=0;a&lt;n;a++)&#123;</span><br><span class="line">res[a]=0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int i,j;</span><br><span class="line">package(weight,size,n,c);</span><br><span class="line">for(i=0;i&lt;=n;i++)&#123;</span><br><span class="line">for(j=0;j&lt;=c;j++)</span><br><span class="line">printf(&quot;%2d &quot;,f[i][j]);</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">getResult(n,c,res,size,weight);</span><br><span class="line">cout &lt;&lt; &quot;放入背包最大价值: &quot; &lt;&lt; f[n][c] &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; &quot;放入背包的物品为: &quot;;</span><br><span class="line">for(i=1;i&lt;=n;i++)</span><br><span class="line">if(res[i] == 1)</span><br><span class="line">cout &lt;&lt; i &lt;&lt; &quot;  &quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void package(int *weight,int *size,int n,int c)&#123;</span><br><span class="line">int i,j;</span><br><span class="line">//初始化矩阵</span><br><span class="line">for(i=1;i&lt;=n;i++)</span><br><span class="line">f[i][0] = 0;</span><br><span class="line">for(j=1;j&lt;=c;j++)</span><br><span class="line">f[0][j] = 0;</span><br><span class="line">for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">for(j=1;j&lt;=c;j++)&#123;</span><br><span class="line">//当容量够放入第i个物品，并且放入之后的价值要比不放大</span><br><span class="line">if(weight[i] &lt;= j &amp;&amp; f[i-1][j-weight[i]] + size[i] &gt; f[i-1][j])&#123;</span><br><span class="line">f[i][j] = f[i-1][j-weight[i]] + size[i];</span><br><span class="line">&#125;else</span><br><span class="line">f[i][j] = f[i-1][j];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void getResult(int n,int c,int *res,int *size,int *weight)&#123;</span><br><span class="line">//构造最优解</span><br><span class="line">int i,j;</span><br><span class="line">j = c;</span><br><span class="line">for(i=n;i&gt;=1;i--)&#123;</span><br><span class="line">if(f[i][j] != f[i-1][j])&#123;</span><br><span class="line">res[i] = 1;</span><br><span class="line">j = j - weight[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由哪一个策略推出来的，这样便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。即自顶向下的备忘录法或自底向上。</p>
 
       
     </div>
@@ -1191,11 +1191,11 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+                  <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">

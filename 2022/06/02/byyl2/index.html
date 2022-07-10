@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="转接的博客">
 <meta property="og:description" content="实验内容：输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） 实验准备：正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::&#x3D;R1R2       {L(R)&#x3D;L(R1)∪L(R2)} R::&amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-2.png">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-3.png">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-4.png">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-5.png">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-6.png">
-<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-7.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-2.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-3.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-4.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-5.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-6.png">
+<meta property="og:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-7.png">
 <meta property="article:published_time" content="2022-06-02T02:35:15.000Z">
-<meta property="article:modified_time" content="2022-07-10T06:37:47.328Z">
+<meta property="article:modified_time" content="2022-07-10T06:59:48.560Z">
 <meta property="article:author" content="转接">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-2.png">
+<meta name="twitter:image" content="https://zhuanjier.github.io/blog/uploads/2022/06/image-2.png">
 
 <link rel="canonical" href="https://zhuanjier.github.io/blog/2022/06/02/byyl2/">
 
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+                <time title="Modified: 2022-07-10 14:59:48" itemprop="dateModified" datetime="2022-07-10T14:59:48+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,7 @@
 <p>R::&#x3D;R1R2       {L(R)&#x3D;L(R1)∪L(R2)}</p>
 <p>R::&#x3D;R1R2        {L(R)&#x3D;L(R1)L(R2)}</p>
 <p>R::&#x3D;R1*          {L(R)&#x3D;</p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-2.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-2.png"></p>
 <p>}</p>
 <p>R::&#x3D;(R1)          {L(R)&#x3D;L(R1)     }</p>
 <p>R::&#x3D;a              {a∈Σ,且 L(R)&#x3D;{a} }</p>
@@ -287,14 +287,14 @@
 <ol>
 <li>测试运行(实验环境Windows11 Python3.10 pycharm)，如图：</li>
 </ol>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-3.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-3.png"></p>
 <ol>
 <li>输出信息：</li>
 </ol>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-4.png"></p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-5.png"></p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-6.png"></p>
-<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-7.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-4.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-5.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-6.png"></p>
+<p><img src="/blog/./uploads/2022/06/image-7.png"></p>
 <p><strong>实验总结：</strong></p>
 <p>通过本次实验我学会了从正则表达式转NFA(不确定的有穷自动机)、NFA转DFA(确定的有穷自动机)和DFA的最小化。同时我也尝试输出了自动机的转移矩阵和输出自动机的状态转移图。输出自动机的状态转移图使用的是图形可视化软件Graphviz的使用，他能够将将结构信息表示为抽象图形和网络图。在编程过程中程序抛出了ExecutableNotFound的异常信息，经过检查发现为未将Graphviz的安装地址置于系统的环境变量中。状态图中：以圆圈表示状态（圆圈内为状态名），箭头表示状态转移边。以start标记引出箭头指向起始状态，以双圈表示终止状态。</p>
 
