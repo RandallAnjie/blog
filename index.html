@@ -147,6 +147,64 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/10/uploads/unlimited_elements_cache/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="转接的博客备用站点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/07/10/uploads/unlimited_elements_cache/index/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-10 14:51:35 / Modified: 14:48:23" itemprop="dateCreated datePublished" datetime="2022-07-10T14:51:35+08:00">2022-07-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/08/jrxy-auto-sign/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1179,93 +1237,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/03/22/day6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="转接">
-      <meta itemprop="description" content="转接的博客备用站点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="转接的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2022/03/22/day6/" class="post-title-link" itemprop="url">每日一题——三部排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-22 17:48:46" itemprop="dateCreated datePublished" datetime="2022-03-22T17:48:46+08:00">2022-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日一题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>day6</li>
-</ul>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如果给定数组：<br>25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0<br>则排序后为：<br>-3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25</p>
-<p>请分析代码逻辑，并推测划线处的代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">int p = 0;</span><br><span class="line">int left = 0;</span><br><span class="line">int right = len-1;</span><br><span class="line">while(p&lt;=right)&#123;</span><br><span class="line">if(x[p]&lt;0)&#123;</span><br><span class="line">int t = x[left];</span><br><span class="line">x[left] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">left++;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">else if(x[p]&gt;0)&#123;</span><br><span class="line">int t = x[right];</span><br><span class="line">x[right] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">right--;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">__________________________;  //填空位置</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果给定数组：<br>25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0<br>则排序后为：<br>-3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25</p>
-<p>请分析代码逻辑，并推测划线处的代码</p>
-<h2 id="答案格式"><a href="#答案格式" class="headerlink" title="答案格式"></a>答案格式</h2><p>仅把应填在横线上缺少的代码作为答案</p>
-<h2 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h2><p>p++</p>
-<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">int p = 0;</span><br><span class="line">int left = 0;</span><br><span class="line">int right = len-1;</span><br><span class="line"></span><br><span class="line">while(p&lt;=right)&#123;</span><br><span class="line">if(x[p]&lt;0)&#123;</span><br><span class="line">int t = x[left];</span><br><span class="line">x[left] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">left++;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">else if(x[p]&gt;0)&#123;</span><br><span class="line">int t = x[right];</span><br><span class="line">x[right] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">right--;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">int i;</span><br><span class="line">int a[14]=&#123;25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0&#125;;</span><br><span class="line">sort3p(a,14);</span><br><span class="line">for(i = 0; i &lt; 14; i++)</span><br><span class="line">cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出：<br>-3 -2 -16 -5 0 0 0 21 19 33 25 16 18 25</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1335,7 +1306,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

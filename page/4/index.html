@@ -147,6 +147,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/11/09/python-dict-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="转接的博客备用站点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2021/11/09/python-dict-sort/" class="post-title-link" itemprop="url">python中的字典排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-09 18:54:10" itemprop="dateCreated datePublished" datetime="2021-11-09T18:54:10+08:00">2021-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>字典是一个无序的数据结构，一般都不对其进行排序的。但是要想对字典进行排序，是可以通过<code>sorted()</code>函数进行操作。首先声明注意一点字典中的值需要为同一种数据类型；比如在本文中的值都是字符串类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 先定义一个字典</span><br><span class="line">sys = &#123;&#x27;name&#x27;: &#x27;张三&#x27;,</span><br><span class="line">       &#x27;age&#x27;: &#x27;十八&#x27;,</span><br><span class="line">       &#x27;gender&#x27;: &#x27;男&#x27;&#125;</span><br><span class="line"></span><br><span class="line">#  单独打印出排序后的key值</span><br><span class="line">new_sys = sorted(sys)</span><br><span class="line">print(new_sys)</span><br><span class="line"></span><br><span class="line">new_sys = sorted(sys.keys())</span><br><span class="line">print(new_sys)</span><br><span class="line"></span><br><span class="line"># 根据key的升序排列，把key value都打印出来</span><br><span class="line">new_sys1 = sorted(sys.items(), key=lambda d: d[0], reverse=False)</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line">new_sys1 = sorted(sys.items(), reverse=False)</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line"># 单独打印出排序后的value值</span><br><span class="line">new_sys1 = sorted(sys.values())</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line"># 打印出根据value排序后的键值对的具体值</span><br><span class="line">new_sys2 = sorted(sys.items(),  key=lambda d: d[1], reverse=False)</span><br><span class="line">print(new_sys2)</span><br></pre></td></tr></table></figure>
+
+<p>输出为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;name&#x27;]</span><br><span class="line">[&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;name&#x27;]</span><br><span class="line">[(&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;gender&#x27;, &#x27;男&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br><span class="line">[(&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;gender&#x27;, &#x27;男&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br><span class="line">[&#x27;man&#x27;, &#x27;十八&#x27;, &#x27;张三&#x27;] </span><br><span class="line">[(&#x27;gender&#x27;, &#x27;man&#x27;), (&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br></pre></td></tr></table></figure>
+
+<p><code>new_sys = sorted(sys)</code>将字典直接传入到<code>sorted</code>函数中 ，<code>sorted</code>函数会默认根据字典的键k对字典进行排序，同时只取字典的键k的内容，并以列表的形式返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_sys1 = sorted(sys.items(), key=lambda d: d[0], reverse=False)</span><br></pre></td></tr></table></figure>
+
+<p><code>sys.items()</code>这段代码，在打印输出后，会显示如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict_items([(‘name’, ‘张三’), (‘age’, ‘十八’), (‘gender’, ‘man’)])</span><br><span class="line"></span><br><span class="line">// 将原来的字典中的键值对，分别搜存入到一个元组中–&gt;(key,value)</span><br></pre></td></tr></table></figure>
+
+<p><code>key=lambda</code> <code>d: d[0]</code> 是一个匿名函数；<br>其中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d == (‘name’, ‘张三’) 或 (‘age’, ‘十八’)或(‘gender’, ‘man’)</span><br></pre></td></tr></table></figure>
+
+<p><code>d[0]</code>是获取每个元组中的第一个元素，就是原<code>sys</code>字典中的<code>key</code>；并将匿名函数的返回值返回给<code>sorted</code>函数的key参数</p>
+<p><code>reverse=False</code> 排序默认是按照升序排列的，也可以改为<code>True</code></p>
+<p><code>sorted(sys.values())</code> <code>sorted</code>函数默认是根据键<code>key</code>排序的，所以想要根据值<code>value</code>排序，就需要在<code>sys</code>后面使用<code>values()</code>，获取字典的<code>value</code>值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_sys2 = sorted(sys.items(), key=lambda d: d[1], reverse=False)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d == (‘name’, ‘张三’) 或 (‘age’, ‘十八’)或(‘gender’, ‘man’)</span><br></pre></td></tr></table></figure>
+
+<p><code>d[1]</code>是获取每个元组中的第二个元素，就是原<code>sys</code>字典中的<code>value</code>；并将匿名函数的返回值返回给<code>sorted</code>函数的<code>key</code>参数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/11/05/linux-ruanzhongduan-problem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1071,81 +1167,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="转接">
-      <meta itemprop="description" content="转接的博客备用站点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="转接的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" class="post-title-link" itemprop="url">AS报错“Could not find com.android.tools.build:gradle:4.1.2.”</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-14 14:14:57" itemprop="dateCreated datePublished" datetime="2021-10-14T14:14:57+08:00">2021-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/AndroidStudio/" itemprop="url" rel="index"><span itemprop="name">AndroidStudio</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>更改build.gradle文件，换用阿里镜像</p>
-<p>解决报错：Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository ‘maven(<a target="_blank" rel="noopener" href="http://maven.aliyun.com/nexus/content/groups/public/)&#39;">http://maven.aliyun.com/nexus/content/groups/public/)&#39;</a> to redirect to a secure protocol (like HTTPS) or allow insecure protocols.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span><br><span class="line"></span><br><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        //allowInsecureProtocol = true</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/nexus/content/groups/public/&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath &#x27;com.android.tools.build:gradle:4.1.2&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        //allowInsecureProtocol = true</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/nexus/content/groups/public/&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1215,7 +1236,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

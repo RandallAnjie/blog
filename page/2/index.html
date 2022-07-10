@@ -147,6 +147,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/03/22/day6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="转接的博客备用站点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/03/22/day6/" class="post-title-link" itemprop="url">每日一题——三部排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-22 17:48:46" itemprop="dateCreated datePublished" datetime="2022-03-22T17:48:46+08:00">2022-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日一题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>day6</li>
+</ul>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如果给定数组：<br>25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0<br>则排序后为：<br>-3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25</p>
+<p>请分析代码逻辑，并推测划线处的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">int p = 0;</span><br><span class="line">int left = 0;</span><br><span class="line">int right = len-1;</span><br><span class="line">while(p&lt;=right)&#123;</span><br><span class="line">if(x[p]&lt;0)&#123;</span><br><span class="line">int t = x[left];</span><br><span class="line">x[left] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">left++;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">else if(x[p]&gt;0)&#123;</span><br><span class="line">int t = x[right];</span><br><span class="line">x[right] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">right--;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">__________________________;  //填空位置</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果给定数组：<br>25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0<br>则排序后为：<br>-3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25</p>
+<p>请分析代码逻辑，并推测划线处的代码</p>
+<h2 id="答案格式"><a href="#答案格式" class="headerlink" title="答案格式"></a>答案格式</h2><p>仅把应填在横线上缺少的代码作为答案</p>
+<h2 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h2><p>p++</p>
+<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">int p = 0;</span><br><span class="line">int left = 0;</span><br><span class="line">int right = len-1;</span><br><span class="line"></span><br><span class="line">while(p&lt;=right)&#123;</span><br><span class="line">if(x[p]&lt;0)&#123;</span><br><span class="line">int t = x[left];</span><br><span class="line">x[left] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">left++;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">else if(x[p]&gt;0)&#123;</span><br><span class="line">int t = x[right];</span><br><span class="line">x[right] = x[p];</span><br><span class="line">x[p] = t;</span><br><span class="line">right--;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">p++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">int i;</span><br><span class="line">int a[14]=&#123;25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0&#125;;</span><br><span class="line">sort3p(a,14);</span><br><span class="line">for(i = 0; i &lt; 14; i++)</span><br><span class="line">cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：<br>-3 -2 -16 -5 0 0 0 21 19 33 25 16 18 25</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/03/21/day5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,89 +1089,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/02/23/mingw-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="转接">
-      <meta itemprop="description" content="转接的博客备用站点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="转接的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2022/02/23/mingw-install/" class="post-title-link" itemprop="url">MinGW环境安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-02-23 21:28:55" itemprop="dateCreated datePublished" datetime="2022-02-23T21:28:55+08:00">2022-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">sourceforge仓库（https://sourceforge.net/projects/mingw-w64/files/）</a>下载文件</p>
-<p>下载列表如下：</p>
-<p><strong>MinGW-W64 GCC-8.1.0</strong><br>x86_64-posix-sjlj<br>x86_64-posix-seh<br>x86_64-win32-sjlj<br>x86_64-win32-seh<br>i686-posix-sjlj<br>i686-posix-dwarf<br>i686-win32-sjlj<br>i686-win32-dwarf</p>
-<p>前4个为64位，后四个为32位。其中posix为一般使用，win32为运行Windows程序</p>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>将下载的压缩包解压，并且获取<strong>其内bin文件夹的地址</strong>，如：C:\Program Files\mingw64\bin</p>
-<p>此电脑（右键）——属性——系统——高级系统设置——系统属性——环境变量</p>
-<p>将地址加入系统变量的<strong>Path</strong>变量后</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Microsoft Windows [版本 10.0.22000.493]</span><br><span class="line">(c) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">C:\Users\zhuan&gt;gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=C:/Program\ Files/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe</span><br><span class="line">Target: x86_64-w64-mingw32</span><br><span class="line">Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion=&#x27;x86_64-posix-seh-rev0, Built by MinGW-W64 project&#x27; --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS=&#x27;-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; CXXFLAGS=&#x27;-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; CPPFLAGS=&#x27; -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; LDFLAGS=&#x27;-pipe -fno-ident -L/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib &#x27;</span><br><span class="line">Thread model: posix</span><br><span class="line">gcc version 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)</span><br><span class="line"></span><br><span class="line">C:\Users\zhuan&gt;</span><br></pre></td></tr></table></figure>
-
-<p>成功输出版本信息8.1.0</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1154,7 +1158,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

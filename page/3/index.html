@@ -147,6 +147,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/02/23/mingw-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="转接的博客备用站点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/02/23/mingw-install/" class="post-title-link" itemprop="url">MinGW环境安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-02-23 21:28:55" itemprop="dateCreated datePublished" datetime="2022-02-23T21:28:55+08:00">2022-02-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">sourceforge仓库（https://sourceforge.net/projects/mingw-w64/files/）</a>下载文件</p>
+<p>下载列表如下：</p>
+<p><strong>MinGW-W64 GCC-8.1.0</strong><br>x86_64-posix-sjlj<br>x86_64-posix-seh<br>x86_64-win32-sjlj<br>x86_64-win32-seh<br>i686-posix-sjlj<br>i686-posix-dwarf<br>i686-win32-sjlj<br>i686-win32-dwarf</p>
+<p>前4个为64位，后四个为32位。其中posix为一般使用，win32为运行Windows程序</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>将下载的压缩包解压，并且获取<strong>其内bin文件夹的地址</strong>，如：C:\Program Files\mingw64\bin</p>
+<p>此电脑（右键）——属性——系统——高级系统设置——系统属性——环境变量</p>
+<p>将地址加入系统变量的<strong>Path</strong>变量后</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Microsoft Windows [版本 10.0.22000.493]</span><br><span class="line">(c) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">C:\Users\zhuan&gt;gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=C:/Program\ Files/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe</span><br><span class="line">Target: x86_64-w64-mingw32</span><br><span class="line">Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion=&#x27;x86_64-posix-seh-rev0, Built by MinGW-W64 project&#x27; --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS=&#x27;-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; CXXFLAGS=&#x27;-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; CPPFLAGS=&#x27; -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include&#x27; LDFLAGS=&#x27;-pipe -fno-ident -L/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib &#x27;</span><br><span class="line">Thread model: posix</span><br><span class="line">gcc version 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)</span><br><span class="line"></span><br><span class="line">C:\Users\zhuan&gt;</span><br></pre></td></tr></table></figure>
+
+<p>成功输出版本信息8.1.0</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/02/23/jdk-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,102 +1085,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2021/11/09/python-dict-sort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="转接">
-      <meta itemprop="description" content="转接的博客备用站点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="转接的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/11/09/python-dict-sort/" class="post-title-link" itemprop="url">python中的字典排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-09 18:54:10" itemprop="dateCreated datePublished" datetime="2021-11-09T18:54:10+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>字典是一个无序的数据结构，一般都不对其进行排序的。但是要想对字典进行排序，是可以通过<code>sorted()</code>函数进行操作。首先声明注意一点字典中的值需要为同一种数据类型；比如在本文中的值都是字符串类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 先定义一个字典</span><br><span class="line">sys = &#123;&#x27;name&#x27;: &#x27;张三&#x27;,</span><br><span class="line">       &#x27;age&#x27;: &#x27;十八&#x27;,</span><br><span class="line">       &#x27;gender&#x27;: &#x27;男&#x27;&#125;</span><br><span class="line"></span><br><span class="line">#  单独打印出排序后的key值</span><br><span class="line">new_sys = sorted(sys)</span><br><span class="line">print(new_sys)</span><br><span class="line"></span><br><span class="line">new_sys = sorted(sys.keys())</span><br><span class="line">print(new_sys)</span><br><span class="line"></span><br><span class="line"># 根据key的升序排列，把key value都打印出来</span><br><span class="line">new_sys1 = sorted(sys.items(), key=lambda d: d[0], reverse=False)</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line">new_sys1 = sorted(sys.items(), reverse=False)</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line"># 单独打印出排序后的value值</span><br><span class="line">new_sys1 = sorted(sys.values())</span><br><span class="line">print(new_sys1)</span><br><span class="line"></span><br><span class="line"># 打印出根据value排序后的键值对的具体值</span><br><span class="line">new_sys2 = sorted(sys.items(),  key=lambda d: d[1], reverse=False)</span><br><span class="line">print(new_sys2)</span><br></pre></td></tr></table></figure>
-
-<p>输出为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;name&#x27;]</span><br><span class="line">[&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;name&#x27;]</span><br><span class="line">[(&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;gender&#x27;, &#x27;男&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br><span class="line">[(&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;gender&#x27;, &#x27;男&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br><span class="line">[&#x27;man&#x27;, &#x27;十八&#x27;, &#x27;张三&#x27;] </span><br><span class="line">[(&#x27;gender&#x27;, &#x27;man&#x27;), (&#x27;age&#x27;, &#x27;十八&#x27;), (&#x27;name&#x27;, &#x27;张三&#x27;)]</span><br></pre></td></tr></table></figure>
-
-<p><code>new_sys = sorted(sys)</code>将字典直接传入到<code>sorted</code>函数中 ，<code>sorted</code>函数会默认根据字典的键k对字典进行排序，同时只取字典的键k的内容，并以列表的形式返回</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_sys1 = sorted(sys.items(), key=lambda d: d[0], reverse=False)</span><br></pre></td></tr></table></figure>
-
-<p><code>sys.items()</code>这段代码，在打印输出后，会显示如下结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict_items([(‘name’, ‘张三’), (‘age’, ‘十八’), (‘gender’, ‘man’)])</span><br><span class="line"></span><br><span class="line">// 将原来的字典中的键值对，分别搜存入到一个元组中–&gt;(key,value)</span><br></pre></td></tr></table></figure>
-
-<p><code>key=lambda</code> <code>d: d[0]</code> 是一个匿名函数；<br>其中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d == (‘name’, ‘张三’) 或 (‘age’, ‘十八’)或(‘gender’, ‘man’)</span><br></pre></td></tr></table></figure>
-
-<p><code>d[0]</code>是获取每个元组中的第一个元素，就是原<code>sys</code>字典中的<code>key</code>；并将匿名函数的返回值返回给<code>sorted</code>函数的key参数</p>
-<p><code>reverse=False</code> 排序默认是按照升序排列的，也可以改为<code>True</code></p>
-<p><code>sorted(sys.values())</code> <code>sorted</code>函数默认是根据键<code>key</code>排序的，所以想要根据值<code>value</code>排序，就需要在<code>sys</code>后面使用<code>values()</code>，获取字典的<code>value</code>值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_sys2 = sorted(sys.items(), key=lambda d: d[1], reverse=False)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d == (‘name’, ‘张三’) 或 (‘age’, ‘十八’)或(‘gender’, ‘man’)</span><br></pre></td></tr></table></figure>
-
-<p><code>d[1]</code>是获取每个元组中的第二个元素，就是原<code>sys</code>字典中的<code>value</code>；并将匿名函数的返回值返回给<code>sorted</code>函数的<code>key</code>参数</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1167,7 +1154,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
