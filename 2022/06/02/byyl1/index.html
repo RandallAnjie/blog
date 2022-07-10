@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhuanjier.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="实验内容与要求设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理实验1">
+<meta property="og:url" content="https://zhuanjier.github.io/blog/2022/06/02/byyl1/index.html">
+<meta property="og:site_name" content="转接的博客">
+<meta property="og:description" content="实验内容与要求设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5">
+<meta property="og:locale">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-1.png">
+<meta property="article:published_time" content="2022-06-02T02:16:10.000Z">
+<meta property="article:modified_time" content="2022-07-10T06:37:47.327Z">
+<meta property="article:author" content="转接">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png">
+
+<link rel="canonical" href="https://zhuanjier.github.io/blog/2022/06/02/byyl1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>编译原理实验1 | 转接的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">转接的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/02/byyl1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编译原理实验1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-02 10:16:10" itemprop="dateCreated datePublished" datetime="2022-06-02T10:16:10+08:00">2022-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+                </span>
+                  . 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="实验内容与要求"><a href="#实验内容与要求" class="headerlink" title="实验内容与要求"></a>实验内容与要求</h2><p>设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。</p>
+<p>创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5种类型符号：关键词，识别符，常量，界符和操作符。</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>通过实验理解文法及文法在编写词法分析中的应用、理解符号表及掌握符号管理技术。</p>
+<h2 id="实验准备："><a href="#实验准备：" class="headerlink" title="实验准备："></a>实验准备：</h2><h3 id="程序设计语言："><a href="#程序设计语言：" class="headerlink" title="程序设计语言："></a>程序设计语言：</h3><p>程序设计语言为PL0语言，其特点是数据类型只有整数类型，具有三种程序结构（顺序、分支及循环），有过程定义，但过程无参数，允许分程序嵌套定义。具有常量定义、变量定义等。PL0语言的单词分类：分隔符、运算符、常数、标识符及保留字，具体如下</p>
+<ol>
+<li><strong>分隔符</strong>：.(圆点)、,(逗号)、;(分号)、((左圆括号)、)(右圆括号)、&#x3D;(等号)及:&#x3D;(赋值号)；</li>
+<li><strong>运算符</strong>：分为算术运算符和关系运算符；</li>
+<li><strong>算术运算符</strong>：+(加)、-(减)、*(乘)、&#x2F;(除)及+(取正)、-(取负)；</li>
+<li><strong>关系运算符</strong>：&#x3D;(等于)、#(不等)、&lt;(小于)、&lt;&#x3D;(小于等于)、&gt;(大于)、&gt;&#x3D;(大于等于)及odd(是否为偶数)；</li>
+<li><strong>常数</strong>：由0到9组成的整形常数；</li>
+<li><strong>标识符</strong>：由字母开始由字母及数字组成的符号串；</li>
+<li><strong>保留字</strong>：保留字不分大小写，有如下这些：begin、call、const、do、end、if、odd、procedure、read、then、var、while、write、else、BEGIN、CALL、CONST、DO、END、IF、ODD、PROCEDURE、READ、THEN、VAR、WHILE、WHILE、ELSE；</li>
+</ol>
+<p>char *kword[28]&#x3D;{“begin”,”call”,”const”,”do”,”end”,”if”,”odd”,”procedure”,”read”,”then”,”var”,”while”,”write”,”else”,”BEGIN”,”CALL”,”CONST”,”DO”,”END”,”IF”,”ODD”,”PROCEDURE”,”READ”,”THEN”,”VAR”,”WHILE”,”WHILE”,”ELSE”};</p>
+<ul>
+<li><strong>常数的文法定义</strong>：</li>
+</ul>
+<p>N::&#x3D;DDN</p>
+<p>D::&#x3D;[0..9]；</p>
+<ul>
+<li><strong>标识符的文法定义</strong>：</li>
+</ul>
+<p>ID::&#x3D;LTL</p>
+<p>L::&#x3D;[a..z]</p>
+<p>T::&#x3D;LTLD</p>
+<p>D::&#x3D;[0..9]；</p>
+<ol>
+<li><strong>单词的处理</strong>：一个单词由单词类别及单词值组成。分隔符、运算符及保留字一个单词一个类别，常数一个类别，标识符一个类别，每个类别使用一个整数编码。标识符、运算符及保留字保存在符号表中；</li>
+<li><strong>单词表示</strong>：使用结构体表示一个单词，结构体的组成如下：</li>
+</ol>
+<p><strong>单词类别</strong>：使用一个整数编码；</p>
+<p><strong>单词值</strong>：如果是分隔符、运算符则单词值无意义，如果是标识符或保留字，则单词值为其存储在符号表中的下标，如果是常数，则单词值为常数值；</p>
+<ol>
+<li>存储NFA的数据结构为二维结构体，结构体定义如下</li>
+</ol>
+<p>struct NFA_set</p>
+<p>{</p>
+<p>char set[100];</p>
+<p>int len&#x3D;0;</p>
+<p>};</p>
+<p>用子集法将NFA转化为DFA。</p>
+<h2 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a>实验过程：</h2><ul>
+<li>源程序</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl1">Randall Chu &#x2F; 编译原理实验一 · GitLab (zhuanjie.ltd)</a></p>
+<ul>
+<li>运行结果之载图</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-1.png"></p>
+<h2 id="实验总结："><a href="#实验总结：" class="headerlink" title="实验总结："></a>实验总结：</h2><p>通过本次实验，我学到了很多东西。首先是加深了对编译原理课程的理解，对词法分析有了更进一步的掌握，其次是编程能力的提高。这一次的编译原理课程实验，我更注重数据结构的使用，数据结构的好坏直接决定了代码的复杂度和代码量，有一些可以用链表结构的地方尽量避免用链表，换用数组和一个表示长度的整型变量的数据结构来表示，因为链表虽然方便灵活，但是链接的使用会导致后台运算量的增加。通过这一段时间写词法分析器，我对一个编译器的组成有了更深层次的认识。</p>
+<p>如果增加判断数据的类型，新增单精度和双精度数据。单精度：取值范围在正负1.5X10的负45次方到3.4X10的38次方之间，精度为7位数。双精度：取值范围在正负5.0X10的负324到1.7X10的308次方之间，精度为15到16位数。增加科学计数法表示数字的模式，在运算符中新增符号e。如果整数类型引入八进制整数、十六进制整数、长整数及短整数应该在判断数字之前增加判断，新增前缀判断0b、0B为二进制，0开头为八进制，0x、0X开头为十六进制，在判断为几进制数后还要新增判断该数字中的每个数字是否都有该进制的有效的数字。词法分析器的主要任务是读入源程序的输入字符、将它们组成词素，生成并输出一个词法单元序列。过滤掉源程序中的注释和空白，将编译器生成的错误消息和源程序的位置联系起来。有时，词法分析器可以分成两个级联的处理阶段：1）扫描阶段主要负责完成一些不需要生词词法单元的简单处理，比如删除注释和将多个连续的空白字符压缩成一个字符2）     词法分析阶段是较为复杂的部分，它处理扫描阶段的输出并生成词法单元用子集法将NFA转化为DFA。转化过程与课本中子集法的转化过程是一致的。我的程序中，int Is_in(NFA_set temp)函数用于判断新产生的一个子集是否是已经存在的，防止重复。不重复则返回-1，重复则返回重复的编号。void get_closure(NFA_set &amp;temp)函数用于计算ε-closure。bool Is_contained_Y(NFA_set temp)函数用于判断该状态是否是终态。</p>
+<p>转化过程是具体实现是：做一个NFA_set类型的栈，新状态不停的进栈，每次从堆栈中弹出一个，计算其转换的结果，是新状态就进栈，重复则丢弃，只记录好dfa的转换，直到栈空。最后成功构造出DFA。对输入源程序的扫描过程很简单，一次读入一个字符，成串的送入匹配和DFA判断其合法性。给出输出结果。</p>
+<p>删除注释需要读取到“&#x2F;&#x2F;”直接跳过本行后面的内容，读取到“&#x2F;*”则暂停分析程序一路扫描跳过，直到扫描到“*&#x2F;”恢复程序运行。</p>
+<p>宏替换需要在调用宏时，首先对参数进行检查，看看是否包含任何由#define定义的符号。如果是，它们首先被替换。替换文本随后被插入到程序中原来文本的位置。对于宏，参数名被它们的值替换。最后，再次对结果文件进行扫描，看看它是否包含任何由#define定义的符号。如果是，就重复上述处理过程。</p>
+<p>宏展开是一个替换的过程，考虑对上述宏的调用则是一个无限递归的展开过程；为了防止无限递归这种情况的产生，宏展开时会做一个标记，再次对于展开时就不再对其进行替换，这种情况同样适用于非直接自引用的情况。如果宏的参数不是被字符串化或与其它token进行拼接，则宏的参数是完全进行替换的。一旦替换完成，替换后的宏体会被再次扫描完成宏体部分的宏展开。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/04/11/all-kinds-of-sort/" rel="prev" title="关于各种排序">
+      <i class="fa fa-chevron-left"></i> 关于各种排序
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/06/02/byyl2/" rel="next" title="编译原理实验2">
+      编译原理实验2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">实验内容与要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">实验目的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">实验准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">程序设计语言：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">实验过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">实验总结：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">转接</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">Kategorien</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">转接</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

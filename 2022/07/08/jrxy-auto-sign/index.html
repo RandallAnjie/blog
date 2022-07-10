@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhuanjier.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="介绍此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化 北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后 如有疑问可以在GitHub上提交issue或在本文下方评论 项目Github地址：Zhuanjier&#x2F;jrxySign: 北京印刷学院今日校园自动签到 (github.com) 更新日志v1.8.8(beta) 适配了北">
+<meta property="og:type" content="article">
+<meta property="og:title" content="今日校园自动签到">
+<meta property="og:url" content="https://zhuanjier.github.io/blog/2022/07/08/jrxy-auto-sign/index.html">
+<meta property="og:site_name" content="转接的博客">
+<meta property="og:description" content="介绍此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化 北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后 如有疑问可以在GitHub上提交issue或在本文下方评论 项目Github地址：Zhuanjier&#x2F;jrxySign: 北京印刷学院今日校园自动签到 (github.com) 更新日志v1.8.8(beta) 适配了北">
+<meta property="og:locale">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-4.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-8-1024x644.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-9.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-10-1024x537.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-11-1024x421.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-12-1024x399.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-13.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-14.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-19.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-18.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-17-1024x636.png">
+<meta property="article:published_time" content="2022-07-08T13:16:25.000Z">
+<meta property="article:modified_time" content="2022-07-10T06:37:47.337Z">
+<meta property="article:author" content="转接">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-4.png">
+
+<link rel="canonical" href="https://zhuanjier.github.io/blog/2022/07/08/jrxy-auto-sign/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>今日校园自动签到 | 转接的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">转接的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/08/jrxy-auto-sign/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          今日校园自动签到
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-07-08 21:16:25" itemprop="dateCreated datePublished" datetime="2022-07-08T21:16:25+08:00">2022-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  . 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化</strong></p>
+<p><strong>北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后</strong></p>
+<p>如有疑问可以在GitHub上提交issue或在本文下方评论</p>
+<p>项目Github地址：<a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign">Zhuanjier&#x2F;jrxySign: 北京印刷学院今日校园自动签到 (github.com)</a></p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v1-8-8-beta"><a href="#v1-8-8-beta" class="headerlink" title="v1.8.8(beta)"></a>v1.8.8(beta)</h3><ul>
+<li>适配了北印信工的签到系统</li>
+<li>调整新增了签到选项为其他需要填写信息的情况</li>
+</ul>
+<h3 id="v1-8-9"><a href="#v1-8-9" class="headerlink" title="v1.8.9"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v189"></a>v1.8.9</h3><ul>
+<li>完善上一版本更新的稳定性</li>
+<li>更新了日志文档</li>
+</ul>
+<h3 id="v1-9-0-beta"><a href="#v1-9-0-beta" class="headerlink" title="v1.9.0(beta)"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v190beta"></a>v1.9.0(beta)</h3><ul>
+<li>新增本地保存登录信息session的<code>wise</code>模块，免于签到一次登录一次（未测试）</li>
+</ul>
+<h3 id="v1-9-2"><a href="#v1-9-2" class="headerlink" title="v1.9.2"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v192"></a>v1.9.2</h3><ul>
+<li>提高代码稳定性</li>
+<li>优化文档</li>
+</ul>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="部署前准备"><a href="#部署前准备" class="headerlink" title="部署前准备"></a>部署前准备</h3><p>下载config.yam并且填写内容，必填内容如下：</p>
+<ul>
+<li>username: ‘’ —学号</li>
+<li>password: ‘’ —密码（登录学校教务的密码）</li>
+<li>address: ‘’ —地址（今日校园签到页面上面的地址信息）</li>
+<li>lon: —经度 经纬度查询网址:<a target="_blank" rel="noopener" href="http://api.map.baidu.com/lbsapi/getpoint/index.html">http://api.map.baidu.com/lbsapi/getpoint/index.html</a></li>
+<li>lat: —纬度</li>
+</ul>
+<p> </p>
+<h3 id="服务器部署"><a href="#服务器部署" class="headerlink" title="服务器部署"></a>服务器部署</h3><ul>
+<li>安装Python3.6+环境</li>
+<li>下载并解压项目代码包</li>
+<li>修改<code>config.yml</code>文件中的相关配置内容</li>
+<li>运行<code>pip install -r requirements.txt -t ./ -i https://mirrors.aliyun.com/pypi/simple</code>安装项目依赖</li>
+<li>执行<code>Python index.py</code>即可运行项目</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-4.png"></p>
+<p>pycharm测试运行结果</p>
+<h3 id="阿里云函数"><a href="#阿里云函数" class="headerlink" title="阿里云函数"></a>阿里云函数</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign/archive/refs/heads/main.zip">下载</a>并解压项目代码包（或者通过git获取包<a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign.git%EF%BC%89">https://github.com/Zhuanjier/jrxySign.git）</a></li>
+</ul>
+<p>登录阿里云进入<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/122602.html">服务及</a><a target="_blank" rel="noopener" href="https://fcnext.console.aliyun.com/cn-hangzhou/services">函数</a>页面，开通服务</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-8-1024x644.png"></p>
+<ul>
+<li>创建服务</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-9.png"></p>
+<ul>
+<li>创建云函数并且修改配置</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-10-1024x537.png"></p>
+<ul>
+<li>设置触发器</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-11-1024x421.png"></p>
+<ul>
+<li>打开函数详情</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-12-1024x399.png"></p>
+<ul>
+<li>在下方终端中运行如下代码段（<strong>末尾有英文的句点，下文同理</strong>）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt -t .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行完成后部署测试</li>
+<li>如果出现错误，根据提示查看相应信息</li>
+<li>此处列举几条遇到的问题：<ul>
+<li>出现No module named ‘yaml’错误时，终端运行 <code>pip install pyyaml -t .</code> 解决</li>
+<li>出现No module named ‘tencentcloud’错误时，终端运行 <code>pip install --upgrade tencentcloud-sdk-python -t .</code> 解决</li>
+<li>阿里云运行函数需要修改action文件下的Utils.py文件的136行，其中文件地址由<code>signlog.txt</code>改为<code>/tmp/signlog.txt</code> 解决（原因：阿里云未开放除&#x2F;tmp以外文件的写入权限）</li>
+<li>同上一条action文件下的Utils.py文件的末尾两个函数（saveWise函数和getWise函数）也需要修改地址</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-13.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-14.png"></p>
+<ul>
+<li>执行部署代码，然后运行测试</li>
+<li>查看日志</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-19.png"></p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ul>
+<li>如果输出418错误如图则将config.yml中的httpProxy填写为你当前查询到的自己的<a target="_blank" rel="noopener" href="https://ipaddress.com/">ip（点击此处查询自己的ip）</a></li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-18.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-17-1024x636.png"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h3 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h3><p>本项目的源代码在MPL2.0协议下发布，同时附加以下条目：</p>
+<ul>
+<li><strong>非商业性使用</strong> — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/07/08/wp-global-styles-sakurairo-2-5-0-3/" rel="prev" title="Custom Styles">
+      <i class="fa fa-chevron-left"></i> Custom Styles
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">2.</span> <span class="nav-text">更新日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-8-8-beta"><span class="nav-number">2.1.</span> <span class="nav-text">v1.8.8(beta)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-8-9"><span class="nav-number">2.2.</span> <span class="nav-text">v1.8.9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-9-0-beta"><span class="nav-number">2.3.</span> <span class="nav-text">v1.9.0(beta)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-9-2"><span class="nav-number">2.4.</span> <span class="nav-text">v1.9.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">3.1.</span> <span class="nav-text">部署前准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">3.2.</span> <span class="nav-text">服务器部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E5%87%BD%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">阿里云函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.</span> <span class="nav-text">常见问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="nav-number">4.1.</span> <span class="nav-text">许可证</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">转接</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">Kategorien</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">转接</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

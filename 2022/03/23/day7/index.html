@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhuanjier.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="day7  题目某涉密单位下发了某种票据，并要在年终全部收回。每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。你的任务是通过编程，找出断号的ID和重号的ID。假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） 格式输入格式要求程序首先输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日一题——错误票据">
+<meta property="og:url" content="https://zhuanjier.github.io/blog/2022/03/23/day7/index.html">
+<meta property="og:site_name" content="转接的博客">
+<meta property="og:description" content="day7  题目某涉密单位下发了某种票据，并要在年终全部收回。每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。你的任务是通过编程，找出断号的ID和重号的ID。假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） 格式输入格式要求程序首先输">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-03-23T15:26:58.000Z">
+<meta property="article:modified_time" content="2022-07-10T06:37:47.317Z">
+<meta property="article:author" content="转接">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhuanjier.github.io/blog/2022/03/23/day7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>每日一题——错误票据 | 转接的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">转接的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/03/23/day7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          每日一题——错误票据
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-03-23 23:26:58" itemprop="dateCreated datePublished" datetime="2022-03-23T23:26:58+08:00">2022-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日一题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>day7</li>
+</ul>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>某涉密单位下发了某种票据，并要在年终全部收回。<br>每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。<br>因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。<br>你的任务是通过编程，找出断号的ID和重号的ID。<br>假设断号不可能发生在最大和最小号。</p>
+<p>（ATT：TODO改用vector获取字符流判断）</p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>要求程序首先输入一个整数N(N&lt;100)表示后面数据行数。<br>接着读入N行数据。<br>每行数据长度不等，是用空格分开的若干个（不大于100个）正整数（不大于100000），请注意行内和行末可能有多余的空格，你的程序需要能处理这些空格。<br>每个整数代表一个ID号。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>要求程序输出1行，含两个整数m n，用空格分隔。<br>其中，m表示断号ID，n表示重号ID</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p>样例输入1</p>
+<p>2<br>5 6 8 11 9<br>10 12 9</p>
+<p>样例输出1</p>
+<p>7 9</p>
+<p>样例输入2</p>
+<p>6<br>164 178 108 109 180 155 141 159 104 182 179 118 137 184 115 124 125 129 168 196<br>172 189 127 107 112 192 103 131 133 169 158<br>128 102 110 148 139 157 140 195 197<br>185 152 135 106 123 173 122 136 174 191 145 116 151 143 175 120 161 134 162 190<br>149 138 142 146 199 126 165 156 153 193 144 166 170 121 171 132 101 194 187 188<br>113 130 176 154 177 120 117 150 114 183 186 181 100 163 160 167 147 198 111 119</p>
+<p>样例输出2</p>
+<p>105 120</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define n 10000 </span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">int a[n] = &#123;0&#125;,   </span><br><span class="line">N,     //行数 </span><br><span class="line">min = 10000, max = 0, //id开始值和id结束值 </span><br><span class="line">m;   //中间值 </span><br><span class="line">char c;  //用来判断空格和回车</span><br><span class="line">cin&gt;&gt;N;</span><br><span class="line">for(int i = 0; i &lt; N; i++)&#123;  //外循环，循环 “输入的行数” 的次数 </span><br><span class="line">while(1)&#123;</span><br><span class="line">cin&gt;&gt;m;</span><br><span class="line">if(m &gt; max) max = m;</span><br><span class="line">if(m &lt; min) min = m;//注意：这里不能用else if()语句。。。。</span><br><span class="line"></span><br><span class="line">a[m]++;    //用数组的下标存连续的id值（不用0下标）</span><br><span class="line">   //确定范围后，数组的值==0，为断号</span><br><span class="line">   //数组的值==2，为重号 </span><br><span class="line">   </span><br><span class="line">c = getchar(); //提取空格或换行符</span><br><span class="line">if(c != &#x27; &#x27;) break;</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br><span class="line">for(int i = min; i &lt;= max; i++)&#123;</span><br><span class="line">if(a[i] == 0)cout&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot; &quot;;</span><br><span class="line">else if(a[i] == 2)cout&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot; &quot;;</span><br><span class="line">&#125; </span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/03/22/day6/" rel="prev" title="每日一题——三部排序">
+      <i class="fa fa-chevron-left"></i> 每日一题——三部排序
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/04/01/%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5/" rel="next" title="博客首页">
+      博客首页 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">输入输出样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">转接</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">Kategorien</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">转接</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

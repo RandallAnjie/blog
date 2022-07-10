@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/08/jrxy-auto-sign/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -159,7 +159,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/blog/2022/07/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/blog/2022/07/08/jrxy-auto-sign/" class="post-title-link" itemprop="url">今日校园自动签到</a>
         </h2>
 
         <div class="post-meta">
@@ -169,7 +169,27 @@
               </span>
               <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Erstellt: 2022-07-10 14:00:33" itemprop="dateCreated datePublished" datetime="2022-07-10T14:00:33+08:00">2022-07-10</time>
+              <time title="Erstellt: 2022-07-08 21:16:25" itemprop="dateCreated datePublished" datetime="2022-07-08T21:16:25+08:00">2022-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  . 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
             </span>
 
           
@@ -183,19 +203,824 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化</strong></p>
+<p><strong>北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后</strong></p>
+<p>如有疑问可以在GitHub上提交issue或在本文下方评论</p>
+<p>项目Github地址：<a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign">Zhuanjier&#x2F;jrxySign: 北京印刷学院今日校园自动签到 (github.com)</a></p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v1-8-8-beta"><a href="#v1-8-8-beta" class="headerlink" title="v1.8.8(beta)"></a>v1.8.8(beta)</h3><ul>
+<li>适配了北印信工的签到系统</li>
+<li>调整新增了签到选项为其他需要填写信息的情况</li>
+</ul>
+<h3 id="v1-8-9"><a href="#v1-8-9" class="headerlink" title="v1.8.9"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v189"></a>v1.8.9</h3><ul>
+<li>完善上一版本更新的稳定性</li>
+<li>更新了日志文档</li>
+</ul>
+<h3 id="v1-9-0-beta"><a href="#v1-9-0-beta" class="headerlink" title="v1.9.0(beta)"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v190beta"></a>v1.9.0(beta)</h3><ul>
+<li>新增本地保存登录信息session的<code>wise</code>模块，免于签到一次登录一次（未测试）</li>
+</ul>
+<h3 id="v1-9-2"><a href="#v1-9-2" class="headerlink" title="v1.9.2"></a><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign#v192"></a>v1.9.2</h3><ul>
+<li>提高代码稳定性</li>
+<li>优化文档</li>
+</ul>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="部署前准备"><a href="#部署前准备" class="headerlink" title="部署前准备"></a>部署前准备</h3><p>下载config.yam并且填写内容，必填内容如下：</p>
+<ul>
+<li>username: ‘’ —学号</li>
+<li>password: ‘’ —密码（登录学校教务的密码）</li>
+<li>address: ‘’ —地址（今日校园签到页面上面的地址信息）</li>
+<li>lon: —经度 经纬度查询网址:<a target="_blank" rel="noopener" href="http://api.map.baidu.com/lbsapi/getpoint/index.html">http://api.map.baidu.com/lbsapi/getpoint/index.html</a></li>
+<li>lat: —纬度</li>
+</ul>
+<p> </p>
+<h3 id="服务器部署"><a href="#服务器部署" class="headerlink" title="服务器部署"></a>服务器部署</h3><ul>
+<li>安装Python3.6+环境</li>
+<li>下载并解压项目代码包</li>
+<li>修改<code>config.yml</code>文件中的相关配置内容</li>
+<li>运行<code>pip install -r requirements.txt -t ./ -i https://mirrors.aliyun.com/pypi/simple</code>安装项目依赖</li>
+<li>执行<code>Python index.py</code>即可运行项目</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-4.png"></p>
+<p>pycharm测试运行结果</p>
+<h3 id="阿里云函数"><a href="#阿里云函数" class="headerlink" title="阿里云函数"></a>阿里云函数</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign/archive/refs/heads/main.zip">下载</a>并解压项目代码包（或者通过git获取包<a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/jrxySign.git%EF%BC%89">https://github.com/Zhuanjier/jrxySign.git）</a></li>
+</ul>
+<p>登录阿里云进入<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/122602.html">服务及</a><a target="_blank" rel="noopener" href="https://fcnext.console.aliyun.com/cn-hangzhou/services">函数</a>页面，开通服务</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-8-1024x644.png"></p>
+<ul>
+<li>创建服务</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-9.png"></p>
+<ul>
+<li>创建云函数并且修改配置</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-10-1024x537.png"></p>
+<ul>
+<li>设置触发器</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-11-1024x421.png"></p>
+<ul>
+<li>打开函数详情</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-12-1024x399.png"></p>
+<ul>
+<li>在下方终端中运行如下代码段（<strong>末尾有英文的句点，下文同理</strong>）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt -t .</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行完成后部署测试</li>
+<li>如果出现错误，根据提示查看相应信息</li>
+<li>此处列举几条遇到的问题：<ul>
+<li>出现No module named ‘yaml’错误时，终端运行 <code>pip install pyyaml -t .</code> 解决</li>
+<li>出现No module named ‘tencentcloud’错误时，终端运行 <code>pip install --upgrade tencentcloud-sdk-python -t .</code> 解决</li>
+<li>阿里云运行函数需要修改action文件下的Utils.py文件的136行，其中文件地址由<code>signlog.txt</code>改为<code>/tmp/signlog.txt</code> 解决（原因：阿里云未开放除&#x2F;tmp以外文件的写入权限）</li>
+<li>同上一条action文件下的Utils.py文件的末尾两个函数（saveWise函数和getWise函数）也需要修改地址</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-13.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-14.png"></p>
+<ul>
+<li>执行部署代码，然后运行测试</li>
+<li>查看日志</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-19.png"></p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ul>
+<li>如果输出418错误如图则将config.yml中的httpProxy填写为你当前查询到的自己的<a target="_blank" rel="noopener" href="https://ipaddress.com/">ip（点击此处查询自己的ip）</a></li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-18.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-17-1024x636.png"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h3 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h3><p>本项目的源代码在MPL2.0协议下发布，同时附加以下条目：</p>
+<ul>
+<li><strong>非商业性使用</strong> — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途</li>
+</ul>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/08/wp-global-styles-sakurairo-2-5-0-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/07/08/wp-global-styles-sakurairo-2-5-0-3/" class="post-title-link" itemprop="url">Custom Styles</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-07-08 10:36:24" itemprop="dateCreated datePublished" datetime="2022-07-08T10:36:24+08:00">2022-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>{“version”: 2, “isGlobalStylesUserThemeJSON”: true }</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/07/08/688/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/07/08/688/" class="post-title-link" itemprop="url">Untitled Post - 2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-07-08 01:14:35" itemprop="dateCreated datePublished" datetime="2022-07-08T01:14:35+08:00">2022-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>test</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/20/alist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/20/alist/" class="post-title-link" itemprop="url">Alist</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-20 18:15:15" itemprop="dateCreated datePublished" datetime="2022-06-20T18:15:15+08:00">2022-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/20/cloudreve/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/20/cloudreve/" class="post-title-link" itemprop="url">Cloudreve</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-20 18:15:15" itemprop="dateCreated datePublished" datetime="2022-06-20T18:15:15+08:00">2022-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/20/gitlab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/20/gitlab/" class="post-title-link" itemprop="url">Gitlab</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-20 18:15:14" itemprop="dateCreated datePublished" datetime="2022-06-20T18:15:14+08:00">2022-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/20/wiki/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/20/wiki/" class="post-title-link" itemprop="url">Wiki</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-20 18:15:13" itemprop="dateCreated datePublished" datetime="2022-06-20T18:15:13+08:00">2022-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/13/linux-systemctl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/13/linux-systemctl/" class="post-title-link" itemprop="url">Linux下将长期运行命令变为系统服务</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-13 12:21:10" itemprop="dateCreated datePublished" datetime="2022-06-13T12:21:10+08:00">2022-06-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;中新建“服务名.service”文件。</p>
+<p>vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;服务名.service 内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Desctiption = 服务名称</span><br><span class="line">After = network.target syslog.target</span><br><span class="line">Wants = network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = simple</span><br><span class="line">ExecStart = “命令”</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy = multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start 服务名.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看状态</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status 服务名.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置开机自启</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable 服务名.service</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/11/byyl4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/11/byyl4/" class="post-title-link" itemprop="url">编译原理实验4</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-11 23:33:27" itemprop="dateCreated datePublished" datetime="2022-06-11T23:33:27+08:00">2022-06-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  . 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>编译器设计与实现</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2><p>定义一个程序设计语言，确定编译器设计方法，构造相应的属性文法。根据属性文法设计编译器（可以手工设计亦可自动生成），并设计中间代码解释器，其能够解释执行编译后的中间代码。</p>
+<p>要求输入一个合法的源程序，输出其中间代码形式的目标程序并能够解释执行生成的目标代码，并得到预期人结果。</p>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a><strong>实验目的</strong></h2><p>通过实验完整地了解编译器设计过程，掌握编译原理中各种算法及算法的应用。</p>
+<h2 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a><strong>实验准备</strong></h2><h3 id="程序设计语言的文法定义"><a href="#程序设计语言的文法定义" class="headerlink" title="程序设计语言的文法定义"></a>程序设计语言的文法定义</h3><p>可以定义PL&#x2F;1语言的文法，亦可根据C语言定义一个简单的C语言文法。</p>
+<p><strong>lexical 词法分析</strong>：token类型token_type、分隔符号split_char_type、注释note_char_type、正则表达式字典regex_dict</p>
+<p><strong>syntax 语法分析</strong>：Sign类为符号类。Production类为产生式。</p>
+<p><strong>semantic 语义分析</strong>：定义一个符号表池，每次调用函数的时候使用深拷贝从这里取局部变量表。SemanticRule类别为语义规则。SemanticRuleFactory类为语义规则工厂，根据给出的 rule_key 返回相应的实例。</p>
+<h3 id="确定编译器设计方法，构造相应的属性文法"><a href="#确定编译器设计方法，构造相应的属性文法" class="headerlink" title="确定编译器设计方法，构造相应的属性文法"></a>确定编译器设计方法，构造相应的属性文法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def put_source(self, source):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        装填词法分析结果</span><br><span class="line">        :param source: 词法分析结果</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.__source.clear()</span><br><span class="line">        self.__terminals.clear()</span><br><span class="line">        # 装填词法分析结果</span><br><span class="line">        for s in source:</span><br><span class="line">            self.__source.append(s)</span><br><span class="line">        # 将 tokens 转换成终结符</span><br><span class="line">        for s in self.__source:</span><br><span class="line">            self.__terminals.append(Sign(s.type, s.str, s.line))</span><br><span class="line">        # 在所有 tokens 的最后填入一个 #</span><br><span class="line">        self.__terminals.append(Sign(&#x27;pound&#x27;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><h3 id="实验源码"><a href="#实验源码" class="headerlink" title="实验源码"></a>实验源码</h3><p><a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl4">Randall Chu &#x2F; 编译原理实验4 · GitLab (zhuanjie.ltd)</a></p>
+<h3 id="输出代码"><a href="#输出代码" class="headerlink" title="输出代码"></a>输出代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int u, int v) &#123;</span><br><span class="line">    if (v == 0) &#123;</span><br><span class="line">        return u;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return gcd(v, u-u/v*v);</span><br><span class="line">    &#125;</span><br><span class="line">    /* u-u/v*v* == u mod v */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">    int x;</span><br><span class="line">    int y;</span><br><span class="line">    x = input();</span><br><span class="line">    y = input();</span><br><span class="line">    output(gcd(x, y));</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实验截图"><a href="#实验截图" class="headerlink" title="实验截图"></a>实验截图</h3><p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/1.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/2.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/3.png"></p>
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><p>通过这次编译器设计，我完整地了解编译器设计过程，掌握编译原理中各种算法及算法的应用。首先是词法分析识别Token序列，syntax 语法分析和semantic 语义分析。词法分析使用正则表达式，语法分析使用LL(1)文法分析器， 语义分析使用自上而下翻译，使用 Python 语言编写。main.py 编译器主程序；error.py 存放错误相关的类和代码；test.c 要编译的文件。三大分析中 rule.py 即是支持编译器的所有文法、词法、语义规则。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://zhuanjier.github.io/blog/2022/06/02/byyl3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="转接">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="转接的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/06/02/byyl3/" class="post-title-link" itemprop="url">编译原理实验3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-06-02 18:16:53" itemprop="dateCreated datePublished" datetime="2022-06-02T18:16:53+08:00">2022-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-07-10 14:37:47" itemprop="dateModified" datetime="2022-07-10T14:37:47+08:00">2022-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  . 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>语义分析常用算法的实现及应用实验<br>以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2><p>以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子</p>
+<p>在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。</p>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a><strong>实验目的</strong></h2><p>1、进一步理解文法特别是上下文无关文法相关概念</p>
+<p>2、掌握求First集、Follow集、FirstVt集及LastVt集算法，并能够应用其构造文法的LL分析表、算符优先分析表及LR分析表</p>
+<p>3、通过分析LL(1)文法、算符优先文法及LR(1)文法进一步理解自动编程方法</p>
+<h2 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a><strong>实验准备</strong></h2><h3 id="文法的输入"><a href="#文法的输入" class="headerlink" title="文法的输入"></a><strong>文法的输入</strong></h3><p>在一个文框中输入文法规则，每个规则占一行，文法规则以如下形式输入：左部符号::&#x3D;文法规则右部符号串</p>
+<p>第一条规则的左部符号即为文法的开始符号。一个（左部符号或右部符号）符号使用一个字符串表示，如果有两个形如“A::&#x3D;α和A::&#x3D;β”的规则，则可以合并成“A::&#x3D;α｜β”。</p>
+<h3 id="左部符号与右部符号的确定"><a href="#左部符号与右部符号的确定" class="headerlink" title="左部符号与右部符号的确定"></a><strong>左部符号与右部符号的确定</strong></h3><p>左部符号的确定：位于每个规则左部即为左部符号。</p>
+<p>右部符号的确定：将每个右部符号串使用左部符号之符号串将其分隔成字符串序列，则不是左部符号之符号串即为右部符号或右部符号串组成的字符串。分隔的原则是“长度优先”，即一个长左部符号串不得再分隔成字符串序列，一个字符串优先使用较长的左部符号之符号串分隔。</p>
+<h3 id="文法的存储表示"><a href="#文法的存储表示" class="headerlink" title="文法的存储表示"></a><strong>文法的存储表示</strong></h3><p>关键记数：左部符号个数nVn，右部符号个数nVt，规则个数nRule</p>
+<p>符号表：使用一个字符串数组存储左部及右部符号，左部符号字符串在前，右部字符串在后。每个符号使用其在符号表中的下标表示，当下标是nVn+nVt时，符号是空符号（ε），当下标是nVn+nVt+1时，符号是结束符号（#）。</p>
+<p>规则列表：使用一个规则数组存储规则列表，一条规则由左部符号（使用其在符号表中下标表示）及左部符号序列（即符号之下标序列）表示。</p>
+<h3 id="基本操作算法描述"><a href="#基本操作算法描述" class="headerlink" title="基本操作算法描述"></a><strong>基本操作算法描述</strong></h3><h4 id="求First集算法"><a href="#求First集算法" class="headerlink" title="求First集算法"></a><strong>求First集算法</strong></h4><p>先初始化非终结符的First集为空，初始化终结符的First集合为自己；开始循环，当First集没有更新就结束循环。循环内：新建一个标记flag初始化为False，遍历所有非终结符，每次遍历非终结符时遍历所有产生式。新建一个标记mark初始化为True，当mark为True并且遍历到产生式的末尾就结束。如果还存在没有添加的即First[Yi]中没有ε，则将First[Yi]添加到First[X]中，同时将标记mark更新为False。如果是第一个符号，则将First[Yi]中的非ε添加到First[X]中，同时flag标记更新为True。如果Yi不能推出ε就标记为False；如果所有的Yi都推出ε则将ε添加到First[X]中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">def getFirst() -&gt; None:</span><br><span class="line">    global non_term, term, First</span><br><span class="line">    # 初始化非终结符的First集为空</span><br><span class="line">    for it in non_term: First[it] = set()</span><br><span class="line">    # 初始化终结符的First集合为自己</span><br><span class="line">    for it in term:</span><br><span class="line">        First[it] = set(it)</span><br><span class="line">    flag = True</span><br><span class="line">    while flag:  # 当First集没有更新就结束</span><br><span class="line">        flag = False  # 新建一个标记flag初始化为False</span><br><span class="line">        for X in non_term:  # 遍历所有非终结符</span><br><span class="line">            for Y in production[X]:  # 遍历所有产生式</span><br><span class="line">                i = 0</span><br><span class="line">                mark = True  # 新建一个标记mark初始化为True</span><br><span class="line">                while mark and i &lt; len(Y):  # 当mark为True并且遍历到产生式的末尾就结束</span><br><span class="line">                    if not First[Y[i]] - set(epsilon) &lt;= First[X]:  # 还存在没有添加的</span><br><span class="line">                        # print(&#x27;First[&#x27; , X, &#x27;] = &#x27;, &quot;   &quot;, First[X], &#x27;First[&#x27;, Y[i] , &#x27;] = &#x27; , First[Y[i]])</span><br><span class="line">                        # First[Yi] 中没有 ε</span><br><span class="line">                        if epsilon not in First[Y[i]] and Y[i] in non_term and i &gt; 0:  # 如果不是第一个符号</span><br><span class="line">                            First[X] = First[Y[i]]  # 将 First[Yi] 添加到 First[X] 中</span><br><span class="line">                            mark = False  # 标记更新为False</span><br><span class="line">                        else:  # 如果是第一个符号</span><br><span class="line">                            First[X] = First[Y[i]] - set(epsilon)  # 将 First[Yi] 中的非 ε 添加到 First[X] 中</span><br><span class="line">                            flag = True  # flag标记更新为True</span><br><span class="line">                    if epsilon not in First[Y[i]]:  # 如果 Yi 不能推出 ε 就标记为 False</span><br><span class="line">                        mark = False  # mark标记更新为False</span><br><span class="line">                    i += 1</span><br><span class="line">                if mark:  # 如果所有的 Yi 都推出 ε</span><br><span class="line">                    First[X] = set(epsilon)  # 将 ε 添加到 First[X] 中</span><br><span class="line">return None</span><br></pre></td></tr></table></figure>
+
+<h4 id="求Follow集算法"><a href="#求Follow集算法" class="headerlink" title="求Follow集算法"></a><strong>求Follow集算法</strong></h4><p>初始化后将 # 号加入到Follow[s] 中，新建一个标记flag初始化为True。开始循环，当Follow集不再更新，算法结束。循环内：标记flag初为False，遍历所有非终结符。每次遍历非终结符时遍历所有产生式，扫描产生式时遍历所有产生式的每一个符号。bi 是终结符则跳过，否则新建一个标记mark初始化为True，遍历所有产生式的每一个符号。如果可以更新则将 First[Bj] 中的非 ε 添加到 Follow[Bi] 中，设置标记flag为True。如果 Bj 不能推出 ε 就标记为 False，设置mark标记为False。判断mark，如果为True，那么A-&gt;αBβ and β-&gt;ε。如果可以更新，将 Follow[A] 添加到 Follow[B] 中，设置flag为True。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">def getFollow() -&gt; None:</span><br><span class="line">    global non_term, term, First, Follow, start_sym</span><br><span class="line">    for A in non_term:</span><br><span class="line">        Follow[A] = set()  # 初始化</span><br><span class="line">    Follow[start_sym].add(end_sym)  # 将 # 号加入到Follow[s] 中</span><br><span class="line">    flag = True  # 新建一个标记flag初始化为True</span><br><span class="line">    while flag:  # 当Follow集不再更新，算法结束</span><br><span class="line">        flag = False  # 标记flag初为False</span><br><span class="line">        for A in non_term:  # 遍历所有非终结符</span><br><span class="line">            for B in production[A]:  # 遍历所有产生式</span><br><span class="line">                for i in range(len(B)):  # 遍历所有产生式的每一个符号</span><br><span class="line">                    # bi 是终结符则跳过</span><br><span class="line">                    if B[i] in term:</span><br><span class="line">                        continue</span><br><span class="line">                    mark = True  # 新建一个标记mark初始化为True</span><br><span class="line">                    for j in range(i + 1, len(B)):  # 遍历所有产生式的每一个符号</span><br><span class="line">                        if not First[B[j]] - set(epsilon) &lt;= Follow[B[i]]:  # 可以更新</span><br><span class="line">                            Follow[B[i]] = First[B[j]] - set(epsilon)  # 将 First[Bj] 中的非 ε 添加到 Follow[Bi] 中</span><br><span class="line">                            flag = True  # 发生了改变</span><br><span class="line">                        if epsilon not in First[B[j]]:  # 如果 Bj 不能推出 ε 就标记为 False</span><br><span class="line">                            mark = False  # 设置mark标记为False</span><br><span class="line">                        break</span><br><span class="line">                    if mark:  # A-&gt;αBβ and β-&gt;ε</span><br><span class="line">                        if not Follow[A] &lt;= Follow[B[i]]:  # 可以更新</span><br><span class="line">                            Follow[B[i]] = Follow[A]  # 将 Follow[A] 添加到 Follow[B] 中</span><br><span class="line">                            flag = True  # 发生了改变</span><br><span class="line">    return None</span><br></pre></td></tr></table></figure>
+
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><p>1. 编写代码</p>
+<p><a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl3">Randall Chu &#x2F; 编译原理实验3 · GitLab (zhuanjie.ltd)</a></p>
+<p>2. 测试文法</p>
+<p>LL1文法</p>
+<p>E-&gt;TA<br>A-&gt;+TAε<br>T-&gt;FB<br>B-&gt;*FBε<br>F-&gt;i(E)</p>
+<p>非LL1文法</p>
+<p>S-&gt;AB<br>S-&gt;bC<br>A-&gt;ε<br>A-&gt;b<br>B-&gt;ε<br>B-&gt;aD<br>C-&gt;AD<br>C-&gt;b<br>D-&gt;aS<br>D-&gt;c</p>
+<p>3. 测试运行(实验环境Windows11 Python3.10 pycharm)，如图：</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-8.png"></p>
+<p>4. 输出信息</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-9.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-11.png"></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-12.png"></p>
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><p>通过本次实验我进一步理解了文法特别是上下文无关文法相关概念，掌握了求First集、Follow集、FirstVt集及LastVt集算法，并能够应用其构造文法的LL分析表、算符优先分析表及LR分析表。我也通过分析LL(1)文法、算符优先文法及LR(1)文法进一步理解了自动编程方法。刚刚写完分析符号串逻辑思路代码，这个心情是无比激动的，但是又有诸多的bug，内心是无比崩溃的，然后经过一行一行的修改，慢慢的调终于弄好了。</p>
 
       
     </div>
@@ -213,6 +1038,9 @@
 
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+  </nav>
 
 
 
@@ -277,9 +1105,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">Kategorien</span>
       </div>
   </nav>
 </div>
