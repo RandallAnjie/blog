@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog_icon.png">
+  <link rel="icon" href="/img/blog_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="转接">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="实验内容与要求设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理实验1">
+<meta property="og:url" content="https://blog.randallanjie.uk/2022/06/02/byyl1/">
+<meta property="og:site_name" content="一个计科生の博客">
+<meta property="og:description" content="实验内容与要求设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-1.png">
+<meta property="article:published_time" content="2022-06-02T02:16:10.000Z">
+<meta property="article:modified_time" content="2023-02-12T05:48:53.519Z">
+<meta property="article:author" content="转接">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png">
+  
+  
+  
+  <title>编译原理实验1 - 一个计科生の博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.randallanjie.uk","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"91c013732941e890d23aca61fb06cd50","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?91c013732941e890d23aca61fb06cd50";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个计科生の博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="编译原理实验1"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-02 10:16" pubdate>
+          2022年6月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">编译原理实验1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="实验内容与要求"><a href="#实验内容与要求" class="headerlink" title="实验内容与要求"></a>实验内容与要求</h2><p>设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。</p>
+<p>创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它由5种类型符号：关键词，识别符，常量，界符和操作符。</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>通过实验理解文法及文法在编写词法分析中的应用、理解符号表及掌握符号管理技术。</p>
+<h2 id="实验准备："><a href="#实验准备：" class="headerlink" title="实验准备："></a>实验准备：</h2><h3 id="程序设计语言："><a href="#程序设计语言：" class="headerlink" title="程序设计语言："></a>程序设计语言：</h3><p>程序设计语言为PL0语言，其特点是数据类型只有整数类型，具有三种程序结构（顺序、分支及循环），有过程定义，但过程无参数，允许分程序嵌套定义。具有常量定义、变量定义等。PL0语言的单词分类：分隔符、运算符、常数、标识符及保留字，具体如下</p>
+<ol>
+<li> <strong>分隔符</strong>：.(圆点)、,(逗号)、;(分号)、((左圆括号)、)(右圆括号)、=(等号)及:=(赋值号)；</li>
+<li> <strong>运算符</strong>：分为算术运算符和关系运算符；</li>
+<li> <strong>算术运算符</strong>：+(加)、-(减)、*(乘)、/(除)及+(取正)、-(取负)；</li>
+<li> <strong>关系运算符</strong>：=(等于)、#(不等)、&lt;(小于)、&lt;=(小于等于)、&gt;(大于)、&gt;=(大于等于)及odd(是否为偶数)；</li>
+<li> <strong>常数</strong>：由0到9组成的整形常数；</li>
+<li> <strong>标识符</strong>：由字母开始由字母及数字组成的符号串；</li>
+<li> <strong>保留字</strong>：保留字不分大小写，有如下这些：begin、call、const、do、end、if、odd、procedure、read、then、var、while、write、else、BEGIN、CALL、CONST、DO、END、IF、ODD、PROCEDURE、READ、THEN、VAR、WHILE、WHILE、ELSE；</li>
+</ol>
+<p>char *kword[28]={“begin”,”call”,”const”,”do”,”end”,”if”,”odd”,”procedure”,”read”,”then”,”var”,”while”,”write”,”else”,”BEGIN”,”CALL”,”CONST”,”DO”,”END”,”IF”,”ODD”,”PROCEDURE”,”READ”,”THEN”,”VAR”,”WHILE”,”WHILE”,”ELSE”};</p>
+<ul>
+<li>  <strong>常数的文法定义</strong>：</li>
+</ul>
+<p>N::=DDN</p>
+<p>D::=[0..9]；</p>
+<ul>
+<li>  <strong>标识符的文法定义</strong>：</li>
+</ul>
+<p>ID::=LTL</p>
+<p>L::=[a..z]</p>
+<p>T::=LTLD</p>
+<p>D::=[0..9]；</p>
+<ol>
+<li> <strong>单词的处理</strong>：一个单词由单词类别及单词值组成。分隔符、运算符及保留字一个单词一个类别，常数一个类别，标识符一个类别，每个类别使用一个整数编码。标识符、运算符及保留字保存在符号表中；</li>
+<li> <strong>单词表示</strong>：使用结构体表示一个单词，结构体的组成如下：</li>
+</ol>
+<p><strong>单词类别</strong>：使用一个整数编码；</p>
+<p><strong>单词值</strong>：如果是分隔符、运算符则单词值无意义，如果是标识符或保留字，则单词值为其存储在符号表中的下标，如果是常数，则单词值为常数值；</p>
+<ol>
+<li> 存储NFA的数据结构为二维结构体，结构体定义如下</li>
+</ol>
+<p>struct NFA_set</p>
+<p>{</p>
+<p>char set[100];</p>
+<p>int len=0;</p>
+<p>};</p>
+<p>用子集法将NFA转化为DFA。</p>
+<h2 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a>实验过程：</h2><ul>
+<li>  源程序</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl1">Randall Chu / 编译原理实验一 · GitLab (zhuanjie.ltd)</a></p>
+<ul>
+<li>  运行结果之载图</li>
+</ul>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-1.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="实验总结："><a href="#实验总结：" class="headerlink" title="实验总结："></a>实验总结：</h2><p>通过本次实验，我学到了很多东西。首先是加深了对编译原理课程的理解，对词法分析有了更进一步的掌握，其次是编程能力的提高。这一次的编译原理课程实验，我更注重数据结构的使用，数据结构的好坏直接决定了代码的复杂度和代码量，有一些可以用链表结构的地方尽量避免用链表，换用数组和一个表示长度的整型变量的数据结构来表示，因为链表虽然方便灵活，但是链接的使用会导致后台运算量的增加。通过这一段时间写词法分析器，我对一个编译器的组成有了更深层次的认识。</p>
+<p>如果增加判断数据的类型，新增单精度和双精度数据。单精度：取值范围在正负1.5X10的负45次方到3.4X10的38次方之间，精度为7位数。双精度：取值范围在正负5.0X10的负324到1.7X10的308次方之间，精度为15到16位数。增加科学计数法表示数字的模式，在运算符中新增符号e。如果整数类型引入八进制整数、十六进制整数、长整数及短整数应该在判断数字之前增加判断，新增前缀判断0b、0B为二进制，0开头为八进制，0x、0X开头为十六进制，在判断为几进制数后还要新增判断该数字中的每个数字是否都有该进制的有效的数字。词法分析器的主要任务是读入源程序的输入字符、将它们组成词素，生成并输出一个词法单元序列。过滤掉源程序中的注释和空白，将编译器生成的错误消息和源程序的位置联系起来。有时，词法分析器可以分成两个级联的处理阶段：1）扫描阶段主要负责完成一些不需要生词词法单元的简单处理，比如删除注释和将多个连续的空白字符压缩成一个字符2）     词法分析阶段是较为复杂的部分，它处理扫描阶段的输出并生成词法单元用子集法将NFA转化为DFA。转化过程与课本中子集法的转化过程是一致的。我的程序中，int Is_in(NFA_set temp)函数用于判断新产生的一个子集是否是已经存在的，防止重复。不重复则返回-1，重复则返回重复的编号。void get_closure(NFA_set &amp;temp)函数用于计算ε-closure。bool Is_contained_Y(NFA_set temp)函数用于判断该状态是否是终态。</p>
+<p>转化过程是具体实现是：做一个NFA_set类型的栈，新状态不停的进栈，每次从堆栈中弹出一个，计算其转换的结果，是新状态就进栈，重复则丢弃，只记录好dfa的转换，直到栈空。最后成功构造出DFA。对输入源程序的扫描过程很简单，一次读入一个字符，成串的送入匹配和DFA判断其合法性。给出输出结果。</p>
+<p>删除注释需要读取到“//”直接跳过本行后面的内容，读取到“/*”则暂停分析程序一路扫描跳过，直到扫描到“*/”恢复程序运行。</p>
+<p>宏替换需要在调用宏时，首先对参数进行检查，看看是否包含任何由#define定义的符号。如果是，它们首先被替换。替换文本随后被插入到程序中原来文本的位置。对于宏，参数名被它们的值替换。最后，再次对结果文件进行扫描，看看它是否包含任何由#define定义的符号。如果是，就重复上述处理过程。</p>
+<p>宏展开是一个替换的过程，考虑对上述宏的调用则是一个无限递归的展开过程；为了防止无限递归这种情况的产生，宏展开时会做一个标记，再次对于展开时就不再对其进行替换，这种情况同样适用于非直接自引用的情况。如果宏的参数不是被字符串化或与其它token进行拼接，则宏的参数是完全进行替换的。一旦替换完成，替换后的宏体会被再次扫描完成宏体部分的宏展开。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>编译原理实验1</div>
+      <div>https://blog.randallanjie.uk/2022/06/02/byyl1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>转接</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/02/byyl2/" title="编译原理实验2">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">编译原理实验2</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/11/all-kinds-of-sort/" title="关于各种排序">
+                        <span class="hidden-mobile">关于各种排序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Zhuanjier/blog');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comment');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p>© 2023 <a target="_blank" rel="noopener" href="http://startpage.zhuanjie.ltd/">转接</a></p> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021028872号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

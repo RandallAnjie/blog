@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog_icon.png">
+  <link rel="icon" href="/img/blog_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="转接">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="Experimental report on program design in spring 20 1. 最长公字串题目编写一个程序，对输入的字符串s和t，求其最长的公共子字符串。输入形式：从屏幕分行读入串s和t。s和t由任意字符构成，长度都不超50个字符。输入数据确保只有唯一的最长公共子串。如果没有公共子串，打印No Answer。 输出形式：在单独行上输出串s和串t的最长公共子串，在结尾输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20春小学期程序设计实验报告">
+<meta property="og:url" content="https://blog.randallanjie.uk/2020/06/27/experimentalreportonprogramdesigninspring20/">
+<meta property="og:site_name" content="一个计科生の博客">
+<meta property="og:description" content="Experimental report on program design in spring 20 1. 最长公字串题目编写一个程序，对输入的字符串s和t，求其最长的公共子字符串。输入形式：从屏幕分行读入串s和t。s和t由任意字符构成，长度都不超50个字符。输入数据确保只有唯一的最长公共子串。如果没有公共子串，打印No Answer。 输出形式：在单独行上输出串s和串t的最长公共子串，在结尾输出">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
+<meta property="article:published_time" content="2020-06-26T22:11:00.000Z">
+<meta property="article:modified_time" content="2023-02-12T05:48:53.405Z">
+<meta property="article:author" content="转接">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png">
+  
+  
+  
+  <title>20春小学期程序设计实验报告 - 一个计科生の博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.randallanjie.uk","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"91c013732941e890d23aca61fb06cd50","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?91c013732941e890d23aca61fb06cd50";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个计科生の博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="20春小学期程序设计实验报告"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-06-27 06:11" pubdate>
+          2020年6月27日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          20k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          163 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">20春小学期程序设计实验报告</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Experimental report on program design in spring 20</p>
+<h1 id="1-最长公字串"><a href="#1-最长公字串" class="headerlink" title="1. 最长公字串"></a>1. 最长公字串</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>编写一个程序，对输入的字符串s和t，求其最长的公共子字符串。输入形式：从屏幕分行读入串s和t。s和t由任意字符构成，长度都不超50个字符。输入数据确保只有唯一的最长公共子串。如果没有公共子串，打印No Answer。</p>
+<p>输出形式：在单独行上输出串s和串t的最长公共子串，在结尾输出一个回车符。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>根据题意，将对应的行内字符串存入对应的数组a，b中，再比较a和b的长度，将较短的信息存入a，较长的存入b中。将a中以依次减少1个长度的原则取出对应的数组存入test数组中，再在b中取出相同长度的数组存入card数组中，比较test和card的区别来判断是否存在最大相同子串，如果相同就输出该子串，并且离开循环。如果最后循环完还未输出就输出No Answer。</p>
+<h2 id="代码（c）"><a href="#代码（c）" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#include&lt;stdio.h&gt;</span><br><span class="hljs-comment">#include&lt;string.h&gt;</span><br><span class="hljs-comment">#include&lt;stdlib.h&gt;</span><br>char *mystrncpy(char *string, int n)&#123;<span class="hljs-regexp">//</span>指向字符串的指针可以改变 <br>char*p=string;<br><span class="hljs-keyword">if</span>(p==NULL)&#123;<span class="hljs-regexp">//</span>如果截取的字符串是空的直接返回<br>return NULL;<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>int i=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(*p!=<span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<span class="hljs-regexp">//</span>循环直到达n个字符串终止<br><span class="hljs-keyword">if</span>(i==n)&#123;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>i++;<br>p++;<br>&#125;<br>*(p++)=<span class="hljs-string">&#x27;\0&#x27;</span>;<span class="hljs-regexp">//</span>赋值结束字符串<br>return string;<br>&#125;<br>&#125;<br><br>int main()&#123;<br>char a[<span class="hljs-number">50</span>],b[<span class="hljs-number">50</span>];<br>char c[<span class="hljs-number">50</span>];<span class="hljs-regexp">//</span>中间变量 <br>int flag=<span class="hljs-number">0</span>;<br>int i,j,k,m,n;<br>gets(a);<span class="hljs-regexp">//</span>第一行字符串 <br>gets(b);<span class="hljs-regexp">//</span>第二行字符串 <br>int lentha=strlen(a);<span class="hljs-regexp">//</span>第一行字符串长度 <br>int lenthb=strlen(b);<span class="hljs-regexp">//</span>第二行字符串长度 <br><span class="hljs-regexp">/*检测输入*/</span> <br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;%s&quot;</span>,a); <br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;%s&quot;</span>,b);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;lentha=%d,lenthb=%d&quot;</span>,lentha,lenthb);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">/*初处理数据，将短的的数据变到a*/</span><br><span class="hljs-keyword">if</span>(lentha&gt;lenthb)&#123;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">50</span>;i++)&#123;<br>c[i]=a[i];<br>a[i]=b[i];<br>b[i]=c[i];<br>&#125;<br>i=lentha;<br>lentha=lenthb;<br>lenthb=i; <br>&#125;<br><span class="hljs-regexp">/*初处理检测*/</span> <br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;初处理%s&quot;</span>,a); <br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;初处理%s&quot;</span>,b);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;初处理lentha=%d,lenthb=%d&quot;</span>,lentha,lenthb);<br><span class="hljs-regexp">//</span>printf(<span class="hljs-string">&quot;\n-------------------------\n&quot;</span>);<br><span class="hljs-regexp">/*运算部分*/</span> <br><span class="hljs-keyword">for</span>(i=lentha;i&gt;<span class="hljs-number">0</span>;i--)&#123;<span class="hljs-regexp">//</span>从a的最长长度截取，依次减少 <br>char test[i];<span class="hljs-regexp">//</span>对应a中取得的值 <br>char card[i];<span class="hljs-regexp">//</span>对应b中取得的值 <br><span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;=lentha-i;j++)&#123;<br><span class="hljs-keyword">for</span>(k=<span class="hljs-number">0</span>;k&lt;i;k++)&#123;<span class="hljs-regexp">//</span>将a中对应值覆到test <br>test[k]=a[k+j];<br>&#125;<br><span class="hljs-keyword">for</span>(m=<span class="hljs-number">0</span>;m&lt;lenthb-i+<span class="hljs-number">1</span>;m++)&#123;<br><span class="hljs-keyword">for</span>(n=<span class="hljs-number">0</span>;n&lt;i;n++)&#123;<span class="hljs-regexp">//</span>将b中对应值覆到card <br>card[n]=b[n+m];<br>&#125;<br>int judge=<span class="hljs-number">1</span>; <br><span class="hljs-keyword">for</span>(n=<span class="hljs-number">0</span>;n&lt;i;n++)&#123;<span class="hljs-regexp">//</span>判断card和test是否一致 <br><span class="hljs-keyword">if</span>(test[n]!=card[n])&#123;<br>judge=<span class="hljs-number">0</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(judge)&#123;<br>printf(<span class="hljs-string">&quot;%s&quot;</span>,mystrncpy(test,i));<br>flag=<span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-keyword">if</span>(flag)&#123;<br><span class="hljs-keyword">break</span>; <br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(flag)&#123;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(flag)&#123;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(flag==<span class="hljs-number">0</span>)&#123;<br>printf(<span class="hljs-string">&quot;No Answer&quot;</span>); <br>&#125; <br> <br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本题用到了get();来获取字符串。gets()用于从标准输入流stdin读入一个整行（以bai’\n’或EOF）结束，写入ptr指向的字符数组，并返回这个指针；出错或遇到文件结束时则返回NULL。行末的’\n’从流中取出，但不写入数组。gets()不检查被写入的数组大小。程序运用逐个尝试的方法来获取最长公子串。在获取字符串时检查字符串长度，当a的长度大于b的长度时，运用了逐个代换的方法，将a，b中的元素互换位置。</p>
+<h1 id="2-CCF-201712-5-商路"><a href="#2-CCF-201712-5-商路" class="headerlink" title="2. CCF 201712-5 商路"></a>2. CCF 201712-5 商路</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>国王小w总共有八座城市，用1到n的整数编号。除首都1号城市外，每座城市都有唯一的直接上级城市，并有一条道路连接二者，即这些城市和道路构成了一棵有根树。对于城市i，我们记它的直接上级城市为ui，它到该城市道路的长度为si；同时，称i是么ui的直接下级城市。城市i的直接下级城市和直接下级城市的下级城市统称为城市i的下级城市。<br>每座城市的长官都想要建立一条由自己管辖的商路。对于城市i的长官，他管辖的商路必须形如a1a2…ak，其中a1=i：对于1≤j&lt;k,aj+1是aj的下级城市：k可以是你指定的正整数。即，一条商路是从城市i出发，依次向下级延伸的一条路径。注意路径只用向下级城市延伸即可，不限定为直接下级。城市i的价值由vi和fi两个参数描述。商路a1a2…ak的总价值为：</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/02/%E5%9B%BE%E7%89%871.png" srcset="/img/loading.gif" lazyload></p>
+<p>其中d(aj.aj+1）是连接aj和aj+1的道路总长度。形象地说，商路的总价值等于每小段的价值之和：vi和fi分别描述了i作为起点的最理想小段价值和最佳的小段长度：小段的价值等于以它们为参数，两座城市距离为自变量的二次函数。<br>如有必要，一条商路允许只包含长官所在的那一座城市，即k=1，此时商路的总价值为0。此外，不同城市长官建立的道路之间互相不影响，价值独立计算。<br>国王小W希望所有的n条商路的总价值之和最大，他现在请你帮忙。你可以替每座城市的长官决定商路的长度k和路径上除起点之外的城市，问最大的总价值之和是多少。</p>
+<p>输入格式<br>从标准输入读入数据。<br>输入的第一行包含一个正整数个，表示数据的组数。对于测试数据，保证T=10。<br>接下来有T个部分，每个部分描述一组数据，其中：<br>每个部分第一行包含一个正整数n，表示城市的数量。<br>接下米n行，每行包含4个非负整数ui，si,vi,fi，分别表示直接上级城市的编号，连接直接上级城市道路的长度，最理想小段价值和最佳的小段长度。保证：0≤vi≤10^13，0≤fi≤10^9；对于2≤i≤n，保证1≤ui&lt;i,1≤si≤10^4；u1=s1=0，仅占位无实际意义（首都没有上级城市）。</p>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>根据题意输入的顺序是城市编号的顺序，而城市编号的顺序又直接决定了城市之间的上下级关系。虽然编号小的不一定是大编号的下级，但下级城市的编号一定比上级城市的编号小，如何利用这一点非常重要。假如城市A的下级城市是B,C,D ；那如果B,C,D 本身的商路价值都是最大话之后，A 只能在B,C,D 中挑选一个与之相连，或者不相连，来使自己的商路价值最大话。也就是如果B,C,D的商路价值都是已知的了，那A 的商路价值就都是已知的了。 如此以来，只需要按照逆序从后向前分别计算商路的最大值就可以了。</p>
+<h2 id="代码（c-）"><a href="#代码（c-）" class="headerlink" title="代码（c++）"></a>代码（c++）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;queue&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-type">const</span> ll MOD=<span class="hljs-number">1e18</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br>ll v[N],f[N],u[N],s[N];<br>ll ans[N];<br><span class="hljs-type">int</span> vis[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-built_in">memset</span>(ans,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(ans));<br><span class="hljs-built_in">memset</span>(vis,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(vis));<br>&#125;<br>queue&lt;<span class="hljs-type">int</span>&gt;q;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-type">int</span> T,n;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;T);<br><span class="hljs-keyword">while</span>(T--)<br>&#123;<br><span class="hljs-built_in">init</span>(); <span class="hljs-comment">//初始化 </span><br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>&#123;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d%d&quot;</span>,&amp;u[i],&amp;s[i],&amp;v[i],&amp;f[i]);<br>vis[u[i]]++; <span class="hljs-comment">//vis数组保存这个点的直接下级数量 </span><br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) <span class="hljs-comment">//这里类似拓扑排序，直接下级数量为零入队 </span><br><span class="hljs-keyword">if</span>(!vis[i]) q.<span class="hljs-built_in">push</span>(i);<br><span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())<br>&#123;<br><span class="hljs-type">int</span> k=q.<span class="hljs-built_in">front</span>();q.<span class="hljs-built_in">pop</span>();<br><span class="hljs-type">int</span> t=u[k],d=s[k];<br>vis[t]--;<br><span class="hljs-keyword">if</span>(!vis[t]) q.<span class="hljs-built_in">push</span>(t);<span class="hljs-comment">//直接下级全都处理过了，入队 </span><br><span class="hljs-keyword">while</span>(t) <span class="hljs-comment">//寻找所有上级，计算上级城市到这里的获利，取最大值 </span><br>&#123;<br>ans[t]=<span class="hljs-built_in">max</span>(ans[t],(ans[k]+v[t]-(f[t]-d)*(f[t]-d))); <span class="hljs-comment">//ans里保存了以这个城市为开头的商路最大价值 </span><br>d+=s[t];<br>t=u[t];<br>&#125;<br>&#125;<br>ll sum=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) sum=(sum+ans[i])%MOD; <span class="hljs-comment">//计算总价值 </span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>,sum);<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>此程序涉及到了未学过的知识点，了解了拓扑排序。由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
+<h1 id="3-Vigenere加密算法"><a href="#3-Vigenere加密算法" class="headerlink" title="3. Vigenere加密算法"></a>3. Vigenere加密算法</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>单一字母替换密码很容易通过字母频率分析而破解。而一种被称为Vigenere的密码克服了这一缺点，其方法是对于待加密信息中不同位置上的字母应用不同的字母加密对应关系。首先选择一个密钥，例如TIGER，然后，对于待加密信息中的第一个字符，采用如下的字母对应关系加密：上述加密字母表是经过固定移位的字母表，其首字母是T（TIGER的首字母，先是T～Z，然后是A～S）。例如：字母A加密转换成T，字母Q转换成J，不在A～Z之间的字符，不进行转换。对待加密信息中的第二个字符，采用如下的字母对应关系加密：</p>
+<p>对于待加密信息的第3个、第4个、第5个字符，分别采用以G、E、R开头的移位字母表对其加密。因为密钥只有5个字母长，所以对于待加密信息中的第6个字符，将采用与第1个字符相同的对应关系加密，以此类推。假定待加密信息中的字母全为大写字母，并且输入的密钥也全为大写字母；密钥长度不超过20，待加密信息不超过200个字符。</p>
+<p>输入形式：从标准输入中输入密钥串，然后在下一行输入待加密信息（末尾有回车换行）。</p>
+<p>输出形式：加密后结果输出到标准输出（末尾要有回车换行）。</p>
+<h2 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h2><p>由题意，创建两个数组，依次存放密钥跟密文，再利用循环依次获取每一位的加密后的文字并输出。如果不在A~Z之间就直接输出。</p>
+<h2 id="代码（c）-1"><a href="#代码（c）-1" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">char</span> key[<span class="hljs-number">20</span>];<br><span class="hljs-type">char</span> mas[<span class="hljs-number">200</span>];<br><span class="hljs-built_in">gets</span>(key);<br><span class="hljs-built_in">gets</span>(mas);<br><span class="hljs-type">int</span> i,j;<span class="hljs-comment">//循环次数标识，i表示加密信息的下标，j表示key的下标 </span><br><span class="hljs-type">int</span> lkey=<span class="hljs-built_in">strlen</span>(key);<br><span class="hljs-type">int</span> lmas=<span class="hljs-built_in">strlen</span>(mas);<span class="hljs-comment">//获取key和mas的长度，除去&#x27;\n&#x27; </span><br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;i&lt;lmas;i++,j++)&#123; <br><span class="hljs-keyword">if</span>(j&gt;=lkey)&#123;<span class="hljs-comment">//如果key下标超出最大值，将其初始化为0 </span><br>j=<span class="hljs-number">0</span>;<br>&#125; <br><span class="hljs-keyword">if</span>(<span class="hljs-number">65</span>&gt;mas[i]mas[i]&gt;<span class="hljs-number">90</span>)&#123;<span class="hljs-comment">//如果加密信息不在A~Z之间就直接输出 </span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>,mas[i]);<br><span class="hljs-keyword">continue</span>;<br>&#125;<br><span class="hljs-type">char</span> out=mas[i]+(key[j]<span class="hljs-number">-65</span>);<span class="hljs-comment">//新的加密后信息运算 </span><br><span class="hljs-keyword">if</span>(out&gt;<span class="hljs-number">90</span>)&#123;<br>out-=<span class="hljs-number">26</span>; <br>&#125;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>,out);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p>本题利用大写字母所对应的ASCII码字母和后移实际上就是ASCII码的后移，超过90的ASCII码就利用判断，将其减少26就在65到90之间了。如果ASCII码不在65~90之间就直接输出。</p>
+<h1 id="4-字符串转换双精度浮点数"><a href="#4-字符串转换双精度浮点数" class="headerlink" title="4. 字符串转换双精度浮点数"></a>4. 字符串转换双精度浮点数</h1><h2 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h2><p>编写函数atof(s),把字符串s转化成相应的双精度浮点数.输入字符串可能含有如下几部分：正负号，整数部分，小数点，小数部分。该函数还能够处理形如123.45e-5的指数型字符串输入.输入字符串中不含有空格.编写一个程序,使用该函数,将输入的字符串转换成相应的双精度浮点数。</p>
+<p>输入形式：控制台输入字符串s.它可以含有正负号,小数点,整数部分和小数部分,以及字符&rsquo;e&rsquo;和相应的指数部分。</p>
+<p>输出形式：控制台输出转换后的双精度数.格式化输出,使用”%f”,即不需指定字段宽度,由系统自动指定,使整数部分全部如数输出，并保留6位小数部分。</p>
+<h2 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h2><p>根据题意，将字符串存入scr数组中，利用java中的Double.parseDouble()获得double类型数据，然后控制输出位数。</p>
+<h2 id="代码（Java）"><a href="#代码（Java）" class="headerlink" title="代码（Java）"></a>代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">atof</span> &#123;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><span class="hljs-type">Scanner</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-type">String</span> <span class="hljs-variable">scr</span> <span class="hljs-operator">=</span> inp.next();<br>inp.close();<br><span class="hljs-type">double</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> Double.parseDouble(scr);<br>System.out.printf(<span class="hljs-string">&quot;%.6f&quot;</span>,d);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h2><p>该程序将字符串存入scr数组中，利用java中的Double.parseDouble()获得double类型数据d，然后利用System.out.printf(“%.6f”,d)控制输出位数。</p>
+<h1 id="5-素数判断"><a href="#5-素数判断" class="headerlink" title="5. 素数判断"></a>5. 素数判断</h1><h2 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h2><p>编写一个函数isprime(n).判断整数n是否为素数.编写程序使用此函数,当输入一个整数时,对它进行判断,当为素数时,输出1.否则,输出0.</p>
+<p>输入形式：控制台输入一个整数.</p>
+<p>输出形式：控制台输出判断结果0或者1.</p>
+<h2 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h2><p>判断一个数字n是否为素数要用该数字依次除以从2到根号n，一旦有一个可以除尽的数字就不是素数。</p>
+<h2 id="代码（c）-2"><a href="#代码（c）-2" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">isprime</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>&#123;<br><span class="hljs-type">int</span> i;<br><span class="hljs-type">int</span> flag=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">2</span>;i&lt;n;i++)&#123;<br><span class="hljs-keyword">if</span>(n%i==<span class="hljs-number">0</span>)&#123;<br>flag=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> flag;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> n;<br><span class="hljs-type">int</span> m;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>m=<span class="hljs-built_in">isprime</span>(n);<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,m);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h2><p>本程序创建isprime()函数，其中参数为数字n，利用循环，将n除以2一直除到根号n，判断是否能除尽，有一个能除尽就返回0，否则返回1。</p>
+<h1 id="6-消除游戏"><a href="#6-消除游戏" class="headerlink" title="6. 消除游戏"></a>6. 消除游戏</h1><h2 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h2><p>消除类游戏是深受大众欢迎的一种游戏，游戏在一个包含有n行m列的游戏棋盘上进行，棋盘的每一行每一列的方格上放着一个有颜色的棋子，当一行或一列上有连续三个或更多的相同颜色的棋子时，这些棋子都被消除。当有多处可以被消除时，这些地方的棋子将同时被消除。</p>
+<p>现在给定一个n行m列的棋盘，棋盘中的每一个方格上有一个棋子（用数字1-9表示各种颜色的棋子），请给出经过消除后的棋盘。</p>
+<p>请注意：一个棋子可能在某一行和某一列同时被消除。</p>
+<p>输入形式：从标准输入读取数据，第一行包含两个整数n和m，分别表示棋盘的行数和列数（行数和列数都大于等于3，小于等于9），以一个空格分隔这两个整数。</p>
+<p>接下来输入n行，每行m个整数，用一个空格分隔各个整数，这些整数分别表示每一个方格中棋子的颜色（大于等于1，小于等于9）。</p>
+<p>输出形式：向标准输出上输出n行，每行m个整数，相邻整数之间以一个空格分隔，表示经过消除后的棋盘。如果一个方格中的棋子被消除，则对应的方格输出数字0，否则输出代表原棋子颜色的整数。每行最后一个整数后也要有一个空格。</p>
+<h2 id="分析-5"><a href="#分析-5" class="headerlink" title="分析"></a>分析</h2><p>根据题意创建二维数组存放原始数据。将原始数据复制到两个新的数组中，利用循环依次判断行与列该消除的数只需要按行遍历一次，再按列遍历一次，每次只需要判断三个数，就可以解决这个问题。将其变为0，最后合并这两个数组并输出。</p>
+<h2 id="代码（Java）-1"><a href="#代码（Java）-1" class="headerlink" title="代码（Java）"></a>代码（Java）</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs prolog">import java.util.<span class="hljs-symbol">Scanner</span>;<br><br>public class exam1 &#123;<br>static void output(int[][] a, int n, int m) &#123;//输出函数output，参数：数据存放数组a，行n，列m<br>for (int i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>for (int j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;<br><span class="hljs-symbol">System</span>.out.print(a[i][j]);<br>if (j==m<span class="hljs-number">-1</span>) &#123;<br>break;<br>&#125;<br><span class="hljs-symbol">System</span>.out.print(<span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br>if (i==n<span class="hljs-number">-1</span>) &#123;<br>break;<br>&#125;<br><span class="hljs-symbol">System</span>.out.println();<br>&#125;<br>&#125;<br>public static void main(<span class="hljs-symbol">String</span>[] args) &#123;<br><span class="hljs-symbol">Scanner</span> input = new <span class="hljs-symbol">Scanner</span>(<span class="hljs-symbol">System</span>.in);<br>int n = input.nextInt();<br>int m = input.nextInt();<br>int[][] a = new int[n][m];<br>for (int i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;//输入<br>for (int j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;<br>a[i][j] = input.nextInt();<br>&#125;<br>&#125;<br>input.close();<br>//output(a,n,m);<br>int[][] row = new int[n][m];//行变换消除后的数据<br>int[][] col = new int[n][m];//列变换消除后的数据<br>int[][] fin = new int[n][m];//最终整合的数据<br>for (int i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>for (int j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;<br>row[i][j] = a[i][j];<br>col[i][j] = a[i][j];<br>fin[i][j] = a[i][j];<br>&#125;<br>&#125;<br>//output(row,n,m);<br>for (int i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;//行变换消除数据<br>for (int j = <span class="hljs-number">0</span>; j &lt; m<span class="hljs-number">-2</span>; j++) &#123;<br>if (a[i][j]==a[i][j+<span class="hljs-number">1</span>]&amp;&amp;a[i][j]==a[i][j+<span class="hljs-number">2</span>]) &#123;<br>row[i][j] = <span class="hljs-number">0</span>;<br>row[i][j+<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>row[i][j+<span class="hljs-number">2</span>] = <span class="hljs-number">0</span>;<br>&#125;<br>&#125;<br>&#125;<br>//output(row,n,m);<br>//<span class="hljs-symbol">System</span>.out.println();<br>//<span class="hljs-symbol">System</span>.out.println();<br>for (int i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>for (int j = <span class="hljs-number">0</span>; j &lt; n<span class="hljs-number">-2</span>; j++) &#123;<br>if (a[j][i]==a[j+<span class="hljs-number">1</span>][i]&amp;&amp;a[j][i]==a[j+<span class="hljs-number">2</span>][i]) &#123;<br>col[j][i] = <span class="hljs-number">0</span>;<br>col[j+<span class="hljs-number">1</span>][i] = <span class="hljs-number">0</span>;<br>col[j+<span class="hljs-number">2</span>][i] = <span class="hljs-number">0</span>;<br>&#125;<br>&#125;<br>&#125;<br>//output(col,n,m);<br>//<span class="hljs-symbol">System</span>.out.println();<br>//<span class="hljs-symbol">System</span>.out.println();<br>for (int i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>for (int j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;<br>if (row[i][j]==<span class="hljs-number">0</span>col[i][j]==<span class="hljs-number">0</span>) &#123;<br>fin[i][j] = <span class="hljs-number">0</span>;<br>&#125;<br>&#125;<br>&#125;<br>output(fin, n, m);<br>//<span class="hljs-symbol">System</span>.out.println();<br>//<span class="hljs-symbol">System</span>.out.println();<br>//output(a,n,m);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h2><p>本程序要保留下来原始数组，以免判断完行后列的数据不全导致判断错误。我都程序新建了一个output方法，将输出部分区块化方便在代码中间判断输出情况。</p>
+<h1 id="7-合数分解2"><a href="#7-合数分解2" class="headerlink" title="7. 合数分解2"></a>7. 合数分解2</h1><h2 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h2><p>由数学基本定理可知：任何一个大于1的非素数整数（即合数）都可以唯一分解成若干个素数的乘积。编写程序，从控制台读入一个合数（合数的大小不会超过int数据类型表示的范围），求这个合数可以分解成的多次出现的素数（即出现次数大于1的素数）。例如合数1260分解成素数乘积为：2*2*3*3*5*7,2和3出现两次，5和7出现一次，所以求得的结果为2和3。</p>
+<p>输入形式：从控制台输入一个合数。</p>
+<p>输出形式：在标准输出上按照由小到大的顺序输出分解后的多次出现的素数，各素数之间以一个空格分隔，最后一个素数后也可以有一个空格。若没有多次出现的素数，则什么都不输出。</p>
+<h2 id="分析-6"><a href="#分析-6" class="headerlink" title="分析"></a>分析</h2><p>根据题意，应该先判断输入数字num的所有质因子。然后循环将num依次除以从2到num的数字i，如果能整除，i不加1，同时再加入一个循环向其中添加一个参数，多次出现的质因子输出出来。</p>
+<h2 id="代码（Java）-2"><a href="#代码（Java）-2" class="headerlink" title="代码（Java）"></a>代码（Java）</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">primes</span> </span>&#123;<br>public <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-built_in">String</span>[] args) &#123;<br>Scanner input = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);<br><span class="hljs-built_in">int</span> <span class="hljs-built_in">num</span> = input.nextInt();<br>input.close();<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">2</span>; i &lt; <span class="hljs-built_in">num</span>; i++) &#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">num</span>%i==<span class="hljs-number">0</span>) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>; <span class="hljs-built_in">num</span>%i==<span class="hljs-number">0</span>; j++) &#123;<br><span class="hljs-built_in">num</span> = <span class="hljs-built_in">num</span>/i;<br><span class="hljs-keyword">if</span> (j==<span class="hljs-number">1</span>) &#123;<br>System.out.<span class="hljs-built_in">print</span>(i+<span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h2><p>该程序运用到了两层for循环嵌套，其中里面还有俩if判断，其中参数j在等于1的时候才会输出数字，其意义就是该质因子出现两次的时候会输出，同题目中的意思出现多次时输出一次该数字。</p>
+<h1 id="8-摄氏华氏温度转换"><a href="#8-摄氏华氏温度转换" class="headerlink" title="8. 摄氏华氏温度转换"></a>8. 摄氏华氏温度转换</h1><h2 id="题目-7"><a href="#题目-7" class="headerlink" title="题目"></a>题目</h2><p>假如用C表示摄氏温度，F表示华氏温度，则有：F=C*9/5+32。输入一整数表示摄氏温度，根据该公式编程求对应的华氏温度，结果小数点后保留一位有效数字。</p>
+<p>输入形式：从控制台读入一个整数，表示摄氏温度。</p>
+<p>输出形式：向控制台输出转换后的华氏温度，结果小数点后保留一位有效数字。</p>
+<h2 id="分析-7"><a href="#分析-7" class="headerlink" title="分析"></a>分析</h2><p>由题意，题目中给出了公式，利用scanf读取数字然后按照题目中的公式计算，然后输出数据即可。</p>
+<h2 id="代码（c）-3"><a href="#代码（c）-3" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">double</span> m,n;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf&quot;</span>,&amp;m);<br>n=m*<span class="hljs-number">9</span>/<span class="hljs-number">5</span>+<span class="hljs-number">32</span>;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.1lf&quot;</span>,n);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-7"><a href="#总结-7" class="headerlink" title="总结"></a>总结</h2><p>本题程序中，输入的数据m也要变为double以免利用公式运算的时候出现小数部分没有计算入内的情况，输出的保留一位小数利用printf(“%.2lf”)即可完成题目要求。</p>
+<h1 id="9-CCF-201612-1-中间数"><a href="#9-CCF-201612-1-中间数" class="headerlink" title="9. CCF 201612-1 中间数"></a>9. CCF 201612-1 中间数</h1><h2 id="题目-8"><a href="#题目-8" class="headerlink" title="题目"></a>题目</h2><p>在一个整数序列a1, a2, …, an中，如果存在某个数，大于它的整数数量等于小于它的整数数量，则称其为中间数。在一个序列中，可能存在多个下标不相同的中间数，这些中间数的值是相同的。给定一个整数序列，请找出这个整数序列的中间数的值。</p>
+<p>输入形式：输入的第一行包含了一个整数n，表示整数序列中数的个数。第二行包含n个正整数，依次表示a1, a2, …, an。</p>
+<p>输出形式：如果约定序列的中间数存在，则输出中间数的值，否则输出-1表示不存在中间数。</p>
+<h2 id="分析-8"><a href="#分析-8" class="headerlink" title="分析"></a>分析</h2><p>由题意，由于输入的数据没有排序要求，本题采用暴力法，依次判断每个数字前比它小的数字，每个数字后比他大的数字的个数是否相等。</p>
+<h2 id="代码（c）-4"><a href="#代码（c）-4" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#include&lt;stdio.h&gt;</span><br>int main()&#123;<br>int n;<br>scanf(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>int a[n];<br>int i,j,e,f;<br>int <span class="hljs-attribute">flag</span>=1;<br><span class="hljs-keyword">for</span>(<span class="hljs-attribute">i</span>=0;i&lt;n;i++)&#123;<br>scanf(<span class="hljs-string">&quot;%d&quot;</span>,&amp;a[i]);<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-attribute">i</span>=0;i&lt;n;i++)&#123;<br><span class="hljs-attribute">e</span>=0;<br><span class="hljs-attribute">f</span>=0;<br><span class="hljs-keyword">for</span>(<span class="hljs-attribute">j</span>=0;j&lt;n;j++)&#123;<br><span class="hljs-keyword">if</span>(a[j]&lt;a[i])&#123;<br>e++;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a[j]&gt;a[i])&#123;<br>f++;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(<span class="hljs-attribute">e</span>==f&amp;&amp;e!=0)&#123;<br>printf(<span class="hljs-string">&quot;%d&quot;</span>,a[i]);<br><span class="hljs-attribute">flag</span>=0;<br>break;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(flag)&#123;<br>printf(<span class="hljs-string">&quot;-1&quot;</span>);<br>&#125;<br>return 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-8"><a href="#总结-8" class="headerlink" title="总结"></a>总结</h2><p>本程序用暴力法依次计算前后大小的数字是否一致，利用flag来表示是否存在这样的数字，如果不存在这样的数字，根据flag等于0会输出-1。</p>
+<h1 id="10-最小素数集"><a href="#10-最小素数集" class="headerlink" title="10. 最小素数集"></a>10. 最小素数集</h1><h2 id="题目-9"><a href="#题目-9" class="headerlink" title="题目"></a>题目</h2><p>由数学基本定理可知：任何一个大于1的非素数整数都可以唯一分解成若干个素数的乘积。编写程序，从控制台读入一组大于1的整数（小于等于20个，且每个整数的大小不会超过int数据类型表示的范围），求这些整数分解成素数的最小集。该最小素数集是所有整数分解成的素数的并集（若输入的整数是素数，则该素数可以直接加入最小素数集），并且重复的素数只保留一个。按从小到大的顺序输出求得的最小素数集。</p>
+<p>输入形式：先从控制台输入整数的个数，然后在下一行输入所有整数，各整数之间以一个空格分隔。</p>
+<p>输出形式：在标准输出上按从小到大顺序输出求得的最小素数集，各素数之间以一个空格分隔，最后一个整数后也可以有一个空格。</p>
+<h2 id="分析-9"><a href="#分析-9" class="headerlink" title="分析"></a>分析</h2><p>根据题意先求出所有的数字的质因子，放在同一个数组里，然后从小到大依次排列，最后在依次输出，每个数字只输出一遍。</p>
+<p>代码（Java）</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> primes &#123;<br><span class="hljs-built_in">public</span> static <span class="hljs-type">boolean</span> judge(<span class="hljs-type">int</span> x) &#123;//判断是否为素数，是素数返回<span class="hljs-keyword">true</span><br><span class="hljs-type">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= Math.sqrt((<span class="hljs-type">double</span>)x); i++) &#123;<br><span class="hljs-keyword">if</span>(x%i==<span class="hljs-number">0</span>) &#123;<br>flag = <span class="hljs-keyword">false</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> flag;<br>&#125;<br><span class="hljs-built_in">public</span> static <span class="hljs-type">int</span> sti(String a) &#123;//string形转<span class="hljs-type">int</span>型<br><span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>try &#123; <br>    result = <span class="hljs-type">Integer</span>.parseInt(a); <br>&#125; catch (NumberFormatException e) &#123; <br>    e.printStackTrace(); <br>&#125;<br><span class="hljs-keyword">return</span> result;<br>&#125;<br><span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>Scanner input = <span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br><span class="hljs-type">int</span> n = <span class="hljs-keyword">input</span>.nextInt();//输入数组个数<br><span class="hljs-type">int</span>[] a = <span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[n];//表示存放数字的数组<br>ArrayList&lt;String&gt; midarray = <span class="hljs-built_in">new</span> ArrayList&lt;String&gt;();<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br>a[i] = <span class="hljs-keyword">input</span>.nextInt();<br><br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">2</span>; j &lt;= a[i]; j++) &#123;<br><span class="hljs-keyword">if</span> (judge(a[i])) &#123;<br>midarray.<span class="hljs-keyword">add</span>(&quot;&quot;+a[i]);<br>break;<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br><span class="hljs-keyword">if</span>(a[i]%j==<span class="hljs-number">0</span>) &#123;<br><span class="hljs-keyword">for</span> (; a[i]%j==<span class="hljs-number">0</span>; ) &#123;<br>a[i] /= j;<br>&#125;<br>midarray.<span class="hljs-keyword">add</span>(&quot;&quot;+j);<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">input</span>.<span class="hljs-keyword">close</span>();<br><span class="hljs-type">int</span> w = <span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> l = midarray.size();<br><span class="hljs-type">int</span>[] num = <span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[l];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; l; i++) &#123;<br>num[i] = sti(midarray.<span class="hljs-keyword">get</span>(i));<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; l; i++) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; l<span class="hljs-number">-1</span>; j++) &#123;<br><span class="hljs-keyword">if</span>(num[j]&gt;num[j+<span class="hljs-number">1</span>]) &#123;<br><span class="hljs-type">int</span> k = num[j];<br>num[j] = num[j+<span class="hljs-number">1</span>];<br>num[j+<span class="hljs-number">1</span>] = k;<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (l&gt;<span class="hljs-number">2</span>) &#123;<br><span class="hljs-type">boolean</span> flag = <span class="hljs-keyword">false</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; l<span class="hljs-number">-1</span>; i++) &#123;<br><span class="hljs-keyword">if</span> (num[i]&lt;num[i+<span class="hljs-number">1</span>]) &#123;<br>w = i+<span class="hljs-number">1</span>;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[i]);<br><span class="hljs-keyword">if</span> (i==l<span class="hljs-number">-2</span>) &#123;<br>flag = <span class="hljs-keyword">true</span>;<br>break;<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot; &quot;);<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (num[l<span class="hljs-number">-1</span>]&gt;num[l<span class="hljs-number">-2</span>]) &#123;<br><span class="hljs-keyword">if</span> (flag) &#123;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot; &quot;);<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[l<span class="hljs-number">-1</span>]);<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num[l<span class="hljs-number">-1</span>]==num[w]) &#123;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[w]);<br>&#125;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (l==<span class="hljs-number">1</span>) &#123;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[<span class="hljs-number">0</span>]);<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (l==<span class="hljs-number">2</span>) &#123;<br><span class="hljs-keyword">if</span> (num[<span class="hljs-number">0</span>]==num[<span class="hljs-number">1</span>]) &#123;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[<span class="hljs-number">0</span>]);<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(num[<span class="hljs-number">0</span>]+&quot; &quot;+num[<span class="hljs-number">1</span>]);<br>&#125;<br>&#125;<br>&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h2><p>本程序中用judge方法来判断是否为素数，是素数返回true，用sti方法将string形数据转为int型数据。并在输出的时候建立一个标识w，让w称为最后一个数字的初始下标，以免少数出一个数字。</p>
+<h1 id="11-求三角形面积"><a href="#11-求三角形面积" class="headerlink" title="11. 求三角形面积"></a>11. 求三角形面积</h1><h2 id="题目-10"><a href="#题目-10" class="headerlink" title="题目"></a>题目</h2><p>若已知三角形三个边的长度分别为a,b,c（并假设三个边长度的单位一致，在本编程题中忽略其单位），则可以利用公式 求得三角形的面积，其中：s=(a+b+c)/2。编程实现从控制台读入以整数表示的三个边的长度（假设输入的长度肯定可以形成三角形），然后利用上述公式计算面积并输出，结果小数点后保留3位有效数字。</p>
+<p>输入形式：从控制台输入三个整数表示三角形三个边的长度，以空格分隔三个整数。</p>
+<p>输出形式：向控制台输出求得的三角形的面积，小数点后保留三位有效数字。</p>
+<h2 id="分析-10"><a href="#分析-10" class="headerlink" title="分析"></a>分析</h2><p>由题意，题目中给出了公式，利用scanf读取数字然后按照题目中的公式计算，然后输出数据即可。</p>
+<h2 id="代码（c）-5"><a href="#代码（c）-5" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;math.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">double</span> a,b,c,p,s;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf %lf %lf&quot;</span>,&amp;a,&amp;b,&amp;c);<br>p=(a+b+c)/<span class="hljs-number">2</span>;<br>s=<span class="hljs-built_in">sqrt</span>(p*(p-a)*(p-b)*(p-c));<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.3lf&quot;</span>,s);<br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-10"><a href="#总结-10" class="headerlink" title="总结"></a>总结</h2><p>本程序中用p表示半周长，然后根据公式计算得出面积的值，最后利用printf(“%.3lf”)输出保留了小数点后的三位数字。</p>
+<h1 id="12-回文数"><a href="#12-回文数" class="headerlink" title="12. 回文数"></a>12. 回文数</h1><h2 id="题目-11"><a href="#题目-11" class="headerlink" title="题目"></a>题目</h2><p>“回文数”是一种数字。如：98789, 这个数字正读是98789,倒读也是98789,正读倒读一样，所以这个数字就是回文数。编写一个程序，判断给出的数m是否为回文数（m的位数&lt;=1000）。</p>
+<p>输入描述：一个整数m</p>
+<p>输出描述：如果m是回文数，则输出yes，否则输出no（yes和no均为小写）</p>
+<h2 id="分析-11"><a href="#分析-11" class="headerlink" title="分析"></a>分析</h2><p>根据题意，我将输入的数字视为字符串存入数组，然后判断数组实际长度，反过来存到另一个数组里，比较实际长度那么多的字符是否一致即可</p>
+<p>代码（c）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">char</span> a[<span class="hljs-number">100</span>],b[<span class="hljs-number">100</span>];<br><span class="hljs-built_in">gets</span>(a);<br><span class="hljs-type">int</span> lentha=<span class="hljs-built_in">strlen</span>(a);<br><span class="hljs-type">int</span> i=lentha<span class="hljs-number">-1</span>,j;<br><span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;<br>b[j]=a[i];<br>j++;<br>&#125;<br><span class="hljs-type">int</span> key=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;lentha;i++)&#123;<br><span class="hljs-keyword">if</span>(a[i]!=b[i])&#123;<br>key=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(key)&#123;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;yes&quot;</span>);<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;no&quot;</span>);<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-11"><a href="#总结-11" class="headerlink" title="总结"></a>总结</h2><p>本题用到了get();来获取字符串。gets()用于从标准输入流stdin读入一个整行（以bai’\n’或EOF）结束，写入ptr指向的字符数组，并返回这个指针；出错或遇到文件结束时则返回NULL。行末的’\n’从流中取出，但不写入数组。gets()不检查被写入的数组大小。利用strlen()判断数组实际长度，然后反向写入另一个数组。依次判断两个数组中的每个数字是否一样，一旦出现一个不一样，将key标记为0。最后根据key输出yes或no。</p>
+<h1 id="13-CCF-201703-4-地铁修建"><a href="#13-CCF-201703-4-地铁修建" class="headerlink" title="13. CCF 201703-4 地铁修建"></a>13. CCF 201703-4 地铁修建</h1><h2 id="题目-12"><a href="#题目-12" class="headerlink" title="题目"></a>题目</h2><p>A市有n个交通枢纽，其中1号和n号非常重要，为了加强运输能力，A市决定在1号到n号枢纽间修建一条地铁。地铁由很多段隧道组成，每段隧道连接两个交通枢纽。经过勘探，有m段隧道作为候选，两个交通枢纽之间最多只有一条候选的隧道，没有隧道两端连接着同一个交通枢纽。现在有n家隧道施工的公司，每段候选的隧道只能由一个公司施工，每家公司施工需要的天数一致。而每家公司最多只能修建一条候选隧道。所有公司同时开始施工。作为项目负责人，你获得了候选隧道的信息，现在你可以按自己的想法选择一部分隧道进行施工，请问修建整条地铁最少需要多少天。</p>
+<p>输入形式：输入的第一行包含两个整数n, m，用一个空格分隔，分别表示交通枢纽的数量和候选隧道的数量。第2行到第m+1行，每行包含三个整数a, b, c，表示枢纽a和枢纽b之间可以修建一条隧道，需要的时间为c天。</p>
+<p>输出形式：输出一个整数，修建整条地铁线路最少需要的天数。</p>
+<h2 id="分析-12"><a href="#分析-12" class="headerlink" title="分析"></a>分析</h2><p>由题意本体就是最小生成树的题目。</p>
+<p>代码（Java）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Comparator;<br><span class="hljs-keyword">import</span> java.util.PriorityQueue;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">subway</span> &#123;<br><span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] fathers;<br><span class="hljs-keyword">static</span> Comparator&lt;<span class="hljs-type">int</span>[]&gt; cmp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;<span class="hljs-type">int</span>[]&gt;() &#123;<br><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(<span class="hljs-type">int</span>[] o1, <span class="hljs-type">int</span>[] o2)</span> &#123;<br><span class="hljs-keyword">return</span> o1[<span class="hljs-number">2</span>] - o2[<span class="hljs-number">2</span>];<br>&#125;<br>&#125;;<br><br><span class="hljs-comment">// 优先队列方法</span><br><span class="hljs-comment">// 85分，超时</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">MST</span><span class="hljs-params">()</span> &#123;<br><span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> scanner.nextInt();<br><span class="hljs-type">int</span> <span class="hljs-variable">route</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>PriorityQueue&lt;<span class="hljs-type">int</span>[]&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(cmp);<br><span class="hljs-comment">// 初始化并查集</span><br>fathers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[num + <span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= num; i++) &#123;<br>fathers[i] = i;<br>&#125;<br><span class="hljs-comment">// 读取边</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; route; i++) &#123;<br><span class="hljs-type">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">3</span>; j++) &#123;<br>arr[j] = scanner.nextInt();<br>&#125;<br>queue.add(arr);<br>&#125;<br>scanner.close();<br><br><span class="hljs-comment">// Kruskal算法</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; route; i++) &#123;<br><span class="hljs-type">int</span>[] edges = queue.poll();<br><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> edges[<span class="hljs-number">0</span>], b = edges[<span class="hljs-number">1</span>];<br><span class="hljs-type">int</span> <span class="hljs-variable">father_a</span> <span class="hljs-operator">=</span> findfathers(a);<br><span class="hljs-type">int</span> <span class="hljs-variable">father_b</span> <span class="hljs-operator">=</span> findfathers(b);<br><span class="hljs-keyword">if</span> (father_a != father_b) &#123;<br>fathers[father_a] = father_b;<br>&#125;<br><span class="hljs-keyword">if</span> (findfathers(<span class="hljs-number">1</span>) == findfathers(num)) &#123;<br>System.out.println(edges[<span class="hljs-number">2</span>]);<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br>&#125;<br><br><br><span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findfathers</span><span class="hljs-params">(<span class="hljs-type">int</span> child)</span> &#123;<br><span class="hljs-type">int</span> <span class="hljs-variable">father</span> <span class="hljs-operator">=</span> child;<br><span class="hljs-keyword">while</span> (fathers[father] != father) &#123;<br>father = fathers[father];<br>&#125;<br><span class="hljs-comment">// 路径压缩</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> child, j;<br><span class="hljs-keyword">while</span> (i != father) &#123;<br>j = fathers[i];<br>fathers[i] = father;<br>i = j;<br>&#125;<br><span class="hljs-keyword">return</span> father;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>MST();<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-12"><a href="#总结-12" class="headerlink" title="总结"></a>总结</h2><p>利用最小生成树算法。最小生成树性质：设G=(V，E）是一个连通网络，U是顶点集V的一个非空真子集。若(u，v）是G中一条“一个端点在U中（例如：u∈U），另一个端点不在U中的边（例如：v∈V-U），且（u，v）具有最小权值，则一定存在G的一棵最小生成树包括此边（u，v）。</p>
+<h1 id="14-CCF-201512-1-数位之和"><a href="#14-CCF-201512-1-数位之和" class="headerlink" title="14. CCF 201512-1 数位之和"></a>14. CCF 201512-1 数位之和</h1><h2 id="题目-13"><a href="#题目-13" class="headerlink" title="题目"></a>题目</h2><p>给定一个十进制整数n，输出n的各位数字之和。</p>
+<p>输入形式：输入一个整数n。</p>
+<p>输出形式：输出一个整数，表示答案。</p>
+<h2 id="分析-13"><a href="#分析-13" class="headerlink" title="分析"></a>分析</h2><p>根据题意将数字看成字符串然后根据每个字符串改为数字，最后将所有的数字加在一起能得出答案。</p>
+<h2 id="代码（c）-6"><a href="#代码（c）-6" class="headerlink" title="代码（c）"></a>代码（c）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> chartonumber(x) (x-<span class="hljs-string">&#x27;0&#x27;</span>)</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">char</span> a[<span class="hljs-number">10</span>];<br><span class="hljs-built_in">fgets</span>(a, <span class="hljs-number">10</span>, stdin);<br><span class="hljs-type">int</span> sum=<span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> i;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">strlen</span>(a)<span class="hljs-number">-1</span>;i++)&#123;<br>sum+=<span class="hljs-built_in">chartonumber</span>(a[i]);<br>&#125;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,sum);<br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-13"><a href="#总结-13" class="headerlink" title="总结"></a>总结</h2><p>本程序用fgets()获取字符，fgets函数功能为从指定的流中读取数据，每次读取一行。其原型为：char *fgets(char *str, int n, FILE *stream);从指定的流 stream 读取一行，并把它存储在 str 所指向的字符串内。当读取 (n-1) 个字符时，或者读取到换行符时，或者到达文件末尾时，它会停止，具体视情况而定。利用宏定义#define chartonumber(x) (x-‘0’)将char类型数据转换为int类型数据。</p>
+<h1 id="15-逆序乘积式"><a href="#15-逆序乘积式" class="headerlink" title="15. 逆序乘积式"></a>15. 逆序乘积式</h1><h2 id="题目-14"><a href="#题目-14" class="headerlink" title="题目"></a>题目</h2><p>若两个正整数的乘积，等于两正整数各自逆序后的乘积，则称其为逆序乘积式。编写程序读入两个正整数，然后判断这两个正整数能否构成逆序乘积式。假设两个正整数的乘积不会超过int数据类型的表示范围。</p>
+<p>输入形式：从控制台输入以一个空格分隔的两个正整数。</p>
+<p>输出形式：若两个正整数能够构成逆序乘积式，则输出两个正整数及其逆序的乘积形式，并且中间用一个等号相连；若不能构成逆序乘积式，则输出两个正整数及其逆序的乘积形式，并且中间用一个不等号相连。</p>
+<p>注意：输出的字符之间没有空格分隔。若逆序后最高位为0，则为0的最高位不输出。</p>
+<h2 id="分析-14"><a href="#分析-14" class="headerlink" title="分析"></a>分析</h2><p>根据题意，本程序结合了将数字反过来读取，和判断乘积是否相等。</p>
+<h2 id="代码（Java）-3"><a href="#代码（Java）-3" class="headerlink" title="代码（Java）"></a>代码（Java）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">exam</span> &#123;<br><span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">changetonumber</span><span class="hljs-params">(String y)</span> &#123;<br><span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">try</span> &#123; <br>    result = Integer.parseInt(y); <br>&#125; <span class="hljs-keyword">catch</span> (NumberFormatException e) &#123; <br>    e.printStackTrace(); <br>&#125;<br><span class="hljs-keyword">return</span> result;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><span class="hljs-type">boolean</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br><span class="hljs-type">Scanner</span> <span class="hljs-variable">input</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(input.next());<br><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(input.next());<br><span class="hljs-type">String</span> <span class="hljs-variable">sa</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>+a;<br><span class="hljs-type">String</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>+b;<br><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">backa</span> <span class="hljs-operator">=</span> a;<br><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">backb</span> <span class="hljs-operator">=</span> b;<br>backa.reverse();<br>backb.reverse();<br><span class="hljs-type">String</span> <span class="hljs-variable">sbacka</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>+backa;<br><span class="hljs-type">String</span> <span class="hljs-variable">sbackb</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>+backb;<br><span class="hljs-type">int</span> <span class="hljs-variable">numa</span> <span class="hljs-operator">=</span> changetonumber(sa);<br><span class="hljs-type">int</span> <span class="hljs-variable">numb</span> <span class="hljs-operator">=</span> changetonumber(sb);<br><span class="hljs-type">int</span> <span class="hljs-variable">numba</span> <span class="hljs-operator">=</span> changetonumber(sbacka);<br><span class="hljs-type">int</span> <span class="hljs-variable">numbb</span> <span class="hljs-operator">=</span> changetonumber(sbackb);<br><span class="hljs-keyword">if</span> (numa*numb==numba*numbb) &#123;<br>flag = <span class="hljs-literal">false</span>;<br>&#125;<br>input.close();<br>System.out.print(numa+<span class="hljs-string">&quot;*&quot;</span>+numb);<br><span class="hljs-keyword">if</span> (flag) &#123;<br>System.out.print(<span class="hljs-string">&quot;!&quot;</span>);<br>&#125;<br>System.out.print(<span class="hljs-string">&quot;=&quot;</span>+numba+<span class="hljs-string">&quot;*&quot;</span>+numbb);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结-14"><a href="#总结-14" class="headerlink" title="总结"></a>总结</h2><p>本程序利用一个changetonumber方法将字符串转换为数字返回，先读取字符串，然后将字符串复制到另一个StringBuilder类型数据里，将其反向，然后利用新建的方法将其转换为数字，最后判断输出结果。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>20春小学期程序设计实验报告</div>
+      <div>https://blog.randallanjie.uk/2020/06/27/experimentalreportonprogramdesigninspring20/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>转接</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年6月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/20/finaltest/" title="算法分析与设计大作业——期末测试">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法分析与设计大作业——期末测试</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Zhuanjier/blog');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comment');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p>© 2023 <a target="_blank" rel="noopener" href="http://startpage.zhuanjie.ltd/">转接</a></p> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021028872号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

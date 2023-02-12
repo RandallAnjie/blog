@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog_icon.png">
+  <link rel="icon" href="/img/blog_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="转接">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="语义分析常用算法的实现及应用实验以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 实验内容以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。 实验目的1、进一步理解文法特别是上下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理实验3">
+<meta property="og:url" content="https://blog.randallanjie.uk/2022/06/02/byyl3/">
+<meta property="og:site_name" content="一个计科生の博客">
+<meta property="og:description" content="语义分析常用算法的实现及应用实验以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 实验内容以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。 实验目的1、进一步理解文法特别是上下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-8.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-9.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-11.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-12.png">
+<meta property="article:published_time" content="2022-06-02T10:16:53.000Z">
+<meta property="article:modified_time" content="2023-02-12T05:48:53.523Z">
+<meta property="article:author" content="转接">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-8.png">
+  
+  
+  
+  <title>编译原理实验3 - 一个计科生の博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.randallanjie.uk","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"91c013732941e890d23aca61fb06cd50","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?91c013732941e890d23aca61fb06cd50";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个计科生の博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="编译原理实验3"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-02 18:16" pubdate>
+          2022年6月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">编译原理实验3</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>语义分析常用算法的实现及应用实验<br>以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2><p>以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子</p>
+<p>在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。</p>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a><strong>实验目的</strong></h2><p>1、进一步理解文法特别是上下文无关文法相关概念</p>
+<p>2、掌握求First集、Follow集、FirstVt集及LastVt集算法，并能够应用其构造文法的LL分析表、算符优先分析表及LR分析表</p>
+<p>3、通过分析LL(1)文法、算符优先文法及LR(1)文法进一步理解自动编程方法</p>
+<h2 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a><strong>实验准备</strong></h2><h3 id="文法的输入"><a href="#文法的输入" class="headerlink" title="文法的输入"></a><strong>文法的输入</strong></h3><p>在一个文框中输入文法规则，每个规则占一行，文法规则以如下形式输入：左部符号::=文法规则右部符号串</p>
+<p>第一条规则的左部符号即为文法的开始符号。一个（左部符号或右部符号）符号使用一个字符串表示，如果有两个形如“A::=α和A::=β”的规则，则可以合并成“A::=α｜β”。</p>
+<h3 id="左部符号与右部符号的确定"><a href="#左部符号与右部符号的确定" class="headerlink" title="左部符号与右部符号的确定"></a><strong>左部符号与右部符号的确定</strong></h3><p>左部符号的确定：位于每个规则左部即为左部符号。</p>
+<p>右部符号的确定：将每个右部符号串使用左部符号之符号串将其分隔成字符串序列，则不是左部符号之符号串即为右部符号或右部符号串组成的字符串。分隔的原则是“长度优先”，即一个长左部符号串不得再分隔成字符串序列，一个字符串优先使用较长的左部符号之符号串分隔。</p>
+<h3 id="文法的存储表示"><a href="#文法的存储表示" class="headerlink" title="文法的存储表示"></a><strong>文法的存储表示</strong></h3><p>关键记数：左部符号个数nVn，右部符号个数nVt，规则个数nRule</p>
+<p>符号表：使用一个字符串数组存储左部及右部符号，左部符号字符串在前，右部字符串在后。每个符号使用其在符号表中的下标表示，当下标是nVn+nVt时，符号是空符号（ε），当下标是nVn+nVt+1时，符号是结束符号（#）。</p>
+<p>规则列表：使用一个规则数组存储规则列表，一条规则由左部符号（使用其在符号表中下标表示）及左部符号序列（即符号之下标序列）表示。</p>
+<h3 id="基本操作算法描述"><a href="#基本操作算法描述" class="headerlink" title="基本操作算法描述"></a><strong>基本操作算法描述</strong></h3><h4 id="求First集算法"><a href="#求First集算法" class="headerlink" title="求First集算法"></a><strong>求First集算法</strong></h4><p>先初始化非终结符的First集为空，初始化终结符的First集合为自己；开始循环，当First集没有更新就结束循环。循环内：新建一个标记flag初始化为False，遍历所有非终结符，每次遍历非终结符时遍历所有产生式。新建一个标记mark初始化为True，当mark为True并且遍历到产生式的末尾就结束。如果还存在没有添加的即First[Yi]中没有ε，则将First[Yi]添加到First[X]中，同时将标记mark更新为False。如果是第一个符号，则将First[Yi]中的非ε添加到First[X]中，同时flag标记更新为True。如果Yi不能推出ε就标记为False；如果所有的Yi都推出ε则将ε添加到First[X]中。</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">def</span> <span class="hljs-variable">getFirst</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-built_in">None</span><span class="hljs-operator">:</span><br>    <span class="hljs-variable">global</span> <span class="hljs-type">non_term</span><span class="hljs-operator">,</span> <span class="hljs-variable">term</span><span class="hljs-operator">,</span> <span class="hljs-built_in">First</span><br>    <span class="hljs-type">#</span> 初始化非终结符的<span class="hljs-built_in">First</span>集为空<br>    <span class="hljs-variable">for</span> <span class="hljs-variable">it</span> <span class="hljs-variable">in</span> <span class="hljs-type">non_term</span><span class="hljs-operator">:</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">it</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-variable">set</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>    <span class="hljs-type">#</span> 初始化终结符的<span class="hljs-built_in">First</span>集合为自己<br>    <span class="hljs-variable">for</span> <span class="hljs-variable">it</span> <span class="hljs-variable">in</span> <span class="hljs-variable">term</span><span class="hljs-operator">:</span><br>        <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">it</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-variable">set</span><span class="hljs-punctuation">(</span><span class="hljs-variable">it</span><span class="hljs-punctuation">)</span><br>    <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">True</span><br>    <span class="hljs-variable">while</span> <span class="hljs-variable">flag</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 当<span class="hljs-built_in">First</span>集没有更新就结束<br>        <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">False</span>  <span class="hljs-type">#</span> 新建一个标记<span class="hljs-variable">flag</span>初始化为<span class="hljs-built_in">False</span><br>        <span class="hljs-variable">for</span> <span class="hljs-variable">X</span> <span class="hljs-variable">in</span> <span class="hljs-type">non_term</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 遍历所有非终结符<br>            <span class="hljs-variable">for</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">in</span> <span class="hljs-variable">production</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 遍历所有产生式<br>                <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span><br>                <span class="hljs-variable">mark</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">True</span>  <span class="hljs-type">#</span> 新建一个标记<span class="hljs-variable">mark</span>初始化为<span class="hljs-built_in">True</span><br>                <span class="hljs-variable">while</span> <span class="hljs-variable">mark</span> <span class="hljs-variable">and</span> <span class="hljs-variable">i</span> <span class="hljs-operator">&lt;</span> <span class="hljs-variable">len</span><span class="hljs-punctuation">(</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">)</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 当<span class="hljs-variable">mark</span>为<span class="hljs-built_in">True</span>并且遍历到产生式的末尾就结束<br>                    <span class="hljs-variable">if</span> <span class="hljs-variable">not</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span> <span class="hljs-variable">set</span><span class="hljs-punctuation">(</span><span class="hljs-variable">epsilon</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;=</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 还存在没有添加的<br>                        <span class="hljs-type">#</span> <span class="hljs-variable">print</span><span class="hljs-punctuation">(</span><span class="hljs-operator">&#x27;</span><span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-operator">&#x27;</span> <span class="hljs-operator">,</span> <span class="hljs-variable">X</span><span class="hljs-operator">,</span> <span class="hljs-operator">&#x27;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-operator">&#x27;,</span> <span class="hljs-string">&quot;   &quot;</span><span class="hljs-operator">,</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-operator">&#x27;</span><span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-operator">&#x27;,</span> <span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">,</span> <span class="hljs-operator">&#x27;</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-operator">&#x27;</span> <span class="hljs-operator">,</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br>                        <span class="hljs-type">#</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Yi</span><span class="hljs-punctuation">]</span> 中没有 ε<br>                        <span class="hljs-variable">if</span> <span class="hljs-variable">epsilon</span> <span class="hljs-variable">not</span> <span class="hljs-variable">in</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-variable">and</span> <span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span> <span class="hljs-variable">in</span> <span class="hljs-type">non_term</span> <span class="hljs-variable">and</span> <span class="hljs-variable">i</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 如果不是第一个符号<br>                            <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span>  <span class="hljs-type">#</span> 将 <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Yi</span><span class="hljs-punctuation">]</span> 添加到 <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> 中<br>                            <span class="hljs-variable">mark</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">False</span>  <span class="hljs-type">#</span> 标记更新为<span class="hljs-built_in">False</span><br>                        <span class="hljs-variable">else</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 如果是第一个符号<br>                            <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span> <span class="hljs-variable">set</span><span class="hljs-punctuation">(</span><span class="hljs-variable">epsilon</span><span class="hljs-punctuation">)</span>  <span class="hljs-type">#</span> 将 <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Yi</span><span class="hljs-punctuation">]</span> 中的非 ε 添加到 <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> 中<br>                            <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">True</span>  <span class="hljs-type">#</span> <span class="hljs-variable">flag</span>标记更新为<span class="hljs-built_in">True</span><br>                    <span class="hljs-variable">if</span> <span class="hljs-variable">epsilon</span> <span class="hljs-variable">not</span> <span class="hljs-variable">in</span> <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Y</span><span class="hljs-punctuation">[</span><span class="hljs-variable">i</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 如果 <span class="hljs-variable">Yi</span> 不能推出 ε 就标记为 <span class="hljs-built_in">False</span><br>                        <span class="hljs-variable">mark</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">False</span>  <span class="hljs-type">#</span> <span class="hljs-variable">mark</span>标记更新为<span class="hljs-built_in">False</span><br>                    <span class="hljs-variable">i</span> <span class="hljs-operator">+=</span> <span class="hljs-number">1</span><br>                <span class="hljs-variable">if</span> <span class="hljs-variable">mark</span><span class="hljs-operator">:</span>  <span class="hljs-type">#</span> 如果所有的 <span class="hljs-variable">Yi</span> 都推出 ε<br>                    <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">=</span> <span class="hljs-variable">set</span><span class="hljs-punctuation">(</span><span class="hljs-variable">epsilon</span><span class="hljs-punctuation">)</span>  <span class="hljs-type">#</span> 将 ε 添加到 <span class="hljs-built_in">First</span><span class="hljs-punctuation">[</span><span class="hljs-variable">X</span><span class="hljs-punctuation">]</span> 中<br><span class="hljs-variable">return</span> <span class="hljs-built_in">None</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="求Follow集算法"><a href="#求Follow集算法" class="headerlink" title="求Follow集算法"></a><strong>求Follow集算法</strong></h4><p>初始化后将 # 号加入到Follow[s] 中，新建一个标记flag初始化为True。开始循环，当Follow集不再更新，算法结束。循环内：标记flag初为False，遍历所有非终结符。每次遍历非终结符时遍历所有产生式，扫描产生式时遍历所有产生式的每一个符号。bi 是终结符则跳过，否则新建一个标记mark初始化为True，遍历所有产生式的每一个符号。如果可以更新则将 First[Bj] 中的非 ε 添加到 Follow[Bi] 中，设置标记flag为True。如果 Bj 不能推出 ε 就标记为 False，设置mark标记为False。判断mark，如果为True，那么A-&gt;αBβ and β-&gt;ε。如果可以更新，将 Follow[A] 添加到 Follow[B] 中，设置flag为True。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs clean">def getFollow() -&gt; None:<br>    global non_term, term, First, Follow, start_sym<br>    for A <span class="hljs-keyword">in</span> non_term:<br>        Follow[A] = set()  # 初始化<br>    Follow[start_sym].add(end_sym)  # 将 # 号加入到Follow[s] 中<br>    flag = <span class="hljs-literal">True</span>  # 新建一个标记flag初始化为<span class="hljs-literal">True</span><br>    while flag:  # 当Follow集不再更新，算法结束<br>        flag = <span class="hljs-literal">False</span>  # 标记flag初为<span class="hljs-literal">False</span><br>        for A <span class="hljs-keyword">in</span> non_term:  # 遍历所有非终结符<br>            for B <span class="hljs-keyword">in</span> production[A]:  # 遍历所有产生式<br>                for i <span class="hljs-keyword">in</span> range(len(B)):  # 遍历所有产生式的每一个符号<br>                    # bi 是终结符则跳过<br>                    <span class="hljs-keyword">if</span> B[i] <span class="hljs-keyword">in</span> term:<br>                        continue<br>                    mark = <span class="hljs-literal">True</span>  # 新建一个标记mark初始化为<span class="hljs-literal">True</span><br>                    for j <span class="hljs-keyword">in</span> range(i + <span class="hljs-number">1</span>, len(B)):  # 遍历所有产生式的每一个符号<br>                        <span class="hljs-keyword">if</span> not First[B[j]] - set(epsilon) &lt;= Follow[B[i]]:  # 可以更新<br>                            Follow[B[i]] = First[B[j]] - set(epsilon)  # 将 First[Bj] 中的非 ε 添加到 Follow[Bi] 中<br>                            flag = <span class="hljs-literal">True</span>  # 发生了改变<br>                        <span class="hljs-keyword">if</span> epsilon not <span class="hljs-keyword">in</span> First[B[j]]:  # 如果 Bj 不能推出 ε 就标记为 <span class="hljs-literal">False</span><br>                            mark = <span class="hljs-literal">False</span>  # 设置mark标记为<span class="hljs-literal">False</span><br>                        break<br>                    <span class="hljs-keyword">if</span> mark:  # A-&gt;αBβ and β-&gt;ε<br>                        <span class="hljs-keyword">if</span> not Follow[A] &lt;= Follow[B[i]]:  # 可以更新<br>                            Follow[B[i]] = Follow[A]  # 将 Follow[A] 添加到 Follow[B] 中<br>                            flag = <span class="hljs-literal">True</span>  # 发生了改变<br>    return None<br></code></pre></td></tr></table></figure>
+
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><p>1. 编写代码</p>
+<p><a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl3">Randall Chu / 编译原理实验3 · GitLab (zhuanjie.ltd)</a></p>
+<p>2. 测试文法</p>
+<p>LL1文法</p>
+<p>E-&gt;TA<br>A-&gt;+TAε<br>T-&gt;FB<br>B-&gt;*FBε<br>F-&gt;i(E)</p>
+<p>非LL1文法</p>
+<p>S-&gt;AB<br>S-&gt;bC<br>A-&gt;ε<br>A-&gt;b<br>B-&gt;ε<br>B-&gt;aD<br>C-&gt;AD<br>C-&gt;b<br>D-&gt;aS<br>D-&gt;c</p>
+<p>3. 测试运行(实验环境Windows11 Python3.10 pycharm)，如图：</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-8.png" srcset="/img/loading.gif" lazyload></p>
+<p>4. 输出信息</p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-12.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><p>通过本次实验我进一步理解了文法特别是上下文无关文法相关概念，掌握了求First集、Follow集、FirstVt集及LastVt集算法，并能够应用其构造文法的LL分析表、算符优先分析表及LR分析表。我也通过分析LL(1)文法、算符优先文法及LR(1)文法进一步理解了自动编程方法。刚刚写完分析符号串逻辑思路代码，这个心情是无比激动的，但是又有诸多的bug，内心是无比崩溃的，然后经过一行一行的修改，慢慢的调终于弄好了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>编译原理实验3</div>
+      <div>https://blog.randallanjie.uk/2022/06/02/byyl3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>转接</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/11/byyl4/" title="编译原理实验4">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">编译原理实验4</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/02/byyl2/" title="编译原理实验2">
+                        <span class="hidden-mobile">编译原理实验2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Zhuanjier/blog');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comment');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p>© 2023 <a target="_blank" rel="noopener" href="http://startpage.zhuanjie.ltd/">转接</a></p> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021028872号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
