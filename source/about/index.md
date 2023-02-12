@@ -3,7 +3,9 @@ title: about
 date: 2023-02-12 12:45:12
 ---
 
-> 这是基于WordPress搭建在转接的云服务器上的个人blog，欢迎访问评论！
+> 这是基于 Hexo 搭建在 Github 和 Cloud flare 上的个人blog，欢迎访问评论！
+
+> ATT：评论需要挂上代理
 
 > 致敬过去，感受青春，憧憬未来
 
