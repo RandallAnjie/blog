@@ -38,6 +38,12 @@ external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
   exclude: ''
+
+  import:
+  link:
+    # 引入 izitoast 弹窗
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+    - <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
