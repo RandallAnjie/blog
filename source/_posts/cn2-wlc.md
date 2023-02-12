@@ -29,10 +29,10 @@ date: 2022-09-20 17:50:45
 
 1.  串行：将一个字符的8位二进制数由低位到高位依次传输  
     速度慢、费用低、适合远距离传输  
-    ![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/09/串行.png)
+    ![](http://blog.zhuanjie.ltd/img/uploads/2022/09/串行.png)
 2.  并行：将一个字符的8位二进制数同时通过8条信道传输  
     速度快、费用高、适合近距离传输  
-    ![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/09/并行.png)
+    ![](http://blog.zhuanjie.ltd/img/uploads/2022/09/并行.png)
 
 ## 数据、信号、码元
 
@@ -96,7 +96,7 @@ date: 2022-09-20 17:50:45
         同1异0
     6.  4B/5B编码  
         16种4位码与16种(共32种)5位码一一对应，编码效率80%  
-        ![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/09/编码方式.png)
+        ![](http://blog.zhuanjie.ltd/img/uploads/2022/09/编码方式.png)
 2.  数字数据->模拟信号
     1.  调幅 ASK 幅移键控
     2.  调频 FSK 频移键控

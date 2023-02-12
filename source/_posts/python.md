@@ -196,8 +196,8 @@ root.mainloop()
 
 ## 项目截图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/11/image.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/11/image.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/11/image-1.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/11/image-1.png)
 
 地图

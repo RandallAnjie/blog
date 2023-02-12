@@ -11,7 +11,7 @@ Ubuntu默认不开启crontab的日志，但是在启动项里面有注释
 
 未开启状态时，日志文件夹是这样的：
 
-![](https://blog.zhuanjie.ltd/wp-content/uploads/2022/12/image-1024x100.png)
+![](https://blog.zhuanjie.ltd/img/uploads/2022/12/image-1024x100.png)
 
 ## 开启方式
 

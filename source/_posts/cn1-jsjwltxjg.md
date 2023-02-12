@@ -252,7 +252,7 @@ TCP/IP
 
 无连接
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/09/TCPIP协议栈-1024x763.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/09/TCPIP协议栈-1024x763.png)
 
 * * *
 

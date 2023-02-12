@@ -65,7 +65,7 @@ systemctl restart x-ui
 
 使用安装时的`ip:端口`或者`域名:端口`进入面板
 
-![](https://blog.zhuanjie.ltd/wp-content/uploads/2022/12/image-2-1024x384.png)
+![](https://blog.zhuanjie.ltd/img/uploads/2022/12/image-2-1024x384.png)
 
 入站列表中添加结点
 

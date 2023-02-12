@@ -1548,7 +1548,7 @@ int distance[9][9] = { // 位置 上下左右
 
 可以将循环代码优化，使得不仅仅从原始数据广度优先开始搜索，也可以同时从目标数据广度优先进行搜索，能缩短约一半时间（双向广度优先算法DBFS）
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/03/image.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/03/image.png)
 
 * * *
 

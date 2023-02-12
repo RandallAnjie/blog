@@ -90,8 +90,8 @@ ls
 
 对E1-3-1.sh进行加权后运行：
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-4.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/image-4.png)
 
 对E1-3-2.sh进行加权后运行：
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-3.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/image-3.png)

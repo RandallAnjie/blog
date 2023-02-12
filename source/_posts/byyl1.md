@@ -79,9 +79,9 @@ int len=0;
 
 *   运行结果之载图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-1.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-1.png)
 
 ## 实验总结：
 

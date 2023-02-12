@@ -8,7 +8,7 @@ categories:
 date: 2021-10-19 16:52:38
 ---
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-6.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/image-6.png)
 
 wireshark抓包截图
 
@@ -62,6 +62,6 @@ printf("校验和不正确!\n");
 } 
 ```
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-8.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/image-8.png)
 
 运行截图

@@ -144,15 +144,15 @@ int main ()
 
 ## 截图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/q-3.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/q-3.png)
 
 E2-3-1.c编译运行截图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/w.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/w.png)
 
 E2-3-2.c编译运行截图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/10/image-9.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/10/image-9.png)
 
 E2-3-3.c编译运行截图
 

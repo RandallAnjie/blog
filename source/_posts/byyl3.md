@@ -151,15 +151,15 @@ D->c
 
 3\. 测试运行(实验环境Windows11 Python3.10 pycharm)，如图：
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-8.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-8.png)
 
 4\. 输出信息
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-9.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-9.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-11.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-11.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-12.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-12.png)
 
 ## 实验总结
 

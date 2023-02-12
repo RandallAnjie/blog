@@ -124,7 +124,7 @@ date: 2022-07-08 21:16:25
 *   运行`pip install -r requirements.txt -t ./ -i https://mirrors.aliyun.com/pypi/simple`安装项目依赖
 *   执行`Python index.py`即可运行项目
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-4.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-4.png)
 
 pycharm测试运行结果
 
@@ -134,23 +134,23 @@ pycharm测试运行结果
 
 登录阿里云进入[服务及](https://help.aliyun.com/document_detail/122602.html)[函数](https://fcnext.console.aliyun.com/cn-hangzhou/services)页面，开通服务
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-8-1024x644.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-8-1024x644.png)
 
 *   创建服务
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-9.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-9.png)
 
 *   创建云函数并且修改配置
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-10-1024x537.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-10-1024x537.png)
 
 *   设置触发器
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-11-1024x421.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-11-1024x421.png)
 
 *   打开函数详情
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-12-1024x399.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-12-1024x399.png)
 
 *   在下方终端中运行如下代码段（**末尾有英文的句点，下文同理**）
 
@@ -166,22 +166,22 @@ pip3 install -r requirements.txt -t .
     *   阿里云运行函数需要修改action文件下的Utils.py文件的136行，其中文件地址由`signlog.txt`改为`/tmp/signlog.txt` 解决（原因：阿里云未开放除/tmp以外文件的写入权限）
     *   同上一条action文件下的Utils.py文件的末尾两个函数（saveWise函数和getWise函数）也需要修改地址
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-13.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-13.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-14.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-14.png)
 
 *   执行部署代码，然后运行测试
 *   查看日志
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-19.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-19.png)
 
 ### 常见问题
 
 *   如果输出418错误如图则将config.yml中的httpProxy填写为你当前查询到的自己的[ip（点击此处查询自己的ip）](https://ipaddress.com/)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-18.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-18.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-17-1024x636.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-17-1024x636.png)
 
 ## 说明
 

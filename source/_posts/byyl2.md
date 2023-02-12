@@ -24,7 +24,7 @@ R::=R1R2        {L(R)=L(R1)L(R2)}
 
 R::=R1\*          {L(R)=
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-2.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-2.png)
 
 }
 
@@ -133,17 +133,17 @@ If(Ｓ0,i,a非空)将Ｓ0,i,a添加到π0中
 
 1.  测试运行(实验环境Windows11 Python3.10 pycharm)，如图：
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-3.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-3.png)
 
 1.  输出信息：
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-4.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-4.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-5.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-5.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-6.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-6.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/image-7.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/image-7.png)
 
 **实验总结：**
 

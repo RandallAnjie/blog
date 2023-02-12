@@ -82,11 +82,11 @@ void main() {
 
 ### 实验截图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/1.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/1.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/2.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/2.png)
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/06/3.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/06/3.png)
 
 ## 实验总结
 

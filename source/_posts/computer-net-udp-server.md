@@ -44,11 +44,11 @@ d) basename：去掉目录路径，单独返回文件名
 
 ## 流程图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/12/image-745x1024.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/12/image-745x1024.png)
 
 服务器端流程图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/12/image-1-630x1024.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/12/image-1-630x1024.png)
 
 客户端流程图
 
@@ -371,4 +371,4 @@ def circlesend():
 
 打开服务器和客户端后执行不同功能如图
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2021/12/image-5.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2021/12/image-5.png)

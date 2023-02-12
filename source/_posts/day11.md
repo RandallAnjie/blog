@@ -170,5 +170,5 @@ YES
 
 *   判读函数逻辑可以优化：可以将所有字符串组合后判断ASCII差值，取出不符合区间
 *   如果将arr数组变为二维，输入会影响result数组
-    *   ![](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/image.png)
-    *   ![](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/image-1.png)
+    *   ![](https://blog.zhuanjie.ltd/img/uploads/2022/10/image.png)
+    *   ![](https://blog.zhuanjie.ltd/img/uploads/2022/10/image-1.png)

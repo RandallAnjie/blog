@@ -17,7 +17,7 @@ date: 2022-12-09 16:15:58
 
 在阿里云控制台创建一个拥有使用DNS解析权限的AccessKey，记住AccessKeyId和AccessKeySecret，所需权限如下图
 
-![](https://blog.zhuanjie.ltd/wp-content/uploads/2022/12/image-1-1024x460.png)
+![](https://blog.zhuanjie.ltd/img/uploads/2022/12/image-1-1024x460.png)
 
 ## 开始安装
 

@@ -80,7 +80,7 @@ docker run --name ipsec-vpn-server --env-file /etc/ipsec/ipsec.env --restart=alw
 
 控制面板设置属性——安全——允许使用这些协议
 
-![](http://blog.zhuanjie.ltd/wp-content/uploads/2022/07/image-20-1024x576.png)
+![](http://blog.zhuanjie.ltd/img/uploads/2022/07/image-20-1024x576.png)
 
 ### Windows连接报错：无法建立计算机与VPN服务器之间的网络连接,因为远程服务器未响应
 
@@ -123,10 +123,10 @@ iOS & macOS配置文件：[http://startpage.zhuanjie.ltd/download/vpn/vpnclient.
 
 ## Download
 
-[wireguard-x86-0.5.3](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-x86-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-x86-0.5.3.msi)
+[wireguard-x86-0.5.3](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-x86-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-x86-0.5.3.msi)
 
-[wireguard-amd64-0.5.3](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-amd64-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-amd64-0.5.3.msi)
+[wireguard-amd64-0.5.3](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-amd64-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-amd64-0.5.3.msi)
 
-[wireguard-arm64-0.5.3](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-arm64-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/wireguard-arm64-0.5.3.msi)
+[wireguard-arm64-0.5.3](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-arm64-0.5.3.msi)[下载](https://blog.zhuanjie.ltd/img/uploads/2022/10/wireguard-arm64-0.5.3.msi)
 
-[WireGuard.apk](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/WireGuard.apk)[下载](https://blog.zhuanjie.ltd/wp-content/uploads/2022/10/WireGuard.apk)
+[WireGuard.apk](https://blog.zhuanjie.ltd/img/uploads/2022/10/WireGuard.apk)[下载](https://blog.zhuanjie.ltd/img/uploads/2022/10/WireGuard.apk)
