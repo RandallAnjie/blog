@@ -19,7 +19,7 @@
     <meta name="description" content="wait()函数定义1234#include &lt;sys&#x2F;types.h&gt; #include &lt;sys&#x2F;wait.h&gt;pid_t wait(int *status)&#x2F;&#x2F; 参数status用来保存被收集进程退出时的一些状态，它是一个指向int类型的指针。但如果我们对这个子进程是如何死掉的毫不在意，只想把这个僵尸进程消灭掉，（事实上绝大多数情况下，我们都会这样想），我们就可以设定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下c语言进程通讯——wait()&#x2F;wait(&amp;status)&#x2F;WIFEXITED(status)和exit()之间的关系">
-<meta property="og:url" content="https://blog.randallanjie.uk/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/">
+<meta property="og:url" content="https://blog.zhuanjie.ltd/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/">
 <meta property="og:site_name" content="一个计科生の博客">
 <meta property="og:description" content="wait()函数定义1234#include &lt;sys&#x2F;types.h&gt; #include &lt;sys&#x2F;wait.h&gt;pid_t wait(int *status)&#x2F;&#x2F; 参数status用来保存被收集进程退出时的一些状态，它是一个指向int类型的指针。但如果我们对这个子进程是如何死掉的毫不在意，只想把这个僵尸进程消灭掉，（事实上绝大多数情况下，我们都会这样想），我们就可以设定">
 <meta property="og:locale" content="zh_CN">
@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.randallanjie.uk","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"91c013732941e890d23aca61fb06cd50","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.zhuanjie.ltd","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"91c013732941e890d23aca61fb06cd50","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -371,7 +371,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux下c语言进程通讯——wait()/wait(&amp;status)/WIFEXITED(status)和exit()之间的关系</div>
-      <div>https://blog.randallanjie.uk/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/</div>
+      <div>https://blog.zhuanjie.ltd/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/</div>
     </div>
     <div class="license-meta">
       
