@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2023/02/12/hello-world/"/>
-      <url>/2023/02/12/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Traffmonetizer使用教程</title>
       <link href="/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
       <url>/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
@@ -147,120 +134,6 @@
     
     
     <entry>
-      <title>服务器监控</title>
-      <link href="/2022/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/"/>
-      <url>/2022/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Untitled Post - 1</title>
-      <link href="/2022/12/05/1013/"/>
-      <url>/2022/12/05/1013/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>个人主页</title>
-      <link href="/2022/12/05/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/"/>
-      <url>/2022/12/05/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>博客首页</title>
-      <link href="/2022/12/05/%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5/"/>
-      <url>/2022/12/05/%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>服务器推广（雨云服务器）</title>
-      <link href="/2022/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E5%B9%BF%EF%BC%88%E9%9B%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/"/>
-      <url>/2022/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E5%B9%BF%EF%BC%88%E9%9B%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网盘</title>
-      <link href="/2022/12/05/%E7%BD%91%E7%9B%98/"/>
-      <url>/2022/12/05/%E7%BD%91%E7%9B%98/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>随机图片API</title>
       <link href="/2022/10/08/random-api/"/>
       <url>/2022/10/08/random-api/</url>
@@ -364,25 +237,6 @@
     
     
     <entry>
-      <title>Custom Styles</title>
-      <link href="/2022/09/20/wp-global-styles-sakurairo-2-5-1-1/"/>
-      <url>/2022/09/20/wp-global-styles-sakurairo-2-5-1-1/</url>
-      
-        <content type="html"><![CDATA[<p>{“version”: 2, “isGlobalStylesUserThemeJSON”: true }</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>每日一题——带分数</title>
       <link href="/2022/08/02/day10/"/>
       <url>/2022/08/02/day10/</url>
@@ -456,25 +310,6 @@
           <category> Python </category>
           
           <category> 教程 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Custom Styles</title>
-      <link href="/2022/07/08/wp-global-styles-sakurairo-2-5-0-3/"/>
-      <url>/2022/07/08/wp-global-styles-sakurairo-2-5-0-3/</url>
-      
-        <content type="html"><![CDATA[<p>{“version”: 2, “isGlobalStylesUserThemeJSON”: true }</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
           
       </categories>
       
@@ -618,82 +453,6 @@
       <categories>
           
           <category> 每日一题 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>导航</title>
-      <link href="/2022/04/01/%E5%AF%BC%E8%88%AA-2/"/>
-      <url>/2022/04/01/%E5%AF%BC%E8%88%AA-2/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>导航</title>
-      <link href="/2022/04/01/%E5%AF%BC%E8%88%AA/"/>
-      <url>/2022/04/01/%E5%AF%BC%E8%88%AA/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Custom Styles</title>
-      <link href="/2022/04/01/wp-global-styles-nisarg/"/>
-      <url>/2022/04/01/wp-global-styles-nisarg/</url>
-      
-        <content type="html"><![CDATA[<p>{“version”: 2, “isGlobalStylesUserThemeJSON”: true }</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Custom Styles</title>
-      <link href="/2022/04/01/wp-global-styles-twentytwentytwo/"/>
-      <url>/2022/04/01/wp-global-styles-twentytwentytwo/</url>
-      
-        <content type="html"><![CDATA[<p>{“version”:2,”isGlobalStylesUserThemeJSON”:true}</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
           
       </categories>
       
@@ -1027,25 +786,6 @@
           <category> C++ </category>
           
           <category> 数据结构 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Custom Styles</title>
-      <link href="/2022/02/13/wp-global-styles-twentyseventeen/"/>
-      <url>/2022/02/13/wp-global-styles-twentyseventeen/</url>
-      
-        <content type="html"><![CDATA[<p>{“version”: 2, “isGlobalStylesUserThemeJSON”: true }</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> uncategorized </category>
           
       </categories>
       

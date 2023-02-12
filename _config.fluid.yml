@@ -726,7 +726,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
-    type: utterances
+    type: disqus
 
 
 #---------------------------
@@ -753,12 +753,12 @@ utterances:
 # Based on third-party service
 # See: https://disqus.com
 disqus:
-  shortname:
+  shortname: Randallblog
   # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
   # See: https://github.com/SukkaW/DisqusJS
-  disqusjs: false
-  apikey:
+  disqusjs: true
+  apikey: Wu7KeBY3nfvF5jwgbgDNlWiuKXQZcUztGYqmFYfJRRScHpRb4LJEAKDbsDqtDCKG
 
 # Gitalk
 # 基于 GitHub Issues

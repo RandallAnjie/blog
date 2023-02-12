@@ -409,8 +409,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/" title="服务器监控">
-                        <span class="hidden-mobile">服务器监控</span>
+                      <a href="/2022/10/08/random-api/" title="随机图片API">
+                        <span class="hidden-mobile">随机图片API</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -425,31 +425,23 @@
   
     <article id="comments" lazyload>
       
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      var light = 'github-light';
-      var dark = 'github-dark';
-      var schema = document.documentElement.getAttribute('data-user-color-scheme');
-      if (schema === 'dark') {
-        schema = dark;
-      } else {
-        schema = light;
-      }
-      window.UtterancesThemeLight = light;
-      window.UtterancesThemeDark = dark;
-      var s = document.createElement('script');
-      s.setAttribute('src', 'https://utteranc.es/client.js');
-      s.setAttribute('repo', 'Zhuanjier/blog');
-      s.setAttribute('issue-term', 'pathname');
-      
-      s.setAttribute('label', 'comment');
-      
-      s.setAttribute('theme', schema);
-      s.setAttribute('crossorigin', 'anonymous');
-      document.getElementById('comments').appendChild(s);
-    })
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'Randallblog',
+              apikey: 'Wu7KeBY3nfvF5jwgbgDNlWiuKXQZcUztGYqmFYfJRRScHpRb4LJEAKDbsDqtDCKG'
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
 
 
     </article>

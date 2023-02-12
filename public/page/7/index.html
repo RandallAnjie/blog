@@ -255,15 +255,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/" target="_self">
-          Linux下c语言进程通讯——wait()/wait(&amp;status)/WIFEXITED(status)和exit()之间的关系
+        <a href="/2021/05/25/intervalscheduling/" target="_self">
+          区间调度IntervalScheduling
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/intervalscheduling/" target="_self">
         <div>
-          wait()函数定义1234#include &lt;sys/types.h&gt; #include &lt;sys/wait.h&gt;pid_t wait(int *status)// 参数status用来保存被收集进程退出时的一些状态，它是一个指向int类型的指针。但如果我们对这个子进程是如何死掉的毫不在意，只想把这个僵尸进程消灭掉，（事实上绝大多数情况下，我们都会这样想），我们就可以设定
+          代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697#include &lt
         </div>
       </a>
 
@@ -271,8 +271,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-02 00:36" pubdate>
-              2021-11-02
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -287,177 +287,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/10/22/python-judge-character/" target="_self">
-          Python判断数据类型
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/22/python-judge-character/" target="_self">
-        <div>
-          python用与判断数据类型的函数： isinstance()函数isinstance(变量,类型)isinstance(i, int)可以用来判断变量的类型，它返回的是一个布尔值，False or True. type()函数不是判断变量的类型，而使直接返回变量的类型
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-22 23:09" pubdate>
-              2021-10-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/10/22/linux-output/" target="_self">
-          关于Linux下子进程输出问题
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/22/linux-output/" target="_self">
-        <div>
-          子进程输出的个数跟是否换行有关？ 123456789printf(&quot;before fork with  换行符\n&quot;);  printf(&quot;before fork without换行符&quot;);  pid = fork();if(pid == 0)&#123;　　//子进程　　printf(&quot;I am is  child process,pid=%d\
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-22 01:28" pubdate>
-              2021-10-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/10/19/udp-checksum/" target="_self">
-          计算机网络计算UDP校验和
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/19/udp-checksum/" target="_self">
-        <div>
-          wireshark抓包截图 源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-19 16:52" pubdate>
-              2021-10-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
@@ -481,15 +311,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/18/linux-os2/" target="_self">
-          Linux下C语言进程管理（创建子进程的原理）——操作系统实验2
+        <a href="/2021/05/25/quicksort/" target="_self">
+          快速排序QuickSort
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/18/linux-os2/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/quicksort/" target="_self">
         <div>
-          实验目的(1)通过实验使学生了解Linux C程序的编译和运行; (2)掌握fork函数的编程方法; (3)热悉并发进程的程序的编写。 实验预备知识(1)Linux文本编辑器vi和gedit； (2)gcc编译器。 实验内容1 父进程创建子进程 1)父进程显示“11111” 2)子进程显示“22222” 3）多次执行该程序观察结果。 2 父进程创建子进程 1)父进程显示“I am parent\n
+          代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;stdio.h&gt;#include &lt;iostream&gt;#include &lt;ve
         </div>
       </a>
 
@@ -497,8 +327,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-18 23:19" pubdate>
-              2021-10-18
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -513,7 +343,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
@@ -537,15 +367,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/18/linux-shell-os1/" target="_self">
-          Linux下Shell语言编写程序——操作系统实验1
+        <a href="/2021/05/25/stablemaching/" target="_self">
+          稳定匹配StableMaching
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/18/linux-shell-os1/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/stablemaching/" target="_self">
         <div>
-          实验目的(1)通过实验使学生了解Linux提供的用户界面中的作业批处理操作界面： (2)掌握Linux Shell脚本的编辑和执行，熟悉批处理语言的编程方法： (3)熟悉Linux提供的文本编辑器vi (Gedit)的使用。 实验预备知识(1)Linux文本编辑器vi (Gedit) 。 (2)Linux批处理文件(Shell脚本)的编辑和执行 实验内容(1)用Shell语言编制一个批处理程序，其
+          代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586#include&lt;queue&gt;#include &lt;
         </div>
       </a>
 
@@ -553,8 +383,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-18 18:44" pubdate>
-              2021-10-18
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -569,7 +399,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
@@ -593,15 +423,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/16/python-list-set-dict/" target="_self">
-          Python的列表，集合，字典的区别和使用
+        <a href="/2021/05/20/deadline/" target="_self">
+          算法分析与设计大作业——截止日期
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/16/python-list-set-dict/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/20/deadline/" target="_self">
         <div>
-          列表List12345678910111213141516171819res = [1,2,&#x27;Randall&#x27;]# 增加元素：extend和append# 如果想添加的一个元素是一个列表，那么append是将这个这个列表作为一个元素添加进来，而extend是将列中的元素一个一个添加进去res.append(1)res.extend(&#x27;R&#x27;)# 删除元素：
+          问题描述：某学科老师布置了n个题目，每个题目都有相应的分数及截止日期。各个题目的分数及截止日期可能并不相同。对某题目而言，如果在该题目的截止日期前完成则可获得对应的分数，否则无法得分。假设每个题目均需要花费一天的时间来完成，这期间无法完成其他题目。请你设计算法指定题目的完成计划，从而使总的得分最大。 下面给出一个包含了7个题目及相应的分数、截止日期的实例：   题目 1 2 3 4 5 6 7 分
         </div>
       </a>
 
@@ -609,8 +439,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-16 14:26" pubdate>
-              2021-10-16
+            <time datetime="2021-05-20 06:11" pubdate>
+              2021-05-20
             </time>
           </div>
         
@@ -625,11 +455,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
       </span>
+    
+  
+    
+  
+    
+  
     
   
 </span>
@@ -647,15 +483,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/15/androidstudiostudy/" target="_self">
-          移动应用基础——AndroidStudio编程（未完成）
+        <a href="/2021/05/20/finaltest/" target="_self">
+          算法分析与设计大作业——期末测试
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/15/androidstudiostudy/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/20/finaltest/" target="_self">
         <div>
-          控件TextView12345678910111213141516171819202122232425262728293031// MainActivity.java代码设置public class MainActivity extends AppCompatActivity &#123;    private TextView text;// 新建TextView类型变量    @Overri
+          需要代码请评论或者与我联系！ 问题描述助教小明给期末测验出了n道算法题目。他希望在即将到来的期末测验试卷中使用其中k道题目。每道算法题目都有一个难度等级。如果一次测验中的所有k道题目都有不同的难度等级，那么这次期末测试就是有区分度的。计算小明可以设计多少种有区分度的期末试卷。注：两份测验试卷当且仅当一份试卷中存在某一题目p，而另一份试卷中不存在这个题p，这两份试卷才有区别。输出结果对998,244
         </div>
       </a>
 
@@ -663,8 +499,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-15 21:14" pubdate>
-              2021-10-15
+            <time datetime="2021-05-20 06:11" pubdate>
+              2021-05-20
             </time>
           </div>
         
@@ -679,11 +515,13 @@
     
       <span class="category-chain">
         
-  <a href="/categories/AndroidStudio/" class="category-chain-item">AndroidStudio</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
       </span>
+    
+  
     
   
 </span>
@@ -701,15 +539,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" target="_self">
-          AS报错“Could not find com.android.tools.build:gradle:4.1.2.”
+        <a href="/2020/06/27/experimentalreportonprogramdesigninspring20/" target="_self">
+          20春小学期程序设计实验报告
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/27/experimentalreportonprogramdesigninspring20/" target="_self">
         <div>
-          更改build.gradle文件，换用阿里镜像 解决报错：Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository ‘maven(http://maven.aliyun.com/nexus/content/groups/public/)&#
+          Experimental report on program design in spring 20 1. 最长公字串题目编写一个程序，对输入的字符串s和t，求其最长的公共子字符串。输入形式：从屏幕分行读入串s和t。s和t由任意字符构成，长度都不超50个字符。输入数据确保只有唯一的最长公共子串。如果没有公共子串，打印No Answer。 输出形式：在单独行上输出串s和串t的最长公共子串，在结尾输出
         </div>
       </a>
 
@@ -717,8 +555,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-14 14:14" pubdate>
-              2021-10-14
+            <time datetime="2020-06-27 06:11" pubdate>
+              2020-06-27
             </time>
           </div>
         
@@ -733,65 +571,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/AndroidStudio/" class="category-chain-item">AndroidStudio</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
       </span>
     
   
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
     
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/02/shujvkuxiaoxueqi/" target="_self">
-          21春数据库系统设计小学期——大学实验材料管理信息系统数据库设计
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/07/02/shujvkuxiaoxueqi/" target="_self">
-        <div>
-          由于服务器系统更新问题，项目后端数据库已经移植，下载后的程序无法连接到数据库，可重构项目并且自行搭建数据库 需要代码请评论或者与我联系！ 项目成品下载 链接1(直接下载) 链接2(发布 · Randall Chu / 大学实验材料管理信息系统数据库设计 · GitLab ) 课程设计内容要求设计一个小型数据库（使用Microsoft SQL Server ）（1）数据库来源于对现实世界的抽象和概括
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-02 06:11" pubdate>
-              2021-07-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
   
     
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C#</a>
   
-  
-
-      </span>
     
   
 </span>
@@ -807,7 +597,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span>
     </span>
   </nav>
 
