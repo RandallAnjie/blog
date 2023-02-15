@@ -65,14 +65,17 @@ public:
 
 将数组先拷贝一份，将备份排序，由小到大遍历，看target和当前数的差值是不是在数组中，如果在就利用线性查找去找到下标，如果不在就继续往后遍历。
 
-在线性遍历中要防止遍历到两个相同的值，x的值对应的下标可以在0~n-1中遍历，target-x的值智能先在x的值对应的下标+1~n-1中遍历，如果没有就只能在0~x的值对应的下标-1中遍历了
+在线性遍历中要防止遍历到两个相同的值，【x的值对应的下标】可以在【0到n-1】中遍历，target-x的值只能先在【【x的值对应的下标+1】到n-1】中遍历，如果没有就只能在【0到【x的值对应的下标-1】】中遍历了
 
 ```c++
 class Solution {
     // 实现二分查找
     bool binSearch(vector<int>& arr, int left, int right, int value){
         while(left <= right){
-            int mid = (left + right) >> 1;  // 右移运算符>>,运算结果正好能对应一个整数的二分之一值，这就正好能代替数学上的除2运算，但是比除2运算要快。如mid=(left+right)>>1相当于mid=(left+right)/2
+            int mid = (left + right) >> 1;
+            // 右移运算符>>,运算结果正好能对应一个整数的二分之一值
+            // 这就正好能代替数学上的除2运算，但是比除2运算要快
+            // 如mid=(left+right)>>1相当于mid=(left+right)/2
             if(value == arr[mid]){
                 return true;
             }else if(value > arr[mid]){
