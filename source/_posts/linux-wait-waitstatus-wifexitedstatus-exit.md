@@ -57,6 +57,5 @@ int main()
 }
 ```
 
-![](http://blog.zhuanjie.ltd/img/uploads/2021/11/图片-1.png)
+![运行后截图](http://blog.zhuanjie.ltd/img/uploads/2021/11/图片-1.png)
 
-运行后截图

@@ -9,13 +9,13 @@ date: 2021-11-12 18:20:05
 
 ## tqdm包
 
-```
+```shell
 from tqdm import tqdm
 ```
 
 ## 创建tqdm
 
-```
+```python
 pbar = tqdm(range(1000))  # 创建进度条
 for i in pbar:  # 在进度条中运行
     continue
@@ -23,7 +23,7 @@ for i in pbar:  # 在进度条中运行
 
 ## 参数解释
 
-```
+```python
 iterable=None,     可迭代的对象, 在手动更新时不需要进行设置
 desc=None,      传入str类型，作为进度条标题（类似于说明）
 total=None,     预期的迭代次数（即进度条100的时候迭代的次数）
@@ -46,7 +46,7 @@ postfix=dict             以字典形式传入详细信息
 
 ## 示例代码
 
-```
+```python
 from time import sleep
 from tqdm import tqdm
 
@@ -72,7 +72,7 @@ with tqdm(total=21, desc='Example', leave=True, ncols=100, unit='B', unit_scale=
 
 输出：
 
-```
+```shell
 C:\Users\zhuan\PycharmProjects\test\venv\Scripts\python.exe C:/Users/zhuan/PycharmProjects/test/进度条.py
 100%██████████ 1000/1000 [00:15<00:00, 63.72it/s]
 Reconstruction loss: abc: 100%██████████ 1000/1000 [00:00<00:00, 3422.53it/s]

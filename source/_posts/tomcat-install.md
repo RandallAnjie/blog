@@ -27,7 +27,7 @@ eg.64位Windows10的[下载链接](https://dlcdn.apache.org/tomcat/tomcat-10/v10
 
 ## 安装服务
 
-```
+```powershell
 C:\Users\zhuan\apache-tomcat-10.0.16\bin>service.bat install
 Installing the service 'Tomcat10' ...
 Using CATALINA_HOME:    "C:\Users\zhuan\apache-tomcat-10.0.16"
@@ -52,7 +52,7 @@ localhost:8080无法打开页面，而127.0.0.1:8080可以打开页面
 
 *   更改host文件（C:/WINDOWS/system32/drivers/etc/hosts）将下列解析添加进host
 
-```
+```ini
 127.0.0.1       localhost
 ::1             localhost
 ```

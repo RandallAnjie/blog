@@ -12,19 +12,17 @@ date: 2021-11-28 19:03:17
 
 项目成品下载
 
-[链接1（直接下载）](http://startpage.zhuanjie.ltd/download/bigcmap.exe)
-
-[链接2（发布 · Randall Chu / 北印校园导航 · GitLab](http://gitlab.zhuanjie.ltd/Randall/bigc-map/-/releases)[)](http://gitlab.zhuanjie.ltd/Randall/bigc-map/-/releases)
+[链接1（直接下载）](https://startpage.zhuanjie.ltd/download/bigcmap.exe)
 
 ## 简介
 
 针对新生对校园了解的不足，帮助新生对校园中的各建筑有更加多方面的了解。同时可以对于校园工作人员优化校园工具的搬运选择最优的运输路径，提高运输的效率。通过对dijkstra算法进行编写，实现从一个顶点到其余各顶点的最短路径算法，解决的有向图中最短路径问题。主要特点是以起始点为中心向外层层扩展，直到扩展到终点为止，是一种广度优先的搜索方法。
 
-程序的数据和地图利用json.dumps方法编码为json文件的方式放在云服务器上，在运行代码的时候利用json.load方法访问服务器端数据。
+程序的数据和地图利用`json.dumps`方法编码为json文件的方式放在云服务器上，在运行代码的时候利用`json.load`方法访问服务器端数据。
 
 ## 代码
 
-```
+```python
 import os
 import json
 import tkinter
@@ -196,8 +194,7 @@ root.mainloop()
 
 ## 项目截图
 
-![](http://blog.zhuanjie.ltd/img/uploads/2021/11/image.png)
+![项目截图](https://blog.zhuanjie.ltd/img/uploads/2021/11/image.png)
 
-![](http://blog.zhuanjie.ltd/img/uploads/2021/11/image-1.png)
+![地图](https://blog.zhuanjie.ltd/img/uploads/2021/11/image-1.png)
 
-地图

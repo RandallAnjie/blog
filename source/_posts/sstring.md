@@ -10,7 +10,7 @@ date: 2022-02-19 03:39:43
 
 头文件SString.h
 
-```
+```c
 // SString.h - 串
 #include <iostream>
 
@@ -186,7 +186,7 @@ int Index_KMP_Need_Next(SString S, SString T, int next[]){  // 传入next数组
         }
     }
     if(i > T.length){
-        return i-T.length;        
+        return i-T.length;
     }else{
         return 0;
     }

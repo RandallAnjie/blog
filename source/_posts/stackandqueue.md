@@ -10,7 +10,7 @@ date: 2022-02-15 22:46:48
 
 头文件StackAndQueue.h
 
-```
+```c
 // StackAndQueue.h - 栈和队列
 #include <iostream>
 

@@ -10,7 +10,7 @@ date: 2022-03-03 23:39:11
 
 头文件TreeAndBinaryTree.h
 
-```
+```c
 // TreeAndBinaryTree.h - 树与二叉树
 #include <iostream>
 

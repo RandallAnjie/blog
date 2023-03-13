@@ -1,6 +1,6 @@
 ---
 title: 区间调度IntervalScheduling
-tags: []
+tags: ["TODO"]
 id: '87'
 categories:
   - - C++
@@ -10,11 +10,12 @@ date: 2021-05-25 06:11:00
 
 ## 代码：
 
-```
+```c++
 #include <iostream>
 #include <vector>
-#include <vector>
+
 using namespace std;
+
 int _count[100][100]; //构造最优矩阵
 int p[100][100];
 int numbers[100];
@@ -48,52 +49,52 @@ void printDp( int begin, int end) {
     printDp(pos, end);
 }
 int main() {
-vector<int> vfinish;
-vector<int> vstart;
-//插入数组前置数值-1 
-vstart.push_back(-1);
-vfinish.push_back(-1);
-int number;
-cout << "请分别输入各个事件的开始跟结束时间：" << endl;
-while (1){
-cin >> number;
-vstart.push_back(number);
-cin >> number;
-vfinish.push_back(number);
-if (cin.get() == '\n')
-break;
-}
-//插入数组后置数值255 
-vstart.push_back(255);
-vfinish.push_back(255);
-int *start = new int[vstart.size()];
+    vector<int> vfinish;
+    vector<int> vstart;
+    //插入数组前置数值-1
+    vstart.push_back(-1);
+    vfinish.push_back(-1);
+    int number;
+    cout << "请分别输入各个事件的开始跟结束时间：" << endl;
+    while (1){
+        cin >> number;
+        vstart.push_back(number);
+        cin >> number;
+        vfinish.push_back(number);
+        if (cin.get() == '\n')
+            break;
+    }
+    //插入数组后置数值255
+    vstart.push_back(255);
+    vfinish.push_back(255);
+    int *start = new int[vstart.size()];
     if (!vstart.empty())
         memcpy(start, &vstart[0], vstart.size()*sizeof(int));
-int *finish = new int[vfinish.size()];
+    int *finish = new int[vfinish.size()];
     if (!vfinish.empty())
         memcpy(finish, &vfinish[0], vfinish.size()*sizeof(int));
-int TASK_COUNT = vstart.size()-2;
-for(int i=0;i<vstart.size();i++)
-numbers[i]=i;
-cout << "图例如下：" << endl; //输出图示
+    int TASK_COUNT = vstart.size()-2;
+    for(int i=0;i<vstart.size();i++)
+        numbers[i]=i;
+    cout << "图例如下：" << endl; //输出图示
     for (int i = 0; i <= TASK_COUNT; i++) {
         cout << i << ":";
         for (int j = 0; j < start[i]; j++) {
             cout << "  ";
         }
-        for (int j = start[i]; j < finish[i]; j++) 
+        for (int j = start[i]; j < finish[i]; j++)
             cout << "■";
         cout << endl;
     }
     for(int i=0;i<TASK_COUNT+2;i++){//按照结束时间排序
-for(int j=0;j<TASK_COUNT+1;j++){
-if(finish[j]>finish[j+1]){
-std::swap(finish[j],finish[j+1]);
-std::swap(start[j],start[j+1]);
-std::swap(numbers[j],numbers[j+1]);
-}
-}
-}
+        for(int j=0;j<TASK_COUNT+1;j++){
+            if(finish[j]>finish[j+1]){
+                std::swap(finish[j],finish[j+1]);
+                std::swap(start[j],start[j+1]);
+                std::swap(numbers[j],numbers[j+1]);
+            }
+        }
+    }
     for (int i = 0; i <= TASK_COUNT + 2; i++) {
         for (int j = 0; j <= TASK_COUNT + 2; j++) {
             _count[i][j] = 0;
@@ -106,7 +107,6 @@ std::swap(numbers[j],numbers[j+1]);
     printDp(0, TASK_COUNT + 1);
     return 0;
 }
-
 
 ```
 

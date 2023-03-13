@@ -21,7 +21,7 @@ int shmget(key\_t key, size\_t size, int shmflg);
 
 第三个参数，shmflg是权限标志，它的作用与open函数的mode参数一样，如果要想在key标识的共享内存不存在时，创建它的话，可以与IPC\_CREAT做或操作。共享内存的权限标志与文件的读写权限一样，举例来说，0644,它表示允许一个进程创建的共享内存被内存创建者所拥有的进程向共享内存读取和写入数据，同时其他用户创建的进程只能读取共享内存。
 
-```
+```shell
 -rw------- (600)    只有拥有者有读写权限。
 -rw-r--r-- (644)    只有拥有者有读写权限；而属组用户和其他用户只有读权限。
 -rwx------ (700)    只有拥有者有读、写、执行权限。
@@ -33,7 +33,7 @@ int shmget(key\_t key, size\_t size, int shmflg);
 
 ## **shmat()函数    -- at：attach**
 
-void \*shmat(int shm\_id, const void \*shm\_addr, int shmflg);
+`void \*shmat(int shm\_id, const void \*shm\_addr, int shmflg);`
 
 第一次创建完共享内存时，它还不能被任何进程访问，shmat()函数的作用就是用来启动对该共享内存的访问，并把共享内存连接到当前进程的地址空间。
 
@@ -47,7 +47,7 @@ void \*shmat(int shm\_id, const void \*shm\_addr, int shmflg);
 
 ## **shmdt()函数    -- dt：detach**
 
-int shmdt(const void \*shmaddr);
+`int shmdt(const void \*shmaddr);`
 
 该函数用于将共享内存从当前进程中分离。注意，将共享内存分离并不是删除它，只是使该共享内存对当前进程不再可用。
 
@@ -55,7 +55,7 @@ int shmdt(const void \*shmaddr);
 
 ## **shmctl()函数    -- ctl：control**
 
-int shmctl(int shm\_id, int command, struct shmid\_ds \*buf);
+`int shmctl(int shm\_id, int command, struct shmid\_ds \*buf);`
 
 与信号量的semctl()函数一样，用来控制共享内存。
 
@@ -77,7 +77,7 @@ int shmctl(int shm\_id, int command, struct shmid\_ds \*buf);
 
 代码：
 
-```
+```c
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/shm.h>
@@ -134,7 +134,7 @@ int main(){
 
 输出：
 
-```
+```shell
 randall@ubuntu:~/Desktop/experiment5$ ./E5-3-2.out
 创建共享内存成功 shmid=29
 子进程：写入信息：1
@@ -159,7 +159,7 @@ randall@ubuntu:~/Desktop/experiment5$
 
 ##### **shmsnd.c**
 
-```
+```c
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/shm.h>
@@ -197,7 +197,7 @@ int main(){
 
 ##### shmrcv.c
 
-```
+```c
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -229,7 +229,7 @@ int main(){
 
 #### 输出：
 
-```
+```shell
 randall@ubuntu:~/Desktop/experiment5$ ./shmsnd.out
 写入信息：1 2 3 4 5
 写入信息：randall

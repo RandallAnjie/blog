@@ -27,7 +27,7 @@ date: 2021-05-20 06:11:00
 
 ## 样例输入
 
-5 2  
+5 2 
 1 2 3 4 5
 
 ## 样例输出
@@ -48,23 +48,23 @@ date: 2021-05-20 06:11:00
 
 ```
 枚举i=1~count{
-枚举j=0~i{
-如果j=0成立{
-sheet[i][j]=number[i][1]+sheet[i-1][j];
-}
-如果i==j成立{
-sheet[i][j]=(number[i][1]*sheet[i-1][j-1]) %998244353;
-}
-否则{
-sheet[i][j]=(sheet[i-1][j]+sheet[i-1][j-1]*number[i][1]) %998244353;
-}
-}
+    枚举j=0~i{
+        如果j=0成立{
+            sheet[i][j]=number[i][1]+sheet[i-1][j];
+        }
+        如果i==j成立{
+            sheet[i][j]=(number[i][1]*sheet[i-1][j-1]) %998244353;
+        }
+        否则{
+            sheet[i][j]=(sheet[i-1][j]+sheet[i-1][j-1]*number[i][1]) %998244353;
+        }
+    }
 }
 ```
 
 ## **代码（C++）**
 
-```
+```c++
 #include <iostream>
 #include <algorithm>
 
@@ -73,154 +73,80 @@ using namespace std;
 long long number[1000][2];
 
 int main(){
-long long n,k;
-cin >> n;
-cin >> k;
-long long data[n];
-for(long long i=0;i<n;i++){
-cin >> data[i];
-}
-sort(data, data+n);
-number[0][0]=data[0];
-number[0][1]=1;
-long long  count=1;
-for(long long i=1;i<n;i++){
-if(data[i]==data[i-1]){
-number[count-1][1]++;
-}
-else{
-number[count][0]=data[i];
-number[count][1]=1;
-count++;
-}
-}
+    long long n,k;
+    cin >> n;
+    cin >> k;
+    long long data[n];
+    for(long long i=0;i<n;i++){
+        cin >> data[i];
+    }
+    sort(data, data+n);
+    number[0][0]=data[0];
+    number[0][1]=1;
+    long long  count=1;
+    for(long long i=1;i<n;i++){
+        if(data[i]==data[i-1]){
+            number[count-1][1]++;
+        }
+        else{
+            number[count][0]=data[i];
+            number[count][1]=1;
+            count++;
+        }
+    }
 
-for(long long i=0;i<count;i++){
-cout << number[i][0] << " " <<  number[i][1] <<endl;
-}
+    for(long long i=0;i<count;i++){
+        cout << number[i][0] << " " <<  number[i][1] <<endl;
+    }
 
-if(count<k){
-cout << "0";
-return 0;
-}
+    if(count<k){
+        cout << "0";
+        return 0;
+    }
 
-long long sheet[count][k];
-sheet[0][0]=number[0][1];
+    long long sheet[count][k];
+    sheet[0][0]=number[0][1];
 
-for(long long i=1;i<count;i++){
-for(long long j=0;j<k;j++){
-if(j==0){
-sheet[i][j]=number[i][1]+sheet[i-1][j];
-}
-else if(i==j){
-sheet[i][j]=(number[i][1]*sheet[i-1][j-1])%998244353;
-}
-else{
-sheet[i][j]=(sheet[i-1][j]+sheet[i-1][j-1]*number[i][1])%998244353;
-}
-}
-}
+    for(long long i=1;i<count;i++){
+        for(long long j=0;j<k;j++){
+            if(j==0){
+                sheet[i][j]=number[i][1]+sheet[i-1][j];
+            }
+            else if(i==j){
+                sheet[i][j]=(number[i][1]*sheet[i-1][j-1])%998244353;
+            }
+            else{
+                sheet[i][j]=(sheet[i-1][j]+sheet[i-1][j-1]*number[i][1])%998244353;
+            }
+        }
+    }
 
-long long suma=sheet[count-1][k-1];
+    long long suma=sheet[count-1][k-1];
 
-//long long sum=jc(count)/(jc(k)*jc(count-k));
-//
-//for(long long i=0;i<count;i++){
-//sum=sum*(long long)number[i][1];
-//}
-//cout << sum << endl;
+    //long long sum=jc(count)/(jc(k)*jc(count-k));
+    //
+    //for(long long i=0;i<count;i++){
+    //sum=sum*(long long)number[i][1];
+    //}
+    //cout << sum << endl;
 
-suma=suma%998244353; 
-cout << suma;
+    suma=suma%998244353;
+    cout << suma;
 }
 
 ```
 
 ## **总结**
 
-本算法对规定范围下不同的输入数据能够得出满足要求的结构，对于精心选择的典型、苛刻而带有刁难性的输入数据能够得出满足要求的结果，对于一切合法的输入数据都产生满足要求的结果。本算法要求考虑到边界条件当不同难度的算法题目数量小于要求。本算法的边界条件就是不同难度的题目数量可能会小于所需求的k，本程序以及提前判断出相关大小情况。  
+本算法对规定范围下不同的输入数据能够得出满足要求的结构，对于精心选择的典型、苛刻而带有刁难性的输入数据能够得出满足要求的结果，对于一切合法的输入数据都产生满足要求的结果。本算法要求考虑到边界条件当不同难度的算法题目数量小于要求。本算法的边界条件就是不同难度的题目数量可能会小于所需求的k，本程序以及提前判断出相关大小情况。 
+
 核心代码问题：求解sheet表中第一列就是上一行的数值加上number\[i\]\[1\]的值；求解sheet表中左上到右下的对角线上的格子的值sheet\[i\]\[j\]就是number\[i\]\[1\]乘上sheet\[i-1\]\[j-1\]；求解其他的格子中的值就是sheet\[i-1\]\[j\]加上sheet\[i-1\]\[j-1\]乘以number\[i\]\[1\]（n类里面挑选k个的个数等同于n-1类里挑选k个的个数或者n-1类里挑选k-1个，再在第n类挑选一个）。
 
- 
+|      |                 1                  |                           2                            | ...  |                             k-1                             |                             k                             |
+| :--: | :--------------------------------: | :----------------------------------------------------: | :--: | :---------------------------------------------------------: | :-------------------------------------------------------: |
+|  1   |          number\[1\]\[1\]          |                                                        |      |                                                             |                                                           |
+|  2   |  sheet\[1\]\[1\]+number\[1\]\[1\]  |           sheet\[1\]\[1\]\*number\[2\]\[1\]            |      |                                                             |                                                           |
+|  …   |                                    |                                                        |      |                                                             |                                                           |
+| n-1  |         sheet\[n-1\]\[1\]          |                   sheet\[n-1\]\[2\]                    |      |                     sheet\[n-1\]\[k-1\]                     |                     sheet\[n-1\]\[k\]                     |
+|  n   | sheet\[n-1\]\[1\]+number\[n\]\[1\] | sheet\[n-1\]\[2\]+sheet\[n-1\]\[1\]\* number\[n\]\[1\] |      | sheet\[n-1\]\[k-1\]+ sheet\[n-1\]\[k-2\]\* number\[n\]\[1\] | sheet\[n-1\]\[k\]+ sheet\[n-1\]\[k-1\]\* number\[n\]\[1\] |
 
-1
-
-2
-
-…
-
-k-1
-
-k
-
-…
-
-1
-
-number\[1\]\[1\]
-
- 
-
- 
-
- 
-
- 
-
- 
-
-2
-
-sheet\[1\]\[1\]+number\[1\]\[1\]
-
-sheet\[1\]\[1\]\*number\[2\]\[1\]
-
- 
-
- 
-
-  
-
- 
-
-…
-
- 
-
- 
-
- 
-
- 
-
-  
-
- 
-
-n-1
-
-sheet\[n-1\]\[1\]
-
-sheet\[n-1\]\[2\]
-
-sheet\[n-1\]\[k-1\]
-
-sheet\[n-1\]\[k\]
-
- 
-
-n
-
-sheet\[n-1\]\[1\]+number\[n\]\[1\]
-
-sheet\[n-1\]\[2\]+sheet\[n-1\]\[1\]\* number\[n\]\[1\]
-
- 
-
-sheet\[n-1\]\[k-1\]+ sheet\[n-1\]\[k-2\]\* number\[n\]\[1\]
-
-sheet\[n-1\]\[k\]+ sheet\[n-1\]\[k-1\]\* number\[n\]\[1\]
-
-   
-
-…

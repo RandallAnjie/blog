@@ -35,7 +35,7 @@ i686-win32-dwarf
 
 ## 测试
 
-```
+```powershell
 Microsoft Windows [版本 10.0.22000.493]
 (c) Microsoft Corporation。保留所有权利。
 

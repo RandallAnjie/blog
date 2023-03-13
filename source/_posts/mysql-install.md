@@ -19,7 +19,7 @@ date: 2022-02-23 22:34:01
 
 在该目录下创建新文本文件，内容如下：
 
-```
+```ini
 [mysql]
 # mysql默认字符集
 default-character-set=utf8
@@ -46,7 +46,7 @@ default_authentication_plugin=mysql_native_password
 
 在命令提示窗口进入bin目录下运行命令：
 
-```
+```powershell
 C:\Users\zhuan\mysql-8.0.28-winx64\bin>mysqld -install
 Service successfully installed.
 

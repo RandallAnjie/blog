@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210520201132837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2021-05-19T22:11:00.000Z">
-<meta property="article:modified_time" content="2023-02-12T05:48:53.443Z">
+<meta property="article:modified_time" content="2023-03-13T15:19:54.037Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -343,53 +343,64 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>该题可采用动态规划算法来进行求解。首先将题目进行整理，按照题目难度排序后整理出不同难度的题目的个数，最后利用列表格动态规划求解出最终结果。或者利用递归和数学计算的方式求解，但是这种方式对于计算机计算需要大量的空间，解法不是最优。</p>
 <h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a><strong>流程图</strong></h2><p><img src="https://img-blog.csdnimg.cn/20210520201132837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload></p>
 <p>流程图</p>
-<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a><strong>伪代码</strong></h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs prolog">枚举i=<span class="hljs-number">1</span>~count&#123;<br>枚举j=<span class="hljs-number">0</span>~i&#123;<br>如果j=<span class="hljs-number">0</span>成立&#123;<br>sheet[i][j]=number[i][<span class="hljs-number">1</span>]+sheet[i<span class="hljs-number">-1</span>][j];<br>&#125;<br>如果i==j成立&#123;<br>sheet[i][j]=(number[i][<span class="hljs-number">1</span>]*sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]) <span class="hljs-comment">%998244353;</span><br>&#125;<br>否则&#123;<br>sheet[i][j]=(sheet[i<span class="hljs-number">-1</span>][j]+sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]*number[i][<span class="hljs-number">1</span>]) <span class="hljs-comment">%998244353;</span><br>&#125;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a><strong>伪代码</strong></h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs prolog">枚举i=<span class="hljs-number">1</span>~count&#123;<br>    枚举j=<span class="hljs-number">0</span>~i&#123;<br>        如果j=<span class="hljs-number">0</span>成立&#123;<br>            sheet[i][j]=number[i][<span class="hljs-number">1</span>]+sheet[i<span class="hljs-number">-1</span>][j];<br>        &#125;<br>        如果i==j成立&#123;<br>            sheet[i][j]=(number[i][<span class="hljs-number">1</span>]*sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]) <span class="hljs-comment">%998244353;</span><br>        &#125;<br>        否则&#123;<br>            sheet[i][j]=(sheet[i<span class="hljs-number">-1</span>][j]+sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]*number[i][<span class="hljs-number">1</span>]) <span class="hljs-comment">%998244353;</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a><strong>代码（C++）</strong></h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs prolog">#include &lt;iostream&gt;<br>#include &lt;algorithm&gt;<br><br>using namespace std;<br><br>long long number[<span class="hljs-number">1000</span>][<span class="hljs-number">2</span>];<br><br>int main()&#123;<br>long long n,k;<br>cin &gt;&gt; n;<br>cin &gt;&gt; k;<br>long long data[n];<br>for(long long i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>cin &gt;&gt; data[i];<br>&#125;<br>sort(data, data+n);<br>number[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=data[<span class="hljs-number">0</span>];<br>number[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<br>long long  count=<span class="hljs-number">1</span>;<br>for(long long i=<span class="hljs-number">1</span>;i&lt;n;i++)&#123;<br>if(data[i]==data[i<span class="hljs-number">-1</span>])&#123;<br>number[count<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]++;<br>&#125;<br>else&#123;<br>number[count][<span class="hljs-number">0</span>]=data[i];<br>number[count][<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<br>count++;<br>&#125;<br>&#125;<br><br>for(long long i=<span class="hljs-number">0</span>;i&lt;count;i++)&#123;<br>cout &lt;&lt; number[i][<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt;  number[i][<span class="hljs-number">1</span>] &lt;&lt;endl;<br>&#125;<br><br>if(count&lt;k)&#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;0&quot;</span>;<br>return <span class="hljs-number">0</span>;<br>&#125;<br><br>long long sheet[count][k];<br>sheet[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=number[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>];<br><br>for(long long i=<span class="hljs-number">1</span>;i&lt;count;i++)&#123;<br>for(long long j=<span class="hljs-number">0</span>;j&lt;k;j++)&#123;<br>if(j==<span class="hljs-number">0</span>)&#123;<br>sheet[i][j]=number[i][<span class="hljs-number">1</span>]+sheet[i<span class="hljs-number">-1</span>][j];<br>&#125;<br>else if(i==j)&#123;<br>sheet[i][j]=(number[i][<span class="hljs-number">1</span>]*sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>])<span class="hljs-comment">%998244353;</span><br>&#125;<br>else&#123;<br>sheet[i][j]=(sheet[i<span class="hljs-number">-1</span>][j]+sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]*number[i][<span class="hljs-number">1</span>])<span class="hljs-comment">%998244353;</span><br>&#125;<br>&#125;<br>&#125;<br><br>long long suma=sheet[count<span class="hljs-number">-1</span>][k<span class="hljs-number">-1</span>];<br><br>//long long sum=jc(count)/(jc(k)*jc(count-k));<br>//<br>//for(long long i=<span class="hljs-number">0</span>;i&lt;count;i++)&#123;<br>//sum=sum*(long long)number[i][<span class="hljs-number">1</span>];<br>//&#125;<br>//cout &lt;&lt; sum &lt;&lt; endl;<br><br>suma=suma<span class="hljs-comment">%998244353; </span><br>cout &lt;&lt; suma;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a><strong>代码（C++）</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">long</span> <span class="hljs-type">long</span> number[<span class="hljs-number">1000</span>][<span class="hljs-number">2</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> n,k;<br>    cin &gt;&gt; n;<br>    cin &gt;&gt; k;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> data[n];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        cin &gt;&gt; data[i];<br>    &#125;<br>    <span class="hljs-built_in">sort</span>(data, data+n);<br>    number[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=data[<span class="hljs-number">0</span>];<br>    number[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span>  count=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> i=<span class="hljs-number">1</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-keyword">if</span>(data[i]==data[i<span class="hljs-number">-1</span>])&#123;<br>            number[count<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]++;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            number[count][<span class="hljs-number">0</span>]=data[i];<br>            number[count][<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<br>            count++;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> i=<span class="hljs-number">0</span>;i&lt;count;i++)&#123;<br>        cout &lt;&lt; number[i][<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt;  number[i][<span class="hljs-number">1</span>] &lt;&lt;endl;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span>(count&lt;k)&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;0&quot;</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> sheet[count][k];<br>    sheet[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=number[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>];<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> i=<span class="hljs-number">1</span>;i&lt;count;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> j=<span class="hljs-number">0</span>;j&lt;k;j++)&#123;<br>            <span class="hljs-keyword">if</span>(j==<span class="hljs-number">0</span>)&#123;<br>                sheet[i][j]=number[i][<span class="hljs-number">1</span>]+sheet[i<span class="hljs-number">-1</span>][j];<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i==j)&#123;<br>                sheet[i][j]=(number[i][<span class="hljs-number">1</span>]*sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>])%<span class="hljs-number">998244353</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                sheet[i][j]=(sheet[i<span class="hljs-number">-1</span>][j]+sheet[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]*number[i][<span class="hljs-number">1</span>])%<span class="hljs-number">998244353</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> suma=sheet[count<span class="hljs-number">-1</span>][k<span class="hljs-number">-1</span>];<br><br>    <span class="hljs-comment">//long long sum=jc(count)/(jc(k)*jc(count-k));</span><br>    <span class="hljs-comment">//</span><br>    <span class="hljs-comment">//for(long long i=0;i&lt;count;i++)&#123;</span><br>    <span class="hljs-comment">//sum=sum*(long long)number[i][1];</span><br>    <span class="hljs-comment">//&#125;</span><br>    <span class="hljs-comment">//cout &lt;&lt; sum &lt;&lt; endl;</span><br><br>    suma=suma%<span class="hljs-number">998244353</span>;<br>    cout &lt;&lt; suma;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>本算法对规定范围下不同的输入数据能够得出满足要求的结构，对于精心选择的典型、苛刻而带有刁难性的输入数据能够得出满足要求的结果，对于一切合法的输入数据都产生满足要求的结果。本算法要求考虑到边界条件当不同难度的算法题目数量小于要求。本算法的边界条件就是不同难度的题目数量可能会小于所需求的k，本程序以及提前判断出相关大小情况。<br>核心代码问题：求解sheet表中第一列就是上一行的数值加上number[i][1]的值；求解sheet表中左上到右下的对角线上的格子的值sheet[i][j]就是number[i][1]乘上sheet[i-1][j-1]；求解其他的格子中的值就是sheet[i-1][j]加上sheet[i-1][j-1]乘以number[i][1]（n类里面挑选k个的个数等同于n-1类里挑选k个的个数或者n-1类里挑选k-1个，再在第n类挑选一个）。</p>
-<p> </p>
-<p>1</p>
-<p>2</p>
-<p>…</p>
-<p>k-1</p>
-<p>k</p>
-<p>…</p>
-<p>1</p>
-<p>number[1][1]</p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p>2</p>
-<p>sheet[1][1]+number[1][1]</p>
-<p>sheet[1][1]*number[2][1]</p>
-<p> </p>
-<p> </p>
-<p>  </p>
-<p> </p>
-<p>…</p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p>  </p>
-<p> </p>
-<p>n-1</p>
-<p>sheet[n-1][1]</p>
-<p>sheet[n-1][2]</p>
-<p>sheet[n-1][k-1]</p>
-<p>sheet[n-1][k]</p>
-<p> </p>
-<p>n</p>
-<p>sheet[n-1][1]+number[n][1]</p>
-<p>sheet[n-1][2]+sheet[n-1][1]* number[n][1]</p>
-<p> </p>
-<p>sheet[n-1][k-1]+ sheet[n-1][k-2]* number[n][1]</p>
-<p>sheet[n-1][k]+ sheet[n-1][k-1]* number[n][1]</p>
-<p>   </p>
-<p>…</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>本算法对规定范围下不同的输入数据能够得出满足要求的结构，对于精心选择的典型、苛刻而带有刁难性的输入数据能够得出满足要求的结果，对于一切合法的输入数据都产生满足要求的结果。本算法要求考虑到边界条件当不同难度的算法题目数量小于要求。本算法的边界条件就是不同难度的题目数量可能会小于所需求的k，本程序以及提前判断出相关大小情况。 </p>
+<p>核心代码问题：求解sheet表中第一列就是上一行的数值加上number[i][1]的值；求解sheet表中左上到右下的对角线上的格子的值sheet[i][j]就是number[i][1]乘上sheet[i-1][j-1]；求解其他的格子中的值就是sheet[i-1][j]加上sheet[i-1][j-1]乘以number[i][1]（n类里面挑选k个的个数等同于n-1类里挑选k个的个数或者n-1类里挑选k-1个，再在第n类挑选一个）。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">…</th>
+<th align="center">k-1</th>
+<th align="center">k</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">number[1][1]</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">sheet[1][1]+number[1][1]</td>
+<td align="center">sheet[1][1]*number[2][1]</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">n-1</td>
+<td align="center">sheet[n-1][1]</td>
+<td align="center">sheet[n-1][2]</td>
+<td align="center"></td>
+<td align="center">sheet[n-1][k-1]</td>
+<td align="center">sheet[n-1][k]</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center">sheet[n-1][1]+number[n][1]</td>
+<td align="center">sheet[n-1][2]+sheet[n-1][1]* number[n][1]</td>
+<td align="center"></td>
+<td align="center">sheet[n-1][k-1]+ sheet[n-1][k-2]* number[n][1]</td>
+<td align="center">sheet[n-1][k]+ sheet[n-1][k-1]* number[n][1]</td>
+</tr>
+</tbody></table>
 
                 
               </div>
@@ -495,9 +506,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/25/quicksort/" title="快速排序QuickSort">
+                      <a href="/2021/05/20/deadline/" title="算法分析与设计大作业——截止日期">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">快速排序QuickSort</span>
+                        <span class="hidden-mobile">算法分析与设计大作业——截止日期</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -505,8 +516,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/20/deadline/" title="算法分析与设计大作业——截止日期">
-                        <span class="hidden-mobile">算法分析与设计大作业——截止日期</span>
+                      <a href="/2020/06/27/experimentalreportonprogramdesigninspring20/" title="20春小学期程序设计实验报告">
+                        <span class="hidden-mobile">20春小学期程序设计实验报告</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

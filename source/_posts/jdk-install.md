@@ -19,7 +19,7 @@ jdk17下载链接：[https://download.oracle.com/java/17/latest/jdk-17\_windows-
 
 ### 64位Ubuntu（基于树莓派）：
 
-```
+```shell
 ubuntu@ubuntu:~$ mkdir jdk
 ubuntu@ubuntu:~$ cd jdk
 ubuntu@ubuntu:~/jdk$ wget https://download.oracle.com/java/17/latest/jdk-17_linux-aarch64_bin.tar.gz
@@ -33,7 +33,7 @@ ubuntu@ubuntu:~/jdk$ wget https://download.oracle.com/java/17/latest/jdk-17_linu
 
 ### Ubuntu：
 
-```
+```shell
 ubuntu@ubuntu:~/jdk$ sudo tar -zxvf jdk-17_linux-aarch64_bin.tar.gz
 ```
 
@@ -51,13 +51,13 @@ ubuntu@ubuntu:~/jdk$ sudo tar -zxvf jdk-17_linux-aarch64_bin.tar.gz
 
 ### Ubuntu：
 
-```
+```shell
 ubuntu@ubuntu:~/jdk$ sudo vim /etc/profile
 ```
 
 在末尾添加：
 
-```
+```shell
 JAVA_HOME=/home/ubuntu/java/jdk/jdk-17.0.2/ # 值为解压路径
 CLASSPATH=$JAVA_HOME/lib/
 PATH=$PATH:$JAVA_HOME/bin
@@ -66,7 +66,7 @@ export PATH JAVA_HOME CLASSPATH
 
 保存并退出，并且更新源
 
-```
+```shell
 ubuntu@ubuntu:~/jdk$ source /etc/profile
 ```
 
@@ -74,7 +74,7 @@ ubuntu@ubuntu:~/jdk$ source /etc/profile
 
 ### Windows：
 
-```
+```powershell
 Microsoft Windows [版本 10.0.22000.493]
 (c) Microsoft Corporation。保留所有权利。
 
@@ -91,7 +91,7 @@ C:\Users\zhuan>
 
 ### Ubuntu：
 
-```
+```shell
 ubuntu@ubuntu:~/jdk$ java -version
 java version "17.0.2" 2022-01-18 LTS
 Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)

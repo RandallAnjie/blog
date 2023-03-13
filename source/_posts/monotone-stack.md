@@ -29,23 +29,21 @@ date: 2022-01-15 01:43:03
 
 ## 伪代码
 
+```伪代码
 定义数组或者栈;
-for (遍历原始数据数组)
-{
-if (栈空  栈顶元素大于等于当前比较元素)
-{
-入栈;
+for (遍历原始数据数组){
+    if (栈空  栈顶元素大于等于当前比较元素){
+        入栈;
+    }
+    else{
+        while (栈不为空 && 栈顶元素小于当前元素){
+            栈顶元素出栈;
+            更新结果;
+        }
+        当前数据入栈;
+    }
 }
-else
-{
-while (栈不为空 && 栈顶元素小于当前元素)
-{
-栈顶元素出栈;
-更新结果;
-}
-当前数据入栈;
-}
-}
+```
 
 ## 应用
 
@@ -67,93 +65,94 @@ while (栈不为空 && 栈顶元素小于当前元素)
 
 ### 函数代码（利用动态数组ArrayList模拟栈）
 
-```
-public static int[] findBuilding (int[] heights) {
-int[] number = new int[heights.length];
-ArrayList<Integer> LTR = new ArrayList<Integer>(); // 从大到小（从左往右从大到小）
-ArrayList<Integer> RTL = new ArrayList<Integer>(); // 从小到大（从右往左从大到小）
-for (int i = 0, j = number.length-1; i < number.length; i++,j--) {
-// 每次i，j游标指向的是小Q所在的房子的左边的房子或者右边的房子在内的单调栈
-// 因为第一次循环的时候是最左边的房子和最右边的房子入栈，所以要先记录左右两边单调栈里的数
-// 且最后一次循环不出现问题，LYT单调栈到最右边的时候即不出现最右边的房子为某个房子左边的房子，RTL同理
-number[i] += LTR.size();
-number[j] += RTL.size();
-while (LTR.size()>0 && heights[i]>(int)LTR.get(LTR.size()-1)) {
-LTR.remove(LTR.size()-1); // LTR出栈
-}
-while (RTL.size()>0 && heights[j]>(int)RTL.get(RTL.size()-1)) {
-RTL.remove(RTL.size()-1); // RT出栈
-}
-LTR.add(heights[i]); // LTR入栈
-RTL.add(heights[j]); // RTL入栈
-}
-for (int i = 0; i < number.length; i++) {
-number[i] ++;
-}
-return number;
+```java
+public static int[] findBuilding(int[] heights) {
+    int[] number = new int[heights.length];
+    ArrayList < Integer > LTR = new ArrayList < Integer > (); // 从大到小（从左往右从大到小）
+    ArrayList < Integer > RTL = new ArrayList < Integer > (); // 从小到大（从右往左从大到小）
+    for (int i = 0, j = number.length - 1; i < number.length; i++, j--) {
+        // 每次i，j游标指向的是小Q所在的房子的左边的房子或者右边的房子在内的单调栈
+        // 因为第一次循环的时候是最左边的房子和最右边的房子入栈，所以要先记录左右两边单调栈里的数
+        // 且最后一次循环不出现问题，LYT单调栈到最右边的时候即不出现最右边的房子为某个房子左边的房子，RTL同理
+        number[i] += LTR.size();
+        number[j] += RTL.size();
+        while (LTR.size() > 0 && heights[i] > (int) LTR.get(LTR.size() - 1)) {
+            LTR.remove(LTR.size() - 1); // LTR出栈
+        }
+        while (RTL.size() > 0 && heights[j] > (int) RTL.get(RTL.size() - 1)) {
+            RTL.remove(RTL.size() - 1); // RT出栈
+        }
+        LTR.add(heights[i]); // LTR入栈
+        RTL.add(heights[j]); // RTL入栈
     }
+    for (int i = 0; i < number.length; i++) {
+        number[i] ++;
+    }
+    return number;
+}
 ```
 
 ### 更换栈类型函数代码为
 
-```
-public static int[] findBuilding (int[] heights) {
-int[] number = new int[heights.length];
-Stack<Integer> LTR = new Stack<>(); // 从大到小（从左往右从大到小）
-Stack<Integer> RTL = new Stack<>(); // 从小到大（从右往左从大到小）
-for (int i = 0, j = number.length-1; i < number.length; i++,j--) {
-// 每次i，j游标指向的是小Q所在的房子的左边的房子或者右边的房子在内的单调栈
-// 因为第一次循环的时候是最左边的房子和最右边的房子入栈，所以要先记录左右两边单调栈里的数
-// 且最后一次循环不出现问题，LYT单调栈到最右边的时候即不出现最右边的房子为某个房子左边的房子，RTL同理
-number[i] += LTR.size();
-number[j] += RTL.size();
-while (!LTR.isEmpty() && heights[i]>LTR.peek()) {
-LTR.pop(); // LTR出栈
-}
-while (!RTL.isEmpty() && heights[j]>RTL.peek()) {
-RTL.pop(); // RT出栈
-}
-LTR.push(heights[i]); // LTR入栈
-RTL.push(heights[j]); // RTL入栈
-}
-for (int i = 0; i < number.length; i++) {
-number[i] ++;
-}
-return number;
+```java
+public static int[] findBuilding(int[] heights) {
+    int[] number = new int[heights.length];
+    Stack < Integer > LTR = new Stack < > (); // 从大到小（从左往右从大到小）
+    Stack < Integer > RTL = new Stack < > (); // 从小到大（从右往左从大到小）
+    for (int i = 0, j = number.length - 1; i < number.length; i++, j--) {
+        // 每次i，j游标指向的是小Q所在的房子的左边的房子或者右边的房子在内的单调栈
+        // 因为第一次循环的时候是最左边的房子和最右边的房子入栈，所以要先记录左右两边单调栈里的数
+        // 且最后一次循环不出现问题，LYT单调栈到最右边的时候即不出现最右边的房子为某个房子左边的房子，RTL同理
+        number[i] += LTR.size();
+        number[j] += RTL.size();
+        while (!LTR.isEmpty() && heights[i] > LTR.peek()) {
+            LTR.pop(); // LTR出栈
+        }
+        while (!RTL.isEmpty() && heights[j] > RTL.peek()) {
+            RTL.pop(); // RT出栈
+        }
+        LTR.push(heights[i]); // LTR入栈
+        RTL.push(heights[j]); // RTL入栈
     }
+    for (int i = 0; i < number.length; i++) {
+        number[i] ++;
+    }
+    return number;
+}
 ```
 
 ## 灵感来源
 
-```
+```c
 #include <stdio.h>
-  
+
 int main() {
     int i,n,j, x[100001],LtoR[100001],RtoL[100001],sum[100001];
     scanf("%d",&n);
     for(i=0;i<n;i++)
-    scanf("%d",&x[i]);
+        scanf("%d",&x[i]);
     int indl=0,indr=0;
     for(i=0,j=n-1;i<n,j>=0;i++,j--){
-    sum[i]+=indl;
-    sum[n-i-1]+=indr;
-//从左往右遍历（从右往左看）
-    while(LtoR[indl-1]<=x[i]&&indl>0){
-    indl --;//出栈操作
-}
-//从右往左遍历（从左往右看）
-while(RtoL[indr-1]<=x[j]&&indr>0){
-    indr --;//出栈操作
-}
-    LtoR[indl]=x[i];//入栈
-    indl ++;
-    RtoL[indr]=x[j];//入栈
-    indr ++;
-}
-//注意加一
-for(i=0;i<n-1;i++)
-printf("%d ",sum[i]+1);
-printf("%d\n",sum[n-1]+1);
+        sum[i]+=indl;
+        sum[n-i-1]+=indr;
+        //从左往右遍历（从右往左看）
+        while(LtoR[indl-1]<=x[i]&&indl>0){
+            indl --;//出栈操作
+        }
+        //从右往左遍历（从左往右看）
+        while(RtoL[indr-1]<=x[j]&&indr>0){
+            indr --;//出栈操作
+        }
+        LtoR[indl]=x[i];//入栈
+        indl ++;
+        RtoL[indr]=x[j];//入栈
+        indr ++;
+    }
+    //注意加一
+    for(i=0;i<n-1;i++){
+        printf("%d ",sum[i]+1);
+    }
+    printf("%d\n",sum[n-1]+1);
     return 0;
 }
 ```

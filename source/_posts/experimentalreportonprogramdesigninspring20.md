@@ -26,103 +26,105 @@ Experimental report on program design in spring 20
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 char *mystrncpy(char *string, int n){//指向字符串的指针可以改变 
-char*p=string;
-if(p==NULL){//如果截取的字符串是空的直接返回
-return NULL;
-}
-else{
-int i=0;
-while(*p!='\0'){//循环直到达n个字符串终止
-if(i==n){
-break;
-}
-i++;
-p++;
-}
-*(p++)='\0';//赋值结束字符串
-return string;
-}
+    char*p=string;
+    if(p==NULL){//如果截取的字符串是空的直接返回
+        return NULL;
+    }
+    else{
+        int i=0;
+        while(*p!='\0'){//循环直到达n个字符串终止
+            if(i==n){
+                break;
+            }
+            i++;
+            p++;
+        }
+        *(p++)='\0';//赋值结束字符串
+        return string;
+    }
 }
 
 int main(){
-char a[50],b[50];
-char c[50];//中间变量 
-int flag=0;
-int i,j,k,m,n;
-gets(a);//第一行字符串 
-gets(b);//第二行字符串 
-int lentha=strlen(a);//第一行字符串长度 
-int lenthb=strlen(b);//第二行字符串长度 
-/*检测输入*/ 
-//printf("%s",a); 
-//printf("\n-------------------------\n");
-//printf("%s",b);
-//printf("\n-------------------------\n");
-//printf("lentha=%d,lenthb=%d",lentha,lenthb);
-//printf("\n-------------------------\n");
-/*初处理数据，将短的的数据变到a*/
-if(lentha>lenthb){
-for(i=0;i<50;i++){
-c[i]=a[i];
-a[i]=b[i];
-b[i]=c[i];
-}
-i=lentha;
-lentha=lenthb;
-lenthb=i; 
-}
-/*初处理检测*/ 
-//printf("初处理%s",a); 
-//printf("\n-------------------------\n");
-//printf("初处理%s",b);
-//printf("\n-------------------------\n");
-//printf("初处理lentha=%d,lenthb=%d",lentha,lenthb);
-//printf("\n-------------------------\n");
-/*运算部分*/ 
-for(i=lentha;i>0;i--){//从a的最长长度截取，依次减少 
-char test[i];//对应a中取得的值 
-char card[i];//对应b中取得的值 
-for(j=0;j<=lentha-i;j++){
-for(k=0;k<i;k++){//将a中对应值覆到test 
-test[k]=a[k+j];
-}
-for(m=0;m<lenthb-i+1;m++){
-for(n=0;n<i;n++){//将b中对应值覆到card 
-card[n]=b[n+m];
-}
-int judge=1; 
-for(n=0;n<i;n++){//判断card和test是否一致 
-if(test[n]!=card[n]){
-judge=0;
-}
-}
-if(judge){
-printf("%s",mystrncpy(test,i));
-flag=1;
-}
-if(flag){
-break; 
-}
-}
-if(flag){
-break;
-}
-}
-if(flag){
-break;
-}
-}
-if(flag==0){
-printf("No Answer"); 
-} 
- 
-}
+    char a[50],b[50];
+    char c[50];//中间变量 
+    int flag=0;
+    int i,j,k,m,n;
+    gets(a);//第一行字符串 
+    gets(b);//第二行字符串 
+    int lentha=strlen(a);//第一行字符串长度 
+    int lenthb=strlen(b);//第二行字符串长度 
 
+    /*检测输入*/
+    //printf("%s",a); 
+    //printf("\n-------------------------\n");
+    //printf("%s",b);
+    //printf("\n-------------------------\n");
+    //printf("lentha=%d,lenthb=%d",lentha,lenthb);
+    //printf("\n-------------------------\n");
+
+    /*初处理数据，将短的的数据变到a*/
+    if(lentha>lenthb){
+        for(i=0;i<50;i++){
+            c[i]=a[i];
+            a[i]=b[i];
+            b[i]=c[i];
+        }
+        i=lentha;
+        lentha=lenthb;
+        lenthb=i;
+    }
+
+    /*初处理检测*/
+    //printf("初处理%s",a); 
+    //printf("\n-------------------------\n");
+    //printf("初处理%s",b);
+    //printf("\n-------------------------\n");
+    //printf("初处理lentha=%d,lenthb=%d",lentha,lenthb);
+    //printf("\n-------------------------\n");
+
+    /*运算部分*/
+    for(i=lentha;i>0;i--){//从a的最长长度截取，依次减少 
+        char test[i];//对应a中取得的值 
+        char card[i];//对应b中取得的值 
+        for(j=0;j<=lentha-i;j++){
+            for(k=0;k<i;k++){//将a中对应值覆到test 
+                test[k]=a[k+j];
+            }
+            for(m=0;m<lenthb-i+1;m++){
+                for(n=0;n<i;n++){//将b中对应值覆到card 
+                    card[n]=b[n+m];
+                }
+                int judge=1;
+                for(n=0;n<i;n++){//判断card和test是否一致 
+                    if(test[n]!=card[n]){
+                        judge=0;
+                    }
+                }
+                if(judge){
+                    printf("%s",mystrncpy(test,i));
+                    flag=1;
+                }
+                if(flag){
+                    break;
+                }
+            }
+            if(flag){
+                break;
+            }
+        }
+        if(flag){
+            break;
+        }
+    }
+    if(flag==0){
+        printf("No Answer");
+    }
+}
 ```
 
 ## 总结
@@ -155,7 +157,7 @@ printf("No Answer");
 
 ## 代码（c++）
 
-```
+```c++
 #include<iostream>
 #include<algorithm>
 #include<bits/stdc++.h>
@@ -169,44 +171,44 @@ ll ans[N];
 int vis[N];
 void init()
 {
-memset(ans,0,sizeof(ans));
-memset(vis,0,sizeof(vis));
+    memset(ans,0,sizeof(ans));
+    memset(vis,0,sizeof(vis));
 }
 queue<int>q;
 int main()
 {
-int T,n;
-scanf("%d",&T);
-while(T--)
-{
-init(); //初始化 
-scanf("%d",&n);
-for(int i=1;i<=n;i++)
-{
-scanf("%d%d%d%d",&u[i],&s[i],&v[i],&f[i]);
-vis[u[i]]++; //vis数组保存这个点的直接下级数量 
-}
+    int T,n;
+    scanf("%d",&T);
+    while(T--)
+    {
+        init(); //初始化 
+        scanf("%d",&n);
+        for(int i=1;i<=n;i++)
+        {
+            scanf("%d%d%d%d",&u[i],&s[i],&v[i],&f[i]);
+            vis[u[i]]++; //vis数组保存这个点的直接下级数量 
+        }
 
-for(int i=1;i<=n;i++) //这里类似拓扑排序，直接下级数量为零入队 
-if(!vis[i]) q.push(i);
-while(!q.empty())
-{
-int k=q.front();q.pop();
-int t=u[k],d=s[k];
-vis[t]--;
-if(!vis[t]) q.push(t);//直接下级全都处理过了，入队 
-while(t) //寻找所有上级，计算上级城市到这里的获利，取最大值 
-{
-ans[t]=max(ans[t],(ans[k]+v[t]-(f[t]-d)*(f[t]-d))); //ans里保存了以这个城市为开头的商路最大价值 
-d+=s[t];
-t=u[t];
-}
-}
-ll sum=0;
-for(int i=1;i<=n;i++) sum=(sum+ans[i])%MOD; //计算总价值 
-printf("%lld\n",sum);
-}
-return 0;
+        for(int i=1;i<=n;i++) //这里类似拓扑排序，直接下级数量为零入队 
+            if(!vis[i]) q.push(i);
+        while(!q.empty())
+        {
+            int k=q.front();q.pop();
+            int t=u[k],d=s[k];
+            vis[t]--;
+            if(!vis[t]) q.push(t);//直接下级全都处理过了，入队 
+            while(t) //寻找所有上级，计算上级城市到这里的获利，取最大值 
+            {
+                ans[t]=max(ans[t],(ans[k]+v[t]-(f[t]-d)*(f[t]-d))); //ans里保存了以这个城市为开头的商路最大价值 
+                d+=s[t];
+                t=u[t];
+            }
+        }
+        ll sum=0;
+        for(int i=1;i<=n;i++) sum=(sum+ans[i])%MOD; //计算总价值 
+        printf("%lld\n",sum);
+    }
+    return 0;
 }
 ```
 
@@ -232,31 +234,31 @@ return 0;
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 #include<string.h>
 int main(){
-char key[20];
-char mas[200];
-gets(key);
-gets(mas);
-int i,j;//循环次数标识，i表示加密信息的下标，j表示key的下标 
-int lkey=strlen(key);
-int lmas=strlen(mas);//获取key和mas的长度，除去'\n' 
-for(i=0,j=0;i<lmas;i++,j++){ 
-if(j>=lkey){//如果key下标超出最大值，将其初始化为0 
-j=0;
-} 
-if(65>mas[i]mas[i]>90){//如果加密信息不在A~Z之间就直接输出 
-printf("%c",mas[i]);
-continue;
-}
-char out=mas[i]+(key[j]-65);//新的加密后信息运算 
-if(out>90){
-out-=26; 
-}
-printf("%c",out);
-}
+    char key[20];
+    char mas[200];
+    gets(key);
+    gets(mas);
+    int i,j;//循环次数标识，i表示加密信息的下标，j表示key的下标 
+    int lkey=strlen(key);
+    int lmas=strlen(mas);//获取key和mas的长度，除去'\n' 
+    for(i=0,j=0;i<lmas;i++,j++){
+        if(j>=lkey){//如果key下标超出最大值，将其初始化为0 
+            j=0;
+        }
+        if(65>mas[i]||mas[i]>90){//如果加密信息不在A~Z之间就直接输出 
+            printf("%c",mas[i]);
+            continue;
+        }
+        char out=mas[i]+(key[j]-65);//新的加密后信息运算 
+        if(out>90){
+            out-=26;
+        }
+        printf("%c",out);
+    }
 }
 ```
 
@@ -280,17 +282,17 @@ printf("%c",out);
 
 ## 代码（Java）
 
-```
+```java
 import java.util.Scanner;
 
 public class atof {
-public static void main(String[] args) {
-Scanner inp = new Scanner(System.in);
-String scr = inp.next();
-inp.close();
-double d = Double.parseDouble(scr);
-System.out.printf("%.6f",d);
-}
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        String scr = inp.next();
+        inp.close();
+        double d = Double.parseDouble(scr);
+        System.out.printf("%.6f",d);
+    }
 }
 ```
 
@@ -314,26 +316,26 @@ System.out.printf("%.6f",d);
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 int isprime(int n){
-int i;
-int flag=1;
-for(i=2;i<n;i++){
-if(n%i==0){
-flag=0;
-break;
-}
-}
-return flag;
+    int i;
+    int flag=1;
+    for(i=2;i<n;i++){
+        if(n%i==0){
+            flag=0;
+            break;
+        }
+    }
+    return flag;
 }
 int main(){
-int n;
-int m;
-scanf("%d",&n);
-m=isprime(n);
-printf("%d",m);
-return 0;
+    int n;
+    int m;
+    scanf("%d",&n);
+    m=isprime(n);
+    printf("%d",m);
+    return 0;
 }
 ```
 
@@ -363,84 +365,84 @@ return 0;
 
 ## 代码（Java）
 
-```
+```java
 import java.util.Scanner;
 
 public class exam1 {
-static void output(int[][] a, int n, int m) {//输出函数output，参数：数据存放数组a，行n，列m
-for (int i = 0; i < n; i++) {
-for (int j = 0; j < m; j++) {
-System.out.print(a[i][j]);
-if (j==m-1) {
-break;
-}
-System.out.print(" ");
-}
-if (i==n-1) {
-break;
-}
-System.out.println();
-}
-}
+    static void output(int[][] a, int n, int m) {//输出函数output，参数：数据存放数组a，行n，列m
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(a[i][j]);
+                if (j==m-1) {
+                    break;
+                }
+                System.out.print(" ");
+            }
+            if (i==n-1) {
+                break;
+            }
+            System.out.println();
+        }
+    }
 public static void main(String[] args) {
-Scanner input = new Scanner(System.in);
-int n = input.nextInt();
-int m = input.nextInt();
-int[][] a = new int[n][m];
-for (int i = 0; i < n; i++) {//输入
-for (int j = 0; j < m; j++) {
-a[i][j] = input.nextInt();
-}
-}
-input.close();
-//output(a,n,m);
-int[][] row = new int[n][m];//行变换消除后的数据
-int[][] col = new int[n][m];//列变换消除后的数据
-int[][] fin = new int[n][m];//最终整合的数据
-for (int i = 0; i < n; i++) {
-for (int j = 0; j < m; j++) {
-row[i][j] = a[i][j];
-col[i][j] = a[i][j];
-fin[i][j] = a[i][j];
-}
-}
-//output(row,n,m);
-for (int i = 0; i < n; i++) {//行变换消除数据
-for (int j = 0; j < m-2; j++) {
-if (a[i][j]==a[i][j+1]&&a[i][j]==a[i][j+2]) {
-row[i][j] = 0;
-row[i][j+1] = 0;
-row[i][j+2] = 0;
-}
-}
-}
-//output(row,n,m);
-//System.out.println();
-//System.out.println();
-for (int i = 0; i < m; i++) {
-for (int j = 0; j < n-2; j++) {
-if (a[j][i]==a[j+1][i]&&a[j][i]==a[j+2][i]) {
-col[j][i] = 0;
-col[j+1][i] = 0;
-col[j+2][i] = 0;
-}
-}
-}
-//output(col,n,m);
-//System.out.println();
-//System.out.println();
-for (int i = 0; i < n; i++) {
-for (int j = 0; j < m; j++) {
-if (row[i][j]==0col[i][j]==0) {
-fin[i][j] = 0;
-}
-}
-}
-output(fin, n, m);
-//System.out.println();
-//System.out.println();
-//output(a,n,m);
-}
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int m = input.nextInt();
+        int[][] a = new int[n][m];
+        for (int i = 0; i < n; i++) {//输入
+            for (int j = 0; j < m; j++) {
+                a[i][j] = input.nextInt();
+            }
+        }
+        input.close();
+        //output(a,n,m);
+        int[][] row = new int[n][m];//行变换消除后的数据
+        int[][] col = new int[n][m];//列变换消除后的数据
+        int[][] fin = new int[n][m];//最终整合的数据
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                row[i][j] = a[i][j];
+                col[i][j] = a[i][j];
+                fin[i][j] = a[i][j];
+            }
+        }
+        //output(row,n,m);
+        for (int i = 0; i < n; i++) {//行变换消除数据
+            for (int j = 0; j < m-2; j++) {
+                if (a[i][j]==a[i][j+1]&&a[i][j]==a[i][j+2]) {
+                    row[i][j] = 0;
+                    row[i][j+1] = 0;
+                    row[i][j+2] = 0;
+                }
+            }
+        }
+        //output(row,n,m);
+        //System.out.println();
+        //System.out.println();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n-2; j++) {
+                if (a[j][i]==a[j+1][i]&&a[j][i]==a[j+2][i]) {
+                    col[j][i] = 0;
+                    col[j+1][i] = 0;
+                    col[j+2][i] = 0;
+                }
+            }
+        }
+        //output(col,n,m);
+        //System.out.println();
+        //System.out.println();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (row[i][j]==0col[i][j]==0) {
+                    fin[i][j] = 0;
+                }
+            }
+        }
+        output(fin, n, m);
+        //System.out.println();
+        //System.out.println();
+        //output(a,n,m);
+    }
 }
 ```
 
@@ -464,25 +466,25 @@ output(fin, n, m);
 
 ## 代码（Java）
 
-```
+```java
 import java.util.Scanner;
 
 public class primes {
-public static void main(String[] args) {
-Scanner input = new Scanner(System.in);
-int num = input.nextInt();
-input.close();
-for (int i = 2; i < num; i++) {
-if (num%i==0) {
-for (int j = 0; num%i==0; j++) {
-num = num/i;
-if (j==1) {
-System.out.print(i+" ");
-}
-}
-}
-}
-}
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        input.close();
+        for (int i = 2; i < num; i++) {
+            if (num%i==0) {
+                for (int j = 0; num%i==0; j++) {
+                    num = num/i;
+                    if (j==1) {
+                        System.out.print(i+" ");
+                    }
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -506,13 +508,13 @@ System.out.print(i+" ");
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 int main(){
-double m,n;
-scanf("%lf",&m);
-n=m*9/5+32;
-printf("%.1lf",n);
+    double m,n;
+    scanf("%lf",&m);
+    n=m*9/5+32;
+    printf("%.1lf",n);
 }
 ```
 
@@ -536,38 +538,38 @@ printf("%.1lf",n);
 
 ## 代码（c）
 
-```
+```C
 #include<stdio.h>
 int main(){
-int n;
-scanf("%d",&n);
-int a[n];
-int i,j,e,f;
-int flag=1;
-for(i=0;i<n;i++){
-scanf("%d",&a[i]);
-}
-for(i=0;i<n;i++){
-e=0;
-f=0;
-for(j=0;j<n;j++){
-if(a[j]<a[i]){
-e++;
-}
-else if(a[j]>a[i]){
-f++;
-}
-}
-if(e==f&&e!=0){
-printf("%d",a[i]);
-flag=0;
-break;
-}
-}
-if(flag){
-printf("-1");
-}
-return 0;
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    int i,j,e,f;
+    int flag=1;
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        e=0;
+        f=0;
+        for(j=0;j<n;j++){
+            if(a[j]<a[i]){
+                e++;
+            }
+            else if(a[j]>a[i]){
+                f++;
+            }
+        }
+        if(e==f&&e!=0){
+            printf("%d",a[i]);
+            flag=0;
+            break;
+        }
+    }
+    if(flag){
+        printf("-1");
+    }
+    return 0;
 }
 ```
 
@@ -591,106 +593,100 @@ return 0;
 
 代码（Java）
 
-```
+```java
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class primes {
-public static boolean judge(int x) {//判断是否为素数，是素数返回true
-boolean flag = true;
-for(int i = 2; i <= Math.sqrt((double)x); i++) {
-if(x%i==0) {
-flag = false;
-}
-}
-return flag;
-}
-public static int sti(String a) {//string形转int型
-int result = 0;
-try { 
-    result = Integer.parseInt(a); 
-} catch (NumberFormatException e) { 
-    e.printStackTrace(); 
-}
-return result;
-}
-public static void main(String[] args) {
-Scanner input = new Scanner(System.in);
-int n = input.nextInt();//输入数组个数
-int[] a = new int[n];//表示存放数字的数组
-ArrayList<String> midarray = new ArrayList<String>();
-for (int i = 0; i < a.length; i++) {
-a[i] = input.nextInt();
+    public static boolean judge(int x) { //判断是否为素数，是素数返回true
+        boolean flag = true;
+        for (int i = 2; i <= Math.sqrt((double) x); i++) {
+            if (x % i == 0) {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+    public static int sti(String a) { //string形转int型
+        int result = 0;
+        try {
+            result = Integer.parseInt(a);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt(); //输入数组个数
+        int[] a = new int[n]; //表示存放数字的数组
+        ArrayList < String > midarray = new ArrayList < String > ();
+        for (int i = 0; i < a.length; i++) {
+            a[i] = input.nextInt();
 
-}
-for (int i = 0; i < a.length; i++) {
-for (int j = 2; j <= a[i]; j++) {
-if (judge(a[i])) {
-midarray.add(""+a[i]);
-break;
-}
-else {
-if(a[i]%j==0) {
-for (; a[i]%j==0; ) {
-a[i] /= j;
-}
-midarray.add(""+j);
-}
-}
-}
-}
-input.close();
-int w = 0;
-int l = midarray.size();
-int[] num = new int[l];
-for (int i = 0; i < l; i++) {
-num[i] = sti(midarray.get(i));
-}
-for (int i = 0; i < l; i++) {
-for (int j = 0; j < l-1; j++) {
-if(num[j]>num[j+1]) {
-int k = num[j];
-num[j] = num[j+1];
-num[j+1] = k;
-}
-}
-}
-if (l>2) {
-boolean flag = false;
-for (int i = 0; i < l-1; i++) {
-if (num[i]<num[i+1]) {
-w = i+1;
-System.out.print(num[i]);
-if (i==l-2) {
-flag = true;
-break;
-}
-System.out.print(" ");
-}
-}
-if (num[l-1]>num[l-2]) {
-if (flag) {
-System.out.print(" ");
-}
-System.out.print(num[l-1]);
-}
-else if (num[l-1]==num[w]) {
-System.out.print(num[w]);
-}
-}
-else if (l==1) {
-System.out.print(num[0]);
-}
-else if (l==2) {
-if (num[0]==num[1]) {
-System.out.print(num[0]);
-}
-else {
-System.out.print(num[0]+" "+num[1]);
-}
-}
-}
-
+        }
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 2; j <= a[i]; j++) {
+                if (judge(a[i])) {
+                    midarray.add("" + a[i]);
+                    break;
+                } else {
+                    if (a[i] % j == 0) {
+                        for (; a[i] % j == 0;) {
+                            a[i] /= j;
+                        }
+                        midarray.add("" + j);
+                    }
+                }
+            }
+        }
+        input.close();
+        int w = 0;
+        int l = midarray.size();
+        int[] num = new int[l];
+        for (int i = 0; i < l; i++) {
+            num[i] = sti(midarray.get(i));
+        }
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < l - 1; j++) {
+                if (num[j] > num[j + 1]) {
+                    int k = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = k;
+                }
+            }
+        }
+        if (l > 2) {
+            boolean flag = false;
+            for (int i = 0; i < l - 1; i++) {
+                if (num[i] < num[i + 1]) {
+                    w = i + 1;
+                    System.out.print(num[i]);
+                    if (i == l - 2) {
+                        flag = true;
+                        break;
+                    }
+                    System.out.print(" ");
+                }
+            }
+            if (num[l - 1] > num[l - 2]) {
+                if (flag) {
+                    System.out.print(" ");
+                }
+                System.out.print(num[l - 1]);
+            } else if (num[l - 1] == num[w]) {
+                System.out.print(num[w]);
+            }
+        } else if (l == 1) {
+            System.out.print(num[0]);
+        } else if (l == 2) {
+            if (num[0] == num[1]) {
+                System.out.print(num[0]);
+            } else {
+                System.out.print(num[0] + " " + num[1]);
+            }
+        }
+    }
 }
 ```
 
@@ -714,15 +710,15 @@ System.out.print(num[0]+" "+num[1]);
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 #include<math.h>
 int main(){
-double a,b,c,p,s;
-scanf("%lf %lf %lf",&a,&b,&c);
-p=(a+b+c)/2;
-s=sqrt(p*(p-a)*(p-b)*(p-c));
-printf("%.3lf",s);
+    double a,b,c,p,s;
+    scanf("%lf %lf %lf",&a,&b,&c);
+    p=(a+b+c)/2;
+    s=sqrt(p*(p-a)*(p-b)*(p-c));
+    printf("%.3lf",s);
 } 
 ```
 
@@ -746,32 +742,32 @@ printf("%.3lf",s);
 
 代码（c）
 
-```
+```c
 #include<stdio.h>
 #include<string.h>
 int main(){
-char a[100],b[100];
-gets(a);
-int lentha=strlen(a);
-int i=lentha-1,j;
-for(j=0;i>=0;i--){
-b[j]=a[i];
-j++;
-}
-int key=1;
-for(i=0;i<lentha;i++){
-if(a[i]!=b[i]){
-key=0;
-break;
-}
-}
-if(key){
-printf("yes");
-}
-else{
-printf("no");
-}
-return 0;
+    char a[100],b[100];
+    gets(a);
+    int lentha=strlen(a);
+    int i=lentha-1,j;
+    for(j=0;i>=0;i--){
+        b[j]=a[i];
+        j++;
+    }
+    int key=1;
+    for(i=0;i<lentha;i++){
+        if(a[i]!=b[i]){
+            key=0;
+            break;
+        }
+    }
+    if(key){
+        printf("yes");
+    }
+    else{
+        printf("no");
+    }
+    return 0;
 }
 ```
 
@@ -795,77 +791,77 @@ A市有n个交通枢纽，其中1号和n号非常重要，为了加强运输能�
 
 代码（Java）
 
-```
+```java
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class subway {
-static int[] fathers;
-static Comparator<int[]> cmp = new Comparator<int[]>() {
-@Override
-public int compare(int[] o1, int[] o2) {
-return o1[2] - o2[2];
-}
-};
+    static int[] fathers;
+    static Comparator < int[] > cmp = new Comparator < int[] > () {@
+        Override
+        public int compare(int[] o1, int[] o2) {
+            return o1[2] - o2[2];
+        }
+    };
 
-// 优先队列方法
-// 85分，超时
-static void MST() {
-Scanner scanner = new Scanner(System.in);
-int num = scanner.nextInt();
-int route = scanner.nextInt();
-PriorityQueue<int[]> queue = new PriorityQueue<>(cmp);
-// 初始化并查集
-fathers = new int[num + 1];
-for (int i = 1; i <= num; i++) {
-fathers[i] = i;
-}
-// 读取边
-for (int i = 0; i < route; i++) {
-int[] arr = new int[3];
-for (int j = 0; j < 3; j++) {
-arr[j] = scanner.nextInt();
-}
-queue.add(arr);
-}
-scanner.close();
+    // 优先队列方法
+    // 85分，超时
+    static void MST() {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        int route = scanner.nextInt();
+        PriorityQueue < int[] > queue = new PriorityQueue < > (cmp);
+        // 初始化并查集
+        fathers = new int[num + 1];
+        for (int i = 1; i <= num; i++) {
+            fathers[i] = i;
+        }
+        // 读取边
+        for (int i = 0; i < route; i++) {
+            int[] arr = new int[3];
+            for (int j = 0; j < 3; j++) {
+                arr[j] = scanner.nextInt();
+            }
+            queue.add(arr);
+        }
+        scanner.close();
 
-// Kruskal算法
-for (int i = 0; i < route; i++) {
-int[] edges = queue.poll();
-int a = edges[0], b = edges[1];
-int father_a = findfathers(a);
-int father_b = findfathers(b);
-if (father_a != father_b) {
-fathers[father_a] = father_b;
-}
-if (findfathers(1) == findfathers(num)) {
-System.out.println(edges[2]);
-break;
-}
-}
-}
+        // Kruskal算法
+        for (int i = 0; i < route; i++) {
+            int[] edges = queue.poll();
+            int a = edges[0], b = edges[1];
+            int father_a = findfathers(a);
+            int father_b = findfathers(b);
+            if (father_a != father_b) {
+                fathers[father_a] = father_b;
+            }
+            if (findfathers(1) == findfathers(num)) {
+                System.out.println(edges[2]);
+                break;
+            }
+        }
+    }
 
 
-static int findfathers(int child) {
-int father = child;
-while (fathers[father] != father) {
-father = fathers[father];
-}
-// 路径压缩
-int i = child, j;
-while (i != father) {
-j = fathers[i];
-fathers[i] = father;
-i = j;
-}
-return father;
-}
+    static int findfathers(int child) {
+        int father = child;
+        while (fathers[father] != father) {
+            father = fathers[father];
+        }
+        // 路径压缩
+        int i = child, j;
+        while (i != father) {
+            j = fathers[i];
+            fathers[i] = father;
+            i = j;
+        }
+        return father;
+    }
 
-public static void main(String[] args) {
-MST();
-}
+    public static void main(String[] args) {
+        MST();
+    }
 }
 ```
 
@@ -889,19 +885,19 @@ MST();
 
 ## 代码（c）
 
-```
+```c
 #include<stdio.h>
 #include<string.h>
 #define chartonumber(x) (x-'0')
 int main(){
-char a[10];
-fgets(a, 10, stdin);
-int sum=0;
-int i;
-for(i=0;i<strlen(a)-1;i++){
-sum+=chartonumber(a[i]);
-}
-printf("%d",sum);
+    char a[10];
+    fgets(a, 10, stdin);
+    int sum=0;
+    int i;
+    for(i=0;i<strlen(a)-1;i++){
+        sum+=chartonumber(a[i]);
+    }
+    printf("%d",sum);
 } 
 ```
 
@@ -927,46 +923,46 @@ printf("%d",sum);
 
 ## 代码（Java）
 
-```
+```java
 import java.util.Scanner;
 
 public class exam {
-static int changetonumber(String y) {
-int result = 0;
-try { 
-    result = Integer.parseInt(y); 
-} catch (NumberFormatException e) { 
-    e.printStackTrace(); 
-}
-return result;
-}
-public static void main(String[] args) {
-boolean flag = true;
-Scanner input = new Scanner(System.in);
-StringBuilder a = new StringBuilder(input.next());
-StringBuilder b = new StringBuilder(input.next());
-String sa = ""+a;
-String sb = ""+b;
-StringBuilder backa = a;
-StringBuilder backb = b;
-backa.reverse();
-backb.reverse();
-String sbacka = ""+backa;
-String sbackb = ""+backb;
-int numa = changetonumber(sa);
-int numb = changetonumber(sb);
-int numba = changetonumber(sbacka);
-int numbb = changetonumber(sbackb);
-if (numa*numb==numba*numbb) {
-flag = false;
-}
-input.close();
-System.out.print(numa+"*"+numb);
-if (flag) {
-System.out.print("!");
-}
-System.out.print("="+numba+"*"+numbb);
-}
+    static int changetonumber(String y) {
+        int result = 0;
+        try {
+            result = Integer.parseInt(y);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        boolean flag = true;
+        Scanner input = new Scanner(System.in);
+        StringBuilder a = new StringBuilder(input.next());
+        StringBuilder b = new StringBuilder(input.next());
+        String sa = "" + a;
+        String sb = "" + b;
+        StringBuilder backa = a;
+        StringBuilder backb = b;
+        backa.reverse();
+        backb.reverse();
+        String sbacka = "" + backa;
+        String sbackb = "" + backb;
+        int numa = changetonumber(sa);
+        int numb = changetonumber(sb);
+        int numba = changetonumber(sbacka);
+        int numbb = changetonumber(sbackb);
+        if (numa * numb == numba * numbb) {
+            flag = false;
+        }
+        input.close();
+        System.out.print(numa + "*" + numb);
+        if (flag) {
+            System.out.print("!");
+        }
+        System.out.print("=" + numba + "*" + numbb);
+    }
 }
 ```
 
