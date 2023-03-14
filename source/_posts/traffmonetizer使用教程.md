@@ -31,7 +31,7 @@ Docker：[https://hub.docker.com/r/traffmonetizer/cli](https://hub.docker.com/r/
 
 这里我提供**一键运行脚本**如下（**注意：将`xxxxxxxxxx`替换为你的 `application token`**）
 
-```
+```shell
 wget https://startpage.zhuanjie.ltd/download/randall-traffmonetizer.sh && chmod +x ./randall-traffmonetizer.sh && bash ./randall-traffmonetizer.sh xxxxxxxxxx
 ```
 
@@ -39,7 +39,7 @@ wget https://startpage.zhuanjie.ltd/download/randall-traffmonetizer.sh && chmod 
 
 初学shell，脚本臃肿，仅适配Ubuntu和Centos
 
-```
+```shell
 #!/bin/bash
 #
 # @Author : 转接

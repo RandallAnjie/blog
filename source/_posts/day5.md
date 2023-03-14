@@ -11,19 +11,19 @@ date: 2022-03-21 19:31:32
 
 ## 题目
 
-如下的代码判断 needle\_start指向的串是否为haystack\_start指向的串的前缀，如不是，则返回NULL。  
+如下的代码判断 needle\_start指向的串是否为haystack\_start指向的串的前缀，如不是，则返回NULL。 
 比如："abcd1234" 就包含了 "abc" 为前缀
 
-```
+```c
 char* prefix(char* haystack_start, char* needle_start)
 {
-char* haystack = haystack_start;
-char* needle = needle_start;
-while(*haystack && *needle){
-if(__________________) return NULL; //填空位置
-}
-if(*needle) return NULL;
-return haystack_start;
+    char* haystack = haystack_start;
+    char* needle = needle_start;
+    while(*haystack && *needle){
+        if(__________________) return NULL; //填空位置
+    }
+    if(*needle) return NULL;
+    return haystack_start;
 }
 ```
 
@@ -35,33 +35,33 @@ return haystack_start;
 
 ## 参考答案
 
-\*(haystack++) != \*(needle++)
+>  \*(haystack++) != \*(needle++)
 
 ## 测试代码
 
-```
+```c++
 #include<iostream>
 
 using namespace std;
 
 char* prefix(char* haystack_start, char* needle_start)
 {
-char* haystack = haystack_start;
-char* needle = needle_start;
-while(*haystack && *needle){
-if(*(haystack++) != *(needle++)) return NULL;  //填空位置
+    char* haystack = haystack_start;
+    char* needle = needle_start;
+    while(*haystack && *needle){
+        if(*(haystack++) != *(needle++)) return NULL;  //填空位置
+    }
+
+    if(*needle) return NULL;
+
+    return haystack_start;
 }
 
-if(*needle) return NULL;
-
-return haystack_start;
-}
-
-int main() 
+int main()
 {
-char *a=prefix("abc123","abc");
-char *b=prefix("abc123","abd");
-if(a == NULL){
+    char *a=prefix("abc123","abc");
+    char *b=prefix("abc123","abd");
+    if(a == NULL){
         cout << "a = NULL" << endl;
     }else{
         cout << "a = " << a << endl;
@@ -71,10 +71,14 @@ if(a == NULL){
     }else{
         cout << "b = " << a << endl;
     }
-return 0;
+    return 0;
 }
 ```
 
 输出：
+
+```shell
 a = abc123
 b = NULL
+```
+

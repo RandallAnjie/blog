@@ -16,7 +16,7 @@ https://img.xjh.me/random_img.php
 http://img.xjh.me/random_img.php
 ```
 
-![当你看到了这句话就说明这个API没啦！](http://img.xjh.me/random_img.php)
+![当你只看到了这句话就说明这个API没啦！](http://img.xjh.me/random_img.php)
 
 ## [樱道随机图片API](https://img.r10086.com/)
 
@@ -25,7 +25,7 @@ http://img.xjh.me/random_img.php
 https://api.r10086.com/img-api.php?type=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%881
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.r10086.com/img-api.php?type=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%881)
+![当你只看到了这句话就说明这个API没啦！](https://api.r10086.com/img-api.php?type=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%881)
 
 ## [搏天api](https://api.btstu.cn/doc/sjbz.php)
 
@@ -36,7 +36,7 @@ https://api.r10086.com/img-api.php?type=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%881
 请求示例：https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images)
+![当你只看到了这句话就说明这个API没啦！](https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images)
 
 ## [小歪API](https://api.ixiaowai.cn/)
 
@@ -66,7 +66,7 @@ https://api.ixiaowai.cn/tgrj/index.php（舔狗日记）
 https://api.ixiaowai.cn/ewm（网址转二维码）
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.ixiaowai.cn/api/api.php)
+![当你只看到了这句话就说明这个API没啦！](https://api.ixiaowai.cn/api/api.php)
 
 一言
 
@@ -93,7 +93,7 @@ JSON数据
 }
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.mtyqx.cn/api/random.php)
+![当你只看到了这句话就说明这个API没啦！](https://api.mtyqx.cn/api/random.php)
 
 ## [姬长信API](https://api.isoyu.com/)
 
@@ -101,7 +101,7 @@ JSON数据
 #emmm接口嘎嘎多，自己去看官方文档把
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.isoyu.com/bing_images.php)
+![当你只看到了这句话就说明这个API没啦！](https://api.isoyu.com/bing_images.php)
 
 ## [Unsplash Image API](https://unsplash.com/developers)
 
@@ -111,7 +111,7 @@ JSON数据
 Get /photos/random
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://source.unsplash.com/random/1280x720)
+![当你只看到了这句话就说明这个API没啦！](https://source.unsplash.com/random/1280x720)
 
 ## [后宫漫图](https://acg.sx/images)
 
@@ -119,7 +119,7 @@ Get /photos/random
 直接使用该站URL即可：https://acg.sx/images
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://acg.sx/images)
+![当你只看到了这句话就说明这个API没啦！](https://acg.sx/images)
 
 ## [樱花API](https://www.dmoe.cc/)
 
@@ -142,7 +142,7 @@ JSON数据
 }
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://www.dmoe.cc/random.php)
+![当你只看到了这句话就说明这个API没啦！](https://www.dmoe.cc/random.php)
 
 ## [EEEDOG](https://www.dmoe.cc/random.php)
 
@@ -172,7 +172,7 @@ GET/POST /img?type=moe&size=1920x1080
 示例：https://api.yimian.xyz/img?type=moe&size=1920x1080
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://api.yimian.xyz/img)
+![当你只看到了这句话就说明这个API没啦！](https://api.yimian.xyz/img)
 
 ## [东方ProjectAPI](https://img.paulzzh.com/)
 
@@ -180,4 +180,4 @@ GET/POST /img?type=moe&size=1920x1080
 https://img.paulzzh.com/touhou/random
 ```
 
-![当你看到了这句话就说明这个API没啦！](https://img.paulzzh.com/touhou/random)
+![当你只看到了这句话就说明这个API没啦！](https://img.paulzzh.com/touhou/random)

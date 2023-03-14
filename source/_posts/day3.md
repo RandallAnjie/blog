@@ -24,28 +24,28 @@ date: 2022-03-19 21:36:20
 
 ## 参考答案
 
-51167078
+>  51167078
 
 ## 代码
 
-```
+```c
 #include<stdio.h>
 
 int totol;
 
 void fun(int last, int steps){
-if(last < 0){
-return;
-}
-if(last == 0 && steps%2 == 0){
-totol++;
-}
-fun(last - 1, steps + 1);
-fun(last - 2, steps + 1);
+    if(last < 0){
+        return;
+    }
+    if(last == 0 && steps%2 == 0){
+        totol++;
+    }
+    fun(last - 1, steps + 1);
+    fun(last - 2, steps + 1);
 }
 
 int main(){
-fun(39,0);
-printf("%d",totol);
+    fun(39,0);
+    printf("%d",totol);
 }
 ```

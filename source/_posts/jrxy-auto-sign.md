@@ -20,7 +20,7 @@ date: 2022-07-08 21:16:25
 
 稳定版阿里云函数直接上传[此链接](https://github.com/Zhuanjier/jrxySign/files/9104079/stable-code.zip)下载的压缩包解压后的文件夹即可
 
-[GitHub发布](https://github.com/Zhuanjier/jrxySign/releases)
+
 
 ## 近期运行日志
 
@@ -35,16 +35,16 @@ date: 2022-07-08 21:16:25
 *   适配了北印信工的签到系统
 *   调整新增了签到选项为其他需要填写信息的情况
 
-### [](https://github.com/Zhuanjier/jrxySign#v189)v1.8.9
+### v1.8.9
 
 *   完善上一版本更新的稳定性
 *   更新了日志文档
 
-### [](https://github.com/Zhuanjier/jrxySign#v190beta)v1.9.0(beta)
+### v1.9.0(beta)
 
 *   新增本地保存登录信息session的`wise`模块，免于签到一次登录一次（未测试）（由于会挤掉手机端今日校园，该功能已废弃）
 
-### [](https://github.com/Zhuanjier/jrxySign#v192)v1.9.2
+### v1.9.2
 
 *   提高代码稳定性
 *   优化文档
@@ -154,7 +154,7 @@ pycharm测试运行结果
 
 *   在下方终端中运行如下代码段（**末尾有英文的句点，下文同理**）
 
-```
+```shell
 pip3 install -r requirements.txt -t .
 ```
 

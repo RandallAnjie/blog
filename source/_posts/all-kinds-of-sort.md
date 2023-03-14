@@ -17,7 +17,7 @@ date: 2022-04-11 15:51:55
 *   时间复杂度O(d(n+r))
 *   空间复杂度O(r)
 
-```
+```c
 int *LSD(int *a, int f, int l)
 {
     int n = l - f + 1;
@@ -49,7 +49,7 @@ int *LSD(int *a, int f, int l)
 *   时间复杂度O(d(n+r))
 *   空间复杂度O(r)
 
-```
+```c
 int *MSD(int *a, int f, int l)
 {
     int n = l - f + 1;
@@ -79,7 +79,7 @@ int *MSD(int *a, int f, int l)
 *   时间复杂度O(nlogn)
 *   空间复杂度O(1)
 
-```
+```c
 int *QS(int *a, int f, int l)
 {
     if(f >= l) return a;
@@ -103,7 +103,7 @@ int *QS(int *a, int f, int l)
 *   时间复杂度O(nlogn)
 *   空间复杂度O(n)
 
-```
+```c
 int *MS(int *a, int f, int l)
 {
     if(f >= l) return a;
@@ -128,7 +128,7 @@ int *MS(int *a, int f, int l)
 *   时间复杂度O(n^1.3)
 *   空间复杂度O(1)
 
-```
+```c
 int *SS(int *a, int f, int l)
 {
     int n = l - f + 1;
@@ -155,7 +155,7 @@ int *SS(int *a, int f, int l)
 *   时间复杂度O(n^2)
 *   空间复杂度O(1)
 
-```
+```c
 int *IS(int *a, int f, int l){
     for(int i = f + 1; i <= l; i++){
         int t = a[i];
@@ -175,7 +175,7 @@ int *IS(int *a, int f, int l){
 *   时间复杂度O(n^2)
 *   空间复杂度O(1)
 
-```
+```c
 int *BS(int *a, int f, int l){
     for(int i = f; i < l; i++){
         for(int j = f; j < l - i; j++){
@@ -192,7 +192,7 @@ int *BS(int *a, int f, int l){
 
 ## 测试部分：
 
-```
+```c
 /*
  * @Author: 转接
  * @Date: 2022-04-11 13:27:41

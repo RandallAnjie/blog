@@ -11,7 +11,7 @@ date: 2022-06-13 12:21:10
 
 vim /lib/systemd/system/服务名.service 内容如下：
 
-```
+```ini
 [Unit]
 Desctiption = 服务名称
 After = network.target syslog.target
@@ -27,18 +27,18 @@ WantedBy = multi-user.target
 
 **启动服务**
 
-```
+```shell
 systemctl start 服务名.service
 ```
 
 **查看状态**
 
-```
+```shell
 systemctl status 服务名.service
 ```
 
 **设置开机自启**
 
-```
+```shell
 systemctl enable 服务名.service
 ```

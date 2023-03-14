@@ -23,24 +23,24 @@ date: 2022-12-09 16:15:58
 
 服务器端需要`python3`和`aliyun-python-sdk-core`库，在服务器上运行：
 
-```
+```shell
 sudo apt install python3 python3-pip -y
 sudo pip3 install aliyun-python-sdk-core
 ```
 
 在服务器上下载文件并解压或直接git拉去
 
-```
+```shell
 git clone https://github.com/mgsky1/DDNS.git
 ```
 
 编辑配置文件
 
-```
+```shell
 vim ./DDNS/src/config.json
 ```
 
-```
+```json
 {
     "AccessKeyId": "Your_AccessKeyId",//你的阿里云AccessKeyId
     "AccessKeySecret": "Your_AccessKeySecret",//你的阿里云AccessKeySecret
@@ -53,7 +53,7 @@ vim ./DDNS/src/config.json
 
 成功案例：
 
-```
+```shell
 root@22-12-9-0643:~/DDNS/src# python3 DDNS.py 
 {'type': 'A', 'ip': '##.##.##.##'}
 成功！
@@ -61,7 +61,7 @@ root@22-12-9-0643:~/DDNS/src# python3 DDNS.py
 
 失败案例：
 
-```
+```shell
 root@instance-20221206-1430:~/DDNS/src# python3 DDNS.py 
 {'type': 'A', 'ip': '##.##.##.##'}
 失败！原因为

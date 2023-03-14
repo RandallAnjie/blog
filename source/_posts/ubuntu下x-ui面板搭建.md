@@ -17,7 +17,7 @@ x-ui面板支持vmess、vless、trojan、shadowsocks、dokodemo-door、socks、h
 
 安装面板需要关闭防火墙，运行：
 
-```
+```shell
 sudo iptables -P INPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
 sudo iptables -P OUTPUT ACCEPT
@@ -26,13 +26,13 @@ sudo iptables -F
 
 卸载netfilter-persistent
 
-```
+```shell
 apt-get purge netfilter-persistent
 ```
 
 删除iptables并重启服务器
 
-```
+```shell
 rm -rf /etc/iptables && reboot
 ```
 
@@ -40,7 +40,7 @@ rm -rf /etc/iptables && reboot
 
 ### 自动安装
 
-```
+```shell
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ```
 
@@ -48,7 +48,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 
 从release页面下载最新安装包，并且上传至`/root/`文件夹并且解压，运行：
 
-```
+```shell
 cd /root/
 rm x-ui/ /usr/local/x-ui/ /usr/bin/x-ui -rf
 tar zxvf x-ui-linux-amd64.tar.gz # 替换为你对应设备的对应压缩包

@@ -15,13 +15,13 @@ date: 2022-07-21 20:08:24
 
 #### 选项 1: 使用脚本随机生成的 VPN 登录凭证（完成后会显示）
 
-```
+```shell
 wget https://get.vpnsetup.net -O vpn.sh && sudo sh vpn.sh
 ```
 
 #### 选项 2: 编辑脚本并提供你自己的 VPN 登录凭证
 
-```
+```shell
 wget https://get.vpnsetup.net -O vpn.sh
 nano -w vpn.sh
 [替换为你自己的值： YOUR_IPSEC_PSK, YOUR_USERNAME 和 YOUR_PASSWORD]
@@ -30,7 +30,7 @@ sudo sh vpn.sh
 
 #### 选项 3: 将你自己的 VPN 登录凭证定义为环境变量
 
-```
+```shell
 # 所有变量值必须用 '单引号' 括起来
 # *不要* 在值中使用这些字符：  \ " '
 wget https://get.vpnsetup.net -O vpn.sh
@@ -46,7 +46,7 @@ sh vpn.sh
 
 #### 创建配置文件`/etc/ipsec/ipsec.env`
 
-```
+```ini
 VPN_IPSEC_PSK=your_ipsec_pre_shared_key
 VPN_USER=your_vpn_username
 VPN_PASSWORD=your_vpn_password
@@ -60,13 +60,13 @@ VPN_DNS_SRV2=8.8.4.4
 
 #### 创建挂在卷
 
-```
+```shell
 mkdir -p /data/ikev2-vpn-data
 ```
 
 #### 创建容器并运行
 
-```
+```shell
 docker run --name ipsec-vpn-server --env-file /etc/ipsec/ipsec.env --restart=always -v /data/ikev2-vpn-data:/etc/ipsec.d -p 500:500/udp -p 4500:4500/udp -d --privileged hwdsl2/ipsec-vpn-server
 ```
 
@@ -86,7 +86,7 @@ docker run --name ipsec-vpn-server --env-file /etc/ipsec/ipsec.env --restart=alw
 
 管理员终端运行：
 
-```
+```powershell
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent" /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 2 /f
 ```
 
@@ -96,17 +96,15 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent" /v As
 
 改用IKEv2登录，下载[strongswan](https://download.strongswan.org/Android/)后导入后缀.sswan的配置文件
 
-## 个人IPSec服务器
-
-\[vip\_only\]
+## 个人IPSec服务器(现已失效，如有需要可访问—>[个人机场](https://airport.randallanjie.uk/))
 
 本服务器搭建在东澳大利亚，已搭建VPN服务，提供信息如下：
 
 ### IPsec VPN server
 
-Server IP: 20.28.190.114  
-IPsec PSK: qwertyuiopasdfghjkl  
-Username: guide  
+Server IP: 20.28.190.114 
+IPsec PSK: qwertyuiopasdfghjkl 
+Username: guide 
 Password: guide
 
 *   如果需要个人账号请与我联系
@@ -118,8 +116,6 @@ Android配置文件：[http://startpage.zhuanjie.ltd/download/vpn/vpnclient.sswa
 Windows & Linux配置文件：[http://startpage.zhuanjie.ltd/download/vpn/vpnclient.p12](http://startpage.zhuanjie.ltd/download/vpn/vpnclient.p12)
 
 iOS & macOS配置文件：[http://startpage.zhuanjie.ltd/download/vpn/vpnclient.mobileconfig](http://startpage.zhuanjie.ltd/download/vpn/vpnclient.mobileconfig)
-
-\[/vip\_only\]
 
 ## Download
 

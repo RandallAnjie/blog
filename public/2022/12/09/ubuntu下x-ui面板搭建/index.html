@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.zhuanjie.ltd/img/uploads/2022/12/image-2-1024x384.png">
 <meta property="article:published_time" content="2022-12-09T08:45:50.000Z">
-<meta property="article:modified_time" content="2023-02-12T07:12:39.028Z">
+<meta property="article:modified_time" content="2023-03-14T15:52:08.093Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -337,18 +337,18 @@
                 <p>原始仓库：<a target="_blank" rel="noopener" href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>x-ui面板支持vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http等协议</p>
 <h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><p>安装面板需要关闭防火墙，运行：</p>
-<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tp">sudo iptables -<span class="hljs-keyword">P</span> INPUT <span class="hljs-keyword">ACC</span>EPT<br>sudo iptables -<span class="hljs-keyword">P</span> FORWARD <span class="hljs-keyword">ACC</span>EPT<br>sudo iptables -<span class="hljs-keyword">P</span> OUTPUT <span class="hljs-keyword">ACC</span>EPT<br>sudo iptables -F<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo iptables -P INPUT ACCEPT<br>sudo iptables -P FORWARD ACCEPT<br>sudo iptables -P OUTPUT ACCEPT<br>sudo iptables -F<br></code></pre></td></tr></table></figure>
 
 <p>卸载netfilter-persistent</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">apt-<span class="hljs-built_in">get</span> purge netfilter-persistent<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt-get purge netfilter-persistent<br></code></pre></td></tr></table></figure>
 
 <p>删除iptables并重启服务器</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">rm -rf <span class="hljs-regexp">/etc/i</span>ptables &amp;&amp; reboot<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm -rf /etc/iptables &amp;&amp; reboot<br></code></pre></td></tr></table></figure>
 
-<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">bash &lt;(curl -Ls https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/vaxilu/</span>x-ui<span class="hljs-regexp">/master/i</span>nstall.sh)<br></code></pre></td></tr></table></figure>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)<br></code></pre></td></tr></table></figure>
 
 <h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><p>从release页面下载最新安装包，并且上传至<code>/root/</code>文件夹并且解压，运行：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/root/</span><br>rm x-ui<span class="hljs-regexp">/ /u</span>sr<span class="hljs-regexp">/local/</span>x-ui<span class="hljs-regexp">/ /u</span>sr<span class="hljs-regexp">/bin/</span>x-ui -rf<br>tar zxvf x-ui-linux-amd64.tar.gz <span class="hljs-comment"># 替换为你对应设备的对应压缩包</span><br>chmod +x x-ui<span class="hljs-regexp">/x-ui x-ui/</span>bin<span class="hljs-regexp">/xray-linux-* x-ui/</span>x-ui.sh<br>cp x-ui<span class="hljs-regexp">/x-ui.sh /u</span>sr<span class="hljs-regexp">/bin/</span>x-ui<br>cp -f x-ui<span class="hljs-regexp">/x-ui.service /</span>etc<span class="hljs-regexp">/systemd/</span>system/<br>mv x-ui<span class="hljs-regexp">/ /u</span>sr<span class="hljs-regexp">/local/</span><br>systemctl daemon-reload<br>systemctl enable x-ui<br>systemctl restart x-ui<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /root/<br>rm x-ui/ /usr/local/x-ui/ /usr/bin/x-ui -rf<br>tar zxvf x-ui-linux-amd64.tar.gz # 替换为你对应设备的对应压缩包<br>chmod +x x-ui/x-ui x-ui/bin/xray-linux-* x-ui/x-ui.sh<br>cp x-ui/x-ui.sh /usr/bin/x-ui<br>cp -f x-ui/x-ui.service /etc/systemd/system/<br>mv x-ui/ /usr/local/<br>systemctl daemon-reload<br>systemctl enable x-ui<br>systemctl restart x-ui<br></code></pre></td></tr></table></figure>
 
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>使用安装时的<code>ip:端口</code>或者<code>域名:端口</code>进入面板</p>
 <p><img src="https://blog.zhuanjie.ltd/img/uploads/2022/12/image-2-1024x384.png" srcset="/img/loading.gif" lazyload></p>

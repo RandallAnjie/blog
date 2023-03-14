@@ -29,105 +29,105 @@ date: 2022-03-17 14:19:39
 
 ### 输出格式
 
-yyyy-mm-dd, 例如：1980-03-21
+>  yyyy-mm-dd, 例如：1980-03-21
 
 ## 参考答案
 
-1799-07-16
+>  1799-07-16
 
 ## 代码
 
-```
+```c
 #include<stdio.h>
 
 int monthn[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 int monthd[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 bool IsLeap(int year){
-if(year%400 == 0  (year%100 != 0 && year%4 == 0)){
-return true;
-}else{
-return false;
-}
+    if(year%400 == 0  (year%100 != 0 && year%4 == 0)){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 int Last(int year, int month, int day){
-int *monthi;
-if(IsLeap(year)){
-monthi = &monthd[0];
-}else{
-monthi = &monthn[0];
-}
-int result = monthi[month-1] - day;
-for(int i = month ; i < 12; i++){
-result += monthi[i];
-}
-return result;
+    int *monthi;
+    if(IsLeap(year)){
+        monthi = &monthd[0];
+    }else{
+        monthi = &monthn[0];
+    }
+    int result = monthi[month-1] - day;
+    for(int i = month ; i < 12; i++){
+        result += monthi[i];
+    }
+    return result;
 }
 
 int Past(int year, int month, int day){
-int *monthi;
-if(IsLeap(year)){
-monthi = &monthd[0];
-}else{
-monthi = &monthn[0];
-}
-int result = day;
-for(int i = 0 ; i < month-1; i++){
-result += monthi[i];
-}
-return result;
+    int *monthi;
+    if(IsLeap(year)){
+        monthi = &monthd[0];
+    }else{
+        monthi = &monthn[0];
+    }
+    int result = day;
+    for(int i = 0 ; i < month-1; i++){
+        result += monthi[i];
+    }
+    return result;
 }
 
 int To(int year, int month, int day){
-int result = 0;
-for(int i = 1777; i <= year; i++){
-if(IsLeap(i)){
-result += 366;
-}else{
-result += 365;
-}
-}
-// 出生当天算第一天 
-return result-Past(1777, 4, 30)-Last(year, month, day)+1;
+    int result = 0;
+    for(int i = 1777; i <= year; i++){
+        if(IsLeap(i)){
+            result += 366;
+        }else{
+            result += 365;
+        }
+    }
+    // 出生当天算第一天 
+    return result-Past(1777, 4, 30)-Last(year, month, day)+1;
 }
 
 int main(){
-//printf("%d",To(1791,12,15));
-//printf("%d",To(1777,12,31));
-int num = 8113 - To(1777,12,31);
-int year = 1777;
-int month = 12, day = 31;
-while(true){
-int temp = num;
-if(IsLeap(year+1)){
-temp -= 366;
-}else{
-temp -= 365;
-}
-if(temp < 0){
-year ++;
-break;
-}else{
-year ++;
-num = temp;
-}
-}
-int *monthi;
-if(IsLeap(year)){
-monthi = &monthd[0];
-}else{
-monthi = &monthn[0];
-}
-for(month = 1; month <= 12; month++){
-if(num - monthi[month-1] > 0){
-num -= monthi[month-1];
-}else{
-day = num;
-break;
-}
-}
-printf("%d-%d-%d",year,month,day);
-return 0;
+    //printf("%d",To(1791,12,15));
+    //printf("%d",To(1777,12,31));
+    int num = 8113 - To(1777,12,31);
+    int year = 1777;
+    int month = 12, day = 31;
+    while(true){
+        int temp = num;
+        if(IsLeap(year+1)){
+            temp -= 366;
+        }else{
+            temp -= 365;
+        }
+        if(temp < 0){
+            year ++;
+            break;
+        }else{
+            year ++;
+            num = temp;
+        }
+    }
+    int *monthi;
+    if(IsLeap(year)){
+        monthi = &monthd[0];
+    }else{
+        monthi = &monthn[0];
+    }
+    for(month = 1; month <= 12; month++){
+        if(num - monthi[month-1] > 0){
+            num -= monthi[month-1];
+        }else{
+            day = num;
+            break;
+        }
+    }
+    printf("%d-%d-%d",year,month,day);
+    return 0;
 }
 ```
