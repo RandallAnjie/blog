@@ -276,6 +276,60 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/06/13/linux-systemctl/" target="_self">
+          Linux下将长期运行命令变为系统服务
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/13/linux-systemctl/" target="_self">
+        <div>
+          在/lib/systemd/system/中新建“服务名.service”文件。 vim /lib/systemd/system/服务名.service 内容如下： 1234567891011[Unit]Desctiption = 服务名称After = network.target syslog.targetWants = network.target[Service]Type = simple
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-13 12:21" pubdate>
+              2022-06-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/06/11/byyl4/" target="_self">
           编译原理实验4
         </a>
@@ -736,60 +790,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-03-21 19:31" pubdate>
               2022-03-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/20/day4/" target="_self">
-          每日一题——黄金连分数
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/20/day4/" target="_self">
-        <div>
-          day4  题目黄金分割数0.61803… 是个无理数，这个常数十分重要，在许多工程问题中会出现。有时需要把这个数字求得很精确。对于某些精密工程，常数的精度很重要。也许你听说过哈勃太空望远镜，它首次升空后就发现了一处人工加工错误，对那样一个庞然大物，其实只是镜面加工时有比头发丝还细许多倍的一处错误而已，却使它成了“近视眼”!!言归正传，我们如何求得黄金分割数的尽可能精确的值呢？有许多方法。比
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-20 19:39" pubdate>
-              2022-03-20
             </time>
           </div>
         

@@ -11,7 +11,7 @@ tags:
 
 ## 回文数
 
-[原题传送门](https://leetcode.cn/problems/palindrome-number/description/)
+>  [原题传送门](https://leetcode.cn/problems/palindrome-number/description/)
 
 给你一个整数 `x` ，如果 `x` 是一个回文整数，返回 `true` ；否则，返回 `false` 。
 
@@ -45,7 +45,7 @@ tags:
 
 提示：
 
-- `-231 <= x <= 231 - 1`
+- `-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1`
 
 ## 解答
 
