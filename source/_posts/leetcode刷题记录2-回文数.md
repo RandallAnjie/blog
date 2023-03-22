@@ -1,6 +1,6 @@
 ---
-title: leetcode刷题记录1-两数之和
-date: 2023-02-15 18:16:35
+title: leetcode刷题记录2-回文数
+date: 2023-03-22 19:26:00
 categories:
   - - leetcode
   - - C++
