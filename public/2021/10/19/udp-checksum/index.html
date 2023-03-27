@@ -16,17 +16,17 @@
   <meta name="author" content="转接">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0">
+    <meta name="description" content="源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络计算UDP校验和">
 <meta property="og:url" content="https://blog.zhuanjie.ltd/2021/10/19/udp-checksum/">
 <meta property="og:site_name" content="一个计科生の博客">
-<meta property="og:description" content="源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0">
+<meta property="og:description" content="源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0x">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2021/10/image-6.png">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2021/10/image-8.png">
 <meta property="article:published_time" content="2021-10-19T08:52:38.000Z">
-<meta property="article:modified_time" content="2023-03-13T15:57:38.264Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.739Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -341,7 +341,7 @@
                 
                 <p><img src="http://blog.zhuanjie.ltd/img/uploads/2021/10/image-6.png" srcset="/img/loading.gif" lazyload alt="wireshark抓包截图"></p>
 <blockquote>
-<p> 源IP地址：123.151.78.47(0x7b97, 0x4e2f)</p>
+<p>源IP地址：123.151.78.47(0x7b97, 0x4e2f)</p>
 <p>目的IP地址：10.66.149.117(0xa42, 0x9575)</p>
 <p>源端口：8000(0x1f40)</p>
 <p>目的端口：4006(0xfa6)</p>
@@ -349,9 +349,6 @@
 <p>数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0xf70f, 0xf03a, 0x71fa, 0x294d, 0xe354, 0x2bdf, 0x0300 校验和：0x9ab9</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// C语言计算校验和</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> <span class="hljs-title function_">checksum</span><span class="hljs-params">(<span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> *buf,<span class="hljs-type">int</span> nword)</span>&#123;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> sum;<br>    <span class="hljs-keyword">for</span>(sum=<span class="hljs-number">0</span>;nword&gt;<span class="hljs-number">0</span>;nword--)&#123;<br>        sum += *buf++;<br>        sum = (sum&gt;&gt;<span class="hljs-number">16</span>) + (sum&amp;<span class="hljs-number">0xffff</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> ~sum;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> buffer[<span class="hljs-number">26</span>] = &#123;<br>            <span class="hljs-number">0x7b97</span>, <span class="hljs-number">0x4e2f</span>, <span class="hljs-comment">// 源IP地址： 123.151.78.47(0x7b97, 0x4e2f)</span><br>            <span class="hljs-number">0x0a42</span>, <span class="hljs-number">0x9575</span>, <span class="hljs-comment">// 目的IP地址：10.66.149.117(0xa42, 0x9575)</span><br>            <span class="hljs-number">0x0011</span>, <span class="hljs-number">0x0027</span>, <span class="hljs-comment">// UDP协议字段值17(0x0011) UDP长度： 39(0x27)</span><br>            <span class="hljs-number">0x1f40</span>, <span class="hljs-number">0x0fa6</span>, <span class="hljs-comment">// 源端口： 8000(0x1f40) 目的端口： 4006(0xfa6)</span><br>            <span class="hljs-number">0x0027</span>, <span class="hljs-number">0x0000</span>, <span class="hljs-comment">// UDP长度： 39(0x27) 校验和（计算时置0）（0x0000） </span><br>            <span class="hljs-number">0x023a</span>, <span class="hljs-number">0x2700</span>, <span class="hljs-comment">// 数据字段，不够位数最后补0 </span><br>            <span class="hljs-number">0xcd27</span>, <span class="hljs-number">0x6784</span>,<br>            <span class="hljs-number">0xc57e</span>, <span class="hljs-number">0xf400</span>,<br>            <span class="hljs-number">0x0000</span>, <span class="hljs-number">0x5ad0</span>,<br>            <span class="hljs-number">0xc585</span>, <span class="hljs-number">0xf70f</span>,<br>            <span class="hljs-number">0xf03a</span>, <span class="hljs-number">0x71fa</span>,<br>            <span class="hljs-number">0x294d</span>, <span class="hljs-number">0xe354</span>,<br>            <span class="hljs-number">0x2bdf</span>, <span class="hljs-number">0x0300</span>&#125;;<br>    <span class="hljs-type">int</span> n=<span class="hljs-number">26</span>;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> re_checksum;<br>    re_checksum=checksum(buffer,n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%x\t&quot;</span>,re_checksum);<br>    <span class="hljs-keyword">if</span>(re_checksum == <span class="hljs-number">0x9ab9</span>)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;校验和正确!\n&quot;</span>);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;校验和不正确!\n&quot;</span>);<br>&#125; <br></code></pre></td></tr></table></figure>
-
-
-
 <p><img src="http://blog.zhuanjie.ltd/img/uploads/2021/10/image-8.png" srcset="/img/loading.gif" lazyload alt="运行截图"></p>
 
                 

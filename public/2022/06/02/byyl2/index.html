@@ -16,12 +16,12 @@
   <meta name="author" content="转接">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="实验内容：输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） 实验准备：正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::&#x3D;R1R2       {L(R)&#x3D;L(R1)∪L(R2)} R::&#x3D;R1R2">
+    <meta name="description" content="¶实验内容： 输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） ¶实验准备： 正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::&#x3D;R1R2       {L®&#x3D;L(R1)∪L(R2)} R::&#x3D;R1R2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理实验2">
 <meta property="og:url" content="https://blog.zhuanjie.ltd/2022/06/02/byyl2/">
 <meta property="og:site_name" content="一个计科生の博客">
-<meta property="og:description" content="实验内容：输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） 实验准备：正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::&#x3D;R1R2       {L(R)&#x3D;L(R1)∪L(R2)} R::&#x3D;R1R2">
+<meta property="og:description" content="¶实验内容： 输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） ¶实验准备： 正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::&#x3D;R1R2       {L®&#x3D;L(R1)∪L(R2)} R::&#x3D;R1R2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-2.png">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-3.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-6.png">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-7.png">
 <meta property="article:published_time" content="2022-06-02T02:35:15.000Z">
-<meta property="article:modified_time" content="2023-02-12T07:12:52.297Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.696Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -343,27 +343,30 @@
             
               <div class="markdown-body">
                 
-                <h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a><strong>实验内容：</strong></h2><p>输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务）</p>
+                <h2 id="实验内容："><a class="header-anchor" href="#实验内容：">¶</a><strong>实验内容：</strong></h2>
+<p>输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务）</p>
 <p>输入一转换图，生成与之等价的正则表达式（未完成）</p>
-<h2 id="实验准备："><a href="#实验准备：" class="headerlink" title="实验准备："></a><strong>实验准备：</strong></h2><p>正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下：</p>
-<p>R::=R1R2       {L(R)=L(R1)∪L(R2)}</p>
-<p>R::=R1R2        {L(R)=L(R1)L(R2)}</p>
-<p>R::=R1*          {L(R)=</p>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-2.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="实验准备："><a class="header-anchor" href="#实验准备：">¶</a><strong>实验准备：</strong></h2>
+<p>正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下：</p>
+<p>R::=R1R2       {L®=L(R1)∪L(R2)}</p>
+<p>R::=R1R2        {L®=L(R1)L(R2)}</p>
+<p>R::=R1*          {L®=</p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-2.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>}</p>
-<p>R::=(R1)          {L(R)=L(R1)     }</p>
-<p>R::=a              {a∈Σ,且 L(R)={a} }</p>
-<p>R::=ε      {ε不是Σ中的元素，L(R)={} }</p>
+<p>R::=(R1)          {L®=L(R1)     }</p>
+<p>R::=a              {a∈Σ,且 L®={a} }</p>
+<p>R::=ε      {ε不是Σ中的元素，L®={} }</p>
 <p>转换图的定义：符号表Σ上转移T是一个带有权值的有向图T=(V,A),这是V是有向图T的顶点集合，其中的元素称之为状态，因此V亦称状态集，A是弧的集合，弧带有一个权α，其是Σ上的一个正则表达式。其满足如下条件：</p>
 <ol>
-<li> 存在唯一一个状态S0称为开始状态，其无引入弧</li>
-<li> 存在唯一一个状态S1称为终止状态，其无引出弧</li>
+<li>存在唯一一个状态S0称为开始状态，其无引入弧</li>
+<li>存在唯一一个状态S1称为终止状态，其无引出弧</li>
 </ol>
 <p>转换图定义的语言记为L(T)，其是Σ上的一个符号串的集合，Σ上的符号串α∈L(T)当且仅当存在一个由开始状态S0到终止状态S1的路径V0α1V1α2……Vn-1αnVn。</p>
 <p>其中V0=S0，Vn=S1，（Vi-1,Vi, αi） (i=1,2,……,n)是T上的弧，且α∈L(α1)……L(αn)。</p>
 <p>如果A中每个弧上的正则表达式是Σ上的一个符号或ε（无任何符号），则转换图称之为不确定的有限自动机。</p>
 <p>如果A中每个弧上的正则表达式只能是Σ上的符号且任两个弧（V1,V2,α1）、（V’1,V’2,α’1），如果V1=V’1，则V2&lt;&gt;V’2。</p>
-<h2 id="基本算法："><a href="#基本算法：" class="headerlink" title="基本算法："></a><strong>基本算法：</strong></h2><p>将正则表达式转换成不确定的有限自动机：</p>
+<h2 id="基本算法："><a class="header-anchor" href="#基本算法：">¶</a><strong>基本算法：</strong></h2>
+<p>将正则表达式转换成不确定的有限自动机：</p>
 <p>对于一个正则表达式α，构造一个转移图，由开始状态S0引出一个到终止状态S1的弧，（S0,S1, α）。</p>
 <p>如果有多个正则表达式α1，……，αn，先为每个αi(1&lt;=i&lt;=n)构造一个转换图Ti。建立一个新的转换图T，构造如下：添加一个Sb状态，为Ｔ的开始状态，对每个αi对应的转换图Ti的开始状态Si，添加弧(Sb,Si,ε)。添加一个新状态Se，为T的终止状态，对每个αi对应转换图Ti的终止状态S’i，添加弧（S’i,Sb,ε）。</p>
 <p>重复如下操作，直到无状态转换图T无变化</p>
@@ -390,40 +393,42 @@
 <p>令Ｓ0,i,a={s∈Ｓ0　 存在弧(s,s1,a)，这里s1∈Ｓi}</p>
 <p>If(Ｓ0,i,a非空)将Ｓ0,i,a添加到π0中</p>
 <p>将π0记之为π</p>
-<h2 id="自动生成词法分析程序："><a href="#自动生成词法分析程序：" class="headerlink" title="自动生成词法分析程序："></a><strong>自动生成词法分析程序：</strong></h2><p>类Disjoint:并查集, 用于计算等价关系；</p>
+<h2 id="自动生成词法分析程序："><a class="header-anchor" href="#自动生成词法分析程序：">¶</a><strong>自动生成词法分析程序：</strong></h2>
+<p>类Disjoint:并查集, 用于计算等价关系；</p>
 <p>类Automata:有穷自动机：</p>
 <ol>
-<li> 有穷状态集(对应有向图中的节点)</li>
-<li> 输入字母表(状态转移边的标注)</li>
-<li> 状态转移规则(对应有向图中的边)</li>
-<li> 初始状态</li>
-<li> 终止状态集</li>
+<li>有穷状态集(对应有向图中的节点)</li>
+<li>输入字母表(状态转移边的标注)</li>
+<li>状态转移规则(对应有向图中的边)</li>
+<li>初始状态</li>
+<li>终止状态集</li>
 </ol>
 <p>检查转移图的合法性:</p>
 <ol>
-<li> 起始状态必须在状态集中</li>
-<li> 终止状态必须在状态集中</li>
+<li>起始状态必须在状态集中</li>
+<li>终止状态必须在状态集中</li>
 </ol>
 <p>检验是否为确定的有穷自动机(DFA) 标准:</p>
 <ol>
-<li> 不能有 epsilon 作为输入的字母</li>
-<li> 存在某状态对于某字母有多种后继状态</li>
+<li>不能有 epsilon 作为输入的字母</li>
+<li>存在某状态对于某字母有多种后继状态</li>
 </ol>
-<h2 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a><strong>实验过程：</strong></h2><ol>
-<li> 编写代码</li>
+<h2 id="实验过程："><a class="header-anchor" href="#实验过程：">¶</a><strong>实验过程：</strong></h2>
+<ol>
+<li>编写代码</li>
 </ol>
 <p>源码：<a target="_blank" rel="noopener" href="http://gitlab.zhuanjie.ltd/Randall/byyl2">Randall Chu / 编译原理实验2 · GitLab (zhuanjie.ltd)</a></p>
 <ol>
-<li> 测试运行(实验环境Windows11 Python3.10 pycharm)，如图：</li>
+<li>测试运行(实验环境Windows11 Python3.10 pycharm)，如图：</li>
 </ol>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-3.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
-<li> 输出信息：</li>
+<li>输出信息：</li>
 </ol>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-4.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-5.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-6.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-7.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/06/image-7.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>实验总结：</strong></p>
 <p>通过本次实验我学会了从正则表达式转NFA(不确定的有穷自动机)、NFA转DFA(确定的有穷自动机)和DFA的最小化。同时我也尝试输出了自动机的转移矩阵和输出自动机的状态转移图。输出自动机的状态转移图使用的是图形可视化软件Graphviz的使用，他能够将将结构信息表示为抽象图形和网络图。在编程过程中程序抛出了ExecutableNotFound的异常信息，经过检查发现为未将Graphviz的安装地址置于系统的环境变量中。状态图中：以圆圈表示状态（圆圈内为状态名），箭头表示状态转移边。以start标记引出箭头指向起始状态，以双圈表示终止状态。</p>
 

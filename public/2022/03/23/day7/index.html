@@ -16,15 +16,15 @@
   <meta name="author" content="转接">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="day7  题目某涉密单位下发了某种票据，并要在年终全部收回。每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。你的任务是通过编程，找出断号的ID和重号的ID。假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） 格式输入格式要求程序首">
+    <meta name="description" content="day7  ¶题目 某涉密单位下发了某种票据，并要在年终全部收回。 每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。 因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。 你的任务是通过编程，找出断号的ID和重号的ID。 假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） ¶格式 ¶输入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日一题——错误票据">
 <meta property="og:url" content="https://blog.zhuanjie.ltd/2022/03/23/day7/">
 <meta property="og:site_name" content="一个计科生の博客">
-<meta property="og:description" content="day7  题目某涉密单位下发了某种票据，并要在年终全部收回。每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。你的任务是通过编程，找出断号的ID和重号的ID。假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） 格式输入格式要求程序首">
+<meta property="og:description" content="day7  ¶题目 某涉密单位下发了某种票据，并要在年终全部收回。 每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。 因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。 你的任务是通过编程，找出断号的ID和重号的ID。 假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） ¶格式 ¶输入">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-23T15:26:58.000Z">
-<meta property="article:modified_time" content="2023-03-14T15:34:23.202Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.714Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -337,29 +337,51 @@
               <div class="markdown-body">
                 
                 <ul>
-<li>  day7</li>
+<li>day7</li>
 </ul>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>某涉密单位下发了某种票据，并要在年终全部收回。<br>每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。<br>因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。<br>你的任务是通过编程，找出断号的ID和重号的ID。<br>假设断号不可能发生在最大和最小号。</p>
+<h2 id="题目"><a class="header-anchor" href="#题目">¶</a>题目</h2>
+<p>某涉密单位下发了某种票据，并要在年终全部收回。<br>
+每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。<br>
+因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。<br>
+你的任务是通过编程，找出断号的ID和重号的ID。<br>
+假设断号不可能发生在最大和最小号。</p>
 <p>（ATT：TODO改用vector获取字符流判断）</p>
-<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>要求程序首先输入一个整数N(N&lt;100)表示后面数据行数。<br>接着读入N行数据。<br>每行数据长度不等，是用空格分开的若干个（不大于100个）正整数（不大于100000），请注意行内和行末可能有多余的空格，你的程序需要能处理这些空格。<br>每个整数代表一个ID号。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>要求程序输出1行，含两个整数m n，用空格分隔。<br>其中，m表示断号ID，n表示重号ID</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p>样例输入1</p>
+<h2 id="格式"><a class="header-anchor" href="#格式">¶</a>格式</h2>
+<h3 id="输入格式"><a class="header-anchor" href="#输入格式">¶</a>输入格式</h3>
+<p>要求程序首先输入一个整数N(N&lt;100)表示后面数据行数。<br>
+接着读入N行数据。<br>
+每行数据长度不等，是用空格分开的若干个（不大于100个）正整数（不大于100000），请注意行内和行末可能有多余的空格，你的程序需要能处理这些空格。<br>
+每个整数代表一个ID号。</p>
+<h3 id="输出格式"><a class="header-anchor" href="#输出格式">¶</a>输出格式</h3>
+<p>要求程序输出1行，含两个整数m n，用空格分隔。<br>
+其中，m表示断号ID，n表示重号ID</p>
+<h3 id="输入输出样例"><a class="header-anchor" href="#输入输出样例">¶</a>输入输出样例</h3>
+<p>样例输入1</p>
 <blockquote>
-<p>2<br>5 6 8 11 9<br>10 12 </p>
+<p>2<br>
+5 6 8 11 9<br>
+10 12</p>
 </blockquote>
 <p>样例输出1</p>
 <blockquote>
-<p> 7 9</p>
+<p>7 9</p>
 </blockquote>
 <p>样例输入2</p>
 <blockquote>
-<p> 6<br>164 178 108 109 180 155 141 159 104 182 179 118 137 184 115 124 125 129 168 196<br>172 189 127 107 112 192 103 131 133 169 158<br>128 102 110 148 139 157 140 195 197<br>185 152 135 106 123 173 122 136 174 191 145 116 151 143 175 120 161 134 162 190<br>149 138 142 146 199 126 165 156 153 193 144 166 170 121 171 132 101 194 187 188<br>113 130 176 154 177 120 117 150 114 183 186 181 100 163 160 167 147 198 111 119</p>
+<p>6<br>
+164 178 108 109 180 155 141 159 104 182 179 118 137 184 115 124 125 129 168 196<br>
+172 189 127 107 112 192 103 131 133 169 158<br>
+128 102 110 148 139 157 140 195 197<br>
+185 152 135 106 123 173 122 136 174 191 145 116 151 143 175 120 161 134 162 190<br>
+149 138 142 146 199 126 165 156 153 193 144 166 170 121 171 132 101 194 187 188<br>
+113 130 176 154 177 120 117 150 114 183 186 181 100 163 160 167 147 198 111 119</p>
 </blockquote>
 <p>样例输出2</p>
 <blockquote>
-<p> 105 120</p>
+<p>105 120</p>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> n 10000</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a[n] = &#123;<span class="hljs-number">0</span>&#125;,<br>            N,     <span class="hljs-comment">//行数 </span><br>    min = <span class="hljs-number">10000</span>, max = <span class="hljs-number">0</span>, <span class="hljs-comment">//id开始值和id结束值 </span><br>    m;   <span class="hljs-comment">//中间值 </span><br>    <span class="hljs-type">char</span> c;  <span class="hljs-comment">//用来判断空格和回车</span><br>    cin&gt;&gt;N;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++)&#123;  <span class="hljs-comment">//外循环，循环 “输入的行数” 的次数 </span><br>        <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>            cin&gt;&gt;m;<br>            <span class="hljs-keyword">if</span>(m &gt; max) max = m;<br>            <span class="hljs-keyword">if</span>(m &lt; min) min = m;<span class="hljs-comment">//注意：这里不能用else if()语句。。。。</span><br><br>            a[m]++;    <span class="hljs-comment">//用数组的下标存连续的id值（不用0下标）</span><br>            <span class="hljs-comment">//确定范围后，数组的值==0，为断号</span><br>            <span class="hljs-comment">//数组的值==2，为重号 </span><br><br>            c = <span class="hljs-built_in">getchar</span>(); <span class="hljs-comment">//提取空格或换行符</span><br>            <span class="hljs-keyword">if</span>(c != <span class="hljs-string">&#x27; &#x27;</span>) <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = min; i &lt;= max; i++)&#123;<br>        <span class="hljs-keyword">if</span>(a[i] == <span class="hljs-number">0</span>)cout&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a[i] == <span class="hljs-number">2</span>)cout&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> n 10000</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a[n] = &#123;<span class="hljs-number">0</span>&#125;,<br>            N,     <span class="hljs-comment">//行数 </span><br>    min = <span class="hljs-number">10000</span>, max = <span class="hljs-number">0</span>, <span class="hljs-comment">//id开始值和id结束值 </span><br>    m;   <span class="hljs-comment">//中间值 </span><br>    <span class="hljs-type">char</span> c;  <span class="hljs-comment">//用来判断空格和回车</span><br>    cin&gt;&gt;N;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++)&#123;  <span class="hljs-comment">//外循环，循环 “输入的行数” 的次数 </span><br>        <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>            cin&gt;&gt;m;<br>            <span class="hljs-keyword">if</span>(m &gt; max) max = m;<br>            <span class="hljs-keyword">if</span>(m &lt; min) min = m;<span class="hljs-comment">//注意：这里不能用else if()语句。。。。</span><br><br>            a[m]++;    <span class="hljs-comment">//用数组的下标存连续的id值（不用0下标）</span><br>            <span class="hljs-comment">//确定范围后，数组的值==0，为断号</span><br>            <span class="hljs-comment">//数组的值==2，为重号 </span><br><br>            c = <span class="hljs-built_in">getchar</span>(); <span class="hljs-comment">//提取空格或换行符</span><br>            <span class="hljs-keyword">if</span>(c != <span class="hljs-string">&#x27; &#x27;</span>) <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = min; i &lt;= max; i++)&#123;<br>        <span class="hljs-keyword">if</span>(a[i] == <span class="hljs-number">0</span>)cout&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a[i] == <span class="hljs-number">2</span>)cout&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             

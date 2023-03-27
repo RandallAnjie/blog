@@ -24,7 +24,7 @@
 <meta property="og:description" content="子进程输出的个数跟是否换行有关？ 123456789printf(&quot;before fork with  换行符\n&quot;);  printf(&quot;before fork without换行符&quot;);  pid &#x3D; fork();if(pid &#x3D;&#x3D; 0)&amp;#123;　　&#x2F;&#x2F;子进程　　printf(&quot;I am is  child process,pid&#x3D;%d\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-21T17:28:44.000Z">
-<meta property="article:modified_time" content="2023-03-13T15:58:27.391Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.714Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -338,10 +338,8 @@
                 
                 <p>子进程输出的个数跟是否换行有关？</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;before fork with  换行符\n&quot;</span>);  <br><span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;before fork without换行符&quot;</span>);  <br>pid = <span class="hljs-keyword">fork</span>();<br><span class="hljs-keyword">if</span>(pid == <span class="hljs-number">0</span>)&#123;　　<span class="hljs-regexp">//</span>子进程<br>　　<span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;I am is  child process,pid=%d\n&quot;</span>,getpid());   <br>　　<span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;my parentprocess&#x27;s pid=%d\n&quot;</span>,getppid()); <br>&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid &gt; <span class="hljs-number">0</span>)&#123;　　<span class="hljs-regexp">//</span>父进程<br>　　<span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;this is parentprocess,pid=%d\n&quot;</span>,getpid()); <br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>执行结果如下：</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs applescript">　　<span class="hljs-keyword">before</span> fork <span class="hljs-keyword">with</span>  换行符<br>　　<span class="hljs-keyword">before</span> fork <span class="hljs-keyword">without</span>换行符I am <span class="hljs-keyword">is</span>  child process,pid=<span class="hljs-number">4123</span><br>　　<span class="hljs-keyword">my</span> parentprocess&#x27;s pid=<span class="hljs-number">4000</span><br>　　<span class="hljs-keyword">before</span> fork <span class="hljs-keyword">without</span>换行符this <span class="hljs-keyword">is</span> parentprocess,pid=<span class="hljs-number">4000</span><br></code></pre></td></tr></table></figure>
-
 <p>问题：两个printf为什么一个打印一次，另外一个打印了两次？</p>
 <p>解答： 我们要知道printf函数是有缓冲机制的，类似于我们使用的write函数，但我们将想要的东西输出的时候，系统仅仅是把内容放到stdout标准输出的缓冲队列的。当遇到“\n”的时候，系统就把缓冲里的东西给清掉，输出到屏幕上。执行后，缓冲里没有了数据，自然子进程再次执行的时候没有内容可输出了。但是<code>printf(&quot;before fork without换行符&quot;);</code>的时候，子进程也会把stdout的内容再次输出来。也就是导致了内容出处了两边。</p>
 

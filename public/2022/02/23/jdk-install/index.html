@@ -16,15 +16,15 @@
   <meta name="author" content="转接">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="下载JDK打开Oracle官网https:&#x2F;&#x2F;www.oracle.com&#x2F;cn&#x2F;java&#x2F; 选择立即下载java跳转下载界面，选择对应的版本后下载jdk 64位Windows：jdk17下载链接：https:&#x2F;&#x2F;download.oracle.com&#x2F;java&#x2F;17&#x2F;latest&#x2F;jdk-17_windows-x64_bin.exe 64位Ubuntu（基于树莓派）：123ubuntu@ubun">
+    <meta name="description" content="¶下载JDK 打开Oracle官网https:&#x2F;&#x2F;www.oracle.com&#x2F;cn&#x2F;java&#x2F; 选择立即下载java跳转下载界面，选择对应的版本后下载jdk ¶64位Windows： jdk17下载链接：https:&#x2F;&#x2F;download.oracle.com&#x2F;java&#x2F;17&#x2F;latest&#x2F;jdk-17_windows-x64_bin.exe ¶64位Ubuntu（基于树莓派）： 123ubunt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK安装以及环境变量配置">
 <meta property="og:url" content="https://blog.zhuanjie.ltd/2022/02/23/jdk-install/">
 <meta property="og:site_name" content="一个计科生の博客">
-<meta property="og:description" content="下载JDK打开Oracle官网https:&#x2F;&#x2F;www.oracle.com&#x2F;cn&#x2F;java&#x2F; 选择立即下载java跳转下载界面，选择对应的版本后下载jdk 64位Windows：jdk17下载链接：https:&#x2F;&#x2F;download.oracle.com&#x2F;java&#x2F;17&#x2F;latest&#x2F;jdk-17_windows-x64_bin.exe 64位Ubuntu（基于树莓派）：123ubuntu@ubun">
+<meta property="og:description" content="¶下载JDK 打开Oracle官网https:&#x2F;&#x2F;www.oracle.com&#x2F;cn&#x2F;java&#x2F; 选择立即下载java跳转下载界面，选择对应的版本后下载jdk ¶64位Windows： jdk17下载链接：https:&#x2F;&#x2F;download.oracle.com&#x2F;java&#x2F;17&#x2F;latest&#x2F;jdk-17_windows-x64_bin.exe ¶64位Ubuntu（基于树莓派）： 123ubunt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-23T13:07:25.000Z">
-<meta property="article:modified_time" content="2023-03-13T16:16:00.257Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.714Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -336,29 +336,35 @@
             
               <div class="markdown-body">
                 
-                <h2 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h2><p>打开<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/">Oracle官网https://www.oracle.com/cn/java/</a></p>
+                <h2 id="下载JDK"><a class="header-anchor" href="#下载JDK">¶</a>下载JDK</h2>
+<p>打开<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/">Oracle官网https://www.oracle.com/cn/java/</a></p>
 <p>选择立即下载java跳转下载界面，选择对应的版本后下载jdk</p>
-<h3 id="64位Windows："><a href="#64位Windows：" class="headerlink" title="64位Windows："></a>64位Windows：</h3><p>jdk17下载链接：<a target="_blank" rel="noopener" href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe</a></p>
-<h3 id="64位Ubuntu（基于树莓派）："><a href="#64位Ubuntu（基于树莓派）：" class="headerlink" title="64位Ubuntu（基于树莓派）："></a>64位Ubuntu（基于树莓派）：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~$ mkdir jdk<br>ubuntu@ubuntu:~$ cd jdk<br>ubuntu@ubuntu:~/jdk$ wget https://download.oracle.com/java/17/latest/jdk-17_linux-aarch64_bin.tar.gz<br></code></pre></td></tr></table></figure>
-
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><h3 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h3><p>打开安装程序，<strong>复制安装路径</strong>如：*<em>C:\Program Files\Java\jdk-17.0.2\*</em></p>
-<h3 id="Ubuntu："><a href="#Ubuntu：" class="headerlink" title="Ubuntu："></a>Ubuntu：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ sudo tar -zxvf jdk-17_linux-aarch64_bin.tar.gz<br></code></pre></td></tr></table></figure>
-
+<h3 id="64位Windows："><a class="header-anchor" href="#64位Windows：">¶</a>64位Windows：</h3>
+<p>jdk17下载链接：<a target="_blank" rel="noopener" href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe</a></p>
+<h3 id="64位Ubuntu（基于树莓派）："><a class="header-anchor" href="#64位Ubuntu（基于树莓派）：">¶</a>64位Ubuntu（基于树莓派）：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~$ mkdir jdk<br>ubuntu@ubuntu:~$ cd jdk<br>ubuntu@ubuntu:~/jdk$ wget https://download.oracle.com/java/17/latest/jdk-17_linux-aarch64_bin.tar.gz<br></code></pre></td></tr></table></figure>
+<h2 id="安装jdk"><a class="header-anchor" href="#安装jdk">¶</a>安装jdk</h2>
+<h3 id="Windows："><a class="header-anchor" href="#Windows：">¶</a>Windows：</h3>
+<p>打开安装程序，<strong>复制安装路径</strong>如：<strong>C:\Program Files\Java\jdk-17.0.2\</strong></p>
+<h3 id="Ubuntu："><a class="header-anchor" href="#Ubuntu：">¶</a>Ubuntu：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ sudo tar -zxvf jdk-17_linux-aarch64_bin.tar.gz<br></code></pre></td></tr></table></figure>
 <p>需要记住解压路径</p>
-<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><h3 id="Windows：-1"><a href="#Windows：-1" class="headerlink" title="Windows："></a>Windows：</h3><p>此电脑（右键）——属性——系统——高级系统设置——系统属性——环境变量</p>
+<h2 id="添加环境变量"><a class="header-anchor" href="#添加环境变量">¶</a>添加环境变量</h2>
+<h3 id="Windows：-v2"><a class="header-anchor" href="#Windows：-v2">¶</a>Windows：</h3>
+<p>此电脑（右键）——属性——系统——高级系统设置——系统属性——环境变量</p>
 <p>在系统变量里新建<strong>变量名</strong>：<strong>JAVA_HOME</strong> <strong>变量值</strong>为安装时<strong>复制的地址</strong>：C:\Program Files\Java\jdk-17.0.2\</p>
 <p>在系统变量里找到变量名为<strong>Path</strong>的变量，在末尾添加**%JAVA_HOME%bin**</p>
-<h3 id="Ubuntu：-1"><a href="#Ubuntu：-1" class="headerlink" title="Ubuntu："></a>Ubuntu：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ sudo vim /etc/profile<br></code></pre></td></tr></table></figure>
-
+<h3 id="Ubuntu：-v2"><a class="header-anchor" href="#Ubuntu：-v2">¶</a>Ubuntu：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ sudo vim /etc/profile<br></code></pre></td></tr></table></figure>
 <p>在末尾添加：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">JAVA_HOME=/home/ubuntu/java/jdk/jdk-17.0.2/ # 值为解压路径<br>CLASSPATH=$JAVA_HOME/lib/<br>PATH=$PATH:$JAVA_HOME/bin<br>export PATH JAVA_HOME CLASSPATH<br></code></pre></td></tr></table></figure>
-
 <p>保存并退出，并且更新源</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ source /etc/profile<br></code></pre></td></tr></table></figure>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><h3 id="Windows：-2"><a href="#Windows：-2" class="headerlink" title="Windows："></a>Windows：</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Microsoft Windows [版本 <span class="hljs-number">10.0</span><span class="hljs-type">.22000.493</span>]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\zhuan&gt;java <span class="hljs-literal">-version</span><br>java version <span class="hljs-string">&quot;17.0.2&quot;</span> <span class="hljs-number">2022</span><span class="hljs-literal">-01-18</span> LTS<br>Java(TM) SE Runtime Environment (build <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span>+<span class="hljs-number">8</span><span class="hljs-literal">-LTS-86</span>)<br>Java HotSpot(TM) <span class="hljs-number">64</span><span class="hljs-literal">-Bit</span> Server VM (build <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span>+<span class="hljs-number">8</span><span class="hljs-literal">-LTS-86</span>, mixed mode, sharing)<br><br>C:\Users\zhuan&gt;javac <span class="hljs-literal">-version</span><br>javac <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span><br><br>C:\Users\zhuan&gt;<br></code></pre></td></tr></table></figure>
-
-<h3 id="Ubuntu：-2"><a href="#Ubuntu：-2" class="headerlink" title="Ubuntu："></a>Ubuntu：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ java -version<br>java version &quot;17.0.2&quot; 2022-01-18 LTS<br>Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)<br>Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)<br>ubuntu@ubuntu:~/jdk$ javac -version<br>javac 17.0.2<br>ubuntu@ubuntu:~/jdk$<br></code></pre></td></tr></table></figure>
+<h2 id="验证"><a class="header-anchor" href="#验证">¶</a>验证</h2>
+<h3 id="Windows：-v3"><a class="header-anchor" href="#Windows：-v3">¶</a>Windows：</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Microsoft Windows [版本 <span class="hljs-number">10.0</span><span class="hljs-type">.22000.493</span>]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\zhuan&gt;java <span class="hljs-literal">-version</span><br>java version <span class="hljs-string">&quot;17.0.2&quot;</span> <span class="hljs-number">2022</span><span class="hljs-literal">-01-18</span> LTS<br>Java(TM) SE Runtime Environment (build <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span>+<span class="hljs-number">8</span><span class="hljs-literal">-LTS-86</span>)<br>Java HotSpot(TM) <span class="hljs-number">64</span><span class="hljs-literal">-Bit</span> Server VM (build <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span>+<span class="hljs-number">8</span><span class="hljs-literal">-LTS-86</span>, mixed mode, sharing)<br><br>C:\Users\zhuan&gt;javac <span class="hljs-literal">-version</span><br>javac <span class="hljs-number">17.0</span>.<span class="hljs-number">2</span><br><br>C:\Users\zhuan&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="Ubuntu：-v3"><a class="header-anchor" href="#Ubuntu：-v3">¶</a>Ubuntu：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">ubuntu@ubuntu:~/jdk$ java -version<br>java version &quot;17.0.2&quot; 2022-01-18 LTS<br>Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)<br>Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)<br>ubuntu@ubuntu:~/jdk$ javac -version<br>javac 17.0.2<br>ubuntu@ubuntu:~/jdk$<br></code></pre></td></tr></table></figure>
                 
               </div>
             
