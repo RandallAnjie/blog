@@ -10,7 +10,7 @@ date: 2022-12-05 15:34:56
 
 ## 我们是谁
 
-**推荐的文本：** 我们的站点地址是：https://blog.zhuanjie.ltd。
+**推荐的文本：** 我们的站点地址是：https://blog.zhuanjie.ltd
 
 ## 评论
 
