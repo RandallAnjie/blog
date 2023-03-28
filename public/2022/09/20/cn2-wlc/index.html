@@ -1,0 +1,1138 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog_icon.png">
+  <link rel="icon" href="/img/blog_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="转接">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="第二章 物理层 #计算机网络 ¶物理层接口特性  机械特性：定义物理连接的特性，规定物理连接时所采用的规格、接口形状、引线数目、引脚数量和排列情况 电气特性：规定传输二进制位时，线路上的信号的电压范围、阻抗匹配、传输速率和距离限制 (电压-&gt;电平) 功能特性：指明某条线上出现的某一电平表示何种意义，接口部件的信号线的用途 (电平的意义) 规程特性（过程特性）：定义各条物理线路的工作规程和时序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章 物理层">
+<meta property="og:url" content="https://blog.zhuanjie.ltd/2022/09/20/cn2-wlc/">
+<meta property="og:site_name" content="一个计科生の博客">
+<meta property="og:description" content="第二章 物理层 #计算机网络 ¶物理层接口特性  机械特性：定义物理连接的特性，规定物理连接时所采用的规格、接口形状、引线数目、引脚数量和排列情况 电气特性：规定传输二进制位时，线路上的信号的电压范围、阻抗匹配、传输速率和距离限制 (电压-&gt;电平) 功能特性：指明某条线上出现的某一电平表示何种意义，接口部件的信号线的用途 (电平的意义) 规程特性（过程特性）：定义各条物理线路的工作规程和时序">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E4%B8%B2%E8%A1%8C.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E5%B9%B6%E8%A1%8C.png">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F.png">
+<meta property="article:published_time" content="2022-09-20T09:50:45.000Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.714Z">
+<meta property="article:author" content="转接">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E4%B8%B2%E8%A1%8C.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>第2章 物理层 - 一个计科生の博客</title>
+
+  <script src="/js/sweetalert.js"></script>
+  <link rel="stylesheet" href="/css/sweetalert.css">
+
+  <script>
+    !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"K0Bd5k3qpaokHLq8",ck:"K0Bd5k3qpaokHLq8",autoTrack:true});
+  </script>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zhuanjie.ltd","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"91c013732941e890d23aca61fb06cd50","google":"G-V8K8QKX2N8","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?91c013732941e890d23aca61fb06cd50";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-V8K8QKX2N8', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个计科生の博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>个人网站</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
+                    
+                    <span>个人主页</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
+                    
+                    <span>个人网盘</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
+                    
+                    <span>ChatGPT</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
+                    
+                    <span>个人机场</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.randallanjie.uk/">
+                    
+                    <span>服务器监控</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/archive.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第2章 物理层"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        转接
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-20 17:50" pubdate>
+          2022年9月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第2章 物理层</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>第二章 物理层</h1>
+<p>#计算机网络</p>
+<h2 id="物理层接口特性"><a class="header-anchor" href="#物理层接口特性">¶</a>物理层接口特性</h2>
+<ol>
+<li><strong>机械特性</strong>：定义物理连接的特性，规定物理连接时所采用的规格、接口形状、引线数目、引脚数量和排列情况</li>
+<li><strong>电气特性</strong>：规定传输二进制位时，线路上的信号的电压范围、阻抗匹配、传输速率和距离限制 <strong>(电压-&gt;电平)</strong></li>
+<li><strong>功能特性</strong>：指明某条线上出现的某一电平表示何种意义，接口部件的信号线的用途 <strong>(电平的意义)</strong></li>
+<li><strong>规程特性（过程特性）</strong>：定义各条物理线路的工作规程和时序关系</li>
+</ol>
+<h2 id="同步传输于异步传输"><a class="header-anchor" href="#同步传输于异步传输">¶</a>同步传输于异步传输</h2>
+<ol>
+<li>同步传输：在同步传输的模式下，数据的传送是以一个数据区块为单位。因此同步传输又称区块传输，在传送数据时，需要先发送出一个或多个同步字符再送出整批数据。</li>
+<li>异步传输：异步传输将比特分成小组进行传送，小组可以是8位的1个字符或更长，发送方可以在任何时刻发送这些比特组，而接收方不知道它们什么时候会到达，在传送数据时加上一个字符的起始位和一个字符的终止位。</li>
+</ol>
+<h2 id="串行和并行"><a class="header-anchor" href="#串行和并行">¶</a>串行和并行</h2>
+<ol>
+<li>串行：将一个字符的8位二进制数由低位到高位依次传输<br>
+速度慢、费用低、适合远距离传输<br>
+<img src="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E4%B8%B2%E8%A1%8C.png" srcset="/img/loading.gif" lazyload alt=""></li>
+<li>并行：将一个字符的8位二进制数同时通过8条信道传输<br>
+速度快、费用高、适合近距离传输<br>
+<img src="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E5%B9%B6%E8%A1%8C.png" srcset="/img/loading.gif" lazyload alt=""></li>
+</ol>
+<h2 id="数据、信号、码元"><a class="header-anchor" href="#数据、信号、码元">¶</a>数据、信号、码元</h2>
+<ol>
+<li>数据：<br>
+传送信息的实体（有意义的符号序列）</li>
+<li>信号
+<ol>
+<li>数字信号/离散信号</li>
+<li>模拟信号/连续信号</li>
+</ol>
+</li>
+<li>码元<br>
+固定时长的信号波形<br>
+n进制码元中1码元-&gt;log2n比特</li>
+</ol>
+<h2 id="信道（逻辑通路）、信源、信宿"><a class="header-anchor" href="#信道（逻辑通路）、信源、信宿">¶</a>信道（逻辑通路）、信源、信宿</h2>
+<p>数据从信源发送到信宿<br>
+信道是信号的传输媒介（<strong>信道是有方向的</strong>）</p>
+<p><strong>ATT：信道上传递的信号</strong></p>
+<ol>
+<li>基带信号：将数字1和0直接用两种不同的电压表示，再送到<strong>数字信道</strong>上传输（基带传输）（近距离传输）</li>
+<li>宽带信号：将基带信号进行调制后形成的频分复用模拟信号，再传送到<strong>模拟信道</strong>上去传输（宽带传输）（远距离传输）</li>
+</ol>
+<h2 id="速率、波特、带宽"><a class="header-anchor" href="#速率、波特、带宽">¶</a>速率、波特、带宽</h2>
+<ol>
+<li>码元传输速率（波特率）：单位时间内传输的码元的个数（信号脉冲个数/信号变化的次数），单位是波特（Baud）。1波特表示<strong>数字通信系统</strong>每秒传输一个码元。其中码元可以是多进制的，<strong>码元速率于进制数无关</strong></li>
+<li>信息传输速率（信息速率，比特率）：表示单位时间内<strong>数字通信系统</strong>传输的<strong>二进制</strong>码元的个数（即比特数）（二进制码元数AKA比特数）</li>
+<li>[[第1章 计算机网络体系结构#^b69777带宽]]：
+<ol>
+<li>模拟信号中：最高频率和最低频率的插值即为（通频）带宽，单位赫兹（Hz）</li>
+<li>数字信号中：单位时间从网络中的某一点到另一点能通过对最高数据率/单位时间内通过链路的数量</li>
+</ol>
+</li>
+</ol>
+<h2 id="奈式准则和香农定理"><a class="header-anchor" href="#奈式准则和香农定理">¶</a>奈式准则和香农定理</h2>
+<ol>
+<li>==奈式准则==<br>
+理想低通（无噪声、带宽限制）<br>
+极限数据传输<strong>速率 = 2Wlog2V</strong>（单位为b/s）<br>
+W为信道带宽，单位赫兹（Hz）<br>
+V为每个码元离散电平的数目</li>
+<li>==香农定理==<br>
+带宽受限且有噪声<br>
+极限数据传输**速率 = 2Wlog2(1+S/N)**（单位为b/s）<br>
+W为信道带宽，单位赫兹（Hz）<br>
+S为信道所传输信号的平均功率<br>
+N为信道内部的高斯噪声功率<br>
+<strong>信噪比 = 10log10(S/N)</strong></li>
+</ol>
+<h2 id="编码与调制"><a class="header-anchor" href="#编码与调制">¶</a>编码与调制</h2>
+<p>数据-&gt;编码-&gt;数字信号<br>
+数据-&gt;调制-&gt;模拟信号</p>
+<ol>
+<li>数字数据-&gt;数字信号
+<ol>
+<li>归零编码(RZ)<br>
+高1低0</li>
+<li>非归零编码(NRZ)<br>
+高1低0</li>
+<li>反向非归零编码(NRZI)<br>
+高0低1</li>
+<li>曼彻斯特编码<br>
+前高后低为1</li>
+<li>差分曼彻斯特编码<br>
+同1异0</li>
+<li>4B/5B编码<br>
+16种4位码与16种(共32种)5位码一一对应，编码效率80%<br>
+<img src="http://blog.zhuanjie.ltd/img/uploads/2022/09/%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F.png" srcset="/img/loading.gif" lazyload alt=""></li>
+</ol>
+</li>
+<li>数字数据-&gt;模拟信号
+<ol>
+<li>调幅 ASK 幅移键控</li>
+<li>调频 FSK 频移键控</li>
+<li>调相 PSK 相移键控</li>
+<li>调幅+调相 QAM 正交振幅调制</li>
+</ol>
+</li>
+<li>模拟数据-&gt;数字信号<br>
+PCM脉码调制
+<ol>
+<li>采样<br>
+采样定理（奈奎斯特定理）：<strong>采样频率大于等于模拟数据的带宽频率的两倍f采样≥2f最大</strong></li>
+<li>量化：将电平数值按照分级转化为数字取整</li>
+<li>编码：把量化结果转换为对应的二进制编码</li>
+</ol>
+</li>
+<li>模拟数据-&gt;模拟信号<br>
+放大器，调制器</li>
+</ol>
+<h2 id="电路交换、报文交换、分组交换"><a class="header-anchor" href="#电路交换、报文交换、分组交换">¶</a>电路交换、报文交换、分组交换</h2>
+<ol>
+<li>电路交换
+<ol>
+<li>特点：独占资源，用户始终占用端到端的固定传输带宽。适用于远程批处理信息、传输或系统间实时性高的大量数据传输情况。</li>
+<li>优点：
+<ol>
+<li>通信实验小</li>
+<li>有序传输</li>
+<li>没有冲突（全双工）</li>
+<li>适用范围广</li>
+<li>实时性强</li>
+<li>控制简单</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>建立连接时间长</li>
+<li>线路独占，使用效率底</li>
+<li>灵活性差</li>
+<li>难以规格化</li>
+<li>无存储能力</li>
+<li>无差错控制</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>报文交换
+<ol>
+<li>原理：存储、转发</li>
+<li>优点：
+<ol>
+<li>无需建立连接</li>
+<li>动态分配路线</li>
+<li>提高线路可靠性</li>
+<li>提高线路利用率</li>
+<li>提供多目标服务</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>实时性差</li>
+<li>只适合数字信号</li>
+<li>要求网络结点有较大的缓存空间</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>分组交换
+<ol>
+<li>原理：限制要传输的数据单位的长度</li>
+<li><strong>数据报方式</strong><br>
+特点：<br>
+1. 无需建立连接<br>
+2. 可能会产生失序、丢失或重复分组<br>
+3. 发送的分组需要包括发送端和接收端的完整地址<br>
+4. 分组再交换结点存储转发时，需要排队，即有传输时延<br>
+5. 网络具有冗余路径（不适合长报文和会话式通信）<br>
+6. 存储转发时延小，提高网络吞吐量<br>
+7. 资源利用率高</li>
+<li><strong>虚电路方式</strong><br>
+特点：<br>
+1. 建立和拆除需要时间<br>
+2. 连接确定了后就确定了传输路径<br>
+3. 虚电路提供可靠的通信功能，能保证每个分组正确且有序到达（当接收方来不及接受数据时，可以通知发送方暂缓发送）<br>
+4. 当网络某个结点或某条链路出现故障而失效时，所有经过该节点或者该链路的虚电路遭到破坏<br>
+5. 分组首部不包含目的地址，而包含虚电路表示符，相对于数据报方式，其开销小</li>
+</ol>
+</li>
+</ol>
+<h2 id="传输介质（物理通路）"><a class="header-anchor" href="#传输介质（物理通路）">¶</a>传输介质（物理通路）</h2>
+<p>传输介质并不知道传输的信号代表什么，而物理层规定了电气特性，传输介质位于物理层下面（第0层）</p>
+<ol>
+<li>导向性传输介质：电磁波沿着固体媒介传播（铜线，光纤）</li>
+<li>非导向性传输介质：自由空间，介质可以是空气、真空、水</li>
+</ol>
+<p>介质：</p>
+<ol>
+<li>双绞线（模拟信号&amp;数字信号）
+<ol>
+<li>无屏蔽网（UTP）</li>
+<li>有屏蔽网（STP）</li>
+<li>距离：几千米到数十千米
+<ol>
+<li>距离太远，对于模拟信号：要用放大器放大衰减信号</li>
+<li>距离太远，对于数字信号：要用中继器将失真信号整形</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>同轴电缆
+<ol>
+<li>基带数字信号（AKA基带同轴电缆）（局域网）</li>
+<li>宽带信号（AKA宽带同轴电缆）（有线电视系统）</li>
+<li>特点：有良好的抗干扰性，传输距离更远，价格较双绞线贵</li>
+</ol>
+</li>
+<li>光纤
+<ol>
+<li>利用<strong>光脉冲</strong>通信</li>
+<li>带宽范围极大</li>
+<li>多模光纤：近距离传输</li>
+<li>单模光纤：近距离传输</li>
+<li>特点：
+<ol>
+<li>传输损耗小，对远距离传输特别经济</li>
+<li>抗雷电和电磁干扰性能好</li>
+<li>无串音干扰，保密性好</li>
+<li>体积小重量轻</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>无线传播介质
+<ol>
+<li>无线电波<br>
+信号向所有方向传播（有穿透能力）（无线局域网）</li>
+<li>微波、红外和激光<br>
+信号沿固定方向传播
+<ol>
+<li>红外和激光要把传输的信号分别转换为各自的信号格式</li>
+<li>微波通信频率高，频段范围宽（数据率高）（eg.地面微波接力通信，卫星通信）</li>
+<li>卫星通信：
+<ol>
+<li>优点：通信容量大、距离远、覆盖广、易于实现广播通信和多址通信</li>
+<li>缺点：保密性差、端到端传播时延长、受到气候影响大、误码率高、成本高</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="物理层设备"><a class="header-anchor" href="#物理层设备">¶</a>物理层设备</h2>
+<ol>
+<li>中继器<br>
+中继器两端网段是同一个协议<br>
+中继器两端的网络部分是网段，而不是子网，适用于完全相同的两类网络互联<br>
+5-4-3规则：互相串联中继器不超过4个，这5段网络中只有3段能挂接计算机</li>
+<li>集线器<br>
+（多口中继器）</li>
+</ol>
+<p><strong>ATT：放大器于中继器</strong></p>
+<ol>
+<li>放大器：放大模拟信号，将衰减的信号放大</li>
+<li>中继器：再生数字信号，将衰减的信号整形再生</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A0%94/" class="category-chain-item">研</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第2章 物理层</div>
+      <div>https://blog.zhuanjie.ltd/2022/09/20/cn2-wlc/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>转接</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                    <i class="iconfont icon-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/04/%E6%94%BF%E6%B2%BB-%E9%A9%AC%E5%8E%9F/" title="马原">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">马原</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/20/cn1-jsjwltxjg/" title="第1章 计算机网络体系结构">
+                        <span class="hidden-mobile">第1章 计算机网络体系结构</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p>本站由 Github 和 Cloudflare 提供储存计算服务 © 2023 <a target="_blank" rel="noopener" href="http://startpage.zhuanjie.ltd/">转接</a></p> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2021028872"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京ICP备2021028872号-1</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+  <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/K0Bd5k3qpaokHLq8/quote.js?theme=0&f=12"></script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

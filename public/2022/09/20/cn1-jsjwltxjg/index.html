@@ -1,0 +1,1130 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog_icon.png">
+  <link rel="icon" href="/img/blog_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="转接">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="第一章 计算机网络体系结构 #计算机网络 ¶计算机网络的发展  APARnet——internet——Internet  internet——互联网 Internet——因特网   三层体系结构因特网  主干网 地区网 校园网   多层次ISP  主干ISP——地区ISP——本地ISP 出现IXP ISP：网络服务提供着（商） IXP：因特网交换点（处于同一层次的ISP之间）    ¶计算机网路的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第1章 计算机网络体系结构">
+<meta property="og:url" content="https://blog.zhuanjie.ltd/2022/09/20/cn1-jsjwltxjg/">
+<meta property="og:site_name" content="一个计科生の博客">
+<meta property="og:description" content="第一章 计算机网络体系结构 #计算机网络 ¶计算机网络的发展  APARnet——internet——Internet  internet——互联网 Internet——因特网   三层体系结构因特网  主干网 地区网 校园网   多层次ISP  主干ISP——地区ISP——本地ISP 出现IXP ISP：网络服务提供着（商） IXP：因特网交换点（处于同一层次的ISP之间）    ¶计算机网路的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88-1024x763.png">
+<meta property="article:published_time" content="2022-09-20T09:39:51.000Z">
+<meta property="article:modified_time" content="2023-03-27T13:33:07.713Z">
+<meta property="article:author" content="转接">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.zhuanjie.ltd/img/uploads/2022/09/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88-1024x763.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>第1章 计算机网络体系结构 - 一个计科生の博客</title>
+
+  <script src="/js/sweetalert.js"></script>
+  <link rel="stylesheet" href="/css/sweetalert.css">
+
+  <script>
+    !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"K0Bd5k3qpaokHLq8",ck:"K0Bd5k3qpaokHLq8",autoTrack:true});
+  </script>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zhuanjie.ltd","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"91c013732941e890d23aca61fb06cd50","google":"G-V8K8QKX2N8","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?91c013732941e890d23aca61fb06cd50";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-V8K8QKX2N8', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个计科生の博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>个人网站</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
+                    
+                    <span>个人主页</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
+                    
+                    <span>个人网盘</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
+                    
+                    <span>ChatGPT</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
+                    
+                    <span>个人机场</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.randallanjie.uk/">
+                    
+                    <span>服务器监控</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/archive.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第1章 计算机网络体系结构"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        转接
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-20 17:39" pubdate>
+          2022年9月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第1章 计算机网络体系结构</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>第一章 计算机网络体系结构</h1>
+<p>#计算机网络</p>
+<h2 id="计算机网络的发展"><a class="header-anchor" href="#计算机网络的发展">¶</a>计算机网络的发展</h2>
+<ol>
+<li>APARnet——internet——Internet
+<ol>
+<li>internet——互联网</li>
+<li>Internet——因特网</li>
+</ol>
+</li>
+<li>三层体系结构因特网
+<ol>
+<li>主干网</li>
+<li>地区网</li>
+<li>校园网</li>
+</ol>
+</li>
+<li>多层次ISP
+<ol>
+<li>主干ISP——地区ISP——本地ISP</li>
+<li>出现IXP</li>
+<li>ISP：网络服务提供着（商）</li>
+<li>IXP：因特网交换点（处于同一层次的ISP之间）</li>
+</ol>
+</li>
+</ol>
+<h2 id="计算机网路的组成"><a class="header-anchor" href="#计算机网路的组成">¶</a>计算机网路的组成</h2>
+<ol>
+<li>从组成部分上看：硬件、软件、协议</li>
+<li>从工作方式上看：边缘部分、核心部分</li>
+<li>从功能组成上看：通信子网、资源子网
+<ol>
+<li>通信子网：物理层、数据链路层、网络层（主要负责数据通信）</li>
+<li>资源子网：会话层、表示层、应用层（主要负责向高层用户屏蔽下面通信子网的细节）
+<ul>
+<li>OSI模型种上三层</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>ATT：协议的组成部分：语法、语义、同步（时序）</strong></p>
+<h2 id="计算机网络的功能"><a class="header-anchor" href="#计算机网络的功能">¶</a>计算机网络的功能</h2>
+<ol>
+<li>数据通信<br>
+<em>即通信子网功能</em></li>
+<li>资源共享<br>
+<em>即资源子网功能</em></li>
+<li>分布式处理</li>
+<li>提高可靠性</li>
+<li>负载均衡</li>
+</ol>
+<h2 id="计算机网络的分类"><a class="header-anchor" href="#计算机网络的分类">¶</a>计算机网络的分类</h2>
+<ol>
+<li>按分布范围分类
+<ol>
+<li>广域网（WAN）<br>
+<em>采用交换技术</em></li>
+<li>城域网（MAN）</li>
+<li>局域网（LAN）<br>
+<em>采用广播技术</em></li>
+<li>个域网（PAN）</li>
+</ol>
+</li>
+<li>按传输技术分类
+<ol>
+<li>广播式网络<br>
+<em>常为总线型网络，共享通信信道</em></li>
+<li>点对点网络<br>
+<em>常使用分组，存储、转发和路由选择机制</em></li>
+</ol>
+</li>
+<li>按拓扑结构分类
+<ol>
+<li>总线型网络</li>
+<li>星形网络</li>
+<li>环形网络</li>
+<li>网状网络</li>
+</ol>
+</li>
+<li>按使用者分类
+<ol>
+<li>公用网</li>
+<li>专用网</li>
+</ol>
+</li>
+<li>按交换技术分类（<em>交换技术指的是数据交换技术</em>）
+<ol>
+<li>电路交换</li>
+<li>报文交换</li>
+<li>分组交换<br>
+<em>报文交换和分组交换采用存储—转发技术</em></li>
+</ol>
+</li>
+<li>按传输介质分类
+<ol>
+<li>有线网络</li>
+<li>无线网络</li>
+</ol>
+</li>
+</ol>
+<h2 id="计算机网络的性能指标"><a class="header-anchor" href="#计算机网络的性能指标">¶</a>计算机网络的性能指标</h2>
+<ol>
+<li>带宽<br>
+指的是通信线路允许通过的信号频带范围/<strong>网络通信线路能传送的数据的能力</strong>，单位赫兹(Hz)/比特/秒(b/s)<br>
+^b69777</li>
+<li>时延
+<ol>
+<li>发送时延<br>
+发送时延 = 分组长度 / 信道宽度</li>
+<li>传播时延<br>
+传播时延 = 信道长度 / 电磁波在信道上的传播速率</li>
+<li>处理时延</li>
+<li>排队时延<br>
+总时延 = 发送时延 + 传播时延 + 处理时延 + 排队时延<br>
+排队时延和处理时延一般可以忽略</li>
+</ol>
+</li>
+<li>时延带宽积<br>
+以比特为长度的链路单位<br>
+时延带宽积 = 传播时延 * 信道带宽</li>
+<li>往返时延<br>
+RTT = 两倍传播时延（忽略处理时延）</li>
+<li>吞吐量<br>
+单位时间通过某个网络（或信道、接口）的数据量，单位b/s</li>
+<li>速率（传输速率、数据率、比特率）<br>
+宏观数字信道上的传送数据的速率，单位b/s(bps)<br>
+最高数据传输速率称为带宽</li>
+<li>信道利用率<br>
+信道利用率 = 有数据通过的时间 / 总时间</li>
+</ol>
+<p><strong>ATT：单位换算</strong></p>
+<ol>
+<li>速率： 1Tb/s = 103Gb/s = 106Mb/s = 109Kb/s = 1012b/s 比特/秒 ^217130</li>
+<li>存储量： 1TB = 210GB = 220MB = 230KB = 240B 字节 = 8*240bit ^475694</li>
+</ol>
+<h2 id="计算机网络的分层结构"><a class="header-anchor" href="#计算机网络的分层结构">¶</a>计算机网络的分层结构</h2>
+<ol>
+<li>SDU 服务数据单元 每层的数据部分</li>
+<li>PCI 协议控制信息 每层的首/尾部分</li>
+<li>PDU 协议数据单元 每层的全部信息<br>
+PCI + SDU = PDU<br>
+n+1-PDU = n-SDU</li>
+</ol>
+<h2 id="OSI参考模型"><a class="header-anchor" href="#OSI参考模型">¶</a>OSI参考模型</h2>
+<p>OSI模型</p>
+<p>功能</p>
+<p>协议</p>
+<p>SAP</p>
+<p>[[第6章 应用层应用层]]</p>
+<p>与用户交互</p>
+<p>FTP, SMTP, HTTP，DHCP</p>
+<p>提供的服务为用户界面</p>
+<p>表示层</p>
+<p>1. 数据格式变换 2. 数据加密解密 3. 数据的压缩与恢复</p>
+<p>JPEG, ASCII</p>
+<p></p>
+<p>会话层</p>
+<p>1. 建立、管理、中止会话 2. 使用校验点，使通信失效时，从会话校验点/同步点继续恢复通信（大文件传输）</p>
+<p>ADSP, ASP</p>
+<p></p>
+<p>[[第5章 传输层传输层]]</p>
+<p>1. 可靠/不可靠传输 2. <strong>差错控制</strong> 3. <strong>流量控制</strong> 4. 复用分用 5. <strong>拥塞控制</strong></p>
+<p>TCP, UDP</p>
+<p>端口</p>
+<p>[[第4章 网络层网络层]]</p>
+<p>1. 路由选择（分组转发） 2. <strong>流量控制</strong> 3. <strong>差错控制</strong> 4. <strong>拥塞控制</strong></p>
+<p>IP, IPX, ICMP ,IGMP, ARP, RARP, OSPF</p>
+<p>IP地址（网络地址）</p>
+<p>[[第3章 数据链路层数据链路层]]</p>
+<p>1. 成帧（定义帧的开始和结束） 2. <strong>差错控制</strong>（帧错+位错）（数据重发） 3. <strong>流量控制</strong>（物理寻址） 4. 访问（接入）控制（介质访问子层控制信道的访问）</p>
+<p>SDLC, HDLC, PPP, STP, 帧中继，ARQ</p>
+<p>MAC地址（网卡地址）</p>
+<p>[[第2章 物理层物理层]]</p>
+<p>1. 定义接口特性 2. 定义传输模式（单工、半双工、全双工） 3. 定义传输速率 4. 比特同步 5. 比特编码</p>
+<p>Rj45, 802.3</p>
+<p>网卡接口</p>
+<p>SAP：服务访问点，逻辑接口，是一个层次系统的上下层之间进行通信的接口，N层的SAP就是N+1层可以访问N层服务的地方 ^690d1a</p>
+<p></p>
+<p></p>
+<p></p>
+<blockquote>
+<p>其中<strong>数据链路层</strong>被拆分为两个子层：<strong>逻辑控制（LLC）子层</strong>和<strong>媒体接入（MAC）子层</strong><br>
+<strong>LLC子层</strong>与传输媒体无关，它<strong>向网络层提供无确认无连接、面向连接、带确认无连接、高速传输</strong>4种不同的连接服务类型<br>
+<strong>MAC子层</strong>有接入传输媒体有关的内容，它向上屏蔽对物理层访问的各种差异，提供对物理层的统一访问接口，主要功能包括：<strong>组帧和拆卸帧、比特传输（帧的寻址和识别）、差错检测、透明传输</strong></p>
+</blockquote>
+<p>5层模型</p>
+<p>传输单位</p>
+<p>[[第6章 应用层应用层]]</p>
+<p>报文</p>
+<p>[[第5章 传输层传输层]]</p>
+<p>报文段（TCP），用户数据报（UDP）</p>
+<p>[[第4章 网络层网络层]]</p>
+<p>分组，数据报</p>
+<p>[[第3章 数据链路层数据链路层]]</p>
+<p>帧</p>
+<p>[[第2章 物理层物理层]]</p>
+<p>比特流</p>
+<p><strong>ATT： TCP/IP模型和OSI模型的比较</strong></p>
+<ol>
+<li>相同点：
+<ol>
+<li>都采用分层体系结构</li>
+<li>都是基于独立的协议栈的概念</li>
+<li>都可以解决异构网络的互联</li>
+</ol>
+</li>
+<li>不同点：
+<ol>
+<li><strong>OSI模型</strong>定义了三个概念<strong>服务、协议和接口</strong></li>
+<li>OSI不偏向于特定的协议</li>
+<li>TCP/IP协议将网际协议(IP)作为一个单独的重要层次</li>
+<li>OSI在网络层支持无连接和面向连接的通信，但在传输层只有面向连接的通信；TCP/IP在网际层只有无连接的通信模式，但在传输层有无连接和面向连接的两种模式</li>
+</ol>
+</li>
+</ol>
+<p></p>
+<p>OSI</p>
+<p>TCP/IP</p>
+<p>[[第5章 传输层传输层]]</p>
+<p>面向连接</p>
+<p>无连接+面向连接</p>
+<p>[[第4章 网络层网络层]]</p>
+<p>无连接+面向连接</p>
+<p>无连接</p>
+<p><img src="http://blog.zhuanjie.ltd/img/uploads/2022/09/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88-1024x763.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<hr>
+<p><strong>[[第4章 网络层#冲突域和广播域关于冲突域和广播域]]</strong></p>
+<p>设备</p>
+<p>所属层次</p>
+<p>能否隔离冲突域</p>
+<p>能否隔离广播域</p>
+<p>[[第2章 物理层#物理层设备集线器]]</p>
+<p>[[第2章 物理层物理层]]</p>
+<p>不能</p>
+<p>不能</p>
+<p>[[第2章 物理层#物理层设备中继器]]</p>
+<p>[[第2章 物理层物理层]]</p>
+<p>不能</p>
+<p>不能</p>
+<p>[[第3章 数据链路层#交换机交换机]]</p>
+<p>[[第3章 数据链路层数据链路层]]</p>
+<p>能</p>
+<p>不能</p>
+<p>[[第3章 数据链路层#网桥网桥]]</p>
+<p>[[第3章 数据链路层数据链路层]]</p>
+<p>能</p>
+<p>不能</p>
+<p>[[第4章 网络层#路由器的组成和功能路由器]]</p>
+<p>[[第4章 网络层网络层]]</p>
+<p>能</p>
+<p>能</p>
+<p>^b35684</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A0%94/" class="category-chain-item">研</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第1章 计算机网络体系结构</div>
+      <div>https://blog.zhuanjie.ltd/2022/09/20/cn1-jsjwltxjg/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>转接</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                    <i class="iconfont icon-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/20/cn2-wlc/" title="第2章 物理层">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第2章 物理层</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/02/day10/" title="每日一题——带分数">
+                        <span class="hidden-mobile">每日一题——带分数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p>本站由 Github 和 Cloudflare 提供储存计算服务 © 2023 <a target="_blank" rel="noopener" href="http://startpage.zhuanjie.ltd/">转接</a></p> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2021028872"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京ICP备2021028872号-1</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+  <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/K0Bd5k3qpaokHLq8/quote.js?theme=0&f=12"></script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
