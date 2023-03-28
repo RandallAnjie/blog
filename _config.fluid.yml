@@ -114,7 +114,7 @@ fun_features:
     # Options: § | # | ❡
     icon: "❡"
 
-  # 加载进度条
+  # 加载进度条priv
   # Progress bar when loading
   progressbar:
     enable: true
@@ -351,6 +351,17 @@ navbar:
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - {
+      key: '个人网站',
+      icon: 'iconfont icon-books',
+      submenu: [
+        { key: '个人主页', link: 'https://startpage.zhuanjie.ltd/' },
+        { key: '个人网盘', link: 'https://pan.zhuanjie.ltd/' },
+        { key: 'ChatGPT', link: 'https://ai.zhuanjie.ltd/' },
+        { key: '个人机场', link: 'https://airport.randallanjie.uk/' },
+        { key: '服务器监控', link: 'https://dash.randallanjie.uk/' }
+      ]
+    }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -424,7 +435,7 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
-    <p>© 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a><br />本站由Github提供存储服务由Cloudflare提供计算服务</p>
+    <p>本站由 Github 和 Cloudflare 提供储存计算服务 © 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a></p>
   '
 
   # 展示网站的 PV、UV 统计数
@@ -442,11 +453,11 @@ footer:
   beian:
     enable: true
     # ICP证号
-    icp_text: 京ICP备2021028872号-1
+    icp_text: 
     # 公安备案号，不填则只显示ICP
-    police_text: 
+    police_text: 京ICP备2021028872号-1
     # 公安备案的编号，用于URL跳转查询
-    police_code: 
+    police_code: 2021028872
     # 公安备案的图片. 为空时不显示备案图片
     police_icon: /img/police_beian.png
 
@@ -532,7 +543,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/archive.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -886,7 +897,7 @@ giscus:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/default.png
+  banner_img: /img/archive.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -897,7 +908,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/category.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -926,7 +937,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/tag.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -943,7 +954,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/about.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /img/avatar.png
@@ -952,9 +963,10 @@ about:
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com", tip: "GitHub" }
-    - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+    - { class: "iconfont icon-github-fill", link: "https://github.com/Zhuanjier", tip: "GitHub" }
+    - { class: "iconfont icon-twitter-fill", link: "https://twitter.com/randall_anjie", tip: "Twitter" }
+    - { class: "iconfont icon-telegram-fill", link: "https://t.me/randall_anjie", tip: "Telegram" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/img/wechat.JPG" }
 
 
 #---------------------------
@@ -976,7 +988,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/archive.jpg
   banner_img_height: 85
   banner_mask_alpha: 0.3
   # 重定向到首页的延迟(毫秒)
@@ -1091,3 +1103,26 @@ static_prefix:
   twikoo: https://lib.baomitu.com/twikoo/1.6.8/
 
   hint: https://lib.baomitu.com/hint.css/2.7.0/
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+  anchors:
+    level: 2
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSymbol: ¶
