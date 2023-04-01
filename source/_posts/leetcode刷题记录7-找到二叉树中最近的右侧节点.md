@@ -7,9 +7,6 @@ categories:
   - - 每日一题
 tags:
   - - leetcode
-footnote:
-    enable: true
-    header: ''
 ---
 
 ## 找到二叉树中最近的右侧节点
@@ -106,7 +103,7 @@ public:
             q.pop();
             if(tmpNode == u){
                 if(q.empty()){
-                    return nullptr;  // 返回空指针[^1]
+                    return nullptr;  // 返回空指针
                 }else{
                     resultNode = q.front();
                 }
@@ -247,8 +244,4 @@ public:
 
 
 
-
-## 注
-
-[^1]: 返回空指针可以返回 `nullptr` ，返回空值可返回 `null`
 

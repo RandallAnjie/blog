@@ -702,7 +702,7 @@ post:
     enable: true
     # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单独页面的 header
     # The section title of the footnote, you can also modify the header of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
-    header: ''
+    header: '<h2>注：</h2>'
 
   # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
   # Mathematical formula. If enable, you need to change the Markdown renderer, see: https://hexo.fluid-dev.com/docs/en/guide/#math
