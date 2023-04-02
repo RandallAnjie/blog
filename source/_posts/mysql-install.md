@@ -1,17 +1,23 @@
 ---
 title: MySQL的配置安装
-tags: []
-id: '450'
 categories:
   - - 教程
 date: 2022-02-23 22:34:01
+tags:
+  - - mysql
 ---
 
 ## 下载
 
+### 方法一：官网下载
+
 进入MySQL官网[下载（https://dev.mysql.com/downloads/mysql/）](https://dev.mysql.com/downloads/mysql/)
 
 选择对应的版本下载
+
+### 方法二：网盘下载
+
+个人网盘下载：[个人网盘该文件分享链接🔗](https://pan.zhuanjie.ltd/s/Z52Fn)
 
 ## 配置
 
