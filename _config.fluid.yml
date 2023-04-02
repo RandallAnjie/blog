@@ -435,7 +435,7 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
-    <p>本站由 Github 和 Cloudflare 提供储存计算服务 © 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a></p>
+    <p>本站由 <a href="https://github.com/Zhuanjier/blog">Github</a> 和 Cloudflare 提供储存计算服务 © 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a></p>
   '
 
   # 展示网站的 PV、UV 统计数
