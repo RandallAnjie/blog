@@ -359,6 +359,7 @@ navbar:
         { key: '个人网盘', link: 'https://pan.zhuanjie.ltd/' },
         { key: 'ChatGPT', link: 'https://ai.zhuanjie.ltd/' },
         { key: '个人机场', link: 'https://airport.randallanjie.uk/' },
+        { key: '毕业设计', link: 'https://aimage.zhuanjie.ltd/' },
         { key: '服务器监控', link: 'https://dash.randallanjie.uk/' }
       ]
     }
