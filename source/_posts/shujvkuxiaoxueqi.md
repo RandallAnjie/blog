@@ -13,8 +13,9 @@ date: 2021-07-02 06:11:00
 *本程序是我都小学期作业，内部肯定存在很多不是最合适的代码跟算法，望大佬指正。最终程序采用云服务器*
 
 
+[源码](https://git.zhuanjie.ltd/randall/Design-of-Material-Management-Information-System)
 
-[成品链接1](http://startpage.zhuanjie.ltd/download/dxssyclxxglxt.zip)
+[成品链接](https://git.zhuanjie.ltd/randall/Design-of-Material-Management-Information-System/releases)
 
 
 
@@ -47,7 +48,8 @@ date: 2021-07-02 06:11:00
 注册过程分为用户注册和管理员注册。实验材料应该由实验管理员进行管理，为了确保数据库的访问对象时材料管理员，应该设计相应的界面完成登录功能，防止数据库信息被非管理者修改和破坏。
 为了更好地进行实验材料的管理，管理员可以查看、修改材料的信息和材料使用的信息。因而要设计材料信息查看、修改和删除功能。材料归实验室所属，而实验室的使用者是班级的学生。为了更好的了解材料的使用情况，应该掌握学生和实验室的信息，通过数据库了解实验室的使用情况。
 除此之外，在借用和归还时，应该只可以选择可以操作的材料，更符合设计美学跟使用直觉。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/img_convert/b879f1770b20bcf9e39c785cd00198d2.png)
+
+![功能分析](https://pan.zhuanjie.ltd/f/VYcX/b879f1770b20bcf9e39c785cd00198d2.png)
 
 
 
@@ -109,9 +111,9 @@ BODA|nchar(10)|√|借用日期
 RTDA|nchar(10)|√|归还日期
 
 ## E-R图
->![数据库E-R图](https://img-blog.csdnimg.cn/20210705102826100.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70#pic_center)
+>![数据库E-R图](https://pan.zhuanjie.ltd/f/Ybi0/20210705102826100.jpg)
 ## 数据流图
-![数据流图](https://img-blog.csdnimg.cn/img_convert/6e9f83d7f5c761f73ead85c305dbf70e.png)
+![数据流图](https://pan.zhuanjie.ltd/f/Pxud/6e9f83d7f5c761f73ead85c305dbf70e.png)
 
 ## 代码界面部分（采用VS2019C#语言编写）
 ### 1.login.cs
@@ -126,7 +128,7 @@ RTDA|nchar(10)|√|归还日期
  * 
  * 作者：转接R
  * 
- * 详细信息：https://blog.csdn.net/RandallChu/article/details/118423456
+ * 详细信息：https://blog.zhuanjie.ltd/2021/07/02/shujvkuxiaoxueqi/
  * 
  * 21.7.20更新日志：
  * 1.优化数据库，删除部分无用数据库列
@@ -449,8 +451,8 @@ namespace 大学实验材料管理信息系统数据库设计
 如果result等于1就登陆成功，获取当前的用户ID存入当前全局静态变量ID中，跳转到radiobutton对应的窗口；如果result等于0就显示登陆失败，抖动登录窗口；对于result大于1的情况，如果姓名登录，显示要求学号/工号登录，如果ID登录，显示数据库错误，数据库信息遭到破坏，需要数据库管理员来修复数据库。
 
 界面截图：
->![登录界面——学生登录](https://img-blog.csdnimg.cn/20210702213106304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![登录界面——管理员登录](https://img-blog.csdnimg.cn/20210702213154354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>![登录界面——学生登录](https://pan.zhuanjie.ltd/f/lOfr/20210702213106304.png)
+![登录界面——管理员登录](https://pan.zhuanjie.ltd/f/dAHQ/20210702213154354.png)
 
 ### 2.register.cs
 代码：
@@ -677,8 +679,8 @@ namespace 大学实验材料管理信息系统数据库设计
 管理员注册需要注册验证码”admin”（可以修改）。以防止没有权限的人来注册管理员账户。
 
 界面截图：
->![注册——学生信息注册](https://img-blog.csdnimg.cn/20210702213317197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![注册——管理员信息注册](https://img-blog.csdnimg.cn/20210702213425538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>![注册——学生信息注册](https://pan.zhuanjie.ltd/f/nBtV/20210702213317197.png)
+![注册——管理员信息注册](https://pan.zhuanjie.ltd/f/JQIR/20210702213425538.png)
 
 ### 3.student.cs
 代码：
@@ -1415,11 +1417,11 @@ namespace 大学实验材料管理信息系统数据库设计
 修改个人信息只允许修改密码，修改密码前要校对老密码是否正确和两次输入的新密码是否一致。
 
 界面截图：
->![学生——材料余量](https://img-blog.csdnimg.cn/2021070221360132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![学生——借用查询](https://img-blog.csdnimg.cn/20210702213639697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![学生——操作——借用](https://img-blog.csdnimg.cn/20210702213714397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![学生——操作——归还](https://img-blog.csdnimg.cn/20210702213742980.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![学生——用户信息设置](https://img-blog.csdnimg.cn/2021070221380825.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>![学生——材料余量](https://pan.zhuanjie.ltd/f/8bUA/2021070221360132.png)
+![学生——借用查询](https://pan.zhuanjie.ltd/f/0ATM/20210702213639697.png)
+![学生——操作——借用](https://pan.zhuanjie.ltd/f/9MSX/20210702213714397.png)
+![学生——操作——归还](https://pan.zhuanjie.ltd/f/2bFw/20210702213742980.png)
+![学生——用户信息设置](https://pan.zhuanjie.ltd/f/wBhm/2021070221380825.png)
 
 ### 4.Admin.cs
 代码：
@@ -1852,11 +1854,11 @@ namespace 大学实验材料管理信息系统数据库设计
 修改个人信息只允许修改密码，修改密码前要校对老密码是否正确和两次输入的新密码是否一致。
 
 界面截图：
->![管理员——材料管理](https://img-blog.csdnimg.cn/20210702213924402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![管理员——学生信息](https://img-blog.csdnimg.cn/20210702214009781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![管理员——借用中信息管理](https://img-blog.csdnimg.cn/20210702214054434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![管理员——实验室设置](https://img-blog.csdnimg.cn/20210702214127351.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![管理员——用户信息设置](https://img-blog.csdnimg.cn/20210702214147818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>![管理员——材料管理](https://pan.zhuanjie.ltd/f/4eiy/20210702213924402.png)
+![管理员——学生信息](https://pan.zhuanjie.ltd/f/pWcZ/20210702214009781.png)
+![管理员——借用中信息管理](https://pan.zhuanjie.ltd/f/ZAsM/20210702214054434.png)
+![管理员——实验室设置](https://pan.zhuanjie.ltd/f/y5uJ/20210702214127351.png)
+![管理员——用户信息设置](https://pan.zhuanjie.ltd/f/63C5/20210702214147818.png)
 
 ### 5.guider.cs
 代码：
@@ -1916,7 +1918,7 @@ namespace 大学实验材料管理信息系统数据库设计
 >以保证公开透明的原则游客登录只允许查看材料信息表
 
 界面截图：
->![游客登录](https://img-blog.csdnimg.cn/20210702214301994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>![游客登录](https://pan.zhuanjie.ltd/f/XGHZ/20210702214301994.png)
 
 ## 打包文件
 [大学实验材料管理信息系统数据库设计.zip](https://download.csdn.net/download/RandallChu/19997166)
@@ -1937,8 +1939,8 @@ namespace 大学实验材料管理信息系统数据库设计
 
 >*7.5更改*
 >*室友问了整个数据库系统设计的评分标准。评高分的标准——使用的语言是否为Java、设计是否插入背景图片（ps：我们都没学过Java连接数据库，C#连接数据库也只是在最后的两个实验里有，她关于用Java或者C#连接数据库一点没说），你这高分全是美观要求为啥不去教设计艺术学院？来嚯嚯我们信工？我们翻遍了整个实验的题目与要求，没有找到一点跟她说的相关的评分标准。我个人认为作为一个老师这样不咋地。你小学期每天在我们实验室待的时间不超过十分钟。在上课时间出去接孩子。一直在隔壁班，有什么通知只跟隔壁班说。再强调一下==以后的北印信工的同学在选课的时候一定要避坑，别选某些老师的课，这某些老师太恶心人，越想越离谱！！！==*
->*附数据库系统设计题目与要求*![数据库系统设计题目与要求1](https://img-blog.csdnimg.cn/20210705104517191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
-![数据库系统设计题目与要求2](https://img-blog.csdnimg.cn/20210705104604327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JhbmRhbGxDaHU=,size_16,color_FFFFFF,t_70)
+>*附数据库系统设计题目与要求*![数据库系统设计题目与要求1](https://pan.zhuanjie.ltd/f/qkf5/20210705104517191.png)
+![数据库系统设计题目与要求2](https://pan.zhuanjie.ltd/f/mwtW/20210705104604327.png)
 
 >7.20优化程序算法
 >1. 优化数据库，删除部分无用数据库列；

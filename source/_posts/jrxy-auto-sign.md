@@ -16,7 +16,7 @@ date: 2022-07-08 21:16:25
 
 如有疑问可以在GitHub上提交issue或在本文下方评论
 
-项目Github地址：[Zhuanjier/jrxySign: 北京印刷学院今日校园自动签到 (github.com)](https://github.com/Zhuanjier/jrxySign)
+项目地址：[Zhuanjier/jrxySign](https://git.zhuanjie.ltd/randall/jrxySign)
 
 稳定版阿里云函数直接上传[此链接](https://github.com/Zhuanjier/jrxySign/files/9104079/stable-code.zip)下载的压缩包解压后的文件夹即可
 

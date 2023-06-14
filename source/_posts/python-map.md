@@ -12,7 +12,7 @@ date: 2021-11-28 19:03:17
 
 项目成品下载
 
-[链接1（直接下载）](https://startpage.zhuanjie.ltd/download/bigcmap.exe)
+[链接1](https://git.zhuanjie.ltd/randall/bigc-map/releases)
 
 ## 简介
 
@@ -92,7 +92,7 @@ def draw(value):
     turtle.clear()
     turtle.title("导航路线")
     # 图片URL
-    url = 'http://startpage.zhuanjie.ltd/json/bigc.png'
+    url = 'https://startpage.zhuanjie.ltd/json/bigc.png'
     filename = os.path.basename(url)
     # 判断文件是否存在，如果不存在则下载
     if not os.path.isfile(os.path.join("./", filename)):
@@ -145,11 +145,11 @@ def schedule(blocknum, blocksize, totalsize):
 # 初始化
 def init():
     # 特殊连线点
-    parame = get_record('http://startpage.zhuanjie.ltd/json/parame.json')
+    parame = get_record('https://startpage.zhuanjie.ltd/json/parame.json')
     # 各个点在地图上的坐标
-    pointin = get_record('http://startpage.zhuanjie.ltd/json/point.json')
+    pointin = get_record('https://startpage.zhuanjie.ltd/json/point.json')
     # 复选框的值
-    valuesin = get_record('http://startpage.zhuanjie.ltd/json/values.json')
+    valuesin = get_record('https://startpage.zhuanjie.ltd/json/values.json')
     # 根据两点距离将相邻的两个点存入matrix
     matrix = []
     for i in pointin:

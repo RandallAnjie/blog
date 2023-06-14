@@ -18,18 +18,18 @@
   <meta name="author" content="转接">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="成品及源码下载链接：Release 可执行程序 · Zhuanjier&#x2F;udp-server (github.com) ¶要求 UDP是TCP&#x2F;IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网络出现拥塞时，可以">
+    <meta name="description" content="成品下载链接：Release 可执行程序 源码： https:&#x2F;&#x2F;git.zhuanjie.ltd&#x2F;randall&#x2F;udp-server ¶要求 UDP是TCP&#x2F;IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络小学期——UDP服务器的设计">
 <meta property="og:url" content="https://blog.zhuanjie.ltd/2021/12/31/computer-net-udp-server/">
 <meta property="og:site_name" content="一个计科生の博客">
-<meta property="og:description" content="成品及源码下载链接：Release 可执行程序 · Zhuanjier&#x2F;udp-server (github.com) ¶要求 UDP是TCP&#x2F;IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网络出现拥塞时，可以">
+<meta property="og:description" content="成品下载链接：Release 可执行程序 源码： https:&#x2F;&#x2F;git.zhuanjie.ltd&#x2F;randall&#x2F;udp-server ¶要求 UDP是TCP&#x2F;IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2021/12/image-745x1024.png">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2021/12/image-1-630x1024.png">
 <meta property="og:image" content="http://blog.zhuanjie.ltd/img/uploads/2021/12/image-5.png">
 <meta property="article:published_time" content="2021-12-31T11:51:43.000Z">
-<meta property="article:modified_time" content="2023-04-10T05:13:50.743Z">
+<meta property="article:modified_time" content="2023-06-14T01:30:54.051Z">
 <meta property="article:author" content="转接">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,7 +278,7 @@
                   
                   
                   
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.randallanjie.uk/">
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
                     
                     <span>服务器监控</span>
                   </a>
@@ -406,7 +406,8 @@
             
               <div class="markdown-body">
                 
-                <p>成品及源码下载链接：<a target="_blank" rel="noopener" href="https://github.com/Zhuanjier/udp-server/releases/tag/v1.0">Release 可执行程序 · Zhuanjier/udp-server (github.com)</a></p>
+                <p>成品下载链接：<a target="_blank" rel="noopener" href="https://git.zhuanjie.ltd/randall/udp-server/releases">Release 可执行程序</a></p>
+<p>源码： <a target="_blank" rel="noopener" href="https://git.zhuanjie.ltd/randall/udp-server">https://git.zhuanjie.ltd/randall/udp-server</a></p>
 <h2 id="要求"><a class="header-anchor" href="#要求">¶</a>要求</h2>
 <p>UDP是TCP/IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网络出现拥塞时，可以丢失一些数据，但是延迟不能太大。基于这些特点，流式多媒体通信、多播等应用在传输层采用的就是UDP协议。编写一UDP服务器程序，流畅地完成视频文件地传输，要能对多个客户端进行管理。需要通过UDP模拟多个客户端连接验证的情况。</p>
 <h2 id="设计思路"><a class="header-anchor" href="#设计思路">¶</a>设计思路</h2>

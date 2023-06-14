@@ -8,7 +8,9 @@ categories:
 date: 2021-12-31 19:51:43
 ---
 
-成品及源码下载链接：[Release 可执行程序 · Zhuanjier/udp-server (github.com)](https://github.com/Zhuanjier/udp-server/releases/tag/v1.0)
+成品下载链接：[Release 可执行程序](https://git.zhuanjie.ltd/randall/udp-server/releases)
+
+源码： [https://git.zhuanjie.ltd/randall/udp-server](https://git.zhuanjie.ltd/randall/udp-server)
 
 ## 要求
 
