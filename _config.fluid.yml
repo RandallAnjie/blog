@@ -87,11 +87,11 @@ fun_features:
 
     # 打印速度，数字越大越慢
     # Typing speed, the larger the number, the slower
-    typeSpeed: 70
+    typeSpeed: 50
 
     # 游标字符
     # Cursor character
-    cursorChar: "_"
+    cursorChar: "█"
 
     # 是否循环播放效果
     # If true, loop animation
@@ -305,7 +305,7 @@ lazyload:
 
   # 开启后懒加载仅在文章页生效，如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
   # If true, only enable lazyload on the post page. For custom pages, you can set 'lazyload: true' in front-matter
-  onlypost: false
+  onlypost: true
 
   # 触发加载的偏移倍数，基数是视窗高度，可根据部署环境的请求速度调节
   # The factor of viewport height that triggers loading
@@ -335,12 +335,12 @@ navbar:
 
     # 模糊像素，只能为数字，数字越大模糊度越高
     # Number of blurred pixel. the larger the number, the higher the blur
-    px: 3
+    px: 5
 
     # 不透明度，数字越大透明度越低，注意透明过度可能看不清菜单字体
     # Ratio of opacity, 1.0 is completely opaque
     # available: 0 - 1.0
-    alpha: 0.7
+    alpha: 0.6
 
   # 导航栏菜单，可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
@@ -360,6 +360,7 @@ navbar:
         { key: 'ChatGPT', link: 'https://ai.zhuanjie.ltd/' },
         { key: '个人机场', link: 'https://airport.randallanjie.uk/' },
         { key: '毕业设计', link: 'https://aimage.zhuanjie.ltd/' },
+        { key: '邮箱', link: 'https://mail.randallanjie.com/' },
         { key: '服务器监控', link: 'https://dash.zhuanjie.ltd/' }
       ]
     }
@@ -436,7 +437,7 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
-    <p>本站由 <a href="https://github.com/Zhuanjier/blog">Github</a> 和 Cloudflare 提供储存计算服务 © 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a></p>
+    <p>本站由 <a href="https://github.com/Zhuanjier/blog">Github</a> 和 Cloudflare 提供储存计算服务 © 2023 <a href="http://startpage.zhuanjie.ltd/">转接</a> | 联系方式：randall@randallanjie.com</p>
   '
 
   # 展示网站的 PV、UV 统计数
