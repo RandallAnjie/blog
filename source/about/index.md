@@ -5,7 +5,7 @@ layout: about
 ---
 {% note info %}
 
-这是基于 Hexo 搭建在 Github 和 Cloud flare 上的个人blog，欢迎访问评论！
+这是基于 Hexo 搭建在 Github 和 CloudFlare 上的个人blog，欢迎访问评论！
 
 ATT：评论需要挂上代理（个人代理链接->[🔗https://airport.randallanjie.uk/](https://airport.randallanjie.uk/)）
 
@@ -13,7 +13,7 @@ ATT：评论需要挂上代理（个人代理链接->[🔗https://airport.randal
 
 我是一名来自北京印刷学院计算机专业的大学生
 
-如有需要，请联系QQ2227535604或者邮箱randall_anjie@outlook.com
+如有需要，请联系QQ2227535604或者邮箱randall@randallanjie.com
 
 {% endnote %}
 
