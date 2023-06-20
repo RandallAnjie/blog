@@ -9,7 +9,7 @@ tags:
   - - leetcode
 ---
 
-## 找到二叉树中最近的右侧节点
+## 最长公共前缀
 
 >  [原题传送门](https://leetcode.cn/problems/longest-common-prefix/description/)
 

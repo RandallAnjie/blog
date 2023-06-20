@@ -9,7 +9,7 @@ tags:
   - - leetcode
 ---
 
-## 找到二叉树中最近的右侧节点
+## 用两个栈实现队列
 
 >  [原题传送门](https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
 

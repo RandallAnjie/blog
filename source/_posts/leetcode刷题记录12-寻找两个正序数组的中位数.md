@@ -9,7 +9,7 @@ tags:
   - - leetcode
 ---
 
-## 找到二叉树中最近的右侧节点
+## 寻找两个正序数组的中位数
 
 >  [原题传送门](https://leetcode.cn/problems/median-of-two-sorted-arrays/description/)
 

@@ -9,7 +9,7 @@ tags:
   - - leetcode
 ---
 
-## 找到二叉树中最近的右侧节点
+## 有效的括号
 
 >  [原题传送门](https://leetcode.cn/problems/valid-parentheses/description/)
 
