@@ -477,15 +477,21 @@
   </noscript>
   <script src="https://notification.randallanjie.com/r_notification.js"></script>
   <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var data = JSON.parse(xhr.responseText);
-        data = data.blog;
-        for (var i = 0; i < data.length; i++) {
-          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+    var lastUrl = document.referrer;
+    var thisUrl = window.location.href;
+    var lastDomain = lastUrl.split('/')[2];
+    var thisDomain = thisUrl.split('/')[2];
+    if (lastDomain != thisDomain || thisUrl = 'https://blog.zhuanjie.ltd/' || thisUrl = 'https://blog.zhuanjie.ltd') {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+      xhr.send();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var data = JSON.parse(xhr.responseText);
+          data = data.blog;
+          for (var i = 0; i < data.length; i++) {
+            rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+          }
         }
       }
     }
