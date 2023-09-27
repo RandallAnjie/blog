@@ -335,15 +335,15 @@
     </a>
   
     
-    <a href="/2021/05/25/backpackproblem/" class="list-group-item list-group-item-action">
-      <time>05-25</time>
-      <div class="list-group-item-title">背包问题BackpackProblem</div>
-    </a>
-  
-    
     <a href="/2021/05/25/all-point-pair-shortest-path/" class="list-group-item list-group-item-action">
       <time>05-25</time>
       <div class="list-group-item-title">全点对最短路径All point pair shortest path</div>
+    </a>
+  
+    
+    <a href="/2021/05/25/backpackproblem/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">背包问题BackpackProblem</div>
     </a>
   
     
@@ -532,7 +532,7 @@
     var thisUrl = window.location.href;
     var lastDomain = lastUrl.split('/')[2];
     var thisDomain = thisUrl.split('/')[2];
-    if (lastDomain != thisDomain || thisUrl = 'https://blog.zhuanjie.ltd/' || thisUrl = 'https://blog.zhuanjie.ltd') {
+    if(lastDomain != thisDomain || thisUrl == 'https://blog.zhuanjie.ltd/' || thisUrl == 'https://blog.zhuanjie.ltd'){
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
       xhr.send();

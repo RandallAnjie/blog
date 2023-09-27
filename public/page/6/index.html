@@ -845,7 +845,7 @@
     var thisUrl = window.location.href;
     var lastDomain = lastUrl.split('/')[2];
     var thisDomain = thisUrl.split('/')[2];
-    if (lastDomain != thisDomain || thisUrl = 'https://blog.zhuanjie.ltd/' || thisUrl = 'https://blog.zhuanjie.ltd') {
+    if(lastDomain != thisDomain || thisUrl == 'https://blog.zhuanjie.ltd/' || thisUrl == 'https://blog.zhuanjie.ltd'){
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
       xhr.send();
