@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -350,15 +310,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/03/28/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%956-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/" target="_self">
-          leetcode刷题记录6-一维数组的动态和
+        <a href="/2022/09/20/cn2-wlc/" target="_self">
+          第2章 物理层
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/28/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%956-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/20/cn2-wlc/" target="_self">
         <div>
-          ¶一维数组的动态和  原题传送门  给你一个数组 nums 。数组「动态和」的计算公式为：runningSum[i] = sum(nums[0]…nums[i]) 。 请返回 nums 的动态和。 ¶示例 ¶示例1 输入：nums = [1,2,3,4] 输出：[1,3,6,10] 解释：动态和计算过程为 [1, 1+2, 1+2+3, 1+2+3+4] 。 ¶示例2 输入：nums = [1,1
+          第二章 物理层 #计算机网络 ¶物理层接口特性  机械特性：定义物理连接的特性，规定物理连接时所采用的规格、接口形状、引线数目、引脚数量和排列情况 电气特性：规定传输二进制位时，线路上的信号的电压范围、阻抗匹配、传输速率和距离限制 (电压-&gt;电平) 功能特性：指明某条线上出现的某一电平表示何种意义，接口部件的信号线的用途 (电平的意义) 规程特性（过程特性）：定义各条物理线路的工作规程和时序
         </div>
       </a>
 
@@ -366,8 +326,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-28 15:43" pubdate>
-              2023-03-28
+            <time datetime="2022-09-20 17:50" pubdate>
+              2022-09-20
             </time>
           </div>
         
@@ -382,7 +342,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E7%A0%94/" class="category-chain-item">研</a>
   
   
 
@@ -391,19 +351,10 @@
   
     
   
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -415,15 +366,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/03/27/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955-%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/" target="_self">
-          leetcode刷题记录5-存在重复元素
+        <a href="/2022/09/20/cn1-jsjwltxjg/" target="_self">
+          第1章 计算机网络体系结构
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/27/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955-%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/20/cn1-jsjwltxjg/" target="_self">
         <div>
-          ¶存在重复元素  原题传送门  给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。 ¶示例 ¶示例1 输入：nums = [1,2,3,1] 输出：true ¶示例2 输入：nums = [1,2,3,4] 输出：false ¶示例3 输入：nums = [1,1,1,3,3,4,3,2,4,2] 输出：true 提
+          第一章 计算机网络体系结构 #计算机网络 ¶计算机网络的发展  APARnet——internet——Internet  internet——互联网 Internet——因特网   三层体系结构因特网  主干网 地区网 校园网   多层次ISP  主干ISP——地区ISP——本地ISP 出现IXP ISP：网络服务提供着（商） IXP：因特网交换点（处于同一层次的ISP之间）    ¶计算机网路的
         </div>
       </a>
 
@@ -431,8 +382,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-27 21:45" pubdate>
-              2023-03-27
+            <time datetime="2022-09-20 17:39" pubdate>
+              2022-09-20
             </time>
           </div>
         
@@ -447,7 +398,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E7%A0%94/" class="category-chain-item">研</a>
   
   
 
@@ -456,19 +407,10 @@
   
     
   
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -480,15 +422,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/03/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_self">
-          leetcode刷题记录4-二分查找
+        <a href="/2022/07/21/ipsec/" target="_self">
+          搭建IPSec服务
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/21/ipsec/" target="_self">
         <div>
-          ¶二分查找  原题传送门  给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。 ¶示例 ¶示例1 输入: nums = [-1,0,3,5,9,12], target = 9 输出: 4 解释: 9 出现在 nums 中并且下标为 4 ¶示例2 输入: nums = [-1,0,
+          项目地址：hwdsl2/setup-ipsec-vpn: Scripts to build your own IPsec VPN server, with IPsec/L2TP, Cisco IPsec and IKEv2 (github.com) ¶安装 ¶脚本方式 ¶选项 1: 使用脚本随机生成的 VPN 登录凭证（完成后会显示） 1wget https://get.vpnsetup.net
         </div>
       </a>
 
@@ -496,264 +438,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-26 23:39" pubdate>
-              2023-03-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/03/23/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/" target="_self">
-          leetcode刷题记录3-罗马数字转整数
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/23/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/" target="_self">
-        <div>
-          ¶罗马数字转整数  原题传送门   罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。     字符 数值     I 1   V 5   X 10   L 50   C 100   D 500   M 1000    例如， 罗马数字 2 写做 II ，即为两个并列的 1 。12 写做 XII ，即为 X + II 。 27 写做 XXVII, 即为 XX + V + II 。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-23 14:45" pubdate>
-              2023-03-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" target="_self">
-          万游笔试试题
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" target="_self">
-        <div>
-          开发工程师笔试题  开始时间：2023-03-22 19:40        结束时间：2023-03-22 20:45  ¶题1 100 个小朋友围成一个圈，设定编号为 1~100，依次按 1、2、3、4、5、6、7、8、9 循环报数，报到 9 的出圈，直到所有小朋友出圈。请写代码打印出各个小朋友出圈顺序，语言不限。 ¶代码——C++ 123456789101112131415161718192
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-22 20:46" pubdate>
-              2023-03-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AF%95/">#笔试</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/03/22/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952-%E5%9B%9E%E6%96%87%E6%95%B0/" target="_self">
-          leetcode刷题记录2-回文数
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/22/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952-%E5%9B%9E%E6%96%87%E6%95%B0/" target="_self">
-        <div>
-          ¶回文数  原题传送门  给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。  例如，121 是回文，而 123 不是。  ¶示例 ¶示例1 输入：x = 121 输出：true ¶示例2 输入：x = -121 输出：false 解释：从左向右读, 为 -121 。 从右向左读, 为 121-
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-22 19:26" pubdate>
-              2023-03-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/03/20/CloudFlare%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86api/" target="_self">
-          CloudFlare反向代理api
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/20/CloudFlare%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86api/" target="_self">
-        <div>
-          CloudFlare反向代理api（以api.openai.com为例） ¶注册CloudFlare并且登录 好像还要先完成邮箱验证（反正也是点个链接的事情） ATT：CF不需要挂梯子即可注册登录 ¶初始化项目 点击左侧Workers按钮  直接创建helloword worker  ¶部署项目 删除左侧代码后将新的反向代理代码粘贴至左侧，然后点击保存并且部署（Save and deploy），最
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-20 23:01" pubdate>
-              2023-03-20
+            <time datetime="2022-07-21 20:08" pubdate>
+              2022-07-21
             </time>
           </div>
         
@@ -790,15 +476,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/03/14/java%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" target="_self">
-          JAVA继承问题
+        <a href="/2022/07/08/jrxy-auto-sign/" target="_self">
+          今日校园自动签到
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/14/java%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/08/jrxy-auto-sign/" target="_self">
         <div>
-          ¶子类拥有父类非private的属性，方法；子类可以拥有自己的属性和方法，即子类可以对父类进行扩展；子类可以用自己的方式实现父类的方法（重定义）。 ¶测试代码 123456789101112131415161718192021222324public class A &#123;	int i = 10;	public void add()&#123;	    System.out.println(
+          ¶介绍 此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化 北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后 如有疑问可以在GitHub上提交issue或在本文下方评论 项目地址：Zhuanjier/jrxySign 稳定版阿里云函数直接上传此链接下载的压缩包解压后的文件夹即可 ¶近期运行日志 如果乱码请更换设备查看，url直接指向文
         </div>
       </a>
 
@@ -806,127 +492,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-14 00:27" pubdate>
-              2023-03-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/02/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
-          leetcode刷题记录1-两数之和
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
-        <div>
-          ¶两数之和  原题传送门  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target  的那两个整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 ¶示例 ¶示例1 输入：nums = [2,7,11,15], target = 9 输出：[0,1] 解释：因为 n
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-15 18:16" pubdate>
-              2023-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" target="_self">
-          Traffmonetizer使用教程
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" target="_self">
-        <div>
-          直达一键运行脚本→传送门 ¶简介 Traffmonetizer是一个来自欧洲的流量挂机平台，类似Peer2profit，满10刀可提现(Paypal、BTC、Payoneer) ¶官网 Traffmonetizer官网：https://app.traffmonetizer.com/ Docker：https://hub.docker.com/r/traffmonetizer/cli ¶使用教程 ¶
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-01 15:14" pubdate>
-              2023-02-01
+            <time datetime="2022-07-08 21:16" pubdate>
+              2022-07-08
             </time>
           </div>
         
@@ -948,6 +515,338 @@
       </span>
     
   
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/13/linux-systemctl/" target="_self">
+          Linux下将长期运行命令变为系统服务
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/13/linux-systemctl/" target="_self">
+        <div>
+          在/lib/systemd/system/中新建“服务名.service”文件。 vim /lib/systemd/system/服务名.service 内容如下： 1234567891011[Unit]Desctiption = 服务名称After = network.target syslog.targetWants = network.target[Service]Type = simple
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-13 12:21" pubdate>
+              2022-06-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/11/byyl4/" target="_self">
+          编译原理实验4
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/11/byyl4/" target="_self">
+        <div>
+          编译器设计与实现 ¶实验内容 定义一个程序设计语言，确定编译器设计方法，构造相应的属性文法。根据属性文法设计编译器（可以手工设计亦可自动生成），并设计中间代码解释器，其能够解释执行编译后的中间代码。 要求输入一个合法的源程序，输出其中间代码形式的目标程序并能够解释执行生成的目标代码，并得到预期人结果。 ¶实验目的 通过实验完整地了解编译器设计过程，掌握编译原理中各种算法及算法的应用。 ¶实验准备
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-11 23:33" pubdate>
+              2022-06-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/02/byyl3/" target="_self">
+          编译原理实验3
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl3/" target="_self">
+        <div>
+          语义分析常用算法的实现及应用实验 以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 ¶实验内容 以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。 ¶实验目的 1、进一步理解文法
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-02 18:16" pubdate>
+              2022-06-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/02/byyl2/" target="_self">
+          编译原理实验2
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl2/" target="_self">
+        <div>
+          ¶实验内容： 输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） ¶实验准备： 正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::=R1R2       {L®=L(R1)∪L(R2)} R::=R1R2
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-02 10:35" pubdate>
+              2022-06-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/02/byyl1/" target="_self">
+          编译原理实验1
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl1/" target="_self">
+        <div>
+          ¶实验内容与要求 设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-02 10:16" pubdate>
+              2022-06-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/11/all-kinds-of-sort/" target="_self">
+          关于各种排序
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/11/all-kinds-of-sort/" target="_self">
+        <div>
+          源码及测试样例下载 ¶LSD(Least Significant Digit)基数排序 需要r个辅助队列（本代码中r为10）  时间复杂度O(d(n+r)) 空间复杂度O®  12345678910111213141516171819202122int *LSD(int *a, int f, int l)&#123;    int n = l - f + 1;    int m = log(n)
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-11 15:51" pubdate>
+              2022-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
     
   
     
@@ -965,7 +864,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -1145,5 +1044,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

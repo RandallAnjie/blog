@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -350,15 +310,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/08/02/day10/" target="_self">
-          每日一题——带分数
+        <a href="/2021/12/31/computer-net-udp-server/" target="_self">
+          计算机网络小学期——UDP服务器的设计
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/02/day10/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/31/computer-net-udp-server/" target="_self">
         <div>
-          ¶题目 100 可以表示为带分数的形式：100 = 3 + 69258 / 714。 还可以表示为：100 = 82 + 3546 / 197。 注意特征：带分数中，数字1~9分别出现且只出现一次（不包含0）。 类似这样的带分数，100 有 11 种表示法。 ¶格式 ¶输入格式 从标准输入读入一个正整数N (N&lt;1000*1000) ¶输出格式 程序输出该数字用数码1~9不重复不遗漏地组成带
+          成品下载链接：Release 可执行程序 源码： https://git.zhuanjie.ltd/randall/udp-server ¶要求 UDP是TCP/IP协议族为传输层设计的两个协议之一，是一种无连接的，不可靠的协议。由于UDP采取了无连接的方式，因此协议简单，在一些特定的应用中协议运行效率高。UDP适合一些实时的应用，如IP电话、视频会议，它们要求源主机以恒定的速率发送数据，并且在网
         </div>
       </a>
 
@@ -366,284 +326,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-02 16:59" pubdate>
-              2022-08-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/21/ipsec/" target="_self">
-          搭建IPSec服务
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/21/ipsec/" target="_self">
-        <div>
-          项目地址：hwdsl2/setup-ipsec-vpn: Scripts to build your own IPsec VPN server, with IPsec/L2TP, Cisco IPsec and IKEv2 (github.com) ¶安装 ¶脚本方式 ¶选项 1: 使用脚本随机生成的 VPN 登录凭证（完成后会显示） 1wget https://get.vpnsetup.net
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-21 20:08" pubdate>
-              2022-07-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/14/day9/" target="_self">
-          每日一题——翻硬币
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/14/day9/" target="_self">
-        <div>
-          ¶题目 小明正在玩一个“翻硬币”的游戏。 桌上放着排成一排的若干硬币。我们用 * 表示正面，用 o 表示反面（是小写字母，不是零）。 比如，可能情形是：**oo***oooo 如果同时翻转左边的两个硬币，则变为：oooo***oooo 现在小明的问题是：如果已知了初始状态和要达到的目标状态，每次只能同时翻转相邻的两个硬币,那么对特定的局面，最少要翻动多少次呢？ 我们约定：把翻动相邻的两个硬币叫做一
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-14 14:39" pubdate>
-              2022-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/08/jrxy-auto-sign/" target="_self">
-          今日校园自动签到
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/08/jrxy-auto-sign/" target="_self">
-        <div>
-          ¶介绍 此项目本意是为北京印刷学院学子提供方便，代码方面针对性的对北印信工22暑期签到进行了优化 北京印刷学院服务器目前每天晚上例行维护，签到时间请自行设定到早上七点半以后 如有疑问可以在GitHub上提交issue或在本文下方评论 项目地址：Zhuanjier/jrxySign 稳定版阿里云函数直接上传此链接下载的压缩包解压后的文件夹即可 ¶近期运行日志 如果乱码请更换设备查看，url直接指向文
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-08 21:16" pubdate>
-              2022-07-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/13/linux-systemctl/" target="_self">
-          Linux下将长期运行命令变为系统服务
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/13/linux-systemctl/" target="_self">
-        <div>
-          在/lib/systemd/system/中新建“服务名.service”文件。 vim /lib/systemd/system/服务名.service 内容如下： 1234567891011[Unit]Desctiption = 服务名称After = network.target syslog.targetWants = network.target[Service]Type = simple
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-13 12:21" pubdate>
-              2022-06-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/11/byyl4/" target="_self">
-          编译原理实验4
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/11/byyl4/" target="_self">
-        <div>
-          编译器设计与实现 ¶实验内容 定义一个程序设计语言，确定编译器设计方法，构造相应的属性文法。根据属性文法设计编译器（可以手工设计亦可自动生成），并设计中间代码解释器，其能够解释执行编译后的中间代码。 要求输入一个合法的源程序，输出其中间代码形式的目标程序并能够解释执行生成的目标代码，并得到预期人结果。 ¶实验目的 通过实验完整地了解编译器设计过程，掌握编译原理中各种算法及算法的应用。 ¶实验准备
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-11 23:33" pubdate>
-              2022-06-11
+            <time datetime="2021-12-31 19:51" pubdate>
+              2021-12-31
             </time>
           </div>
         
@@ -682,15 +366,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/06/02/byyl3/" target="_self">
-          编译原理实验3
+        <a href="/2021/11/28/python-map/" target="_self">
+          Python大作业——北印导航系统
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl3/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/28/python-map/" target="_self">
         <div>
-          语义分析常用算法的实现及应用实验 以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 ¶实验内容 以某种方式输入一个上下文无关文法，构造其LL分析表、算符优先分析表及LR分析表，并能够差别一个字符串是否是给定文法中的句子 在实验一或实验二的基础上，建立一个表达式的文法，并生成该表达式的计算程序。 ¶实验目的 1、进一步理解文法
+          项目成品下载 链接1 ¶简介 针对新生对校园了解的不足，帮助新生对校园中的各建筑有更加多方面的了解。同时可以对于校园工作人员优化校园工具的搬运选择最优的运输路径，提高运输的效率。通过对dijkstra算法进行编写，实现从一个顶点到其余各顶点的最短路径算法，解决的有向图中最短路径问题。主要特点是以起始点为中心向外层层扩展，直到扩展到终点为止，是一种广度优先的搜索方法。 程序的数据和地图利用json
         </div>
       </a>
 
@@ -698,8 +382,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-02 18:16" pubdate>
-              2022-06-02
+            <time datetime="2021-11-28 19:03" pubdate>
+              2021-11-28
             </time>
           </div>
         
@@ -714,7 +398,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
 
@@ -738,15 +422,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/06/02/byyl2/" target="_self">
-          编译原理实验2
+        <a href="/2021/11/12/python-tqdm/" target="_self">
+          Python tqdm进度条
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl2/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/12/python-tqdm/" target="_self">
         <div>
-          ¶实验内容： 输入一组正则表达式，输出其转换后的最简的确定有限自动机，并根据生成的确定有限自动机完成实验一的任务。（即完成词法分析任务） 输入一转换图，生成与之等价的正则表达式（未完成） ¶实验准备： 正则表达式的语义定义：符号表Σ上的正则表达式α定义一个Σ上的一个符号串的集合，记为L(α)，其定义如下： R::=R1R2       {L®=L(R1)∪L(R2)} R::=R1R2
+          ¶tqdm包 1from tqdm import tqdm ¶创建tqdm 123pbar = tqdm(range(1000))  # 创建进度条for i in pbar:  # 在进度条中运行    continue ¶参数解释 123456789101112131415161718iterable=None,     可迭代的对象, 在手动更新时不需要进行设置desc=None,
         </div>
       </a>
 
@@ -754,8 +438,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-02 10:35" pubdate>
-              2022-06-02
+            <time datetime="2021-11-12 18:20" pubdate>
+              2021-11-12
             </time>
           </div>
         
@@ -777,6 +461,62 @@
       </span>
     
   
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/11/linux-c-communcation/" target="_self">
+          Linux下C语言进程间通信——创建共享区
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/11/linux-c-communcation/" target="_self">
+        <div>
+          与信号量一样，在Linux中也提供了一组函数接口用于使用共享内存，而且使用共享共存的接口还与信号量的非常相似，而且比使用信号量的接口来得简单。它们声明在头文件 sys/shm.h 中。 ¶shmget()函数 int shmget(key_t key, size_t size, int shmflg); 第一个参数为共享内存段命名，需要提供一个参数key（非0整数），shmget()函数成功时返回
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-11 23:49" pubdate>
+              2021-11-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
     
   
 </span>
@@ -794,15 +534,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/06/02/byyl1/" target="_self">
-          编译原理实验1
+        <a href="/2021/11/09/python-dict-sort/" target="_self">
+          python中的字典排序
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/02/byyl1/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/09/python-dict-sort/" target="_self">
         <div>
-          ¶实验内容与要求 设计一种程序设计语言并定义其词法，输入使用该程序语言编写的源程序，输出经过词法分析生成的符号表及将源程序的字节流转换成单词的单词流。 创建一个词法分析程序，它支持对正规文法的分析。必须使用DFA（确定性有限自动机）或NFA（非确定性有限自动机）来实现这一项目。该程序的输入是一个文本文件，包括一组由该正规文法产生的产生式以及待识别源代码字符串。该程序的输出是一个符号表（二元式），它
+          字典是一个无序的数据结构，一般都不对其进行排序的。但是要想对字典进行排序，是可以通过sorted()函数进行操作。首先声明注意一点字典中的值需要为同一种数据类型；比如在本文中的值都是字符串类型。 1234567891011121314151617181920212223242526# 先定义一个字典sys = &#123;&#x27;name&#x27;: &#x27;张三&#x27;,
         </div>
       </a>
 
@@ -810,8 +550,290 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-02 10:16" pubdate>
-              2022-06-02
+            <time datetime="2021-11-09 18:54" pubdate>
+              2021-11-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/05/linux-ruanzhongduan-problem/" target="_self">
+          关于Linux下软中断通信子进程不输出（接收不到信号问题）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/05/linux-ruanzhongduan-problem/" target="_self">
+        <div>
+          软中断通信的一题： 编写程序：用fork( )创建两个子进程，再用系统调用signal( )让父进程捕捉键盘上来的中断信号(即按^c键)；捕捉到中断信号后，父进程用系统调用kill( )向两个子进程发出信号，子进程捕捉到信号后分别输出下列信息后终止： 12Child process1 is killed by parent!Child process2 is killed by parent! 父
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-05 02:38" pubdate>
+              2021-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/" target="_self">
+          Linux下c语言进程通讯——wait()/wait(&amp;status)/WIFEXITED(status)和exit()之间的关系
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/" target="_self">
+        <div>
+          ¶wait()函数定义 1234#include &lt;sys/types.h&gt; #include &lt;sys/wait.h&gt;pid_t wait(int *status)// 参数status用来保存被收集进程退出时的一些状态，它是一个指向int类型的指针。但如果我们对这个子进程是如何死掉的毫不在意，只想把这个僵尸进程消灭掉，（事实上绝大多数情况下，我们都会这样想），我们就可以
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-02 00:36" pubdate>
+              2021-11-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/22/python-judge-character/" target="_self">
+          Python判断数据类型
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/22/python-judge-character/" target="_self">
+        <div>
+          python用与判断数据类型的函数： isinstance()函数 isinstance(变量,类型)  isinstance(i, int)  可以用来判断变量的类型，它返回的是一个布尔值，False or True. type()函数 不是判断变量的类型，而使直接返回变量的类型
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-22 23:09" pubdate>
+              2021-10-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/22/linux-output/" target="_self">
+          关于Linux下子进程输出问题
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/22/linux-output/" target="_self">
+        <div>
+          子进程输出的个数跟是否换行有关？ 123456789printf(&quot;before fork with  换行符\n&quot;);  printf(&quot;before fork without换行符&quot;);  pid = fork();if(pid == 0)&#123;　　//子进程　　printf(&quot;I am is  child process,pid=%d\
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-22 01:28" pubdate>
+              2021-10-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/19/udp-checksum/" target="_self">
+          计算机网络计算UDP校验和
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/19/udp-checksum/" target="_self">
+        <div>
+          源IP地址：123.151.78.47(0x7b97, 0x4e2f) 目的IP地址：10.66.149.117(0xa42, 0x9575) 源端口：8000(0x1f40) 目的端口：4006(0xfa6) UDP长度：39(0x27) 数据：0x023a, 0x2700, 0xcd27, 0x6784, 0xc57e, 0xf400, 0x0000, 0x5ad0, 0xc585, 0x
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-19 16:52" pubdate>
+              2021-10-19
             </time>
           </div>
         
@@ -844,67 +866,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/04/11/all-kinds-of-sort/" target="_self">
-          关于各种排序
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/11/all-kinds-of-sort/" target="_self">
-        <div>
-          源码及测试样例下载 ¶LSD(Least Significant Digit)基数排序 需要r个辅助队列（本代码中r为10）  时间复杂度O(d(n+r)) 空间复杂度O®  12345678910111213141516171819202122int *LSD(int *a, int f, int l)&#123;    int n = l - f + 1;    int m = log(n)
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-11 15:51" pubdate>
-              2022-04-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -1084,5 +1050,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

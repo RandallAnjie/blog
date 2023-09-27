@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -350,15 +310,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9516-%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
-          leetcode刷题记录16-爬楼梯
+        <a href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" target="_self">
+          万游笔试试题
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9516-%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" target="_self">
         <div>
-          ¶爬楼梯  原题传送门  假设你正在爬楼梯。需要n阶你才能到达楼顶。 每次你可以爬 1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？ ¶示例 ¶示例1 输入：n = 2 输出：2 解释：有两种方法可以爬到楼顶。  1 阶 + 1 阶 2 阶  ¶示例2 输入：n = 3 输出：3 解释：有三种方法可以爬到楼顶。  1 阶 + 1 阶 + 1 阶 1 阶 + 2 阶 2 阶 + 1 阶  提示：
+          开发工程师笔试题  开始时间：2023-03-22 19:40        结束时间：2023-03-22 20:45  ¶题1 100 个小朋友围成一个圈，设定编号为 1~100，依次按 1、2、3、4、5、6、7、8、9 循环报数，报到 9 的出圈，直到所有小朋友出圈。请写代码打印出各个小朋友出圈顺序，语言不限。 ¶代码——C++ 123456789101112131415161718192
         </div>
       </a>
 
@@ -366,8 +326,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-26 09:50" pubdate>
-              2023-06-26
+            <time datetime="2023-03-22 20:46" pubdate>
+              2023-03-22
             </time>
           </div>
         
@@ -389,10 +349,6 @@
       </span>
     
   
-    
-  
-    
-  
 </span>
 
           </div>
@@ -401,7 +357,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/leetcode/">#leetcode</a>
+              <a href="/tags/%E7%AC%94%E8%AF%95/">#笔试</a>
             
           </div>
         
@@ -415,15 +371,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/20/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9515-LRU%20%E7%BC%93%E5%AD%98/" target="_self">
-          leetcode刷题记录15-LRU 缓存
+        <a href="/2023/03/20/CloudFlare%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86api/" target="_self">
+          CloudFlare反向代理api
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/20/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9515-LRU%20%E7%BC%93%E5%AD%98/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/20/CloudFlare%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86api/" target="_self">
         <div>
-          ¶LRU 缓存  原题传送门  给定两个大小分别为m和n的正序（从小到大）数组nums1和nums2。请你找出并返回这两个正序数组的中位数。 请你设计并实现一个满足LRU (最近最少使用) 缓存约束的数据结构。 实现LRUCache类：  LRUCache(int capacity)以正整数作为容量capacity初始化 LRU 缓存 `int get(int key) 如果关键字 key 存在于
+          CloudFlare反向代理api（以api.openai.com为例） ¶注册CloudFlare并且登录 好像还要先完成邮箱验证（反正也是点个链接的事情） ATT：CF不需要挂梯子即可注册登录 ¶初始化项目 点击左侧Workers按钮  直接创建helloword worker  ¶部署项目 删除左侧代码后将新的反向代理代码粘贴至左侧，然后点击保存并且部署（Save and deploy），最
         </div>
       </a>
 
@@ -431,8 +387,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-20 13:55" pubdate>
-              2023-06-20
+            <time datetime="2023-03-20 23:01" pubdate>
+              2023-03-20
             </time>
           </div>
         
@@ -447,7 +403,115 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/03/14/java%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" target="_self">
+          JAVA继承问题
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/14/java%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" target="_self">
+        <div>
+          ¶子类拥有父类非private的属性，方法；子类可以拥有自己的属性和方法，即子类可以对父类进行扩展；子类可以用自己的方式实现父类的方法（重定义）。 ¶测试代码 123456789101112131415161718192021222324public class A &#123;	int i = 10;	public void add()&#123;	    System.out.println(
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-14 00:27" pubdate>
+              2023-03-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" target="_self">
+          Traffmonetizer使用教程
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/01/traffmonetizer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" target="_self">
+        <div>
+          直达一键运行脚本→传送门 ¶简介 Traffmonetizer是一个来自欧洲的流量挂机平台，类似Peer2profit，满10刀可提现(Paypal、BTC、Payoneer) ¶官网 Traffmonetizer官网：https://app.traffmonetizer.com/ Docker：https://hub.docker.com/r/traffmonetizer/cli ¶使用教程 ¶
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-01 15:14" pubdate>
+              2023-02-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -463,10 +527,66 @@
           </div>
         
         
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/26/%E6%B5%85%E8%AF%BB%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA-3-1%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7/" target="_self">
+          浅读算法导论——3.1渐近记号
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/26/%E6%B5%85%E8%AF%BB%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA-3-1%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7/" target="_self">
+        <div>
+          渐近记号适用于函数，Θ(n2)就是函数an2+bn+c。渐近记号适用于刻画算法运行时间、算法使用的空间数量等的函数 O(1)&lt;O(log2(n))&lt;O(n)&lt;O(nlog2(n))&lt;O(n2)&lt;O(2n)&lt;O(n!)&lt;O(nn) ¶Θ记号、O记号、Ω记号  ¶Θ记号 Θ记号限制一个函数在常量因子内，对所有n≥n0时，函数f(n)在一个常量因子内等于g(n)
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-26 17:08" pubdate>
+              2022-12-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/leetcode/">#leetcode</a>
+              <a href="/tags/%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7/">#渐近记号</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">#算法导论</a>
             
           </div>
         
@@ -480,15 +600,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9514-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" target="_self">
-          leetcode刷题记录14-最长公共前缀
+        <a href="/2022/12/09/ubuntu%E4%B8%8Bx-ui%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/" target="_self">
+          Ubuntu下x-ui面板搭建
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9514-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/ubuntu%E4%B8%8Bx-ui%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/" target="_self">
         <div>
-          ¶最长公共前缀  原题传送门  编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串&quot;&quot;。 ¶示例 ¶示例1 输入：strs = [“flower”,“flow”,“flight”] 输出：“fl” ¶示例2 输入：strs = [“dog”,“racecar”,“car”] 输出：“” 解释：输入不存在公共前缀。 提示：  1 &lt;= strs
+          原始仓库：https://github.com/vaxilu/x-ui ¶介绍 x-ui面板支持vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http等协议 ¶安装准备 安装面板需要关闭防火墙，运行： 1234sudo iptables -P INPUT ACCEPTsudo iptables -P FORWARD ACCEPTsudo ip
         </div>
       </a>
 
@@ -496,8 +616,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-19 14:16" pubdate>
-              2023-06-19
+            <time datetime="2022-12-09 16:45" pubdate>
+              2022-12-09
             </time>
           </div>
         
@@ -512,28 +632,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
 
       </span>
     
   
-    
-  
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -545,15 +654,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9513-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" target="_self">
-          leetcode刷题记录13-有效的括号
+        <a href="/2022/12/09/%E5%8A%A8%E6%80%81ip%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91ddns/" target="_self">
+          动态ip配置阿里云DDNS
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9513-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/%E5%8A%A8%E6%80%81ip%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91ddns/" target="_self">
         <div>
-          ¶有效的括号  原题传送门  给定一个只包括'('，')'，'&#123;'，'&#125;'，'['，']'的字符串s，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。 ¶示例 ¶示例1 输入：s = “()” 输出：true ¶示例2 输入：s = “()[]{}” 输出：true ¶示例3
+          使用仓库：利用Python+阿里云云解析API实现DDNS (github.com) 仓库文件：https://cloudreve.zhuanjie.ltd/s/OKCP 家庭等动态ip绑定域名需要实时更新域名指向的ip ¶准备工作 在阿里云控制台创建一个拥有使用DNS解析权限的AccessKey，记住AccessKeyId和AccessKeySecret，所需权限如下图  ¶开始安装 服务器端需
         </div>
       </a>
 
@@ -561,8 +670,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-19 13:53" pubdate>
-              2023-06-19
+            <time datetime="2022-12-09 16:15" pubdate>
+              2022-12-09
             </time>
           </div>
         
@@ -577,28 +686,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
 
       </span>
     
   
-    
-  
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -610,15 +708,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/16/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9512-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" target="_self">
-          leetcode刷题记录12-寻找两个正序数组的中位数
+        <a href="/2022/12/09/ubuntu%E5%BC%80%E5%90%AFcrontab%E6%89%A7%E8%A1%8C%E6%97%A5%E5%BF%97/" target="_self">
+          Ubuntu开启crontab执行日志
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/16/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9512-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/ubuntu%E5%BC%80%E5%90%AFcrontab%E6%89%A7%E8%A1%8C%E6%97%A5%E5%BF%97/" target="_self">
         <div>
-          ¶寻找两个正序数组的中位数  原题传送门  给定两个大小分别为m和n的正序（从小到大）数组nums1和nums2。请你找出并返回这两个正序数组的中位数。 ¶示例 ¶示例1 输入：nums1 = [1,3], nums2 = [2] 输出：2.00000 解释：合并数组 = [1,2,3] ，中位数 2 ¶示例2 输入：nums1 = [1,2], nums2 = [3,4] 输出：2.50000
+          Ubuntu默认不开启crontab的日志，但是在启动项里面有注释 未开启状态时，日志文件夹是这样的：  ¶开启方式  编辑 /etc/rsyslog.d/50-default.conf 文件 取消注释 cron.* /var/log/cron.log 这一行 保存文件后运行 sudo service rsyslog restart 重启日志服务 之后crontab运行的日志就放在 /var/lo
         </div>
       </a>
 
@@ -626,8 +724,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-16 13:50" pubdate>
-              2023-06-16
+            <time datetime="2022-12-09 15:45" pubdate>
+              2022-12-09
             </time>
           </div>
         
@@ -642,28 +740,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
 
       </span>
     
   
-    
-  
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -675,15 +762,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9511-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" target="_self">
-          leetcode刷题记录11-最长回文子串
+        <a href="/2022/10/08/random-api/" target="_self">
+          随机图片API
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9511-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/08/random-api/" target="_self">
         <div>
-          ¶最长回文子串  原题传送门  给定一个字符串s，找到s中最长的回文子串。 ¶示例 ¶示例1 输入：s = “babad” 输出：“bab” 解释：“aba” 同样是符合题意的答案。 ¶示例2 输入：s = “cbbd” 输出：“bb” 提示：  1 &lt;= s.length &lt;= 1000 s仅由数字和英文字母组成  ¶解答 ¶C++1 暴力循环法，长度从s的长度开始依次减小字串长度并
+          ¶岁月小筑随机图片API接口 1234#https调用https://img.xjh.me/random_img.php#http调用http://img.xjh.me/random_img.php  ¶樱道随机图片API 12#接口略多，自己去官网看把https://api.r10086.com/img-api.php?type=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90
         </div>
       </a>
 
@@ -691,8 +778,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-15 13:47" pubdate>
-              2023-06-15
+            <time datetime="2022-10-08 20:59" pubdate>
+              2022-10-08
             </time>
           </div>
         
@@ -707,28 +794,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
   
   
 
       </span>
     
   
-    
-  
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -740,15 +816,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9510-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" target="_self">
-          leetcode刷题记录10-无重复字符的最长子串
+        <a href="/2022/10/04/%E6%94%BF%E6%B2%BB-%E9%A9%AC%E5%8E%9F/" target="_self">
+          马原
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9510-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/04/%E6%94%BF%E6%B2%BB-%E9%A9%AC%E5%8E%9F/" target="_self">
         <div>
-          ¶无重复字符的最长子串  原题传送门  给定一个字符串s，请你找出其中不含有重复字符的最长子串的长度。 ¶示例 ¶示例1 输入: s = “abcabcbb” 输出: 3 解释: 因为无重复字符的最长子串是&quot;abc&quot;，所以其长度为 3。 ¶示例2 输入: s = “bbbbb” 输出: 1 解释: 因为无重复字符的最长子串是&quot;b&quot;，所以其长度为 1。 ¶示例
+          源格式跳转 马原.html (zhuanjie.ltd)   幕布分享跳转 文档链接: https://www.mubucm.com/doc/11Ml83E3pG- 密码: randall  马原.docx下载 马原  导论  马克思主义的创立和发展  马克思主义的内涵及构成—— #非重点  马克思主义的内容包括：自然**、社会和****人类思维**唯物史观的内容不包括自然   马克思主义的基本
         </div>
       </a>
 
@@ -756,8 +832,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-08 11:30" pubdate>
-              2023-06-08
+            <time datetime="2022-10-04 11:59" pubdate>
+              2022-10-04
             </time>
           </div>
         
@@ -772,7 +848,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E7%A0%94/" class="category-chain-item">研</a>
   
   
 
@@ -781,214 +857,10 @@
   
     
   
-    
-  
 </span>
 
           </div>
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%959-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" target="_self">
-          leetcode刷题记录9-用两个栈实现队列
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%959-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" target="_self">
-        <div>
-          ¶用两个栈实现队列  原题传送门  用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail和deleteHead，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead操作返回 -1 ) ¶示例 ¶示例1 输入： [“CQueue”,“appendTail”,“deleteHead”,“deleteHead”,“deleteHead”]
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-08 11:00" pubdate>
-              2023-06-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" target="_self">
-          leetcode刷题记录8-两数相加
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" target="_self">
-        <div>
-          ¶两数相加  原题传送门  给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。 请你将两个数相加，并以相同形式返回一个表示和的链表。 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。 ¶示例 ¶示例1  输入：l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 解释：342 + 465 = 807. ¶示例
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-08 10:30" pubdate>
-              2023-06-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/04/01/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957-%E6%89%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%9C%80%E8%BF%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9/" target="_self">
-          leetcode刷题记录7-找到二叉树中最近的右侧节点
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/04/01/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957-%E6%89%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%9C%80%E8%BF%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9/" target="_self">
-        <div>
-          ¶找到二叉树中最近的右侧节点  原题传送门  给定一棵二叉树的根节点 root 和树中的一个节点 u ，返回与 u 所在层中距离最近的右侧节点，当 u 是所在层中最右侧的节点，返回 null 。 ¶示例 ¶示例1  输入：root = [1,2,3,null,4,5,6], u = 4 输出：5 解释：节点 4 所在层中，最近的右侧节点是节点 5。 ¶示例2  输入：root = [3,null,
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-01 16:28" pubdate>
-              2023-04-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C/" class="category-chain-item">C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-  
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">#leetcode</a>
-            
-          </div>
         
       </div>
     </article>
@@ -998,7 +870,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -1178,5 +1050,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

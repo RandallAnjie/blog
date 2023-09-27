@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -340,74 +300,56 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 37 篇文章</p>
+  <p class="h4">共计 17 篇文章</p>
   <hr>
   
   
     
       
-      <p class="h5">2023</p>
+      <p class="h5">2021</p>
     
-    <a href="/2023/03/28/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%956-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/" class="list-group-item list-group-item-action">
-      <time>03-28</time>
-      <div class="list-group-item-title">leetcode刷题记录6-一维数组的动态和</div>
+    <a href="/2021/05/25/huffman/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">霍夫曼编码Huffman</div>
     </a>
   
     
-    <a href="/2023/03/27/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955-%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/" class="list-group-item list-group-item-action">
-      <time>03-27</time>
-      <div class="list-group-item-title">leetcode刷题记录5-存在重复元素</div>
+    <a href="/2021/05/25/intervalscheduling/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">区间调度IntervalScheduling</div>
     </a>
   
     
-    <a href="/2023/03/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="list-group-item list-group-item-action">
-      <time>03-26</time>
-      <div class="list-group-item-title">leetcode刷题记录4-二分查找</div>
+    <a href="/2021/05/25/quicksort/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">快速排序QuickSort</div>
     </a>
   
     
-    <a href="/2023/03/23/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/" class="list-group-item list-group-item-action">
-      <time>03-23</time>
-      <div class="list-group-item-title">leetcode刷题记录3-罗马数字转整数</div>
+    <a href="/2021/05/25/stablemaching/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">稳定匹配StableMaching</div>
     </a>
   
     
-    <a href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" class="list-group-item list-group-item-action">
-      <time>03-22</time>
-      <div class="list-group-item-title">万游笔试试题</div>
+    <a href="/2021/05/20/deadline/" class="list-group-item list-group-item-action">
+      <time>05-20</time>
+      <div class="list-group-item-title">算法分析与设计大作业——截止日期</div>
     </a>
   
     
-    <a href="/2023/03/22/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952-%E5%9B%9E%E6%96%87%E6%95%B0/" class="list-group-item list-group-item-action">
-      <time>03-22</time>
-      <div class="list-group-item-title">leetcode刷题记录2-回文数</div>
-    </a>
-  
-    
-    <a href="/2023/02/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="list-group-item list-group-item-action">
-      <time>02-15</time>
-      <div class="list-group-item-title">leetcode刷题记录1-两数之和</div>
+    <a href="/2021/05/20/finaltest/" class="list-group-item list-group-item-action">
+      <time>05-20</time>
+      <div class="list-group-item-title">算法分析与设计大作业——期末测试</div>
     </a>
   
     
       
-      <p class="h5">2022</p>
+      <p class="h5">2020</p>
     
-    <a href="/2022/12/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC/" class="list-group-item list-group-item-action">
-      <time>12-10</time>
-      <div class="list-group-item-title">每日一题——最大差值</div>
-    </a>
-  
-    
-    <a href="/2022/10/05/day11/" class="list-group-item list-group-item-action">
-      <time>10-05</time>
-      <div class="list-group-item-title">每日一题——RGB</div>
-    </a>
-  
-    
-    <a href="/2022/08/02/day10/" class="list-group-item list-group-item-action">
-      <time>08-02</time>
-      <div class="list-group-item-title">每日一题——带分数</div>
+    <a href="/2020/06/27/experimentalreportonprogramdesigninspring20/" class="list-group-item list-group-item-action">
+      <time>06-27</time>
+      <div class="list-group-item-title">20春小学期程序设计实验报告</div>
     </a>
   
 </div>
@@ -415,7 +357,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/categories/C/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/categories/C/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/C/page/3/#board">3</a><a class="page-number" href="/categories/C/page/4/#board">4</a><a class="extend next" rel="next" href="/categories/C/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/categories/C/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/categories/C/">1</a><span class="page-number current">2</span>
     </span>
   </nav>
 
@@ -566,5 +508,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

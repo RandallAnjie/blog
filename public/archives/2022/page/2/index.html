@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -340,37 +300,13 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 84 篇文章</p>
+  <p class="h4">共计 56 篇文章</p>
   <hr>
   
   
     
       
       <p class="h5">2022</p>
-    
-    <a href="/2022/08/02/day10/" class="list-group-item list-group-item-action">
-      <time>08-02</time>
-      <div class="list-group-item-title">每日一题——带分数</div>
-    </a>
-  
-    
-    <a href="/2022/07/21/ipsec/" class="list-group-item list-group-item-action">
-      <time>07-21</time>
-      <div class="list-group-item-title">搭建IPSec服务</div>
-    </a>
-  
-    
-    <a href="/2022/07/14/day9/" class="list-group-item list-group-item-action">
-      <time>07-14</time>
-      <div class="list-group-item-title">每日一题——翻硬币</div>
-    </a>
-  
-    
-    <a href="/2022/07/08/jrxy-auto-sign/" class="list-group-item list-group-item-action">
-      <time>07-08</time>
-      <div class="list-group-item-title">今日校园自动签到</div>
-    </a>
-  
     
     <a href="/2022/06/13/linux-systemctl/" class="list-group-item list-group-item-action">
       <time>06-13</time>
@@ -407,12 +343,36 @@
       <div class="list-group-item-title">关于各种排序</div>
     </a>
   
+    
+    <a href="/2022/03/10/eight-digital-problems/" class="list-group-item list-group-item-action">
+      <time>03-10</time>
+      <div class="list-group-item-title">八数码问题</div>
+    </a>
+  
+    
+    <a href="/2022/03/03/treeandbinarytree/" class="list-group-item list-group-item-action">
+      <time>03-03</time>
+      <div class="list-group-item-title">数据结构——树与二叉树</div>
+    </a>
+  
+    
+    <a href="/2022/02/23/tomcat-install/" class="list-group-item list-group-item-action">
+      <time>02-23</time>
+      <div class="list-group-item-title">Tomcat安装配置</div>
+    </a>
+  
+    
+    <a href="/2022/02/23/mysql-install/" class="list-group-item list-group-item-action">
+      <time>02-23</time>
+      <div class="list-group-item-title">MySQL的配置安装</div>
+    </a>
+  
 </div>
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2022/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2022/page/3/#board">3</a><a class="page-number" href="/archives/2022/page/4/#board">4</a><a class="extend next" rel="next" href="/archives/2022/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/archives/2022/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2022/page/3/#board">3</a><a class="extend next" rel="next" href="/archives/2022/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -563,5 +523,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -362,7 +322,7 @@
       
         <a href="/categories/C/" class="category-count col-2 col-md-1 col-xm-1">
           <i class="iconfont icon-articles"></i>
-          <span>37</span>
+          <span>17</span>
         </a>
       
       <div class="category-collapse collapse " id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
@@ -375,355 +335,97 @@
     
       
       
-        <a href="/2023/06/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9516-%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="leetcode刷题记录16-爬楼梯"
+        <a href="/2023/03/22/%E4%B8%87%E6%B8%B8%E7%AC%94%E8%AF%95/" title="万游笔试试题"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录16-爬楼梯</span>
+          <span class="category-post">万游笔试试题</span>
         </a>
       
     
       
       
-        <a href="/2023/06/20/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9515-LRU%20%E7%BC%93%E5%AD%98/" title="leetcode刷题记录15-LRU 缓存"
+        <a href="/2022/04/11/all-kinds-of-sort/" title="关于各种排序"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录15-LRU 缓存</span>
+          <span class="category-post">关于各种排序</span>
         </a>
       
     
       
       
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9514-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="leetcode刷题记录14-最长公共前缀"
+        <a href="/2022/03/10/eight-digital-problems/" title="八数码问题"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录14-最长公共前缀</span>
+          <span class="category-post">八数码问题</span>
         </a>
       
     
       
       
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9513-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" title="leetcode刷题记录13-有效的括号"
+        <a href="/2022/03/03/treeandbinarytree/" title="数据结构——树与二叉树"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录13-有效的括号</span>
+          <span class="category-post">数据结构——树与二叉树</span>
         </a>
       
     
       
       
-        <a href="/2023/06/16/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9512-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="leetcode刷题记录12-寻找两个正序数组的中位数"
+        <a href="/2022/02/19/sstring/" title="数据结构——串"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录12-寻找两个正序数组的中位数</span>
+          <span class="category-post">数据结构——串</span>
         </a>
       
     
       
       
-        <a href="/2023/06/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9511-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录11-最长回文子串"
+        <a href="/2022/02/15/stackandqueue/" title="数据结构——栈和队列"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录11-最长回文子串</span>
+          <span class="category-post">数据结构——栈和队列</span>
         </a>
       
     
       
       
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9510-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录10-无重复字符的最长子串"
+        <a href="/2022/02/13/linearlist/" title="数据结构——线性表"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录10-无重复字符的最长子串</span>
+          <span class="category-post">数据结构——线性表</span>
         </a>
       
     
       
       
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%959-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" title="leetcode刷题记录9-用两个栈实现队列"
+        <a href="/2021/06/06/12lanqiao/" title="12届蓝桥杯C++决赛试题"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录9-用两个栈实现队列</span>
+          <span class="category-post">12届蓝桥杯C++决赛试题</span>
         </a>
       
     
       
       
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" title="leetcode刷题记录8-两数相加"
+        <a href="/2021/05/25/backpackproblem/" title="背包问题BackpackProblem"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录8-两数相加</span>
+          <span class="category-post">背包问题BackpackProblem</span>
         </a>
       
     
       
       
-        <a href="/2023/04/01/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957-%E6%89%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%9C%80%E8%BF%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9/" title="leetcode刷题记录7-找到二叉树中最近的右侧节点"
+        <a href="/2021/05/25/all-point-pair-shortest-path/" title="全点对最短路径All point pair shortest path"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">leetcode刷题记录7-找到二叉树中最近的右侧节点</span>
+          <span class="category-post">全点对最短路径All point pair shortest path</span>
         </a>
       
     
       
       
         <a href="/categories/C/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="每日一题"
-        id="heading-c160eb5149ef727dcf5b15a4d1c75f40" role="tab" data-toggle="collapse" href="#collapse-c160eb5149ef727dcf5b15a4d1c75f40"
-        aria-expanded="false"
-      >
-        每日一题
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>28</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-c160eb5149ef727dcf5b15a4d1c75f40"
-           role="tabpanel" aria-labelledby="heading-c160eb5149ef727dcf5b15a4d1c75f40">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2023/06/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9516-%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="leetcode刷题记录16-爬楼梯"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录16-爬楼梯</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/20/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9515-LRU%20%E7%BC%93%E5%AD%98/" title="leetcode刷题记录15-LRU 缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录15-LRU 缓存</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9514-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="leetcode刷题记录14-最长公共前缀"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录14-最长公共前缀</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9513-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" title="leetcode刷题记录13-有效的括号"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录13-有效的括号</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/16/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9512-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="leetcode刷题记录12-寻找两个正序数组的中位数"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录12-寻找两个正序数组的中位数</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9511-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录11-最长回文子串"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录11-最长回文子串</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9510-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录10-无重复字符的最长子串"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录10-无重复字符的最长子串</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%959-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" title="leetcode刷题记录9-用两个栈实现队列"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录9-用两个栈实现队列</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" title="leetcode刷题记录8-两数相加"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录8-两数相加</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/04/01/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957-%E6%89%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%9C%80%E8%BF%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9/" title="leetcode刷题记录7-找到二叉树中最近的右侧节点"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录7-找到二叉树中最近的右侧节点</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="leetcode"
-        id="heading-c305fb1df5f5fb79acafd8b0fa25b0b8" role="tab" data-toggle="collapse" href="#collapse-c305fb1df5f5fb79acafd8b0fa25b0b8"
-        aria-expanded="false"
-      >
-        leetcode
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/leetcode/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>16</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-c305fb1df5f5fb79acafd8b0fa25b0b8"
-           role="tabpanel" aria-labelledby="heading-c305fb1df5f5fb79acafd8b0fa25b0b8">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2023/06/26/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9516-%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="leetcode刷题记录16-爬楼梯"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录16-爬楼梯</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/20/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9515-LRU%20%E7%BC%93%E5%AD%98/" title="leetcode刷题记录15-LRU 缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录15-LRU 缓存</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9514-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="leetcode刷题记录14-最长公共前缀"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录14-最长公共前缀</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9513-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" title="leetcode刷题记录13-有效的括号"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录13-有效的括号</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/16/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9512-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="leetcode刷题记录12-寻找两个正序数组的中位数"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录12-寻找两个正序数组的中位数</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/15/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9511-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录11-最长回文子串"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录11-最长回文子串</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9510-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="leetcode刷题记录10-无重复字符的最长子串"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录10-无重复字符的最长子串</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%959-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" title="leetcode刷题记录9-用两个栈实现队列"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录9-用两个栈实现队列</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/06/08/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" title="leetcode刷题记录8-两数相加"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录8-两数相加</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/04/01/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957-%E6%89%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%9C%80%E8%BF%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9/" title="leetcode刷题记录7-找到二叉树中最近的右侧节点"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">leetcode刷题记录7-找到二叉树中最近的右侧节点</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/leetcode/" class="list-group-item list-group-item-action">
           <span class="category-post">More...</span>
         </a>
         
@@ -798,19 +500,19 @@
     
       
       
-        <a href="/2021/05/25/all-point-pair-shortest-path/" title="全点对最短路径All point pair shortest path"
+        <a href="/2021/05/25/backpackproblem/" title="背包问题BackpackProblem"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">全点对最短路径All point pair shortest path</span>
+          <span class="category-post">背包问题BackpackProblem</span>
         </a>
       
     
       
       
-        <a href="/2021/05/25/backpackproblem/" title="背包问题BackpackProblem"
+        <a href="/2021/05/25/all-point-pair-shortest-path/" title="全点对最短路径All point pair shortest path"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">背包问题BackpackProblem</span>
+          <span class="category-post">全点对最短路径All point pair shortest path</span>
         </a>
       
     
@@ -1130,7 +832,7 @@
       
         <a href="/categories/C/" class="category-count col-2 col-md-1 col-xm-1">
           <i class="iconfont icon-articles"></i>
-          <span>9</span>
+          <span>8</span>
         </a>
       
       <div class="category-collapse collapse " id="collapse-0d61f8370cad1d412f80b84d143e1257"
@@ -1140,15 +842,6 @@
           
   <div class="category-post-list">
     
-    
-      
-      
-        <a href="/2022/12/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC/" title="每日一题——最大差值"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">每日一题——最大差值</span>
-        </a>
-      
     
       
       
@@ -1425,75 +1118,6 @@
     
     <div class="category row nomargin-x">
       <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="计算机网络"
-        id="heading-f75627e742c5ba6fab3c2f3c2abf02a0" role="tab" data-toggle="collapse" href="#collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
-        aria-expanded="false"
-      >
-        计算机网络
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>4</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
-           role="tabpanel" aria-labelledby="heading-f75627e742c5ba6fab3c2f3c2abf02a0">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2022/09/20/cn2-wlc/" title="第2章 物理层"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">第2章 物理层</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/20/cn1-jsjwltxjg/" title="第1章 计算机网络体系结构"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">第1章 计算机网络体系结构</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/12/31/computer-net-udp-server/" title="计算机网络小学期——UDP服务器的设计"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">计算机网络小学期——UDP服务器的设计</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/10/19/udp-checksum/" title="计算机网络计算UDP校验和"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">计算机网络计算UDP校验和</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="编译原理"
         id="heading-750cc643fac4dc07e3493ac64ffc215c" role="tab" data-toggle="collapse" href="#collapse-750cc643fac4dc07e3493ac64ffc215c"
         aria-expanded="false"
@@ -1549,6 +1173,75 @@
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">编译原理实验1</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="计算机网络"
+        id="heading-f75627e742c5ba6fab3c2f3c2abf02a0" role="tab" data-toggle="collapse" href="#collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
+        aria-expanded="false"
+      >
+        计算机网络
+        <span class="list-group-count"></span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+        <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>4</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
+           role="tabpanel" aria-labelledby="heading-f75627e742c5ba6fab3c2f3c2abf02a0">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2022/09/20/cn2-wlc/" title="第2章 物理层"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">第2章 物理层</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/09/20/cn1-jsjwltxjg/" title="第1章 计算机网络体系结构"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">第1章 计算机网络体系结构</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2021/12/31/computer-net-udp-server/" title="计算机网络小学期——UDP服务器的设计"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">计算机网络小学期——UDP服务器的设计</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2021/10/19/udp-checksum/" title="计算机网络计算UDP校验和"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">计算机网络计算UDP校验和</span>
         </a>
       
     
@@ -2164,5 +1857,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

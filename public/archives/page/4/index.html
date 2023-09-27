@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -340,71 +300,71 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 84 篇文章</p>
+  <p class="h4">共计 56 篇文章</p>
   <hr>
   
   
     
       
-      <p class="h5">2022</p>
+      <p class="h5">2021</p>
     
-    <a href="/2022/08/02/day10/" class="list-group-item list-group-item-action">
-      <time>08-02</time>
-      <div class="list-group-item-title">每日一题——带分数</div>
+    <a href="/2021/12/31/computer-net-udp-server/" class="list-group-item list-group-item-action">
+      <time>12-31</time>
+      <div class="list-group-item-title">计算机网络小学期——UDP服务器的设计</div>
     </a>
   
     
-    <a href="/2022/07/21/ipsec/" class="list-group-item list-group-item-action">
-      <time>07-21</time>
-      <div class="list-group-item-title">搭建IPSec服务</div>
+    <a href="/2021/11/28/python-map/" class="list-group-item list-group-item-action">
+      <time>11-28</time>
+      <div class="list-group-item-title">Python大作业——北印导航系统</div>
     </a>
   
     
-    <a href="/2022/07/14/day9/" class="list-group-item list-group-item-action">
-      <time>07-14</time>
-      <div class="list-group-item-title">每日一题——翻硬币</div>
+    <a href="/2021/11/12/python-tqdm/" class="list-group-item list-group-item-action">
+      <time>11-12</time>
+      <div class="list-group-item-title">Python tqdm进度条</div>
     </a>
   
     
-    <a href="/2022/07/08/jrxy-auto-sign/" class="list-group-item list-group-item-action">
-      <time>07-08</time>
-      <div class="list-group-item-title">今日校园自动签到</div>
+    <a href="/2021/11/11/linux-c-communcation/" class="list-group-item list-group-item-action">
+      <time>11-11</time>
+      <div class="list-group-item-title">Linux下C语言进程间通信——创建共享区</div>
     </a>
   
     
-    <a href="/2022/06/13/linux-systemctl/" class="list-group-item list-group-item-action">
-      <time>06-13</time>
-      <div class="list-group-item-title">Linux下将长期运行命令变为系统服务</div>
+    <a href="/2021/11/09/python-dict-sort/" class="list-group-item list-group-item-action">
+      <time>11-09</time>
+      <div class="list-group-item-title">python中的字典排序</div>
     </a>
   
     
-    <a href="/2022/06/11/byyl4/" class="list-group-item list-group-item-action">
-      <time>06-11</time>
-      <div class="list-group-item-title">编译原理实验4</div>
+    <a href="/2021/11/05/linux-ruanzhongduan-problem/" class="list-group-item list-group-item-action">
+      <time>11-05</time>
+      <div class="list-group-item-title">关于Linux下软中断通信子进程不输出（接收不到信号问题）</div>
     </a>
   
     
-    <a href="/2022/06/02/byyl3/" class="list-group-item list-group-item-action">
-      <time>06-02</time>
-      <div class="list-group-item-title">编译原理实验3</div>
+    <a href="/2021/11/02/linux-wait-waitstatus-wifexitedstatus-exit/" class="list-group-item list-group-item-action">
+      <time>11-02</time>
+      <div class="list-group-item-title">Linux下c语言进程通讯——wait()/wait(&amp;status)/WIFEXITED(status)和exit()之间的关系</div>
     </a>
   
     
-    <a href="/2022/06/02/byyl2/" class="list-group-item list-group-item-action">
-      <time>06-02</time>
-      <div class="list-group-item-title">编译原理实验2</div>
+    <a href="/2021/10/22/python-judge-character/" class="list-group-item list-group-item-action">
+      <time>10-22</time>
+      <div class="list-group-item-title">Python判断数据类型</div>
     </a>
   
     
-    <a href="/2022/06/02/byyl1/" class="list-group-item list-group-item-action">
-      <time>06-02</time>
-      <div class="list-group-item-title">编译原理实验1</div>
+    <a href="/2021/10/22/linux-output/" class="list-group-item list-group-item-action">
+      <time>10-22</time>
+      <div class="list-group-item-title">关于Linux下子进程输出问题</div>
     </a>
   
     
-    <a href="/2022/04/11/all-kinds-of-sort/" class="list-group-item list-group-item-action">
-      <time>04-11</time>
-      <div class="list-group-item-title">关于各种排序</div>
+    <a href="/2021/10/19/udp-checksum/" class="list-group-item list-group-item-action">
+      <time>10-19</time>
+      <div class="list-group-item-title">计算机网络计算UDP校验和</div>
     </a>
   
 </div>
@@ -412,7 +372,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/#board">2</a><a class="page-number" href="/archives/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/#board">5</a><a class="page-number" href="/archives/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/#board">9</a><a class="extend next" rel="next" href="/archives/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/archives/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/#board">2</a><a class="page-number" href="/archives/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/#board">5</a><a class="page-number" href="/archives/page/6/#board">6</a><a class="extend next" rel="next" href="/archives/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -563,5 +523,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -340,71 +300,71 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 84 篇文章</p>
+  <p class="h4">共计 56 篇文章</p>
   <hr>
   
   
     
       
-      <p class="h5">2022</p>
+      <p class="h5">2021</p>
     
-    <a href="/2022/04/11/day8/" class="list-group-item list-group-item-action">
-      <time>04-11</time>
-      <div class="list-group-item-title">每日一题——九进制转十进制</div>
+    <a href="/2021/10/18/linux-os2/" class="list-group-item list-group-item-action">
+      <time>10-18</time>
+      <div class="list-group-item-title">Linux下C语言进程管理（创建子进程的原理）——操作系统实验2</div>
     </a>
   
     
-    <a href="/2022/03/23/day7/" class="list-group-item list-group-item-action">
-      <time>03-23</time>
-      <div class="list-group-item-title">每日一题——错误票据</div>
+    <a href="/2021/10/18/linux-shell-os1/" class="list-group-item list-group-item-action">
+      <time>10-18</time>
+      <div class="list-group-item-title">Linux下Shell语言编写程序——操作系统实验1</div>
     </a>
   
     
-    <a href="/2022/03/22/day6/" class="list-group-item list-group-item-action">
-      <time>03-22</time>
-      <div class="list-group-item-title">每日一题——三部排序</div>
+    <a href="/2021/10/16/python-list-set-dict/" class="list-group-item list-group-item-action">
+      <time>10-16</time>
+      <div class="list-group-item-title">Python的列表，集合，字典的区别和使用</div>
     </a>
   
     
-    <a href="/2022/03/21/day5/" class="list-group-item list-group-item-action">
-      <time>03-21</time>
-      <div class="list-group-item-title">每日一题——前缀判断</div>
+    <a href="/2021/10/15/androidstudiostudy/" class="list-group-item list-group-item-action">
+      <time>10-15</time>
+      <div class="list-group-item-title">移动应用基础——AndroidStudio编程（未完成）</div>
     </a>
   
     
-    <a href="/2022/03/20/day4/" class="list-group-item list-group-item-action">
-      <time>03-20</time>
-      <div class="list-group-item-title">每日一题——黄金连分数</div>
+    <a href="/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" class="list-group-item list-group-item-action">
+      <time>10-14</time>
+      <div class="list-group-item-title">AS报错“Could not find com.android.tools.build:gradle:4.1.2.”</div>
     </a>
   
     
-    <a href="/2022/03/19/day3/" class="list-group-item list-group-item-action">
-      <time>03-19</time>
-      <div class="list-group-item-title">每日一题——第39级台阶</div>
+    <a href="/2021/07/02/shujvkuxiaoxueqi/" class="list-group-item list-group-item-action">
+      <time>07-02</time>
+      <div class="list-group-item-title">21春数据库系统设计小学期——大学实验材料管理信息系统数据库设计</div>
     </a>
   
     
-    <a href="/2022/03/18/day2/" class="list-group-item list-group-item-action">
-      <time>03-18</time>
-      <div class="list-group-item-title">每日一题——马虎的算式</div>
+    <a href="/2021/06/06/12lanqiao/" class="list-group-item list-group-item-action">
+      <time>06-06</time>
+      <div class="list-group-item-title">12届蓝桥杯C++决赛试题</div>
     </a>
   
     
-    <a href="/2022/03/17/day1/" class="list-group-item list-group-item-action">
-      <time>03-17</time>
-      <div class="list-group-item-title">每日一题——高斯日记</div>
+    <a href="/2021/05/25/backpackproblem/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">背包问题BackpackProblem</div>
     </a>
   
     
-    <a href="/2022/03/10/eight-digital-problems/" class="list-group-item list-group-item-action">
-      <time>03-10</time>
-      <div class="list-group-item-title">八数码问题</div>
+    <a href="/2021/05/25/all-point-pair-shortest-path/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">全点对最短路径All point pair shortest path</div>
     </a>
   
     
-    <a href="/2022/03/03/treeandbinarytree/" class="list-group-item list-group-item-action">
-      <time>03-03</time>
-      <div class="list-group-item-title">数据结构——树与二叉树</div>
+    <a href="/2021/05/25/huffman/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">霍夫曼编码Huffman</div>
     </a>
   
 </div>
@@ -412,7 +372,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/#board">3</a><a class="page-number" href="/archives/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/#board">6</a><a class="page-number" href="/archives/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/#board">9</a><a class="extend next" rel="next" href="/archives/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/archives/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/#board">3</a><a class="page-number" href="/archives/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/#board">6</a><a class="extend next" rel="next" href="/archives/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -563,5 +523,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

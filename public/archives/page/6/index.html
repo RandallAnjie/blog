@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -340,74 +300,50 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 84 篇文章</p>
+  <p class="h4">共计 56 篇文章</p>
   <hr>
   
   
     
       
-      <p class="h5">2022</p>
+      <p class="h5">2021</p>
     
-    <a href="/2022/02/23/tomcat-install/" class="list-group-item list-group-item-action">
-      <time>02-23</time>
-      <div class="list-group-item-title">Tomcat安装配置</div>
+    <a href="/2021/05/25/intervalscheduling/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">区间调度IntervalScheduling</div>
     </a>
   
     
-    <a href="/2022/02/23/mysql-install/" class="list-group-item list-group-item-action">
-      <time>02-23</time>
-      <div class="list-group-item-title">MySQL的配置安装</div>
+    <a href="/2021/05/25/quicksort/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">快速排序QuickSort</div>
     </a>
   
     
-    <a href="/2022/02/23/mingw-install/" class="list-group-item list-group-item-action">
-      <time>02-23</time>
-      <div class="list-group-item-title">MinGW环境安装</div>
+    <a href="/2021/05/25/stablemaching/" class="list-group-item list-group-item-action">
+      <time>05-25</time>
+      <div class="list-group-item-title">稳定匹配StableMaching</div>
     </a>
   
     
-    <a href="/2022/02/23/jdk-install/" class="list-group-item list-group-item-action">
-      <time>02-23</time>
-      <div class="list-group-item-title">JDK安装以及环境变量配置</div>
+    <a href="/2021/05/20/deadline/" class="list-group-item list-group-item-action">
+      <time>05-20</time>
+      <div class="list-group-item-title">算法分析与设计大作业——截止日期</div>
     </a>
   
     
-    <a href="/2022/02/19/sstring/" class="list-group-item list-group-item-action">
-      <time>02-19</time>
-      <div class="list-group-item-title">数据结构——串</div>
-    </a>
-  
-    
-    <a href="/2022/02/15/stackandqueue/" class="list-group-item list-group-item-action">
-      <time>02-15</time>
-      <div class="list-group-item-title">数据结构——栈和队列</div>
-    </a>
-  
-    
-    <a href="/2022/02/13/linearlist/" class="list-group-item list-group-item-action">
-      <time>02-13</time>
-      <div class="list-group-item-title">数据结构——线性表</div>
-    </a>
-  
-    
-    <a href="/2022/01/15/monotone-stack/" class="list-group-item list-group-item-action">
-      <time>01-15</time>
-      <div class="list-group-item-title">单调栈的解释及应用</div>
+    <a href="/2021/05/20/finaltest/" class="list-group-item list-group-item-action">
+      <time>05-20</time>
+      <div class="list-group-item-title">算法分析与设计大作业——期末测试</div>
     </a>
   
     
       
-      <p class="h5">2021</p>
+      <p class="h5">2020</p>
     
-    <a href="/2021/12/31/computer-net-udp-server/" class="list-group-item list-group-item-action">
-      <time>12-31</time>
-      <div class="list-group-item-title">计算机网络小学期——UDP服务器的设计</div>
-    </a>
-  
-    
-    <a href="/2021/11/28/python-map/" class="list-group-item list-group-item-action">
-      <time>11-28</time>
-      <div class="list-group-item-title">Python大作业——北印导航系统</div>
+    <a href="/2020/06/27/experimentalreportonprogramdesigninspring20/" class="list-group-item list-group-item-action">
+      <time>06-27</time>
+      <div class="list-group-item-title">20春小学期程序设计实验报告</div>
     </a>
   
 </div>
@@ -415,7 +351,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/#board">4</a><a class="page-number" href="/archives/page/5/#board">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/#board">7</a><a class="page-number" href="/archives/page/8/#board">8</a><a class="page-number" href="/archives/page/9/#board">9</a><a class="extend next" rel="next" href="/archives/page/7/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/archives/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/#board">4</a><a class="page-number" href="/archives/page/5/#board">5</a><span class="page-number current">6</span>
     </span>
   </nav>
 
@@ -566,5 +502,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>

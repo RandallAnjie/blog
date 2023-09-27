@@ -165,6 +165,6 @@ Fluid.events = {
       return;
     }
     // eslint-disable-next-line no-console
-    console.log(`感谢使用本站点 —— by 转接`);
+    console.log(`感谢使用本站点\nPowered by Randall\nCopyright randallanjie.com © . All rights reserved.`);
   }
 };

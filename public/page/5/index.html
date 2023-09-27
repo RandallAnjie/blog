@@ -222,64 +222,24 @@
                 <span>个人网站</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://startpage.zhuanjie.ltd/">
-                    
-                    <span>个人主页</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://pan.zhuanjie.ltd/">
-                    
-                    <span>个人网盘</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://ai.zhuanjie.ltd/">
-                    
-                    <span>ChatGPT</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://airport.randallanjie.uk/">
-                    
-                    <span>个人机场</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aimage.zhuanjie.ltd/">
-                    
-                    <span>毕业设计</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://mail.randallanjie.com/">
-                    
-                    <span>邮箱</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://dash.zhuanjie.ltd/">
-                    
-                    <span>服务器监控</span>
-                  </a>
-                
+                链接加载中...(若长时间未加载成功请检查您与<a target="_blank" rel="noopener" href="https://randallanjie.com/" style="color: white">主站</a>的连接)
               </div>
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://randallanjie.com/json/personal_info.json', true);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var webLink = data.webLink;
+                    var webLinkHtml = '';
+                    for (var i = 0; i < webLink.length; i++) {
+                      webLinkHtml += '<a class="dropdown-item" target="_blank" rel="noopener" href="' + webLink[i].url + '"><span>' + webLink[i].name + '</span></a>';
+                    }
+                    document.querySelector('.dropdown-menu').innerHTML = webLinkHtml;
+                  }
+                }
+              </script>
             </li>
           
         
@@ -350,15 +310,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/04/11/day8/" target="_self">
-          每日一题——九进制转十进制
+        <a href="/2021/10/18/linux-os2/" target="_self">
+          Linux下C语言进程管理（创建子进程的原理）——操作系统实验2
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/11/day8/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/18/linux-os2/" target="_self">
         <div>
-          day8  ¶题目 九进制正整数 (2022)9 转换成十进制等于多少？ ¶格式 这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。 ¶代码 123456789101112131415161718192021222324252627282930313233343536/* * @Author: 转接 * @Date: 2
+          ¶实验目的 (1)通过实验使学生了解Linux C程序的编译和运行; (2)掌握fork函数的编程方法; (3)热悉并发进程的程序的编写。 ¶实验预备知识 (1)Linux文本编辑器vi和gedit； (2)gcc编译器。 ¶实验内容 1 父进程创建子进程 1)父进程显示“11111” 2)子进程显示“22222” 3）多次执行该程序观察结果。 2 父进程创建子进程 1)父进程显示“I am pa
         </div>
       </a>
 
@@ -366,8 +326,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-11 12:09" pubdate>
-              2022-04-11
+            <time datetime="2021-10-18 23:19" pubdate>
+              2021-10-18
             </time>
           </div>
         
@@ -382,7 +342,119 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/18/linux-shell-os1/" target="_self">
+          Linux下Shell语言编写程序——操作系统实验1
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/18/linux-shell-os1/" target="_self">
+        <div>
+          ¶实验目的 (1)通过实验使学生了解Linux提供的用户界面中的作业批处理操作界面： (2)掌握Linux Shell脚本的编辑和执行，熟悉批处理语言的编程方法： (3)熟悉Linux提供的文本编辑器vi (Gedit)的使用。 ¶实验预备知识 (1)Linux文本编辑器vi (Gedit) 。 (2)Linux批处理文件(Shell脚本)的编辑和执行 ¶实验内容 (1)用Shell语言编制一个批
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-18 18:44" pubdate>
+              2021-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/16/python-list-set-dict/" target="_self">
+          Python的列表，集合，字典的区别和使用
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/16/python-list-set-dict/" target="_self">
+        <div>
+          ¶列表List 1234567891011121314151617181920res = [1,2,&#x27;Randall&#x27;]# 增加元素：extend和append# 如果想添加的一个元素是一个列表，那么append是将这个这个列表作为一个元素添加进来，而extend是将列中的元素一个一个添加进去res.append(1)res.extend(&#x27;R&#x27;)# 删除元
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-16 14:26" pubdate>
+              2021-10-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
   
   
 
@@ -404,15 +476,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/23/day7/" target="_self">
-          每日一题——错误票据
+        <a href="/2021/10/15/androidstudiostudy/" target="_self">
+          移动应用基础——AndroidStudio编程（未完成）
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/23/day7/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/15/androidstudiostudy/" target="_self">
         <div>
-          day7  ¶题目 某涉密单位下发了某种票据，并要在年终全部收回。 每张票据有唯一的ID号。全年所有票据的ID号是连续的，但ID的开始数码是随机选定的。 因为工作人员疏忽，在录入ID号的时候发生了一处错误，造成了某个ID断号，另外一个ID重号。 你的任务是通过编程，找出断号的ID和重号的ID。 假设断号不可能发生在最大和最小号。 （ATT：TODO改用vector获取字符流判断） ¶格式 ¶输入
+          ¶控件 ¶TextView 12345678910111213141516171819202122232425262728293031// MainActivity.java代码设置public class MainActivity extends AppCompatActivity &#123;    private TextView text;// 新建TextView类型变量    @Ov
         </div>
       </a>
 
@@ -420,8 +492,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-23 23:26" pubdate>
-              2022-03-23
+            <time datetime="2021-10-15 21:14" pubdate>
+              2021-10-15
             </time>
           </div>
         
@@ -436,7 +508,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
+  <a href="/categories/AndroidStudio/" class="category-chain-item">AndroidStudio</a>
   
   
 
@@ -458,15 +530,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/22/day6/" target="_self">
-          每日一题——三部排序
+        <a href="/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" target="_self">
+          AS报错“Could not find com.android.tools.build:gradle:4.1.2.”
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/22/day6/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/14/as-wrong-could-not-find-com-android-tools-buildgradle4-1-2/" target="_self">
         <div>
-          day6  ¶题目 如果给定数组： 25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0 则排序后为： -3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25 请分析代码逻辑，并推测划线处的代码 123456789101112131415161718192021222324void sort3p(int* x, int len)&#123;
+          更改build.gradle文件，换用阿里镜像 解决报错：Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository ‘maven(http://maven.aliyun.com/nexus/content/groups/public/)’
         </div>
       </a>
 
@@ -474,8 +546,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-22 17:48" pubdate>
-              2022-03-22
+            <time datetime="2021-10-14 14:14" pubdate>
+              2021-10-14
             </time>
           </div>
         
@@ -490,7 +562,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
+  <a href="/categories/AndroidStudio/" class="category-chain-item">AndroidStudio</a>
   
   
 
@@ -512,15 +584,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/21/day5/" target="_self">
-          每日一题——前缀判断
+        <a href="/2021/07/02/shujvkuxiaoxueqi/" target="_self">
+          21春数据库系统设计小学期——大学实验材料管理信息系统数据库设计
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/21/day5/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/07/02/shujvkuxiaoxueqi/" target="_self">
         <div>
-          day5  ¶题目 如下的代码判断 needle_start指向的串是否为haystack_start指向的串的前缀，如不是，则返回NULL。 比如：“abcd1234” 就包含了 “abc” 为前缀 12345678910char* prefix(char* haystack_start, char* needle_start)&#123;    char* haystack = haysta
+          大学实验材料管理信息系统数据库设计  由于本人云服务器系统更新问题，项目后端数据库已经移植，下载后的程序无法连接到数据库，可重构项目并且自行搭建数据库  本程序是我都小学期作业，内部肯定存在很多不是最合适的代码跟算法，望大佬指正。最终程序采用云服务器 源码 成品链接 ¶课程设计内容要求  设计一个小型数据库（使用Microsoft SQL Server ） （1）数据库来源于对现实世界的抽象和概括
         </div>
       </a>
 
@@ -528,8 +600,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-21 19:31" pubdate>
-              2022-03-21
+            <time datetime="2021-07-02 06:11" pubdate>
+              2021-07-02
             </time>
           </div>
         
@@ -544,7 +616,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
+  <a href="/categories/C/" class="category-chain-item">C#</a>
   
   
 
@@ -566,15 +638,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/20/day4/" target="_self">
-          每日一题——黄金连分数
+        <a href="/2021/06/06/12lanqiao/" target="_self">
+          12届蓝桥杯C++决赛试题
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/20/day4/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/06/06/12lanqiao/" target="_self">
         <div>
-          day4  ¶题目 黄金分割数0.61803… 是个无理数，这个常数十分重要，在许多工程问题中会出现。有时需要把这个数字求得很精确。 对于某些精密工程，常数的精度很重要。也许你听说过哈勃太空望远镜，它首次升空后就发现了一处人工加工错误，对那样一个庞然大物，其实只是镜面加工时有比头发丝还细许多倍的一处错误而已，却使它成了“近视眼”!! 言归正传，我们如何求得黄金分割数的尽可能精确的值呢？有许多方法
+          ¶1.大写 题目  给定一个只包含大写字母和小写字母的字符串，请将其中所有的小写字母转换成大写字母后将字符串输出。  输入  输入一行包含一个字符串。  输入样例  LanQiao  输出  输出转换成大写后的字符串。  输出样例  LANQIAO  评测用例规模与约定  对于所有评测用例，字符串的长度不超过100。  代码 12345678910111213#include &lt;iostre
         </div>
       </a>
 
@@ -582,8 +654,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-20 19:39" pubdate>
-              2022-03-20
+            <time datetime="2021-06-06 06:11" pubdate>
+              2021-06-06
             </time>
           </div>
         
@@ -598,7 +670,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
   
 
@@ -620,15 +692,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/19/day3/" target="_self">
-          每日一题——第39级台阶
+        <a href="/2021/05/25/backpackproblem/" target="_self">
+          背包问题BackpackProblem
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/19/day3/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/backpackproblem/" target="_self">
         <div>
-          day3  ¶题目 小明刚刚看完电影《第39级台阶》，离开电影院的时候，他数了数礼堂前的台阶数，恰好是39级! 站在台阶前，他突然又想着一个问题： 如果我每一步只能迈上1个或2个台阶。先迈左脚，然后左右交替，最后一步是迈右脚，也就是说一共要走偶数步。那么，上完39级台阶，有多少种不同的上法呢？ 请你利用计算机的优势，帮助小明寻找答案。 ¶格式 ¶输出格式 输出一个整数 ¶参考答案  511670
+          ¶代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697#include &l
         </div>
       </a>
 
@@ -636,170 +708,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-19 21:36" pubdate>
-              2022-03-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/18/day2/" target="_self">
-          每日一题——马虎的算式
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/18/day2/" target="_self">
-        <div>
-          day2  ¶题目 小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。 有一次，老师出的题目是：36 x 495 = ? 他却给抄成了：396 x 45 = ? 但结果却很戏剧性，他的答案竟然是对的！！ 因为 36 * 495 = 396 * 45 = 17820 类似这样的巧合情况可能还有很多，比如：27 * 594 = 297 * 54 假设 a b c d e 代表1~9不同的
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-18 18:31" pubdate>
-              2022-03-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/17/day1/" target="_self">
-          每日一题——高斯日记
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/17/day1/" target="_self">
-        <div>
-          day1  ¶题目 大数学家高斯有个好习惯：无论如何都要记日记。 他的日记有个与众不同的地方，他从不注明年月日，而是用一个整数代替，比如：4210。 后来人们知道，那个整数就是日期，它表示那一天是高斯出生后的第几天。这或许也是个好习惯，它时时刻刻提醒着主人：日子又过去一天，还有多少时光可以用于浪费呢？ 高斯出生于：1777年4月30日。 在高斯发现的一个重要定理的日记上标注着：5343，因此可算
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-17 14:19" pubdate>
-              2022-03-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="category-chain-item">每日一题</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/10/eight-digital-problems/" target="_self">
-          八数码问题
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/10/eight-digital-problems/" target="_self">
-        <div>
-          ¶题目 在3×3的棋盘上，摆有八个棋子，每个棋子上标有1至8的某一数字。棋盘中留有一个空格，空格用0来表示。空格周围的棋子可以移到空格中。要求解的问题是：给出一种初始布局（初始状态）和目标布局，找到一种移动方法，实现从初始布局到目标布局的转变。 ¶思路 依据题意可以优先考虑广度优先算法(BFS)，创建一个队列先将根结点（初始状态）入队，然后再依次取出队列中队首元素，判断队首结点数据是否与目标数据相
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-10 17:23" pubdate>
-              2022-03-10
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -838,15 +748,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/03/treeandbinarytree/" target="_self">
-          数据结构——树与二叉树
+        <a href="/2021/05/25/all-point-pair-shortest-path/" target="_self">
+          全点对最短路径All point pair shortest path
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/03/treeandbinarytree/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/all-point-pair-shortest-path/" target="_self">
         <div>
-          头文件TreeAndBinaryTree.h 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293
+          ¶代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011
         </div>
       </a>
 
@@ -854,8 +764,64 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-03 23:39" pubdate>
-              2022-03-03
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/25/huffman/" target="_self">
+          霍夫曼编码Huffman
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/25/huffman/" target="_self">
+        <div>
+          ¶代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-25 06:11" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -892,7 +858,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -1072,5 +1038,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script src="https://notification.randallanjie.com/r_notification.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://randallanjie.com/json/message_notification.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        data = data.blog;
+        for (var i = 0; i < data.length; i++) {
+          rShowMessage(data[i].msg,data[i].save,data[i].position,data[i].autoDisappearTime);
+        }
+      }
+    }
+  </script>
 </body>
 </html>
