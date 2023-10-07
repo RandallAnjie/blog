@@ -93,9 +93,9 @@ https://translate.api.randallanjie.com?text=Tell%20me%20a%20joke%20about%20Cloud
 
 #### 访问效果
 
-访问的URL是： https://translate.randall-anjie.workers.dev/?text=Tell%20me%20a%20joke%20about%20Cloudflare
+访问的URL是： https://translate.api.randallanjie.com?text=Tell%20me%20a%20joke%20about%20Cloudflare&source_lang=auto&target_lang=auto
 
-<iframe src="https://translate.randall-anjie.workers.dev/?text=Tell%20me%20a%20joke%20about%20Cloudflare"></iframe>
+<iframe src="https://translate.api.randallanjie.com?text=Tell%20me%20a%20joke%20about%20Cloudflare&source_lang=auto&target_lang=auto"></iframe>
 
 #### API代码
 
